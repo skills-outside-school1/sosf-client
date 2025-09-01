@@ -1,0 +1,122 @@
+{
+  "formFields": {
+    "firstName": {
+      "type": "text",
+      "label": "First Name",
+      "placeholder": "First Name"
+    },
+    "lastName": {
+      "type": "text",
+      "label": "Last Name",
+      "placeholder": "Last Name"
+    },
+    "phoneNumber": {
+      "type": "tel",
+      "label": "Phone Number",
+      "placeholder": "Phone Number"
+    },
+    "email": {
+      "type": "email",
+      "label": "Email",
+      "placeholder": "Email"
+    },
+    "password": {
+      "type": "password",
+      "label": "Password",
+      "placeholder": "Password"
+    },
+    "confirmPassword": {
+      "type": "password",
+      "label": "Confirm Password",
+      "placeholder": "Confirm Password"
+    },
+    "picture": {
+      "type": "file",
+      "label": "Upload Photo",
+      "accept": "image/*"
+    },
+    "stateOfOrigin": {
+      "type": "text",
+      "label": "State of Origin",
+      "placeholder": "State of Origin"
+    },
+    "role": {
+      "type": "dropdown",
+      "label": "What best describes you?",
+      "options": [
+        {
+          "label": "Student",
+          "value": "Student",
+          "submenu": [
+            { "label": "High School", "value": "High School" },
+            { "label": "Undergraduate", "value": "Undergraduate" },
+            { "label": "Postgraduate", "value": "Postgraduate" }
+          ]
+        },
+        {
+          "label": "Teacher",
+          "value": "Teacher",
+          "submenu": [
+            { "label": "Elementary School", "value": "Elementary School" },
+            { "label": "Middle School", "value": "Middle School" },
+            { "label": "High School", "value": "High School" }
+          ]
+        },
+        {
+          "label": "Investor",
+          "value": "Investor",
+          "submenu": [
+            { "label": "Individual", "value": "Individual" },
+            { "label": "Corporation", "value": "Corporation" },
+            { "label": "Foundation", "value": "Foundation" }
+          ]
+        }
+      ]
+    },
+    "subrole": {
+      "type": "dropdown",
+      "label": "Select a sub-category",
+      "options": []
+    },
+    "gender": {
+      "type": "dropdown",
+      "label": "Gender",
+      "options": [
+        { "label": "Male", "value": "Male" },
+        { "label": "Female", "value": "Female" }
+      ]
+    },
+    "dateOfBirth": {
+      "type": "date",
+      "label": "Date of Birth",
+      "placeholder": "Date of Birth"
+    },
+    "address": {
+      "street": {
+        "type": "text",
+        "label": "Street",
+        "placeholder": "Street"
+      },
+      "country": {
+        "type": "text",
+        "label": "Country",
+        "placeholder": "Country"
+      },
+      "city": {
+        "type": "text",
+        "label": "City",
+        "placeholder": "City"
+      },
+      "state": {
+        "type": "text",
+        "label": "State",
+        "placeholder": "State"
+      },
+      "postalCode": {
+        "type": "text",
+        "label": "Postal Code",
+        "placeholder": "Postal Code"
+      }
+    }
+  }
+}

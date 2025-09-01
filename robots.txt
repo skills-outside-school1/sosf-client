@@ -1,0 +1,14 @@
+# Allow all search engines
+User-agent: *
+Disallow: /admin/  # Block access to admin panel
+Disallow: /login/  # Block access to login pages
+Disallow: /signup/  # Block access to signup pages
+Disallow: /private/  # Block access to private pages
+Disallow: /404  # Prevent indexing of 404 error pages
+Disallow: /500  # Prevent indexing of server error pages
+
+# Allow full access to the rest of the site
+Allow: /
+
+# Sitemap location
+Sitemap: https://skillsoutsideschool.com/sitemap.xml

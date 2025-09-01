@@ -1,0 +1,465 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+@font-face {
+  font-family: "Century Schoolbook";
+  src: url("/fonts/SCHLBKB.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Tailwind CSS to hide scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Optional: just to make sure the scrollbar is transparent */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.brochure-button:hover .brochure-icon {
+  color: black;
+  transform: translateX(80%);
+  transition: 0.9s ease-in-out;
+}
+.brochure-button .brochure-icon {
+  transition: 0.9s ease-in-out;
+}
+
+.brochure-icon {
+  animation: move 1s ease-in-out infinite alternate;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(95%);
+  }
+  to {
+    transform: translateX(-20%);
+  }
+}
+
+body,
+:root {
+  background-color: #ffff; /* Base background color */
+}
+
+/**3D SCALE TRANSITION IN THE forms TABS */
+
+/* Existing scale-in animation */
+@keyframes scaleIn {
+  from {
+    transform: scale3d(0, 0, 0);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* New scale-out animation */
+@keyframes scaleOut {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(0, 0, 0);
+  }
+}
+
+/* Default state (scale in) */
+.search-modal,
+.animated {
+  animation: scaleIn 1s ease-in-out;
+  animation-fill-mode: forwards;
+  transform-origin: bottom center;
+}
+
+/* Closing state (scale out) */
+.search-modal.closing {
+  animation: scaleOut 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.parallax-content {
+  padding: 20px;
+  color: white;
+}
+
+/* AboutConnect.css */
+.card-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card-container:hover .card-image {
+  opacity: 1;
+}
+
+/* AboutConnect.css */
+.card-container {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card-container:hover .card-image {
+  opacity: 1;
+}
+
+.cut-edge {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+}
+
+/* sliding line */
+.hover-line {
+  position: relative;
+}
+
+.hover-line::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #000000;
+  transition: all 0.5s ease;
+  transform: translateX(-50%);
+}
+
+.hover-line:hover::before {
+  width: 50%;
+  left: 0;
+  transform: translateX(0);
+}
+
+/* leader-spotligh-nav-image */
+.imageContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.image {
+  transition: transform 0.3s ease-out;
+}
+
+.image:hover {
+  transform: translateY(-5px);
+}
+
+.imageContainer::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: transparent;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  border: 2px solid black;
+  border-top: 0;
+  transition: background-color 0.3s ease-out, transform 0.3s ease-out;
+  transform-origin: center bottom;
+  transform: scaleY(0);
+}
+
+.imageContainer:hover::before {
+  transform: scaleY(1);
+}
+@-webkit-keyframes rotated {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotated {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.illustration-holder {
+  position: absolute;
+  right: 6.7%;
+  bottom: -20%;
+  width: 40.44%;
+  max-width: 750px;
+  z-index: 1;
+}
+
+.shapes {
+  position: absolute;
+  z-index: -1;
+}
+.illustration-holder .shape-one {
+  left: 11.5%;
+  bottom: 7%;
+  width: 80%;
+}
+.shape-two {
+  left: 11%;
+  top: 16%;
+  animation: jumpTwo 3.5s infinite linear;
+}
+.illustration-holder .shape-three {
+  left: -6%;
+  top: 52%;
+  animation: jumpThree 3.5s inofinite linear;
+}
+.illustration-holder .shape-four {
+  right: -4%;
+  top: 50%;
+  animation: jumpThree 3.5s infinite linear;
+}
+.illustration-holder .shape-five {
+  right: 13%;
+  top: 30%;
+  animation: jumpTwo 3.5s infinite linear;
+}
+.illustration-holder .shape-six {
+  top: 32%;
+  left: 0%;
+  width: 15.74%;
+  animation: jumpFour 3.5s infinite linear;
+}
+.illustration-holder .shape-seven {
+  top: 14%;
+  right: 0%;
+  width: 11.6%;
+  animation: jumpFive 3.5s infinite linear;
+}
+
+.rotating {
+  animation: rotated 10s infinite linear;
+}
+
+/*SMOOTH FADE-IN ON PAGE ENTER ANIMATION */
+
+.main {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* adding paralax scrolls  */
+
+.parallax {
+  /* The image used */
+  background-image: linear-gradient(rgba(0, 0, 3, 0.6), rgba(0, 0, 3, 0.6)),
+    url("https://www.newofficeafrica.com/images/streetview-images/street-view-5221.png");
+
+  /* Set a specific height */
+  height: 600px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-2 {
+  /* The image used */
+  background-image: linear-gradient(rgba(0, 0, 3, 0.3), rgba(0, 0, 3, 0.3)),
+    url("https://caas.phoenixcontact.com/caas/v1/stable/media/39040/full/b500?format=jpg");
+
+  /* Set a specific height */
+  height: 700px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-3 {
+  /* The image used */
+  background-image: linear-gradient(rgba(0, 0, 3, 0.6), rgba(0, 0, 3, 0.6)),
+    url("https://caas.phoenixcontact.com/caas/v1/stable/media/39040/full/b500?format=jpg");
+
+  /* Set a specific height */
+  height: 650px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body {
+  background-color: whitesmoke;
+} */
+
+.title {
+  /* font-family: "Cairo"; */
+  text-align: center;
+  /* color: #FFF; */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  /* height: 100vh; */
+  letter-spacing: 1px;
+  line-height: 2;
+}
+
+.animated-text {
+  font-size: 250px;
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    /* font-family: "Cairo"; */
+    text-align: left;
+    /* color: #FFF; */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    /* height: 100vh; */
+    letter-spacing: 1px;
+    line-height: 2;
+    margin-left: 1rem;
+  }
+  .animated-text {
+    background-image: url(https://i.gifer.com/2MdY.gif);
+    background-size: cover;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    font-size: 70px;
+    margin: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 979px) {
+  .title {
+    /* font-family: "Cairo"; */
+    text-align: left;
+    /* color: #FFF; */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    /* height: 100vh; */
+    letter-spacing: 1px;
+    line-height: 2;
+    margin-left: 1rem;
+  }
+  .animated-text {
+    background-image: url(https://i.gifer.com/2MdY.gif);
+    background-size: cover;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    font-size: 70px;
+    margin: 10px 0;
+  }
+}
+
+/* shaking elements  */
+
+/* In App.css */
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake-element {
+  display: inline-block;
+  padding: 10px;
+  background-color: lightcoral;
+}
+
+[data-aos="shake-animation"] {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+/* stripe lines on the  hero section on eery page */
+
+.footer-container,
+.quiz-environment {
+  background-image: linear-gradient(
+      90deg,
+      rgba(69, 69, 70, 0.06) 1px,
+      transparent 2px
+    ),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 120px 120px;
+  background-attachment: fixed;
+}
