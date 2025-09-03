@@ -1,0 +1,613 @@
+{
+  "questionTree": {
+    "ROOT": {
+      "id": "QP1",
+      "text": "How would you best describe yourself or your organization?",
+      "answers": [
+        {
+          "id": "QP1A",
+          "text": "I am an individual passionate about legacy and social impact",
+          "nextQuestion": "QP2A"
+        },
+        {
+          "id": "QP1B",
+          "text": "I represent a corporate or institution",
+          "nextQuestion": "QP2B"
+        },
+        {
+          "id": "QP1C",
+          "text": "I am part of a network, coalition, or development platform",
+          "nextQuestion": "QP2C"
+        }
+      ]
+    },
+    "QP2A": {
+      "id": "QP2A",
+      "text": "Are you looking to launch your own philanthropic or legacy initiative (e.g. scholarship, waqf, mentorship, grant)?",
+      "answers": [
+        {
+          "id": "QP2A1",
+          "text": "Yes",
+          "nextQuestion": "QP3A"
+        },
+        {
+          "id": "QP2A2",
+          "text": "No",
+          "nextQuestion": "QP3A"
+        }
+      ]
+    },
+    "QP3A": {
+      "id": "QP3A",
+      "text": "Would you require full backend support from SOSF (e.g. execution, outreach, analytics)?",
+      "answers": [
+        {
+          "id": "QP3A1",
+          "text": "Yes, I need full support",
+          "nextQuestion": "QP4A"
+        },
+        {
+          "id": "QP3A2",
+          "text": "No, I just need partial support or collaboration",
+          "nextQuestion": "QP4A"
+        }
+      ]
+    },
+    "QP4A": {
+      "id": "QP4A",
+      "text": "Are you willing to provide funding, assets, or in-kind contributions?",
+      "answers": [
+        {
+          "id": "QP4A1",
+          "text": "Yes",
+          "nextQuestion": "QP5A"
+        },
+        {
+          "id": "QP4A2",
+          "text": "No, but I want to be involved in design and reviews",
+          "nextQuestion": "QP5A"
+        }
+      ]
+    },
+    "QP5A": {
+      "id": "QP5A",
+      "text": "Are you open to regular reviews and collaborating on key decisions?",
+      "answers": [
+        {
+          "id": "QP5A1",
+          "text": "Yes",
+          "recommendation": "Scale-Up Impact Partner"
+        },
+        {
+          "id": "QP5A2",
+          "text": "No",
+          "nextQuestion": "QP6A"
+        }
+      ]
+    },
+    "QP6A": {
+      "id": "QP6A",
+      "text": "That's okay! You can still support SOSF in a way that fits your time and capacity. Which of the following are you most interested in?",
+      "answers": [
+        {
+          "id": "QP6A1",
+          "text": "Using my network or platform to promote SOSF and refer others",
+          "nextQuestion": "QN1"
+        },
+        {
+          "id": "QP6A2",
+          "text": "Contributing funds or assets (cash, waqf, crypto, in-kind)",
+          "nextQuestion": "QI1"
+        },
+        {
+          "id": "QP6A3",
+          "text": "Volunteering time or expertise (mentoring, events, content, training)",
+          "nextQuestion": "QG1"
+        },
+        {
+          "id": "QP6A4",
+          "text": "None of the above",
+          "systemResponse": "Thank you for your interest! We've added you to our newsletter so you can stay in the loop with future opportunities."
+        }
+      ]
+    },
+    "QN1": {
+      "id": "QN1",
+      "text": "Do you represent an organization or network?",
+      "answers": [
+        {
+          "id": "QN1_YES",
+          "text": "Yes",
+          "recommendation": "Network & Ecosystem Partner"
+        },
+        {
+          "id": "QN1_NO",
+          "text": "No",
+          "recommendation": "Advisor (under Govern)"
+        }
+      ]
+    },
+    "QI1": {
+      "id": "QI1",
+      "text": "What type of contribution are you most interested in?",
+      "multiSelect": true,
+      "answers": [
+        {
+          "id": "QI1_CASH",
+          "text": "Cash (donations, CSR, zakat, etc.)",
+          "recommendation": "Invest"
+        },
+        {
+          "id": "QI1_LIQUID",
+          "text": "Liquid Assets (T-bills, shares, mutual funds)",
+          "recommendation": "Invest"
+        },
+        {
+          "id": "QI1_NONLIQUID",
+          "text": "Non-liquid Assets (real estate, NFTs, royalties)",
+          "recommendation": "Invest"
+        },
+        {
+          "id": "QI1_INKIND",
+          "text": "In-kind Contributions (products, platforms, services)",
+          "recommendation": "Invest"
+        },
+        {
+          "id": "QI1_OTHER",
+          "text": "Other",
+          "recommendation": "Invest"
+        }
+      ]
+    },
+    "QG1": {
+      "id": "QG1",
+      "text": "What kind of volunteer support would you like to offer?",
+      "answers": [
+        {
+          "id": "QG1_MENTOR",
+          "text": "Mentorship",
+          "recommendation": "Govern (Volunteer)"
+        },
+        {
+          "id": "QG1_EVENT",
+          "text": "Event Hosting",
+          "recommendation": "Govern (Volunteer)"
+        },
+        {
+          "id": "QG1_CONTENT",
+          "text": "Content Support",
+          "recommendation": "Govern (Volunteer)"
+        },
+        {
+          "id": "QG1_TRAINING",
+          "text": "Training/Curriculum Delivery",
+          "recommendation": "Govern (Volunteer)"
+        },
+        {
+          "id": "QG1_OTHER",
+          "text": "Other",
+          "recommendation": "Govern (Volunteer)"
+        }
+      ]
+    },
+    "QP2B": {
+      "id": "QP2B",
+      "text": "What kind of engagement are you most interested in?",
+      "multiSelect": true,
+      "answers": [
+        {
+          "id": "QP2B1",
+          "text": "Co-developing and deploying social initiatives (e.g., scholarships, mentoring, volunteering)",
+          "nextQuestion": "QP3B"
+        },
+        {
+          "id": "QP2B2",
+          "text": "Receiving consultancy support to shape or implement CSR/SDG programs",
+          "nextQuestion": "QP3B"
+        },
+        {
+          "id": "QP2B3",
+          "text": "Accessing SOSF data, frameworks, or learning tools for your internal use",
+          "nextQuestion": "QP3B"
+        },
+        {
+          "id": "QP2B4",
+          "text": "Supporting existing SOSF initiatives with funding, staff time, or awareness",
+          "nextQuestion": "QP3B"
+        },
+        {
+          "id": "QP2B5",
+          "text": "Supporting African social innovators (e.g., Lead4Change, social enterprises)",
+          "nextQuestion": "QP3B"
+        }
+      ]
+    },
+    "QP3B": {
+      "id": "QP3B",
+      "text": "What type of contributions is your institution prepared to commit?",
+      "multiSelect": true,
+      "answers": [
+        {
+          "id": "QP3B1",
+          "text": "Financial support (grants, CSR funds, recurring capital)",
+          "nextQuestion": "QP4B"
+        },
+        {
+          "id": "QP3B2",
+          "text": "Technical or in-kind support (expertise, tools, training, tech)",
+          "nextQuestion": "QP4B"
+        },
+        {
+          "id": "QP3B3",
+          "text": "Employee time (volunteering, mentoring, content support)",
+          "nextQuestion": "QP4B"
+        },
+        {
+          "id": "QP3B4",
+          "text": "Communication and visibility (raising awareness, outreach)",
+          "nextQuestion": "QP4B"
+        },
+        {
+          "id": "QP3B5",
+          "text": "Policy/advocacy support (helping drive systemic change)",
+          "nextQuestion": "QP4B"
+        }
+      ]
+    },
+    "QP4B": {
+      "id": "QP4B",
+      "text": "Is your institution open to co-owning project design, impact reviews, and decision-making with SOSF?",
+      "answers": [
+        {
+          "id": "QP4B1",
+          "text": "Yes",
+          "recommendation": "Corporate Partner"
+        },
+        {
+          "id": "QP4B2",
+          "text": "No",
+          "nextQuestion": "QP6B"
+        }
+      ]
+    },
+    "QP6B": {
+      "id": "QP6B",
+      "text": "That's alright. We understand different organizations have different capacities. Would you still like to support SOSF in one of the following ways?",
+      "answers": [
+        {
+          "id": "QP6B1",
+          "text": "Participate in SOSF Interventions",
+          "nextQuestion": "QP7B"
+        },
+        {
+          "id": "QP6B2",
+          "text": "Contribute to or Access Data",
+          "nextQuestion": "QP8B"
+        },
+        {
+          "id": "QP6B3",
+          "text": "Support Advocacy Efforts",
+          "nextQuestion": "QP9B"
+        },
+        {
+          "id": "QP6B4",
+          "text": "Promote SOSF via your networks and communications platforms",
+          "recommendation": "Network & Ecosystem Partner"
+        },
+        {
+          "id": "QP6B5",
+          "text": "Support financially or with other resources (cash, tech, staff time, etc.)",
+          "nextQuestion": "QI2"
+        },
+        {
+          "id": "QP6B6",
+          "text": "None of the above",
+          "systemResponse": "Thank you for your interest. You can stay connected by subscribing to our newsletter and participating in future convenings and insights."
+        }
+      ]
+    },
+    "QP7B": {
+      "id": "QP7B",
+      "text": "What type of organization or group are you?",
+      "answers": [
+        {
+          "id": "QP7B1",
+          "text": "K-12 School",
+          "cta": "Enroll in SOSF Bridge Basic/Intermediate"
+        },
+        {
+          "id": "QP7B2",
+          "text": "Intermediary (NGO, Trust, Company)",
+          "cta": "Apply for SOSF Micro/Small/Large Grants"
+        },
+        {
+          "id": "QP7B3",
+          "text": "Farmer Association / Agricultural Network",
+          "cta": "Join SOSF HeadStart Agropreneurs"
+        },
+        {
+          "id": "QP7B4",
+          "text": "Informal Worker Group / Trade Network",
+          "cta": "Join SOSF HeadStart General"
+        },
+        {
+          "id": "QP7B5",
+          "text": "Other",
+          "cta": "Submit Expression of Interest to Participate"
+        }
+      ]
+    },
+    "QP8B": {
+      "id": "QP8B",
+      "text": "Which of these data options applies to you?",
+      "answers": [
+        {
+          "id": "QP8B1",
+          "text": "Access Reports & Raw Datasets",
+          "cta": "Fill SOSF Data Access Form"
+        },
+        {
+          "id": "QP8B2",
+          "text": "Register Beneficiaries/Orgs in Social & Economic Register",
+          "cta": "Register in SOSF S&E Register"
+        }
+      ]
+    },
+    "QP9B": {
+      "id": "QP9B",
+      "text": "How would you like to support SOSF advocacy?",
+      "answers": [
+        {
+          "id": "QP9B1",
+          "text": "Catalyst - Submit a change initiative (SOSF alumni only)",
+          "cta": "Catalyst Submission Form"
+        },
+        {
+          "id": "QP9B2",
+          "text": "Mobilizer - Engage SOSF volunteers in your program",
+          "cta": "Volunteer Access Request Form"
+        },
+        {
+          "id": "QP9B3",
+          "text": "Connector - Join a coalition with SOSF",
+          "cta": "Connector Registration Form"
+        },
+        {
+          "id": "QP9B4",
+          "text": "Champion - Support mainstreaming SOSF programs",
+          "cta": "Champion Form"
+        },
+        {
+          "id": "QP9B5",
+          "text": "Awareness Builder - Co-host or invite SOSF to events",
+          "cta": "Awareness Collaboration Form"
+        },
+        {
+          "id": "QP9B6",
+          "text": "Policy Advocate - Co-develop policies or manuals",
+          "cta": "Policy Advocacy Form"
+        }
+      ]
+    },
+    "QI2": {
+      "id": "QI2",
+      "text": "What type of contribution is your organization most interested in?",
+      "multiSelect": true,
+      "answers": [
+        {
+          "id": "QI2_CSR",
+          "text": "CSR/Grant Funding",
+          "recommendation": "Invest"
+        },
+        {
+          "id": "QI2_VOLUNTEER",
+          "text": "Employee Volunteering Time",
+          "recommendation": "Invest"
+        },
+        {
+          "id": "QI2_INKIND",
+          "text": "In-kind Support (tools, tech, platforms)",
+          "recommendation": "Invest"
+        },
+        {
+          "id": "QI2_ADVICE",
+          "text": "Strategic Advice / Consulting",
+          "recommendation": "Invest"
+        },
+        {
+          "id": "QI2_DATA",
+          "text": "Data, Policy, or Advocacy Support",
+          "recommendation": "Invest"
+        }
+      ]
+    },
+    "QP2C": {
+      "id": "QP2C",
+      "text": "What type of organization or entity are you affiliated with?",
+      "answers": [
+        {
+          "id": "QP2C1",
+          "text": "Advocacy group or coalition",
+          "nextQuestion": "QP3C"
+        },
+        {
+          "id": "QP2C2",
+          "text": "Academic department or research institute",
+          "nextQuestion": "QP3C"
+        },
+        {
+          "id": "QP2C3",
+          "text": "Umbrella body (e.g., student union, faith network, CSO forum)",
+          "nextQuestion": "QP3C"
+        },
+        {
+          "id": "QP2C4",
+          "text": "Innovation or entrepreneurship hub",
+          "nextQuestion": "QP3C"
+        },
+        {
+          "id": "QP2C5",
+          "text": "Other",
+          "nextQuestion": "QP3C"
+        }
+      ]
+    },
+    "QP3C": {
+      "id": "QP3C",
+      "text": "What would you like to do with SOSF?",
+      "multiSelect": true,
+      "answers": [
+        {
+          "id": "QP3C1",
+          "text": "Refer high-potential individuals or organizations to SOSF",
+          "nextQuestion": "QP4C"
+        },
+        {
+          "id": "QP3C2",
+          "text": "Disseminate SOSF opportunities within our community",
+          "nextQuestion": "QP4C"
+        },
+        {
+          "id": "QP3C3",
+          "text": "Co-develop feedback or learning tools (e.g., surveys, events)",
+          "nextQuestion": "QP4C"
+        },
+        {
+          "id": "QP3C4",
+          "text": "Participate in ecosystem convenings or consultations",
+          "nextQuestion": "QP4C"
+        },
+        {
+          "id": "QP3C5",
+          "text": "Co-curate thought leadership, campaigns, or dialogues",
+          "nextQuestion": "QP4C"
+        }
+      ]
+    },
+    "QP4C": {
+      "id": "QP4C",
+      "text": "Would you like to be publicly listed as a Network & Ecosystem Partner?",
+      "answers": [
+        {
+          "id": "QP4C1",
+          "text": "Yes",
+          "nextQuestion": "QP5C"
+        },
+        {
+          "id": "QP4C2",
+          "text": "No",
+          "nextQuestion": "QP5C"
+        }
+      ]
+    },
+    "QP5C": {
+      "id": "QP5C",
+      "text": "Are you willing to actively share SOSF programs and refer beneficiaries from your network?",
+      "answers": [
+        {
+          "id": "QP5C1",
+          "text": "Yes",
+          "recommendation": "Network & Ecosystem Partner"
+        },
+        {
+          "id": "QP5C2",
+          "text": "No",
+          "nextQuestion": "QP6C"
+        }
+      ]
+    },
+    "QP6C": {
+      "id": "QP6C",
+      "text": "That's okay. Would you be interested in participating in our interventions or contributing to data or advocacy instead?",
+      "answers": [
+        {
+          "id": "QP6C1",
+          "text": "Yes, we want to participate in interventions",
+          "nextQuestion": "QP7C"
+        },
+        {
+          "id": "QP6C2",
+          "text": "Yes, we want to contribute to data",
+          "cta": "Register your organization or beneficiaries in the SOSF Social & Economic Register"
+        },
+        {
+          "id": "QP6C3",
+          "text": "Yes, we want to support advocacy efforts",
+          "nextQuestion": "QP8C"
+        },
+        {
+          "id": "QP6C4",
+          "text": "No, not at this time",
+          "systemResponse": "Thanks for your interest in SOSF! You can stay connected through our newsletter, roundtables, and upcoming convenings."
+        }
+      ]
+    },
+    "QP7C": {
+      "id": "QP7C",
+      "text": "What kind of organization are you?",
+      "answers": [
+        {
+          "id": "QP7C1",
+          "text": "K-12 School",
+          "cta": "Enroll in SOSF Bridge Basic/Intermediate"
+        },
+        {
+          "id": "QP7C2",
+          "text": "NGO working with schools",
+          "cta": "Apply for SOSF Grant + Bridge Enrollment"
+        },
+        {
+          "id": "QP7C3",
+          "text": "Farmer Association / Coop",
+          "cta": "Join SOSF HeadStart (Agropreneurs)"
+        },
+        {
+          "id": "QP7C4",
+          "text": "Informal Sector Worker Group",
+          "cta": "Join SOSF HeadStart (General)"
+        },
+        {
+          "id": "QP7C5",
+          "text": "Other Organization",
+          "cta": "Apply for SOSF Grant (Micro/Small/Large)"
+        }
+      ]
+    },
+    "QP8C": {
+      "id": "QP8C",
+      "text": "What type of advocacy support are you most interested in?",
+      "answers": [
+        {
+          "id": "QP8C1",
+          "text": "Catalyst - Submit a change initiative (SOSF alumni only)",
+          "cta": "Alumni Catalyst Submission Form"
+        },
+        {
+          "id": "QP8C2",
+          "text": "Mobilizer - Engage/host SOSF volunteers in your programs",
+          "cta": "Volunteer Access Request Form"
+        },
+        {
+          "id": "QP8C3",
+          "text": "Connector - Join a coalition with SOSF",
+          "cta": "Connector Registration Form"
+        },
+        {
+          "id": "QP8C4",
+          "text": "Champion - Support mainstreaming/institutionalizing SOSF programs",
+          "cta": "Champion Registration Form"
+        },
+        {
+          "id": "QP8C5",
+          "text": "Awareness Builder - Co-host events or invite SOSF to your platforms",
+          "cta": "Awareness Collaboration Form"
+        },
+        {
+          "id": "QP8C6",
+          "text": "Policy Advocate - Co-develop policies or regulatory manuals with SOSF",
+          "cta": "Policy Advocacy Form"
+        }
+      ]
+    }
+  }
+}
