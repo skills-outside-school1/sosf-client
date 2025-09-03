@@ -6,14 +6,19 @@ import ContextNavigation from "../Main-Atoms/Context-Navigations";
 import ContextSwitcher from "../Main-Atoms/contextswitcher";
 import MoreAboutUs from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs";
 import GetInvolvedChart from "../Main-Atoms/GetInvolvedChart";
+import QuizComponent from "@/components/Get-Involved/Quiz/QuizComponent";
+import questionTree from "@/constants/data.json";
+
 
 export default function InvolvedContainer() {
   return (
     <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[100px] md:gap-y-[100px] justify-start items-start    mb-[2rem] ">
       <Hero />
       <MainSub />
-      <ContextNavigation />
-      <GetInvolvedChart />
+      {/* <ContextNavigation /> */}
+      {/* <GetInvolvedChart /> */}
+         {/* <QuizComponent questionTree={questionTree} /> */}
+          <QuizComponent questionTree={questionTree.questionTree} />
       {/* <ContextSwitcher /> */}
       <MoreAboutUs />
       <Subscribe />
