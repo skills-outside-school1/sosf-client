@@ -15,11 +15,10 @@ export default function InvolvedContainer() {
     <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[100px] md:gap-y-[100px] justify-start items-start    mb-[2rem] ">
       <Hero />
       <MainSub />
-      {/* <ContextNavigation /> */}
-      {/* <GetInvolvedChart /> */}
-         {/* <QuizComponent questionTree={questionTree} /> */}
-          <QuizComponent questionTree={questionTree.questionTree} />
-      {/* <ContextSwitcher /> */}
+      <ContextNavigation />
+      <GetInvolvedChart />
+          {/* <QuizComponent questionTree={questionTree.questionTree} /> */}
+      <ContextSwitcher />
       <MoreAboutUs />
       <Subscribe />
     </div>
