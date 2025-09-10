@@ -6,9 +6,6 @@ import ContextNavigation from "../Main-Atoms/Context-Navigations";
 import ContextSwitcher from "../Main-Atoms/contextswitcher";
 import MoreAboutUs from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs";
 import GetInvolvedChart from "../Main-Atoms/GetInvolvedChart";
-import QuizComponent from "@/components/Get-Involved/Quiz/QuizComponent";
-import questionTree from "@/constants/data.json";
-
 
 export default function InvolvedContainer() {
   return (
@@ -17,7 +14,6 @@ export default function InvolvedContainer() {
       <MainSub />
       <ContextNavigation />
       <GetInvolvedChart />
-          {/* <QuizComponent questionTree={questionTree.questionTree} /> */}
       <ContextSwitcher />
       <MoreAboutUs />
       <Subscribe />
