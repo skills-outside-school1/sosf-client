@@ -1,13 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-const QuizComponent = ({ questionTree }) => {
-  const [currentQuestionId, setCurrentQuestionId] = useState('ROOT');
+const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
+  const [currentQuestionId, setCurrentQuestionId] = useState("ROOT");
   const [answers, setAnswers] = useState({});
   const [recommendation, setRecommendation] = useState(null);
   const [systemResponse, setSystemResponse] = useState(null);
   const [cta, setCta] = useState(null);
-  const [history, setHistory] = useState(['ROOT']);
+  const [history, setHistory] = useState(["ROOT"]);
   const [multiSelectAnswers, setMultiSelectAnswers] = useState({});
+
+  // Restore progress if available
+  useEffect(() => {
+    if (initialProgress) {
+      setCurrentQuestionId(initialProgress.currentQuestionId || "ROOT");
+      setAnswers(initialProgress.answers || {});
+      setHistory(initialProgress.history || ["ROOT"]);
+      setRecommendation(initialProgress.recommendation || null);
+      setSystemResponse(initialProgress.systemResponse || null);
+      setCta(initialProgress.cta || null);
+      setMultiSelectAnswers(initialProgress.multiSelectAnswers || {});
+    }
+  }, [initialProgress]);
 
   const currentQuestion = questionTree[currentQuestionId];
 
@@ -17,46 +30,57 @@ const QuizComponent = ({ questionTree }) => {
 
     if (answer.recommendation) {
       setRecommendation(answer.recommendation);
+      onSave?.(newAnswers, currentQuestionId, answer.recommendation);
     } else if (answer.systemResponse) {
       setSystemResponse(answer.systemResponse);
+      onSave?.(newAnswers, currentQuestionId, null);
     } else if (answer.cta) {
       setCta(answer.cta);
+      onSave?.(newAnswers, currentQuestionId, null);
     } else if (answer.nextQuestion) {
       setHistory([...history, answer.nextQuestion]);
       setCurrentQuestionId(answer.nextQuestion);
+      onSave?.(newAnswers, answer.nextQuestion, null);
     }
   };
 
   const handleMultiSelectAnswer = (answerId, isSelected) => {
     const currentSelections = multiSelectAnswers[currentQuestionId] || [];
     let newSelections;
-    
+
     if (isSelected) {
       newSelections = [...currentSelections, answerId];
     } else {
-      newSelections = currentSelections.filter(id => id !== answerId);
+      newSelections = currentSelections.filter((id) => id !== answerId);
     }
-    
+
     setMultiSelectAnswers({
       ...multiSelectAnswers,
-      [currentQuestionId]: newSelections
+      [currentQuestionId]: newSelections,
     });
   };
 
   const handleMultiSelectSubmit = () => {
-    // For multi-select questions, we need to determine the next step
-    // This is a simplified approach - you might need to customize based on your logic
     const selectedAnswers = multiSelectAnswers[currentQuestionId] || [];
-    
+
     if (selectedAnswers.length > 0) {
-      // For simplicity, just go to the next question of the first selected answer
-      // You might need more complex logic here based on your requirements
-      const firstAnswer = currentQuestion.answers.find(a => a.id === selectedAnswers[0]);
-      if (firstAnswer && firstAnswer.nextQuestion) {
+      const firstAnswer = currentQuestion.answers.find(
+        (a) => a.id === selectedAnswers[0]
+      );
+
+      const newAnswers = {
+        ...answers,
+        [currentQuestionId]: selectedAnswers,
+      };
+      setAnswers(newAnswers);
+
+      if (firstAnswer?.nextQuestion) {
         setHistory([...history, firstAnswer.nextQuestion]);
         setCurrentQuestionId(firstAnswer.nextQuestion);
-      } else if (firstAnswer && firstAnswer.recommendation) {
+        onSave?.(newAnswers, firstAnswer.nextQuestion, null);
+      } else if (firstAnswer?.recommendation) {
         setRecommendation(firstAnswer.recommendation);
+        onSave?.(newAnswers, currentQuestionId, firstAnswer.recommendation);
       }
     }
   };
@@ -75,12 +99,12 @@ const QuizComponent = ({ questionTree }) => {
   };
 
   const restartQuiz = () => {
-    setCurrentQuestionId('ROOT');
+    setCurrentQuestionId("ROOT");
     setAnswers({});
     setRecommendation(null);
     setSystemResponse(null);
     setCta(null);
-    setHistory(['ROOT']);
+    setHistory(["ROOT"]);
     setMultiSelectAnswers({});
   };
 
@@ -160,48 +184,52 @@ const QuizComponent = ({ questionTree }) => {
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <h2 style={styles.title}>Philanthropy Pathway Quiz</h2>
+        <h2 style={styles.title}>Welcome to the Skills Outside School Foundation (SOSF). Below is Personalized Pathway to getting involved as a partner, investor, participant or governance contributor.</h2>
         {history.length > 1 && (
           <button onClick={goBack} style={styles.backButton}>
             ← Back
           </button>
         )}
       </div>
-      
+
       <div style={styles.progress}>
-        <div 
+        <div
           style={{
             ...styles.progressBar,
-            width: `${(history.length / 10) * 100}%` // Approximate progress
+            width: `${(history.length / 10) * 100}%`, // Approximate progress
           }}
         ></div>
       </div>
-      
+
       <div style={styles.questionContainer}>
         <p style={styles.questionText}>{currentQuestion.text}</p>
-        
+
         <div style={styles.answersContainer}>
           {currentQuestion.multiSelect ? (
             <>
-              {currentQuestion.answers.map((answer, index) => {
-                const isSelected = multiSelectAnswers[currentQuestionId]?.includes(answer.id) || false;
+              {currentQuestion.answers.map((answer) => {
+                const isSelected =
+                  multiSelectAnswers[currentQuestionId]?.includes(answer.id) ||
+                  false;
                 return (
                   <div
                     key={answer.id}
                     style={{
                       ...styles.multiSelectOption,
-                      ...(isSelected ? styles.selectedMultiSelectOption : {})
+                      ...(isSelected ? styles.selectedMultiSelectOption : {}),
                     }}
-                    onClick={() => handleMultiSelectAnswer(answer.id, !isSelected)}
+                    onClick={() =>
+                      handleMultiSelectAnswer(answer.id, !isSelected)
+                    }
                   >
                     <div style={styles.checkbox}>
-                      {isSelected ? '✓' : ''}
+                      {isSelected ? "✓" : ""}
                     </div>
                     <span>{answer.text}</span>
                   </div>
                 );
               })}
-              <button 
+              <button
                 onClick={handleMultiSelectSubmit}
                 style={styles.button}
                 disabled={!multiSelectAnswers[currentQuestionId]?.length}
@@ -210,7 +238,7 @@ const QuizComponent = ({ questionTree }) => {
               </button>
             </>
           ) : (
-            currentQuestion.answers.map((answer, index) => (
+            currentQuestion.answers.map((answer) => (
               <button
                 key={answer.id}
                 style={styles.answerButton}
@@ -222,11 +250,9 @@ const QuizComponent = ({ questionTree }) => {
           )}
         </div>
       </div>
-      
+
       <div style={styles.footer}>
-        <p style={styles.progressText}>
-          Question {history.length} of ~10
-        </p>
+        <p style={styles.progressText}>Question {history.length} of ~10</p>
       </div>
     </div>
   );
@@ -234,170 +260,171 @@ const QuizComponent = ({ questionTree }) => {
 
 const styles = {
   container: {
-    maxWidth: '600px',
-    margin: '0 auto',
-    padding: '20px',
-    fontFamily: 'Arial, sans-serif',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '12px',
-    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+    maxWidth: "600px",
+    margin: "0 auto",
+    padding: "20px",
+    fontFamily: "Arial, sans-serif",
+    backgroundColor: "#f9f9f9",
+    borderRadius: "12px",
+    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+     minHeight: "80vh",         
+   
   },
   header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '20px',
-    borderBottom: '1px solid #e0e0e0',
-    paddingBottom: '15px',
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "20px",
+    borderBottom: "1px solid #e0e0e0",
+    paddingBottom: "15px",
   },
   title: {
-    color: '#2c3e50',
-    fontSize: '24px',
-    fontWeight: '600',
-    margin: '0',
+    color: "#2c3e50",
+    fontSize: "24px",
+    fontWeight: "600",
+    margin: "0",
   },
   backButton: {
-    padding: '8px 16px',
-    backgroundColor: 'transparent',
-    color: '#6c757d',
-    border: '1px solid #6c757d',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    fontSize: '14px',
+    padding: "8px 16px",
+    backgroundColor: "transparent",
+    color: "#6c757d",
+    border: "1px solid #6c757d",
+    borderRadius: "6px",
+    cursor: "pointer",
+    fontSize: "14px",
   },
   progress: {
-    height: '8px',
-    backgroundColor: '#e0e0e0',
-    borderRadius: '4px',
-    marginBottom: '25px',
-    overflow: 'hidden',
+    height: "8px",
+    backgroundColor: "#e0e0e0",
+    borderRadius: "4px",
+    marginBottom: "25px",
+    overflow: "hidden",
   },
   progressBar: {
-    height: '100%',
-    backgroundColor: '#4caf50',
-    transition: 'width 0.3s ease',
+    height: "100%",
+    backgroundColor: "#4caf50",
+    transition: "width 0.3s ease",
   },
   questionContainer: {
-    marginBottom: '20px',
+    marginBottom: "20px",
   },
   questionText: {
-    fontSize: '18px',
-    fontWeight: '500',
-    marginBottom: '25px',
-    color: '#333',
-    lineHeight: '1.5',
+    fontSize: "18px",
+    fontWeight: "500",
+    marginBottom: "25px",
+    color: "#333",
+    lineHeight: "1.5",
   },
   answersContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '12px',
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
   },
   answerButton: {
-    padding: '15px',
-    backgroundColor: '#fff',
-    border: '2px solid #e0e0e0',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    textAlign: 'left',
-    fontSize: '16px',
-    transition: 'all 0.2s ease',
-    color: '#333',
+    padding: "15px",
+    backgroundColor: "#fff",
+    border: "2px solid #e0e0e0",
+    borderRadius: "8px",
+    cursor: "pointer",
+    textAlign: "left",
+    fontSize: "16px",
+    transition: "all 0.2s ease",
+    color: "#333",
   },
   multiSelectOption: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '15px',
-    backgroundColor: '#fff',
-    border: '2px solid #e0e0e0',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    transition: 'all 0.2s ease',
+    display: "flex",
+    alignItems: "center",
+    padding: "15px",
+    backgroundColor: "#fff",
+    border: "2px solid #e0e0e0",
+    borderRadius: "8px",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
   },
   selectedMultiSelectOption: {
-    borderColor: '#4caf50',
-    backgroundColor: '#e8f5e9',
+    borderColor: "#4caf50",
+    backgroundColor: "#e8f5e9",
   },
   checkbox: {
-    width: '20px',
-    height: '20px',
-    border: '2px solid #ccc',
-    borderRadius: '4px',
-    marginRight: '12px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '14px',
-    fontWeight: 'bold',
-    color: '#4caf50',
+    width: "20px",
+    height: "20px",
+    border: "2px solid #ccc",
+    borderRadius: "4px",
+    marginRight: "12px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "14px",
+    fontWeight: "bold",
+    color: "#4caf50",
   },
   button: {
-    padding: '12px 24px',
-    backgroundColor: '#4caf50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    fontWeight: '500',
-    marginTop: '15px',
-    alignSelf: 'flex-start',
+    padding: "12px 24px",
+    backgroundColor: "#4caf50",
+    color: "white",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
+    fontSize: "16px",
+    fontWeight: "500",
+    marginTop: "15px",
+    alignSelf: "flex-start",
   },
   recommendation: {
-    padding: '30px',
-    backgroundColor: '#e8f5e9',
-    borderRadius: '12px',
-    textAlign: 'center',
-    margin: '20px 0',
+    padding: "30px",
+    backgroundColor: "#e8f5e9",
+    borderRadius: "12px",
+    textAlign: "center",
+    margin: "20px 0",
   },
   recommendationIcon: {
-    fontSize: '48px',
-    color: '#4caf50',
-    marginBottom: '15px',
+    fontSize: "48px",
+    color: "#4caf50",
+    marginBottom: "15px",
   },
   recommendationText: {
-    color: '#2e7d32',
-    fontSize: '24px',
-    margin: '15px 0',
-    fontWeight: '600',
+    color: "#2e7d32",
+    fontSize: "24px",
+    margin: "15px 0",
+    fontWeight: "600",
   },
   systemResponse: {
-    padding: '30px',
-    backgroundColor: '#e3f2fd',
-    borderRadius: '12px',
-    textAlign: 'center',
-    margin: '20px 0',
+    padding: "30px",
+    backgroundColor: "#e3f2fd",
+    borderRadius: "12px",
+    textAlign: "center",
+    margin: "20px 0",
   },
   cta: {
-    padding: '30px',
-    backgroundColor: '#fff3e0',
-    borderRadius: '12px',
-    textAlign: 'center',
-    margin: '20px 0',
+    padding: "30px",
+    backgroundColor: "#fff3e0",
+    borderRadius: "12px",
+    textAlign: "center",
+    margin: "20px 0",
   },
   ctaText: {
-    color: '#f57c00',
-    fontSize: '20px',
-    margin: '15px 0',
-    fontWeight: '600',
+    color: "#f57c00",
+    fontSize: "20px",
+    margin: "15px 0",
+    fontWeight: "600",
   },
   footer: {
-    marginTop: '20px',
-    paddingTop: '15px',
-    borderTop: '1px solid #e0e0e0',
-    textAlign: 'center',
+    marginTop: "auto",          // pushes footer to bottom
+  paddingTop: "15px",
+  borderTop: "1px solid #e0e0e0",
+  textAlign: "center",
   },
   progressText: {
-    color: '#6c757d',
-    fontSize: '14px',
-    margin: '0',
+    color: "#6c757d",
+    fontSize: "14px",
+    margin: "0",
   },
   error: {
-    padding: '30px',
-    backgroundColor: '#ffebee',
-    borderRadius: '12px',
-    textAlign: 'center',
+    padding: "30px",
+    backgroundColor: "#ffebee",
+    borderRadius: "12px",
+    textAlign: "center",
   },
 };
 
-// Export the component
 export default QuizComponent;

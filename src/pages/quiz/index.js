@@ -1,7 +1,7 @@
 // pages/quiz.js
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import QuizComponent from "@/components/Get-Involved/Quiz/Quiz";
+import QuizComponent from "@/components/Get-Involved/Quiz/QuizComponent";
 import data from "@/constants/data.json";
 
 export default function QuizPage() {
