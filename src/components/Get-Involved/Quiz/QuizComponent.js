@@ -261,7 +261,7 @@ const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
 const styles = {
   container: {
     maxWidth: "600px",
-    margin: "0 auto",
+    margin: "30px auto",
     padding: "20px",
     fontFamily: "Arial, sans-serif",
     backgroundColor: "#f9f9f9",
@@ -283,6 +283,7 @@ const styles = {
     fontSize: "24px",
     fontWeight: "600",
     margin: "0",
+    textAlign: "center",
   },
   backButton: {
     padding: "8px 16px",
@@ -302,7 +303,7 @@ const styles = {
   },
   progressBar: {
     height: "100%",
-    backgroundColor: "#4caf50",
+    backgroundColor: "#",
     transition: "width 0.3s ease",
   },
   questionContainer: {
@@ -342,8 +343,8 @@ const styles = {
     transition: "all 0.2s ease",
   },
   selectedMultiSelectOption: {
-    borderColor: "#4caf50",
-    backgroundColor: "#e8f5e9",
+    borderColor: "#4c7abf",    
+  backgroundColor: "#e8f2f5" 
   },
   checkbox: {
     width: "20px",
@@ -360,7 +361,7 @@ const styles = {
   },
   button: {
     padding: "12px 24px",
-    backgroundColor: "#4caf50",
+    backgroundColor:  "#4c6faf",
     color: "white",
     border: "none",
     borderRadius: "6px",
@@ -372,18 +373,18 @@ const styles = {
   },
   recommendation: {
     padding: "30px",
-    backgroundColor: "#e8f5e9",
+    backgroundColor: "#e8f2f5",
     borderRadius: "12px",
     textAlign: "center",
     margin: "20px 0",
   },
   recommendationIcon: {
     fontSize: "48px",
-    color: "#4caf50",
+    color: "#4c6faf",
     marginBottom: "15px",
   },
   recommendationText: {
-    color: "#2e7d32",
+    color: "#4c6faf",
     fontSize: "24px",
     margin: "15px 0",
     fontWeight: "600",
