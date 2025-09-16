@@ -9,7 +9,7 @@ import { ParticipateModal } from "./modals/participate-modal"
 import { PartnerModal } from "./modals/partner-modal"
 import { InvestModal } from "./modals/invest-modal"
 
-export default function InvolvementCards() {
+export function InvolvementCards() {
   const [participateModalOpen, setParticipateModalOpen] = useState(false)
   const [partnerModalOpen, setPartnerModalOpen] = useState(false)
   const [investModalOpen, setInvestModalOpen] = useState(false)
