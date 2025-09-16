@@ -1,23 +1,27 @@
 // pages/quiz.js
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import QuizComponent from "@/components/Get-Involved/Quiz/QuizComponent";
 import data from "@/constants/data.json";
 
 export default function QuizPage() {
-  const router = useRouter();
-  const { email } = router.query;
-
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(null);
+  const [email, setEmail] = useState("");
 
-  // Load progress on mount
+  // Get email from sessionStorage on mount
   useEffect(() => {
-    if (!email) return;
-
+    const storedEmail = sessionStorage.getItem("quizEmail");
+    if (!storedEmail) {
+      // Redirect if no email found
+      window.location.href = "/"; // or wherever your survey component is located
+      return;
+    }
+    
+    setEmail(storedEmail);
+    
     const loadProgress = async () => {
       try {
-        const res = await fetch(`/api/getProgress?email=${email}`);
+        const res = await fetch(`/api/getProgress?email=${encodeURIComponent(storedEmail)}`);
         if (!res.ok) throw new Error("Failed to fetch progress");
         const data = await res.json();
         if (data.progress) {
@@ -31,7 +35,7 @@ export default function QuizPage() {
     };
 
     loadProgress();
-  }, [email]);
+  }, []);
 
   // Save progress + handle submission
   const handleSave = async (answers, currentQuestionId, recommendation) => {
@@ -50,6 +54,9 @@ export default function QuizPage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, answers, recommendation }),
         });
+        
+        // Clear the stored email after submission
+        sessionStorage.removeItem("quizEmail");
       }
     } catch (err) {
       console.error("Error saving progress:", err);
