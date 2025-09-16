@@ -53,7 +53,7 @@ export function InvestModal({ open, onOpenChange }) {
                   </div>
                   <Button
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                    onClick={() => window.open("https://forms.zohopublic.com/liquid-assets", "_blank")}
+                    onClick={() => window.open("https://forms.zoho.com/", "_blank")}
                   >
                     Invest in Liquid Assets <ExternalLink className="h-4 w-4 ml-2" />
                   </Button>
@@ -89,7 +89,7 @@ export function InvestModal({ open, onOpenChange }) {
                   </div>
                   <Button
                     className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold"
-                    onClick={() => window.open("https://forms.zohopublic.com/non-liquid-assets", "_blank")}
+                    onClick={() => window.open("https://forms.zoho.com/", "_blank")}
                   >
                     Invest in Non-Liquid Assets <ExternalLink className="h-4 w-4 ml-2" />
                   </Button>
@@ -126,7 +126,7 @@ export function InvestModal({ open, onOpenChange }) {
               <div className="text-center mt-6">
                 <Button
                   className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3"
-                  onClick={() => window.open("https://forms.zohopublic.com/financial-contribution", "_blank")}
+                  onClick={() => window.open("https://forms.zoho.com", "_blank")}
                 >
                   Make Financial Contribution <ExternalLink className="h-4 w-4 ml-2" />
                 </Button>
@@ -150,7 +150,7 @@ export function InvestModal({ open, onOpenChange }) {
                     <p className="text-xs text-orange-600 font-semibold mb-4">SOSF + Pro bono</p>
                     <Button
                       className="w-full bg-orange-600 hover:bg-orange-700 text-white"
-                      onClick={() => window.open("https://forms.zohopublic.com/service-contribution", "_blank")}
+                      onClick={() => window.open("https://forms.zoho.com/", "_blank")}
                     >
                       Contribute Services <ExternalLink className="h-4 w-4 ml-1" />
                     </Button>

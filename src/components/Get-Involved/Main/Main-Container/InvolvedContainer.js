@@ -7,15 +7,25 @@ import { LearnMoreSection } from "@/components/learn-more-section"
 import { NewsletterSurvey } from "@/components/newsletter-survey"
 
 
+// update component
+import InvolvementCards from "@/components/involvement-cards"
+// import "@/components/learn-more-section"
+// import "@/components/newsletter-survey"
+// import  "@/components/structure-chart"
+
+
 export default function InvolvedContainer() {
   return (
     <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[100px] md:gap-y-[100px] justify-start items-start    mb-[2rem] ">
       <Hero />
       <MainSub />
+      {/* <ContextNavigation /> */}
       <InvolvementCards />
-      <StructureChart />
-      <LearnMoreSection />
-      <NewsletterSurvey />
+
+      {/* <GetInvolvedChart />
+      <ContextSwitcher />
+      <MoreAboutUs />
+      <Subscribe /> */}
     </div>
   );
 }
