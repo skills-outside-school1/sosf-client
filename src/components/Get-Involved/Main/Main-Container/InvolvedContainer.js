@@ -7,16 +7,25 @@ import ContextSwitcher from "../Main-Atoms/contextswitcher";
 import MoreAboutUs from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs";
 import GetInvolvedChart from "../Main-Atoms/GetInvolvedChart";
 
+// update component
+import InvolvementCards from "@/components/involvement-cards"
+// import "@/components/learn-more-section"
+// import "@/components/newsletter-survey"
+// import  "@/components/structure-chart"
+
+
 export default function InvolvedContainer() {
   return (
     <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[100px] md:gap-y-[100px] justify-start items-start    mb-[2rem] ">
       <Hero />
       <MainSub />
-      <ContextNavigation />
-      <GetInvolvedChart />
+      {/* <ContextNavigation /> */}
+      <InvolvementCards />
+
+      {/* <GetInvolvedChart />
       <ContextSwitcher />
       <MoreAboutUs />
-      <Subscribe />
+      <Subscribe /> */}
     </div>
   );
 }
