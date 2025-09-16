@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 
+
 export function LearnMoreSection() {
   return (
     <section className="w-full py-16 bg-white">

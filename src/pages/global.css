@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'tw-animate-css';
+
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
@@ -12,10 +17,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /* Custom Tailwind CSS to hide scrollbar */
 .hide-scrollbar::-webkit-scrollbar {
@@ -249,12 +250,12 @@ body,
 .illustration-holder .shape-three {
   left: -6%;
   top: 52%;
-  animation: jumpThree 3.5s inofinite linear;
+  animation: jumpThree 3.5s infinite linear;
 }
 .illustration-holder .shape-four {
   right: -4%;
   top: 50%;
-  animation: jumpThree 3.5s infinite linear;
+ animation: jumpThree 3.5s infinite linear;
 }
 .illustration-holder .shape-five {
   right: 13%;

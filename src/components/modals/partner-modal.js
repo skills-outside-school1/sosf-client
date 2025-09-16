@@ -5,12 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { User, Building, X } from "lucide-react"
 
-interface PartnerModalProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}
 
-export function PartnerModal({ open, onOpenChange }: PartnerModalProps) {
+export function PartnerModal({ open, onOpenChange }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl p-0 gap-0 overflow-hidden">

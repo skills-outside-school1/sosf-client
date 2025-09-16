@@ -344,7 +344,7 @@ const styles = {
   },
   selectedMultiSelectOption: {
     borderColor: "#4c7abf",    
-  backgroundColor: "#e8f2f5" 
+    backgroundColor: "#e8f2f5", 
   },
   checkbox: {
     width: "20px",
@@ -410,7 +410,7 @@ const styles = {
     fontWeight: "600",
   },
   footer: {
-    marginTop: "auto",          // pushes footer to bottom
+    marginTop: "auto",      
   paddingTop: "15px",
   borderTop: "1px solid #e0e0e0",
   textAlign: "center",
