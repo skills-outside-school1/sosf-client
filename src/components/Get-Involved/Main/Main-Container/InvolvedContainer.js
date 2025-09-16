@@ -1,11 +1,11 @@
 import React from "react";
 import Hero from "@/components/home/Home-Atoms/Hero";
-import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 import MainSub from "../Main-Atoms/MainSub";
-import ContextNavigation from "../Main-Atoms/Context-Navigations";
-import ContextSwitcher from "../Main-Atoms/contextswitcher";
-import MoreAboutUs from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs";
-import GetInvolvedChart from "../Main-Atoms/GetInvolvedChart";
+import { InvolvementCards } from "@/components/involvement-cards"
+import { StructureChart } from "@/components/structure-chart"
+import { LearnMoreSection } from "@/components/learn-more-section"
+import { NewsletterSurvey } from "@/components/newsletter-survey"
+
 
 // update component
 import InvolvementCards from "@/components/involvement-cards"
