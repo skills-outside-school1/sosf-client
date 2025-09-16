@@ -13,7 +13,7 @@ const Index = () => {
         <title> Get Involved | Skills Outside School Foundation </title>
       </Head>
 
-      <div className="w-full h-fixed] justify-start items-start ">
+      <div className="w-full h-[fixed] justify-start items-start ">
         <InvolvedContainer />
       </div>
     </>

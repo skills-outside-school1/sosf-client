@@ -5,12 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ExternalLink, DollarSign, TrendingUp, Handshake, Gift } from "lucide-react"
 
-interface InvestModalProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}
 
-export function InvestModal({ open, onOpenChange }: InvestModalProps) {
+export function InvestModal({ open, onOpenChange }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-5xl max-h-[95vh] overflow-y-auto p-0">

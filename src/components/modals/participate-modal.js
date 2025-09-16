@@ -5,12 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Zap, Users, Share2, Trophy, Megaphone, FileText } from "lucide-react"
 
-interface ParticipateModalProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}
 
-export function ParticipateModal({ open, onOpenChange }: ParticipateModalProps) {
+export function ParticipateModal({ open, onOpenChange }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto p-0">
