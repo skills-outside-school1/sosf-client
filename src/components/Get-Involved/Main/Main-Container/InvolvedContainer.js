@@ -3,8 +3,8 @@ import Hero from "@/components/home/Home-Atoms/Hero";
 import MainSub from "../Main-Atoms/MainSub";
 import { InvolvementCards } from "@/components/involvement-cards"
 import { StructureChart } from "@/components/structure-chart"
-// import { LearnMoreSection } from "@/components/learn-more-section"
-// import { NewsletterSurvey } from "@/components/newsletter-survey"
+import { LearnMoreSection } from "@/components/learn-more-section"
+import { NewsletterSurvey } from "@/components/newsletter-survey"
 
 
 export default function InvolvedContainer() {
@@ -14,8 +14,8 @@ export default function InvolvedContainer() {
       <MainSub />
       <InvolvementCards />
       <StructureChart />
-      {/* <LearnMoreSection />
-      <NewsletterSurvey /> */}
+      <LearnMoreSection />
+      <NewsletterSurvey />
     </div>
   );
 }
