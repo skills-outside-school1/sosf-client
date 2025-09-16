@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "@/components/home/Home-Atoms/Hero";
 import MainSub from "../Main-Atoms/MainSub";
-import { InvolvementCards } from "@/components/involvement-cards"
+// import { InvolvementCards } from "@/components/involvement-cards"
 import { StructureChart } from "@/components/structure-chart"
 import { LearnMoreSection } from "@/components/learn-more-section"
 import { NewsletterSurvey } from "@/components/newsletter-survey"
@@ -29,3 +29,4 @@ export default function InvolvedContainer() {
     </div>
   );
 }
+
