@@ -18,8 +18,8 @@ export function NewsletterSurvey() {
   }
 
   return (
-    <section className="w-full py-16 bg-gray-50">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full h-[fixed]  bg-gray-50 flex flex-col py-16">
+      <div className="mx-auto pl-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Card className="bg-blue-50 border-0">
             <CardContent className="p-8">

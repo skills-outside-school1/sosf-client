@@ -15,7 +15,7 @@ export function InvolvementCards() {
   const [investModalOpen, setInvestModalOpen] = useState(false)
 
   return (
-    <div className="w-full h-[fixed] flex flex-col gap-y-8 justify-start items-start">
+    <div className="w-full h-[fixed] flex flex-col gap-y-10 py-10 justify-start items-start">
       {/* First row - 3 cards */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-start items-start px-4 w-full md:px-[4rem] lg:px-[7rem]">
         {/* Volunteer Card */}
