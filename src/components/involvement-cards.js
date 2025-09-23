@@ -15,143 +15,146 @@ export function InvolvementCards() {
   const [investModalOpen, setInvestModalOpen] = useState(false)
 
   return (
-    <section className="w-full py-12 bg-white">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        {/* First row - 3 cards */}
-        <div className="flex flex-wrap justify-center gap-6 mb-8">
-          {/* Volunteer Card */}
-          <Card className="overflow-hidden bg-gray-50 border-0 flex-1 min-w-[300px] max-w-[400px]">
-            <div className="aspect-[4/3] relative">
-              <Image src="/assets/images/volunteer.png" alt="Volunteer" fill className="object-cover" />
+    <div className="w-full h-[fixed] flex flex-col gap-y-10 py-10 justify-start items-start">
+      {/* First row - 3 cards */}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-start items-start px-4 w-full md:px-[4rem] lg:px-[7rem]">
+        {/* Volunteer Card */}
+        <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
+          <div className="aspect-[4/3] relative min-h-[200px]">
+            <Image src="/assets/images/volunteer.png" alt="Volunteer" fill className="object-cover" />
+          </div>
+          <CardContent className="p-6 flex-1 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <User className="h-4 w-4 text-gray-700" />
+              <h3 className="text-lg font-semibold text-gray-900">Volunteer</h3>
             </div>
-            <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <User className="h-4 w-4 text-gray-700" />
-                <h3 className="text-lg font-semibold text-gray-900">Volunteer</h3>
-              </div>
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                Volunteer in our third-party data, advocacy & interventions efforts such as research, consultations, and
-                more.
-              </p>
-              <Button 
-                variant="outline" 
-                className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9]"
-              >
-                Start as a Volunteer
-              </Button>
-            </CardContent>
-          </Card>
+            <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-1">
+              Volunteer in our third-party data, advocacy & interventions efforts such as research, consultations, and
+              more.
+            </p>
+            <Button 
+              variant="outline" 
+              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
+            >
+              Start as a Volunteer
+            </Button>
+          </CardContent>
+        </Card>
 
-          {/* Partner Card */}
-          <Card className="overflow-hidden bg-gray-50 border-0 flex-1 min-w-[300px] max-w-[400px]">
-            <div className="aspect-[4/3] relative">
-              <Image src="/assets/images/partner.png" alt="Partner" fill className="object-cover" />
+        {/* Partner Card */}
+        <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
+          <div className="aspect-[4/3] relative min-h-[200px]">
+            <Image src="/assets/images/partner.png" alt="Partner" fill className="object-cover" />
+          </div>
+          <CardContent className="p-6 flex-1 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Users className="h-4 w-4 text-gray-700" />
+              <h3 className="text-lg font-semibold text-gray-900">Partner</h3>
             </div>
-            <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <Users className="h-4 w-4 text-gray-700" />
-                <h3 className="text-lg font-semibold text-gray-900">Partner</h3>
-              </div>
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                As NGOs, private & public sector, partner with us to scale our impact, community or advocacy through
-                co-design/delivery, consultancy, grants & more partner opportunities.
-              </p>
-              <Button
-                variant="outline"
-                className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9]"
-                onClick={() => setPartnerModalOpen(true)}
-              >
-                Learn More
-              </Button>
-            </CardContent>
-          </Card>
+            <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-1">
+              As NGOs, private & public sector, partner with us to scale our impact, community or advocacy through
+              co-design/delivery, consultancy, grants & more partner opportunities.
+            </p>
+            <Button
+              variant="outline"
+              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
+              onClick={() => setPartnerModalOpen(true)}
+            >
+              Learn More
+            </Button>
+          </CardContent>
+        </Card>
 
-          {/* Invest Card */}
-          <Card className="overflow-hidden bg-gray-50 border-0 flex-1 min-w-[300px] max-w-[400px]">
-            <div className="aspect-[4/3] relative">
-              <Image src="/assets/images/invest.png" alt="Invest" fill className="object-cover" />
+        {/* Invest Card */}
+        <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
+          <div className="aspect-[4/3] relative min-h-[200px]">
+            <Image src="/assets/images/invest.png" alt="Invest" fill className="object-cover" />
+          </div>
+          <CardContent className="p-6 flex-1 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <DollarSign className="h-4 w-4 text-gray-700" />
+              <h3 className="text-lg font-semibold text-gray-900">Invest</h3>
             </div>
-            <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <DollarSign className="h-4 w-4 text-gray-700" />
-                <h3 className="text-lg font-semibold text-gray-900">Invest</h3>
+            <div className="space-y-1 text-sm text-gray-600 mb-4 flex-1">
+              <p>Liquid invest</p>
+              <p>Non-liquid asset</p>
+              <p>Cash contribution</p>
+              <p>Service contribution</p>
+            </div>
+            <Button
+              variant="outline"
+              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
+              onClick={() => setInvestModalOpen(true)}
+            >
+              Learn More
+            </Button>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Second row - 2 cards centered */}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-start items-start px-4 w-full md:px-[4rem] lg:px-[7rem]">
+        {/* Govern Card */}
+        <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
+          <div className="aspect-[4/3] relative min-h-[200px]">
+            <Image src="/assets/images/govern.jpg" alt="Govern" fill className="object-cover" />
+          </div>
+          <CardContent className="p-6 flex-1 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Building className="h-4 w-4 text-gray-700" />
+              <h3 className="text-lg font-semibold text-gray-900">Govern</h3>
+            </div>
+            <div className="space-y-1 text-sm text-gray-600 mb-4 flex-1">
+              <div className="flex items-center justify-between">
+                <span>Join the Advisors</span>
+                <span className="text-gray-400">→</span>
               </div>
-              <div className="space-y-1 text-sm text-gray-600 mb-4">
-                <p>Liquid invest</p>
-                <p>Non-liquid asset</p>
-                <p>Cash contribution</p>
-                <p>Service contribution</p>
+              <div className="flex items-center justify-between">
+                <span>Join the Team, Executive Council</span>
+                <span className="text-gray-400">→</span>
               </div>
-              <Button
-                variant="outline"
-                className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9]"
-                onClick={() => setInvestModalOpen(true)}
-              >
-                Learn More
-              </Button>
-            </CardContent>
-          </Card>
+              <div className="flex items-center justify-between">
+                <span>Join the Board of Trustees</span>
+                <span className="text-gray-400">→</span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Participate Card */}
+        <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
+          <div className="aspect-[4/3] relative min-h-[200px]">
+            <Image src="/assets/images/participate.png" alt="Participate" fill className="object-cover" />
+          </div>
+          <CardContent className="p-6 flex-1 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <UserPlus className="h-4 w-4 text-gray-700" />
+              <h3 className="text-lg font-semibold text-gray-900">Participate</h3>
+            </div>
+            <div className="space-y-1 text-sm text-gray-600 mb-4 flex-1">
+              <p>Our Data</p>
+              <p>Our Interventions</p>
+              <p>Our Advocacy</p>
+            </div>
+            <Button
+              variant="outline"
+              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
+              onClick={() => setParticipateModalOpen(true)}
+            >
+              Learn More
+            </Button>
+          </CardContent>
+        </Card>
+
+        {/* Empty spacer for grid consistency */}
+        <div className="hidden lg:block opacity-0 pointer-events-none">
+          {/* Empty spacer to maintain 3-column grid on desktop */}
         </div>
-
-        {/* Second row - 2 cards centered */}
-        <div className="flex flex-wrap justify-center gap-6">
-          {/* Govern Card */}
-          <Card className="overflow-hidden bg-gray-50 border-0 flex-1 min-w-[300px] max-w-[400px]">
-            <div className="aspect-[4/3] relative">
-              <Image src="/assets/images/govern.jpg" alt="Govern" fill className="object-cover" />
-            </div>
-            <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <Building className="h-4 w-4 text-gray-700" />
-                <h3 className="text-lg font-semibold text-gray-900">Govern</h3>
-              </div>
-              <div className="space-y-1 text-sm text-gray-600 mb-4">
-                <div className="flex items-center justify-between">
-                  <span>Join the Advisors</span>
-                  <span className="text-gray-400">→</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>Join the Team, Executive Council</span>
-                  <span className="text-gray-400">→</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>Join the Board of Trustees</span>
-                  <span className="text-gray-400">→</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Participate Card */}
-          <Card className="overflow-hidden bg-gray-50 border-0 flex-1 min-w-[300px] max-w-[400px]">
-            <div className="aspect-[4/3] relative">
-              <Image src="/assets/images/participate.png" alt="Participate" fill className="object-cover" />
-            </div>
-            <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <UserPlus className="h-4 w-4 text-gray-700" />
-                <h3 className="text-lg font-semibold text-gray-900">Participate</h3>
-              </div>
-              <div className="space-y-1 text-sm text-gray-600 mb-4">
-                <p>Our Data</p>
-                <p>Our Interventions</p>
-                <p>Our Advocacy</p>
-              </div>
-              <Button
-                variant="outline"
-                className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9]"
-                onClick={() => setParticipateModalOpen(true)}
-              >
-                Learn More
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      </section>
 
       <ParticipateModal open={participateModalOpen} onOpenChange={setParticipateModalOpen} />
       <PartnerModal open={partnerModalOpen} onOpenChange={setPartnerModalOpen} />
       <InvestModal open={investModalOpen} onOpenChange={setInvestModalOpen} />
-    </section>
+    </div>
   )
 }
