@@ -80,7 +80,7 @@ export function InvestModal({ open, onOpenChange }) {
                     </div>
                   </div>
                   <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 sm:py-4 text-sm sm:text-base"
+                    className="w-full bg-secondary_blue hover:bg-blue-700 text-blue-100 py-3 text-base sm:text-lg font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition-transform"
                     onClick={() => window.open("https://forms.zoho.com/", "_blank")}
                   >
                     Invest in Liquid Assets <ExternalLink className="h-4 w-4 ml-2" />
