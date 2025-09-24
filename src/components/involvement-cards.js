@@ -20,7 +20,7 @@ export function InvolvementCards() {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-start items-start px-4 w-full md:px-[4rem] lg:px-[7rem]">
         {/* Volunteer Card */}
         <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
-          <div className="aspect-[4/3] relative min-h-[200px]">
+          <div className="aspect-[4/3] relative min-h-[150px]">
             <Image src="/assets/images/volunteer.png" alt="Volunteer" fill className="object-cover" />
           </div>
           <CardContent className="p-6 flex-1 flex flex-col">
@@ -43,7 +43,7 @@ export function InvolvementCards() {
 
         {/* Partner Card */}
         <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
-          <div className="aspect-[4/3] relative min-h-[200px]">
+          <div className="aspect-[4/3] relative min-h-[150px]">
             <Image src="/assets/images/partner.png" alt="Partner" fill className="object-cover" />
           </div>
           <CardContent className="p-6 flex-1 flex flex-col">
@@ -67,7 +67,7 @@ export function InvolvementCards() {
 
         {/* Invest Card */}
         <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
-          <div className="aspect-[4/3] relative min-h-[200px]">
+          <div className="aspect-[4/3] relative min-h-[150px]">
             <Image src="/assets/images/invest.png" alt="Invest" fill className="object-cover" />
           </div>
           <CardContent className="p-6 flex-1 flex flex-col">
@@ -96,7 +96,7 @@ export function InvolvementCards() {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-start items-start px-4 w-full md:px-[4rem] lg:px-[7rem]">
         {/* Govern Card */}
         <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
-          <div className="aspect-[4/3] relative min-h-[200px]">
+          <div className="aspect-[4/3] relative min-h-[150px]">
             <Image src="/assets/images/govern.jpg" alt="Govern" fill className="object-cover" />
           </div>
           <CardContent className="p-6 flex-1 flex flex-col">
@@ -123,7 +123,7 @@ export function InvolvementCards() {
 
         {/* Participate Card */}
         <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
-          <div className="aspect-[4/3] relative min-h-[200px]">
+          <div className="aspect-[4/3] relative min-h-[150px]">
             <Image src="/assets/images/participate.png" alt="Participate" fill className="object-cover" />
           </div>
           <CardContent className="p-6 flex-1 flex flex-col">
