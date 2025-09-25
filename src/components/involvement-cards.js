@@ -9,18 +9,23 @@ import { ParticipateModal } from "./modals/participate-modal"
 import { PartnerModal } from "./modals/partner-modal"
 import { InvestModal } from "./modals/invest-modal"
 
+import IframeModal from "./iframe-modal"   
+
 
 
 export function InvolvementCards() {
   const [participateModalOpen, setParticipateModalOpen] = useState(false)
   const [partnerModalOpen, setPartnerModalOpen] = useState(false)
   const [investModalOpen, setInvestModalOpen] = useState(false)
+  // iframe
+  const [volunteerModalOpen, setVolunteerModalOpen] = useState(false) 
+   const [governModalOpen, setGovernModalOpen] = useState(false) 
 
   return (
     <div className="w-full h-[fixed] flex flex-col gap-y-10 py-10 justify-start items-start">
       {/* First row - 3 cards */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-start items-start px-4 w-full md:px-[4rem] lg:px-[7rem]">
-        {/* Volunteer Card */}
+         {/* Volunteer Card */}
         <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
           <div className="aspect-[4/3] relative min-h-[150px]">
             <Image src="/assets/images/volunteer.png" alt="Volunteer" fill className="object-cover" />
@@ -31,12 +36,12 @@ export function InvolvementCards() {
               <h3 className="text-lg font-semibold text-gray-900">Volunteer</h3>
             </div>
             <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-1">
-              Volunteer in our third-party data, advocacy & interventions efforts such as research, consultations, and
-              more.
+              Volunteer in our third-party data, advocacy & interventions efforts such as research, consultations, and more.
             </p>
             <Button 
               variant="outline" 
               className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
+              onClick={() => setVolunteerModalOpen(true)} // ⬅ open modal
             >
               Start as a Volunteer
             </Button>
@@ -96,7 +101,7 @@ export function InvolvementCards() {
 
       {/* Second row - 2 cards centered */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-start items-start px-4 w-full md:px-[4rem] lg:px-[7rem]">
-        {/* Govern Card */}
+    {/* Govern Card */}
         <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
           <div className="aspect-[4/3] relative min-h-[150px]">
             <Image src="/assets/images/govern.png" alt="Govern" fill className="object-cover" />
@@ -106,16 +111,25 @@ export function InvolvementCards() {
               <Building className="h-4 w-4 text-gray-700" />
               <h3 className="text-lg font-semibold text-gray-900">Govern</h3>
             </div>
-            <div className="space-y-1 text-sm text-gray-600 mb-4 flex-1">
-              <div className="flex items-center justify-between">
+            <div className="space-y-3 text-sm text-gray-600 mb-4 flex-1">
+              <div 
+                className="flex items-center justify-between cursor-pointer hover:text-gray-900"
+                onClick={() => setGovernModalOpen(true)}
+              >
                 <span>Join the Advisors</span>
                 <span className="text-gray-400">→</span>
               </div>
-              <div className="flex items-center justify-between">
+              <div 
+                className="flex items-center justify-between cursor-pointer hover:text-gray-900"
+                onClick={() => setGovernModalOpen(true)}
+              >
                 <span>Join the Team, Executive Council</span>
                 <span className="text-gray-400">→</span>
               </div>
-              <div className="flex items-center justify-between">
+              <div 
+                className="flex items-center justify-between cursor-pointer hover:text-gray-900"
+                onClick={() => setGovernModalOpen(true)}
+              >
                 <span>Join the Board of Trustees</span>
                 <span className="text-gray-400">→</span>
               </div>
@@ -157,6 +171,23 @@ export function InvolvementCards() {
       <ParticipateModal open={participateModalOpen} onOpenChange={setParticipateModalOpen} />
       <PartnerModal open={partnerModalOpen} onOpenChange={setPartnerModalOpen} />
       <InvestModal open={investModalOpen} onOpenChange={setInvestModalOpen} />
+      
+      {/* New Volunteer Modal form*/}
+      <IframeModal
+        isOpen={volunteerModalOpen}
+        onClose={() => setVolunteerModalOpen(false)}
+        title="Volunteer Application Form"
+        description="Join us by filling out the form below and become part of our volunteer community."
+        iframeUrl="https://forms.zohopublic.com/halimaabba/form/VolunteerApplicationForm/formperma/WKRQtXOv2NVaAQbw77Rd_LTMyKSX2bYqp0BlYzvRRvg"
+      />
+        {/* Govern Modal */}
+      <IframeModal
+        isOpen={governModalOpen}
+        onClose={() => setGovernModalOpen(false)}
+        title="Advisory Council - Expression of Interest"
+        description="Apply to join our Advisors, Executive Council, or Board of Trustees by filling out this form."
+        iframeUrl="https://forms.zohopublic.com/halimaabba/form/SKILLSOUTSIDESCHOOLFOUNDATIONAdvisoryCouncilExpres/formperma/Ry1wfylvudjknxAgciW_0AUuzauE0WJShnwO1wkt_pE"
+      />
     </div>
   )
 }
