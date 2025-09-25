@@ -9,7 +9,7 @@ export default function PartnerSection() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Badge variant="outline" className="mb-4 text-blue-600 border-blue-200">
+          <Badge variant="outline" className="mb-4 text-partnerblue border-partnerblue rounded-full px-3 py-1 ">
             Partner
           </Badge>
           <p className="text-sm text-gray-600 mb-2">Join as a scale up impact partner</p>
@@ -26,7 +26,7 @@ export default function PartnerSection() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Who this is for */}
-          <Card className="bg-gray-50 border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-2">
                 <Users className="w-6 h-6 text-blue-600" />
@@ -42,7 +42,7 @@ export default function PartnerSection() {
           </Card>
 
           {/* What's Expected of You */}
-          <Card className="bg-gray-50 border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-2">
                 <Target className="w-6 h-6 text-blue-600" />
@@ -62,7 +62,7 @@ export default function PartnerSection() {
           </Card>
 
           {/* What You Can Do */}
-          <Card className="bg-gray-50 border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-2">
                 <Lightbulb className="w-6 h-6 text-blue-600" />
@@ -87,11 +87,11 @@ export default function PartnerSection() {
           </Card>
 
           {/* What SOSF Does for You */}
-          <Card className="bg-gray-50 border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-2">
                 <HandHeart className="w-6 h-6 text-blue-600" />
-                <CardTitle className="text-lg">What SOSF Does for You</CardTitle>
+                <CardTitle className="text-lg">Wha`t SOSF Does for You</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="space-y-3">

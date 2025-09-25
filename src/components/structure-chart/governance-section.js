@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Shield, Users, Crown } from "lucide-react"
+import { Shield, Crown, HandCoins,Hand,Users  } from "lucide-react"
 
 export default function GovernanceSection() {
   return (
@@ -9,7 +9,7 @@ export default function GovernanceSection() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Badge variant="outline" className="mb-4 text-purple-600 border-purple-200">
+          <Badge variant="outline" className="mb-4 text-governblue border-governblue rounded-full px-3 py-1">
             Govern
           </Badge>
           <p className="text-sm text-gray-600 mb-2">Join as a scale up impact partner</p>
@@ -17,7 +17,7 @@ export default function GovernanceSection() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-balance">
               Want to Shape Strategy and Oversight?
             </h2>
-            <Button variant="default" className="hidden md:flex items-center gap-2 bg-purple-600 hover:bg-purple-700">
+            <Button variant="default" className="hidden text-black md:flex items-center gap-2 bg-governblue hover:bg-governblue/90 border-governblue rounded-full">
               Join the team
             </Button>
           </div>
@@ -26,10 +26,10 @@ export default function GovernanceSection() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Become an SOSF Advisor */}
-          <Card className="bg-gray-50 border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-4">
-                <Shield className="w-8 h-8 text-purple-600" />
+                <HandCoins className="w-8 h-8 text-governblue" />
               </div>
               <CardTitle className="text-xl mb-4">Become an SOSF Advisor</CardTitle>
               <div className="space-y-4">
@@ -50,10 +50,10 @@ export default function GovernanceSection() {
           </Card>
 
           {/* Become a Volunteer */}
-          <Card className="bg-gray-50 border-gray-200">
+          <Card className="bg-background_blue  border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-4">
-                <Users className="w-8 h-8 text-purple-600" />
+                <Hand className="w-8 h-8 text-governblue" />
               </div>
               <CardTitle className="text-xl mb-4">Become a Volunteer</CardTitle>
               <div className="space-y-4">
@@ -87,10 +87,10 @@ export default function GovernanceSection() {
           </Card>
 
           {/* Join the Board of Trustees */}
-          <Card className="bg-gray-50 border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-4">
-                <Crown className="w-8 h-8 text-purple-600" />
+                <Users className="w-8 h-8 text-governblue" />
               </div>
               <CardTitle className="text-xl mb-4">Join the Board of Trustees</CardTitle>
               <div className="space-y-4">
