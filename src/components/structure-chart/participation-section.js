@@ -84,11 +84,11 @@ export default function ParticipationSection() {
   ]
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Badge variant="outline" className="mb-4 text-yellow-600 border-yellow-200">
+          <Badge variant="outline" className="mb-4 text-participateorange border-participateorange rounded-full px-3 py-1">
             Participate
           </Badge>
           <p className="text-sm text-gray-600 mb-2">Are you a beneficiary? Start your journey</p>
@@ -96,7 +96,7 @@ export default function ParticipationSection() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-balance">
               Are You a Beneficiary? Start Your Journey
             </h2>
-            <ChevronRight className="w-6 h-6 text-gray-400 hidden md:block" />
+            <ChevronRight className="w-6 h-6 text-blue-600 hidden md:block" />
           </div>
         </div>
 
@@ -105,7 +105,7 @@ export default function ParticipationSection() {
           {participantTypes.map((participant, index) => {
             const IconComponent = participant.icon
             return (
-              <Card key={index} className={`${participant.color} border-2 hover:shadow-lg transition-all duration-300`}>
+              <Card key={index} className={`bg-background_blue border-2 hover:shadow-lg transition-all duration-300`}>
                 <CardHeader className="pb-3">
                   <div className="flex items-start gap-3 mb-2">
                     <IconComponent className="w-6 h-6 flex-shrink-0 mt-1" />

@@ -63,10 +63,16 @@ module.exports = {
   			milk: '#fafafa',
   			grey: '#d3d3d3',
   			blue: '#3F5CA8',
+			background_blue: '#EFF1F3',
+			partnerblue: '#B9E7FF',
+  			investpurple: '#FFBEDE',
+  			governblue: '#BFD9FE',
+  			participateorange: '#FFF4B4',
   			secondary_blue: '#B7C8F4',
   			black: '#000000',
   			light_blue: '#239ddb',
   			dark_blue: '#142850',
+
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

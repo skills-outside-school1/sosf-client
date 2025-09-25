@@ -46,7 +46,7 @@ export default function InvestmentSection() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Badge variant="outline" className="mb-4 text-pink-600 border-pink-200">
+          <Badge variant="outline" className="mb-4 text-investpurple border-investpurple rounded-full px-3 py-1">
             Invest
           </Badge>
           <p className="text-sm text-gray-600 mb-2">Invest what you can</p>
@@ -58,7 +58,7 @@ export default function InvestmentSection() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Liquid Financial Assets */}
-          <Card className="bg-white border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-2">
                 <TrendingUp className="w-6 h-6 text-pink-600" />
@@ -76,7 +76,7 @@ export default function InvestmentSection() {
           </Card>
 
           {/* Non-Liquid Assets */}
-          <Card className="bg-white border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-2">
                 <Building className="w-6 h-6 text-pink-600" />
@@ -94,7 +94,7 @@ export default function InvestmentSection() {
           </Card>
 
           {/* Cash Contribution */}
-          <Card className="bg-white border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-2">
                 <DollarSign className="w-6 h-6 text-pink-600" />
@@ -112,7 +112,7 @@ export default function InvestmentSection() {
           </Card>
 
           {/* In-Kind Contribution */}
-          <Card className="bg-white border-gray-200">
+          <Card className="bg-background_blue border-gray-200">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-2">
                 <Gift className="w-6 h-6 text-pink-600" />
