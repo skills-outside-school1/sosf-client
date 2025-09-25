@@ -99,7 +99,7 @@ export function InvolvementCards() {
         {/* Govern Card */}
         <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
           <div className="aspect-[4/3] relative min-h-[150px]">
-            <Image src="/assets/images/govern.jpg" alt="Govern" fill className="object-cover" />
+            <Image src="/assets/images/govern.png" alt="Govern" fill className="object-cover" />
           </div>
           <CardContent className="p-6 flex-1 flex flex-col">
             <div className="flex items-center gap-2 mb-3">

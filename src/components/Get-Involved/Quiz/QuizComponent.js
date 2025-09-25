@@ -285,6 +285,8 @@ const styles = {
     alignItems: "center",
     minHeight: "100vh",
     padding: "20px",
+    paddingTop: "7rem",
+    paddingBottom: "7rem",
     backgroundColor: "#f5f5f5",
   },
   container: {
