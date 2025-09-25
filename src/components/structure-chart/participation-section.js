@@ -1,43 +1,85 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TrendingUp, Building, DollarSign, Gift } from "lucide-react"
+import { GraduationCap, Users, Briefcase, Lightbulb, Building, Globe, ChevronRight } from "lucide-react"
 
-export default function InvestmentSection() {
-  const liquidAssets = [
-    "Shares",
-    "Bonds (Local/Euro)",
-    "Treasury Bills",
-    "Commercial Paper",
-    "Fixed Deposits",
-    "Mutual Funds",
-    "Annuities",
-    "Waqf",
-  ]
-
-  const nonLiquidAssets = [
-    "Cryptocurrency",
-    "Art",
-    "Real Estate",
-    "Commodities",
-    "NFTs",
-    "Royalties",
-    "Private Equity Interests",
-  ]
-
-  const cashContributions = ["Donations", "CSR Capital", "Grant Funding", "Zakat", "Sadaqah"]
-
-  const inKindContributions = [
+export default function ParticipationSection() {
+  const participantTypes = [
     {
-      category: "Products",
-      items: "Donated/adapted tools, platforms, services",
+      title: "K-12 Students (2024)",
+      description: "Join our SOSF Scholarship Program",
+      details: "Apply for SOSF Scholarship Program. Online SOSF for K-12 Courses. Online SOSF for K-12 Business",
+      icon: GraduationCap,
+      color: "bg-blue-50 border-blue-200 text-blue-700",
     },
     {
-      category: "Services",
-      items: "Free or subsidized tech, strategy, creative support",
+      title: "K-12 Students (2025-2026)",
+      description: "Join our SOSF Scholarship Program",
+      details: "Apply for SOSF Scholarship Program. Online SOSF for K-12 Courses. Online SOSF for K-12 Business",
+      icon: GraduationCap,
+      color: "bg-green-50 border-green-200 text-green-700",
     },
     {
-      category: "Expertise",
-      items: "Expertise",
+      title: "K-12 Teachers (2024)",
+      description: "Join our SOSF Teacher Program",
+      details: "Online SOSF for Teacher. Online SOSF for K-12 Business",
+      icon: Users,
+      color: "bg-purple-50 border-purple-200 text-purple-700",
+    },
+    {
+      title: "K-12 Teachers (2025-2026)",
+      description: "Join our SOSF Teacher Program",
+      details: "Apply for SOSF Scholarship Program. Online SOSF for Teacher. Online SOSF for K-12 Business",
+      icon: Users,
+      color: "bg-orange-50 border-orange-200 text-orange-700",
+    },
+    {
+      title: "Tertiary Student",
+      description: "Apply for SOSF Scholarship Program",
+      details: "Apply for SOSF Scholarship Program. Online SOSF for Teacher. Online SOSF for K-12 Business",
+      icon: GraduationCap,
+      color: "bg-pink-50 border-pink-200 text-pink-700",
+    },
+    {
+      title: "Entrepreneur (Who's Who)",
+      description: "Start with Online SOSF for Business",
+      details: "Apply for SOSF Scholarship Program",
+      icon: Lightbulb,
+      color: "bg-yellow-50 border-yellow-200 text-yellow-700",
+    },
+    {
+      title: "Professional (Who's Who)",
+      description: "Start with Online SOSF for Business",
+      details: "Apply for SOSF Scholarship Program",
+      icon: Briefcase,
+      color: "bg-indigo-50 border-indigo-200 text-indigo-700",
+    },
+    {
+      title: "Former (Beneficiaries)",
+      description: "Join SOSF Impactful Experiences",
+      details: "",
+      icon: Users,
+      color: "bg-teal-50 border-teal-200 text-teal-700",
+    },
+    {
+      title: "School K-12",
+      description: "Enroll multiple/cohorts in SOSF design thinking and entrepreneurship",
+      details: "",
+      icon: Building,
+      color: "bg-red-50 border-red-200 text-red-700",
+    },
+    {
+      title: "Informal Groups and Online Communities",
+      description: "Join SOSF Impactful Experiences",
+      details: "Apply for SOSF Scholarship Program. Online SOSF for Teacher. Online SOSF for K-12 Business",
+      icon: Globe,
+      color: "bg-cyan-50 border-cyan-200 text-cyan-700",
+    },
+    {
+      title: "International Students (2024) - Talent Scholarship (2024)",
+      description: "Apply for SOSF Scholarship Program. Online SOSF for Teacher. Online SOSF for K-12 Business",
+      details: "",
+      icon: Globe,
+      color: "bg-emerald-50 border-emerald-200 text-emerald-700",
     },
   ]
 
@@ -46,93 +88,41 @@ export default function InvestmentSection() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Badge variant="outline" className="mb-4 text-pink-600 border-pink-200">
-            Invest
+          <Badge variant="outline" className="mb-4 text-yellow-600 border-yellow-200">
+            Participate
           </Badge>
-          <p className="text-sm text-gray-600 mb-2">Invest what you can</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-balance">
-            What Would You Like to Contribute?
-          </h2>
+          <p className="text-sm text-gray-600 mb-2">Are you a beneficiary? Start your journey</p>
+          <div className="flex items-center justify-between">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-balance">
+              Are You a Beneficiary? Start Your Journey
+            </h2>
+            <ChevronRight className="w-6 h-6 text-gray-400 hidden md:block" />
+          </div>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Liquid Financial Assets */}
-          <Card className="bg-white border-gray-200">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <TrendingUp className="w-6 h-6 text-pink-600" />
-                <CardTitle className="text-lg text-center">Liquid Financial Assets</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {liquidAssets.map((asset, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-pink-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm text-gray-700">{asset}</p>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-
-          {/* Non-Liquid Assets */}
-          <Card className="bg-white border-gray-200">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <Building className="w-6 h-6 text-pink-600" />
-                <CardTitle className="text-lg text-center">Non-Liquid Assets</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {nonLiquidAssets.map((asset, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-pink-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm text-gray-700">{asset}</p>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-
-          {/* Cash Contribution */}
-          <Card className="bg-white border-gray-200">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <DollarSign className="w-6 h-6 text-pink-600" />
-                <CardTitle className="text-lg text-center">Cash Contribution</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {cashContributions.map((contribution, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-pink-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm text-gray-700">{contribution}</p>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-
-          {/* In-Kind Contribution */}
-          <Card className="bg-white border-gray-200">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <Gift className="w-6 h-6 text-pink-600" />
-                <CardTitle className="text-lg text-center">In-Kind Contribution</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {inKindContributions.map((contribution, index) => (
-                <div key={index} className="space-y-1">
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-pink-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">{contribution.category}</p>
-                      <p className="text-xs text-gray-600 mt-1">{contribution.items}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {participantTypes.map((participant, index) => {
+            const IconComponent = participant.icon
+            return (
+              <Card key={index} className={`${participant.color} border-2 hover:shadow-lg transition-all duration-300`}>
+                <CardHeader className="pb-3">
+                  <div className="flex items-start gap-3 mb-2">
+                    <IconComponent className="w-6 h-6 flex-shrink-0 mt-1" />
+                    <div className="flex-1">
+                      <CardTitle className="text-base leading-tight mb-2">{participant.title}</CardTitle>
+                      <p className="text-sm font-medium">{participant.description}</p>
                     </div>
                   </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+                </CardHeader>
+                {participant.details && (
+                  <CardContent className="pt-0">
+                    <p className="text-xs text-gray-600 leading-relaxed">{participant.details}</p>
+                  </CardContent>
+                )}
+              </Card>
+            )
+          })}
         </div>
       </div>
     </section>

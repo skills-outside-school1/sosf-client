@@ -11,7 +11,6 @@ export default function StructureChartPage() {
       <Element name="hero-section">
         <HeroChart />
       </Element>
-
       <Element name="partner-section">
         <PartnerSection />
       </Element>
@@ -24,6 +23,7 @@ export default function StructureChartPage() {
       <Element name="participate-section">
         <ParticipationSection />
       </Element>
+      
     </main>
   )
 }
