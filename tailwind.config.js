@@ -126,8 +126,13 @@ module.exports = {
   			cyan950: '#02312f',
   			cyan900: '#11504a',
   			cyan800: '#0e6159',
-  			cyan700: '#0b7a6e'
+  			cyan700: '#0b7a6e',
+			partnerblue: '#B9E7FF',
+			investpurple: '#FFBEDE',
+			governblue: '#BFD9FE',
+			participateorange: '#FFF4B4'
   		},
+
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
