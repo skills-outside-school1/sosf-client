@@ -2,84 +2,109 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GraduationCap, Users, Briefcase, Lightbulb, Building, Globe, ChevronRight } from "lucide-react"
 
+
+// Zoho forms integration TODO: Add Zoho form links to the relevant participant types
+
+
+
 export default function ParticipationSection() {
   const participantTypes = [
     {
       title: "K–12 Student (JSS3)",
-      description: "Join our SOSF Scholarship Program",
-      details: "Apply for SOSF Scholarship Program. Online SOSF for K-12 Courses. Online SOSF for K-12 Business",
+      details: [
+        "Start with SOSF Bridge Basic",
+        "Apply for SOSF Funds OR go through:",
+        "Online Skill Up for Career",
+        "Online Skill Up for Businesses",
+      ],
       icon: GraduationCap,
-      color: "bg-blue-50 border-blue-200 text-blue-700",
     },
     {
       title: "K–12 Student (SS1-SS3)",
-      description: "Join our SOSF Scholarship Program",
-      details: "Apply for SOSF Scholarship Program. Online SOSF for K-12 Courses. Online SOSF for K-12 Business",
+      details: [
+        "Start with SOSF Bridge Intermediate",
+        "Apply for SOSF Funds OR go through:",
+        "Online Skill Up for Career",
+        "Online Skill Up for Businesses",
+      ],
       icon: GraduationCap,
-      color: "bg-green-50 border-green-200 text-green-700",
     },
     {
       title: "K–12 Teacher (JSS3)",
-      description: "Join our SOSF Teacher Program",
-      details: "Online SOSF for Teacher. Online SOSF for K-12 Business",
+      details: [
+        "Join as a Bridge Basic Teacher",
+        "Apply for SOSF Funds OR go through:",
+        "Online Skill Up for Career",
+        "Online Skill Up for Businesses",
+
+      ],
       icon: Users,
-      color: "bg-purple-50 border-purple-200 text-purple-700",
+
     },
     {
       title: "K–12 Teacher (SS1-SS3)",
-      description: "Join our SOSF Teacher Program",
-      details: "Apply for SOSF Scholarship Program. Online SOSF for Teacher. Online SOSF for K-12 Business",
+      details: [
+        "Join as a Bridge Intermediate Teacher",
+        "Apply for SOSF Funds OR go through:",
+        "Online Skill Up for Career",
+        "Online Skill Up for Businesses",
+      ],
       icon: Users,
-      color: "bg-orange-50 border-orange-200 text-orange-700",
     },
     {
       title: "Tertiary Student",
-      description: "Apply for SOSF Scholarship Program",
-      details: "Apply for SOSF Scholarship Program. Online SOSF for Teacher. Online SOSF for K-12 Business",
+      details: [
+        "Start with SOSF Bridge Advanced",
+        "Apply for SOSF Funds OR go through:",
+        "Online Skill Up for Career",
+        "Online Skill Up for Businesses",
+
+      ],
       icon: GraduationCap,
-      color: "bg-pink-50 border-pink-200 text-pink-700",
     },
     {
       title: "Entrepreneur (Any age)",
-      description: "Start with Online SOSF for Business",
-      details: "Apply for SOSF Scholarship Program",
+      details: [
+        "Start with Online Skill Up for Business",
+        "Apply for SOSF Enterprise Funds",
+      ],
       icon: Lightbulb,
-      color: "bg-yellow-50 border-yellow-200 text-yellow-700",
     },
     {
       title: "Professional (Any age)",
-      description: "Start with Online SOSF for Business",
-      details: "Apply for SOSF Scholarship Program",
+      details: [
+        "Start with Online Skill Up for Business",
+        "Apply for SOSF Scholarship Funds",
+      ],
       icon: Briefcase,
-      color: "bg-indigo-50 border-indigo-200 text-indigo-700",
     },
     {
       title: "Farmer (Smallholder)",
-      description: "Join SOSF Impactful Experiences",
-      details: "",
+      details: [
+        "Join SOSF Headstart Agropreneurs",
+      ],
       icon: Users,
-      color: "bg-teal-50 border-teal-200 text-teal-700",
     },
     {
       title: "School K-12",
-      description: "Enroll multiple/cohorts in SOSF design thinking and entrepreneurship",
-      details: "",
+      details: [
+        "Enroll teachers/students in SOSF Bridge Basic or Intermediate",
+      ],
       icon: Building,
-      color: "bg-red-50 border-red-200 text-red-700",
     },
     {
       title: "Informal Sector Worker (Other Industries)",
-      description: "Join SOSF Impactful Experiences",
-      details: "Apply for SOSF Scholarship Program. Online SOSF for Teacher. Online SOSF for K-12 Business",
+      details: [
+        "Join SOSF Headstart (General)",
+      ],
       icon: Globe,
-      color: "bg-cyan-50 border-cyan-200 text-cyan-700",
     },
     {
       title: "Intermediary Organization (NGO, Trust, Company etc)",
-      description: "Apply for SOSF Scholarship Program. Online SOSF for Teacher. Online SOSF for K-12 Business",
-      details: "",
+      details: [
+        "Apply for SOSF Grants(Micro, Small, Large)"
+      ],
       icon: Globe,
-      color: "bg-emerald-50 border-emerald-200 text-emerald-700",
     },
   ]
 
@@ -111,13 +136,17 @@ export default function ParticipationSection() {
                     <IconComponent className="w-6 h-6 flex-shrink-0 mt-1" />
                     <div className="flex-1">
                       <CardTitle className="text-base leading-tight mb-2">{participant.title}</CardTitle>
-                      <p className="text-sm font-medium">{participant.description}</p>
                     </div>
                   </div>
                 </CardHeader>
                 {participant.details && (
-                  <CardContent className="pt-0">
-                    <p className="text-xs text-gray-600 leading-relaxed">{participant.details}</p>
+                  <CardContent className="space-y-2 pt-0">
+                    {participant.details.map((detail, detailIndex) => (
+                      <div key={detailIndex} className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-governblue rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-sm text-gray-700">{detail}</p>
+                      </div>
+                    ))}
                   </CardContent>
                 )}
               </Card>

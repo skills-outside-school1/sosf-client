@@ -61,23 +61,23 @@ export default function GovernanceSection() {
                   <h4 className="font-medium text-gray-900 mb-2">Types of Volunteer Roles</h4>
                   <div className="space-y-2">
                     <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-governblue rounded-full mt-2 flex-shrink-0"></div>
                       <p className="text-sm text-gray-700">Program facilitation</p>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-governblue rounded-full mt-2 flex-shrink-0"></div>
                       <p className="text-sm text-gray-700">Mentorship</p>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-governblue rounded-full mt-2 flex-shrink-0"></div>
                       <p className="text-sm text-gray-700">Event coordination</p>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-governblue rounded-full mt-2 flex-shrink-0"></div>
                       <p className="text-sm text-gray-700">Content support</p>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-governblue rounded-full mt-2 flex-shrink-0"></div>
                       <p className="text-sm text-gray-700">Training & curriculum delivery</p>
                     </div>
                   </div>

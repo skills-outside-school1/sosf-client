@@ -35,8 +35,7 @@ export default function PartnerSection() {
             </CardHeader>
             <CardContent className="space-y-3">
               <p className="text-sm text-gray-700 leading-relaxed">
-                Senior industry leaders, retirees, philanthropists, and purpose-driven individuals looking to create
-                long-term, scalable impact aligned with their values.
+               Senior industry leaders, retirees, philanthropists, and purpose-drivenindividuals looking to create long-term, scalable impact aligned with their values.
               </p>
             </CardContent>
           </Card>
@@ -56,7 +55,7 @@ export default function PartnerSection() {
               </div>
               <div className="flex items-start gap-2">
                 <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">Collaborate in reviews and final decisions</p>
+                <p className="text-sm text-gray-700"> Collaborate in reviews and final decisions</p>
               </div>
             </CardContent>
           </Card>
