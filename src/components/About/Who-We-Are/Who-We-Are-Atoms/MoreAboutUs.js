@@ -64,7 +64,7 @@ export default function MoreAboutUs() {
   return (
     <div className="w-full flex flex-col    gap-x-8 justify-center items-start  ">
     <section className="px-2 md:px-[6%]  lg:px-[28%] ">
-       <h3 className="mt-8 mb-0 font-mont text-left font-bold  text-gray-800    text-3xl md:text-5xl lg:text-[60.25px] mr-auto">
+       <h3 className="text-gray-800 font-bold  font-mont  text-center   text-2xl   lg:text-3xl     md:text-left  px-2">
         Learn more about SOSF
       </h3>
       </section>
