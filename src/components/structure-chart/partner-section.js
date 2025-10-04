@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Users, Target, Lightbulb, HandHeart, ChevronRight } from "lucide-react"
+import {ChevronRight } from "lucide-react"
+import CustomIcon from "./Main/Main-Atoms/CustomIcon"
 
 export default function PartnerSection() {
   return (
@@ -24,102 +24,81 @@ export default function PartnerSection() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[25px]">
           {/* Who this is for */}
-          <Card className="bg-background_blue border-gray-200">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <Users className="w-6 h-6 text-blue-600" />
-                <CardTitle className="text-lg">Who this is for</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <p className="text-sm text-gray-700 leading-relaxed">
-               Senior industry leaders, retirees, philanthropists, and purpose-drivenindividuals looking to create long-term, scalable impact aligned with their values.
+          <div className="bg-background_blue border-gray-200 flex flex-col items-center py-[25px] px-[15px] gap-[21px] w-[355px] h-[354px]">
+             <CustomIcon src="/assets/icons/01.svg" alt="User Icon" className="w-6 h-6 text-blue-600" />
+             <h1 className="text-lg">Who this is for</h1>
+             <p className="text-sm leading-relaxed">
+                Senior industry leaders, retirees, philanthropists, and purpose-driven individuals looking to create long-term, scalable impact aligned with their values.
               </p>
-            </CardContent>
-          </Card>
+          </div>
 
           {/* What's Expected of You */}
-          <Card className="bg-background_blue border-gray-200">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <Target className="w-6 h-6 text-blue-600" />
-                <CardTitle className="text-lg">What's Expected of You</CardTitle>
+          <div className="bg-background_blue border-gray-200 flex flex-col items-center p-[25px] px-[15px] gap-[21px] w-[355px] h-[354px]">
+                <CustomIcon src="/assets/icons/02.svg" alt="Target Icon" className="w-6 h-6 text-blue-600" />
+                <h1 className="text-lg">What's Expected of You</h1>
+              <div className="flex justify-center items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check  Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">Provide the vision, funding (or assets), and time (if desired)</p>
               </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">Provide the vision, funding (or assets), and time (if desired)</p>
+              <div className="flex justify-center items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm"> Collaborate in reviews and final decisions</p>
               </div>
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700"> Collaborate in reviews and final decisions</p>
-              </div>
-            </CardContent>
-          </Card>
+          </div>
 
           {/* What You Can Do */}
-          <Card className="bg-background_blue border-gray-200">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <Lightbulb className="w-6 h-6 text-blue-600" />
-                <CardTitle className="text-lg">What You Can Do</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">
-                  Launch your own social initiatives (scholarships, fellowships, mentorships, seed funds, talent
-                  administration, grant schemes, etc.)
+          <div className="bg-background_blue border-gray-200 flex flex-col items-center p-[25px] px-[15px] gap-[21px] w-[355px] h-[354px]">
+                <CustomIcon src="/assets/icons/03.svg" alt="Lightbulb Icon" className="w-6 h-6 text-blue-600 mt-6 ml-6" />
+                <h1 className="text-lg">What You Can Do</h1>
+              <div className="flex items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">
+                 Launch your own social initiatives (scholarships, fellowships, mentorships, waqf funds, zakat administration, grant schemes, etc.)
                 </p>
               </div>
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">
-                  Co-create and lead impactful projects with SOSF's full backend support
+              <div className="flex items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">
+                   Co-create and lead impactful projects with SOSF’s full backend support
                 </p>
               </div>
-            </CardContent>
-          </Card>
+          </div>
 
           {/* What SOSF Does for You */}
-          <Card className="bg-background_blue border-gray-200">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <HandHeart className="w-6 h-6 text-blue-600" />
-                <CardTitle className="text-lg">Wha`t SOSF Does for You</CardTitle>
+          <div className="bg-background_blue border-gray-200 flex flex-col items-center p-[15px] px-[15px] gap-[21px] w-[353px] h-[354px]">
+                <CustomIcon src="/assets/icons/04.svg" alt="Support Icon"/>
+                <h1 className="text-lg">What SOSF Does for You</h1>
+              <div className="flex items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">Research and Strategy Design</p>
               </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">Research and Strategy Design</p>
+              <div className="flex items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">Full Project Execution</p>
               </div>
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">Full Project Execution</p>
+              <div className="flex items-start  gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">Marketing and Outreach</p>
               </div>
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">Marketing and Outreach</p>
+              <div className="flex items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">Marketing and Outreach</p>
               </div>
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">Impact Reporting and Analytics</p>
+              <div className="flex items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">Impact Reporting and Analytics</p>
               </div>
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">Partnership Development</p>
+              <div className="flex items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">Partnership Development</p>
               </div>
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-gray-700">Financial Oversight and Resource Allocation</p>
+              <div className="flex items-start gap-4">
+                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
+                <p className="text-sm">Financial Oversight and Resource Allocation</p>
               </div>
-            </CardContent>
-          </Card>
+          </div>
         </div>
       </div>
     </section>
