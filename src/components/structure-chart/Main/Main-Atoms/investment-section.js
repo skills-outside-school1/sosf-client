@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/shared/cards/card"
+import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge"
 import { TrendingUp, Building, DollarSign, Gift } from "lucide-react"
 
 export default function InvestmentSection() {

@@ -1,6 +1,6 @@
-import { Card, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Card, CardHeader, CardTitle } from "@/components/shared/cards/card"
+import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import { Shield, Crown, HandCoins,Hand,Users  } from "lucide-react"
 
 export default function GovernanceSection() {

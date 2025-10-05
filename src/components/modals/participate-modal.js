@@ -1,8 +1,8 @@
 "use client"
 
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Dialog, DialogContent } from "@/components/structure-chart/Main/Main-Atoms/dialog"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
+import { Card, CardContent } from "@/components/shared/cards/card"
 import {
   Zap,
   Users,
@@ -20,7 +20,7 @@ import {
   Building2,
 } from "lucide-react"
 import { useState, useEffect } from "react"
-import IframeModal from "../iframe-modal"
+import IframeModal from "../shared/modals/iframe-modal"
 
 
 // forms

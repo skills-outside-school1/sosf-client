@@ -1,7 +1,7 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import {ChevronRight } from "lucide-react"
-import CustomIcon from "./Main/Main-Atoms/CustomIcon"
+import CustomIcon from "./CustomIcon"
 
 export default function PartnerSection() {
   return (

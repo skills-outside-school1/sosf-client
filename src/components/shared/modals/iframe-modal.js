@@ -1,6 +1,6 @@
 "use client"
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/structure-chart/Main/Main-Atoms/dialog"
 
 export default function IframeModal({ isOpen, onClose, title, iframeUrl, description }) {
   return (

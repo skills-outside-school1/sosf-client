@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
+import IframeModal from "@/components/shared/modals/iframe-modal";
+import formLinks from "@/utils/formLinks";
 
 const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
   const [currentQuestionId, setCurrentQuestionId] = useState("ROOT");
   const [answers, setAnswers] = useState({});
-  const [recommendation, setRecommendation] = useState(null);
+  const [recommendedForm, setrecommendedForm] = useState(null);
   const [systemResponse, setSystemResponse] = useState(null);
   const [cta, setCta] = useState(null);
   const [history, setHistory] = useState(["ROOT"]);
   const [multiSelectAnswers, setMultiSelectAnswers] = useState({});
+  const [iframeOpen, setIframeOpen] = useState(false);
 
   // Restore progress if available
   useEffect(() => {
@@ -15,12 +18,19 @@ const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
       setCurrentQuestionId(initialProgress.currentQuestionId || "ROOT");
       setAnswers(initialProgress.answers || {});
       setHistory(initialProgress.history || ["ROOT"]);
-      setRecommendation(initialProgress.recommendation || null);
+      setrecommendedForm(initialProgress.recommendedForm || null);
       setSystemResponse(initialProgress.systemResponse || null);
       setCta(initialProgress.cta || null);
       setMultiSelectAnswers(initialProgress.multiSelectAnswers || {});
     }
   }, [initialProgress]);
+
+  // Auto-open iframe when recommendedForm appears
+  useEffect(() => {
+    if (recommendedForm) {
+      setIframeOpen(true);
+    }
+  }, [recommendedForm]);
 
   const currentQuestion = questionTree[currentQuestionId];
 
@@ -28,9 +38,9 @@ const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
     const newAnswers = { ...answers, [currentQuestionId]: answer.id };
     setAnswers(newAnswers);
 
-    if (answer.recommendation) {
-      setRecommendation(answer.recommendation);
-      onSave?.(newAnswers, currentQuestionId, answer.recommendation);
+    if (answer.recommendedForm) {
+      setrecommendedForm(answer.recommendedForm);
+      onSave?.(newAnswers, currentQuestionId, answer.recommendedForm);
     } else if (answer.systemResponse) {
       setSystemResponse(answer.systemResponse);
       onSave?.(newAnswers, currentQuestionId, null);
@@ -78,9 +88,9 @@ const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
         setHistory([...history, firstAnswer.nextQuestion]);
         setCurrentQuestionId(firstAnswer.nextQuestion);
         onSave?.(newAnswers, firstAnswer.nextQuestion, null);
-      } else if (firstAnswer?.recommendation) {
-        setRecommendation(firstAnswer.recommendation);
-        onSave?.(newAnswers, currentQuestionId, firstAnswer.recommendation);
+      } else if (firstAnswer?.recommendedForm) {
+        setrecommendedForm(firstAnswer.recommendedForm);
+        onSave?.(newAnswers, currentQuestionId, firstAnswer.recommendedForm);
       }
     }
   };
@@ -92,20 +102,22 @@ const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
       const prevQuestionId = newHistory[newHistory.length - 1];
       setHistory(newHistory);
       setCurrentQuestionId(prevQuestionId);
-      setRecommendation(null);
+      setrecommendedForm(null);
       setSystemResponse(null);
       setCta(null);
+      setIframeOpen(false);
     }
   };
 
   const restartQuiz = () => {
     setCurrentQuestionId("ROOT");
     setAnswers({});
-    setRecommendation(null);
+    setrecommendedForm(null);
     setSystemResponse(null);
     setCta(null);
     setHistory(["ROOT"]);
     setMultiSelectAnswers({});
+    setIframeOpen(false);
   };
 
   if (!currentQuestion) {
@@ -123,26 +135,19 @@ const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
     );
   }
 
-  if (recommendation) {
+  // --- recommendedForm with Auto-Opened IframeModal ---
+  if (recommendedForm) {
+    const formUrl = formLinks[recommendedForm] || null;
+
     return (
-      <div style={styles.pageContainer}>
-        <div style={styles.container}>
-          <div style={styles.header}>
-            <h2 style={styles.title}>Pathway Recommendation</h2>
-            <button onClick={goBack} style={styles.backButton}>
-              ← Back
-            </button>
-          </div>
-          <div style={styles.recommendation}>
-            <div style={styles.recommendationIcon}>✓</div>
-            <p>Based on your answers, we recommend:</p>
-            <h3 style={styles.recommendationText}>{recommendation}</h3>
-            <button onClick={restartQuiz} style={styles.button}>
-              Start Over
-            </button>
-          </div>
-        </div>
-      </div>
+      <>
+        <IframeModal
+          isOpen={iframeOpen}
+          onClose={() => setIframeOpen(false)}
+          title={recommendedForm}
+          iframeUrl={formUrl}
+        />
+      </>
     );
   }
 
@@ -189,11 +194,16 @@ const QuizComponent = ({ questionTree, initialProgress, onSave }) => {
     );
   }
 
+  // --- Question UI ---
   return (
     <div style={styles.pageContainer}>
       <div style={styles.container}>
         <div style={styles.header}>
-          <h2 style={styles.title}>Welcome to the Skills Outside School Foundation (SOSF). Below is Personalized Pathway to getting involved as a partner, investor, participant or governance contributor.</h2>
+          <h2 style={styles.title}>
+            Welcome to the Skills Outside School Foundation (SOSF). Below is
+            Personalized Pathway to getting involved as a partner, investor,
+            participant or governance contributor.
+          </h2>
           {history.length > 1 && (
             <button onClick={goBack} style={styles.backButton}>
               ← Back
@@ -382,8 +392,8 @@ const styles = {
     minHeight: "60px",
   },
   selectedMultiSelectOption: {
-    borderColor: "#4c7abf",    
-    backgroundColor: "#e8f2f5", 
+    borderColor: "#4c7abf",
+    backgroundColor: "#e8f2f5",
   },
   checkbox: {
     width: "20px",
@@ -413,25 +423,6 @@ const styles = {
     minWidth: "120px",
     transition: "all 0.2s ease",
   },
-  recommendation: {
-    padding: "clamp(20px, 5vw, 30px)",
-    backgroundColor: "#e8f2f5",
-    borderRadius: "12px",
-    textAlign: "center",
-    margin: "20px 0",
-  },
-  recommendationIcon: {
-    fontSize: "clamp(36px, 8vw, 48px)",
-    color: "#4c6faf",
-    marginBottom: "15px",
-  },
-  recommendationText: {
-    color: "#4c6faf",
-    fontSize: "clamp(20px, 5vw, 24px)",
-    margin: "15px 0",
-    fontWeight: "600",
-    lineHeight: "1.4",
-  },
   systemResponse: {
     padding: "clamp(20px, 5vw, 30px)",
     backgroundColor: "#e3f2fd",
@@ -453,7 +444,7 @@ const styles = {
     fontWeight: "600",
   },
   footer: {
-    marginTop: "auto",      
+    marginTop: "auto",
     paddingTop: "15px",
     borderTop: "1px solid #e0e0e0",
     textAlign: "center",
@@ -472,3 +463,4 @@ const styles = {
 };
 
 export default QuizComponent;
+

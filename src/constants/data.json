@@ -76,7 +76,7 @@
         {
           "id": "QP5A1",
           "text": "Yes",
-          "recommendation": "(Scale-Up Impact Partner Form here)"
+          "recommendedForm": "Scale-Up Impact Partner Form"
         },
         {
           "id": "QP5A2",
@@ -118,12 +118,12 @@
         {
           "id": "QN1_YES",
           "text": "Yes",
-          "recommendation": "(Network & Ecosystem Partner form here)"
+          "recommendedForm": "Network & Ecosystem Partner form"
         },
         {
           "id": "QN1_NO",
           "text": "No",
-          "recommendation": "(Advisor form here)"
+          "recommendedForm": "Advisor form"
         }
       ]
     },
@@ -135,27 +135,27 @@
         {
           "id": "QI1_CASH",
           "text": "Cash (donations, CSR, zakat, etc.)",
-          "recommendation": "(investment interest  form here 1)"
+          "recommendedForm": "investment interest form"
         },
         {
           "id": "QI1_LIQUID",
           "text": "Liquid Assets (T-bills, shares, mutual funds)",
-          "recommendation": "(investment interest  form here 2)"
+          "recommendedForm": "investment interest form"
         },
         {
           "id": "QI1_NONLIQUID",
           "text": "Non-liquid Assets (real estate, NFTs, royalties)",
-          "recommendation": "(investment interest  form here 3)"
+          "recommendedForm": "investment interest form"
         },
         {
           "id": "QI1_INKIND",
           "text": "In-kind Contributions (products, platforms, services)",
-          "recommendation": "(investment interest  form here 4)"
+          "recommendedForm": "investment interest form"
         },
         {
           "id": "QI1_OTHER",
           "text": "Other",
-          "recommendation": "(investment interest  form here 5)"
+          "recommendedForm": "investment interest form"
         }
       ]
     },
@@ -166,27 +166,27 @@
         {
           "id": "QG1_MENTOR",
           "text": "Mentorship",
-          "recommendation": "(Govern (Volunteer) form here 1)"
+          "recommendedForm": "Govern Volunteer form"
         },
         {
           "id": "QG1_EVENT",
           "text": "Event Hosting",
-          "recommendation": "(Govern (Volunteer) form here 2)"
+          "recommendedForm": "Govern Volunteer form"
         },
         {
           "id": "QG1_CONTENT",
           "text": "Content Support",
-          "recommendation": "(Govern (Volunteer) form here 3)"
+          "recommendedForm": "Govern Volunteer form"
         },
         {
           "id": "QG1_TRAINING",
           "text": "Training/Curriculum Delivery",
-          "recommendation": "(Govern (Volunteer) form here 4)"
+          "recommendedForm": "Govern Volunteer form"
         },
         {
           "id": "QG1_OTHER",
           "text": "Other",
-          "recommendation": "(Govern (Volunteer) form here 5)"
+          "recommendedForm": "Govern Volunteer form"
         }
       ]
     },
@@ -261,7 +261,7 @@
         {
           "id": "QP4B1",
           "text": "Yes",
-          "recommendation": "(Corporate Partner Form here 1)"
+          "recommendedForm": "Corporate Partner Form"
         },
         {
           "id": "QP4B2",
@@ -292,7 +292,7 @@
         {
           "id": "QP6B4",
           "text": "Promote SOSF via your networks and communications platforms",
-          "recommendation": "(Network & Ecosystem Partner Form here 1)"
+          "recommendedForm": "Network & Ecosystem Partner Form"
         },
         {
           "id": "QP6B5",
@@ -313,27 +313,27 @@
         {
           "id": "QP7B1",
           "text": "K-12 School",
-          "recommendation": "(Enroll in SOSF Bridge Basic/Intermediate form here)"
+          "recommendedForm": "Enroll in SOSF Bridge Basic/Intermediate form"
         },
         {
           "id": "QP7B2",
           "text": "Intermediary (NGO, Trust, Company)",
-          "recommendation": "(Apply for SOSF Micro/Small/Large Grants form here 1)"
+          "recommendedForm": "Apply for SOSF Micro/Small/Large Grants form"
         },
         {
           "id": "QP7B3",
           "text": "Farmer Association / Agricultural Network",
-          "recommendation": "(Join SOSF HeadStart Agropreneurs form here 1)"
+          "recommendedForm": "Join SOSF HeadStart Agropreneurs form"
         },
         {
           "id": "QP7B4",
           "text": "Informal Worker Group / Trade Network",
-          "recommendation": "(Join SOSF HeadStart General form here 1)"
+          "recommendedForm": "Join SOSF HeadStart General form"
         },
         {
           "id": "QP7B5",
           "text": "Other",
-          "recommendation": "(Submit Expression of Interest to Participate form here 1)"
+          "recommendedForm": "Submit Expression of Interest to Participate form"
         }
       ]
     },
@@ -344,12 +344,12 @@
         {
           "id": "QP8B1",
           "text": "Access Reports & Raw Datasets",
-          "recommendation": "(Fill SOSF Data Access Form here 1)"
+          "recommendedForm": "Fill SOSF Data Access Form"
         },
         {
           "id": "QP8B2",
           "text": "Register Beneficiaries/Orgs in Social & Economic Register",
-          "recommendation": "(Register in SOSF S&E Register here 1)"
+          "recommendedForm": "Register in SOSF S&E Register"
         }
       ]
     },
@@ -360,32 +360,32 @@
         {
           "id": "QP9B1",
           "text": "Catalyst - Submit a change initiative (SOSF alumni only)",
-          "recommendation": "(Catalyst Submission Form here 1)"
+          "recommendedForm": "Catalyst Submission Form"
         },
         {
           "id": "QP9B2",
           "text": "Mobilizer - Engage SOSF volunteers in your program",
-          "recommendation": "(Volunteer Access Request Form here 1)"
+          "recommendedForm": "Volunteer Access Request Form"
         },
         {
           "id": "QP9B3",
           "text": "Connector - Join a coalition with SOSF",
-          "recommendation": "(Connector Registration Form here 1)"
+          "recommendedForm": "Connector Registration Form"
         },
         {
           "id": "QP9B4",
           "text": "Champion - Support mainstreaming SOSF programs",
-          "recommendation": "(Champion Form here 1)"
+          "recommendedForm": "Champion Form"
         },
         {
           "id": "QP9B5",
           "text": "Awareness Builder - Co-host or invite SOSF to events",
-          "recommendation": "(Awareness Collaboration Form here 1)"
+          "recommendedForm": "Awareness Collaboration Form"
         },
         {
           "id": "QP9B6",
           "text": "Policy Advocate - Co-develop policies or manuals",
-          "recommendation": "(Policy Advocacy Form here 1)"
+          "recommendedForm": "Policy Advocacy Form"
         }
       ]
     },
@@ -397,27 +397,27 @@
         {
           "id": "QI2_CSR",
           "text": "CSR/Grant Funding",
-          "recommendation": "Invest"
+          "recommendedForm": "Invest Form"
         },
         {
           "id": "QI2_VOLUNTEER",
           "text": "Employee Volunteering Time",
-          "recommendation": "Invest"
+          "recommendedForm": "Invest Form"
         },
         {
           "id": "QI2_INKIND",
           "text": "In-kind Support (tools, tech, platforms)",
-          "recommendation": "Invest"
+          "recommendedForm": "Invest Form"
         },
         {
           "id": "QI2_ADVICE",
           "text": "Strategic Advice / Consulting",
-          "recommendation": "Invest"
+          "recommendedForm": "Invest Form"
         },
         {
           "id": "QI2_DATA",
           "text": "Data, Policy, or Advocacy Support",
-          "recommendation": "Invest"
+          "recommendedForm": "Invest Form"
         }
       ]
     },
@@ -507,7 +507,7 @@
         {
           "id": "QP5C1",
           "text": "Yes",
-          "recommendation": "Network & Ecosystem Partner"
+          "recommendedForm": "Network & Ecosystem Partner Form"
         },
         {
           "id": "QP5C2",
@@ -549,27 +549,27 @@
         {
           "id": "QP7C1",
           "text": "K-12 School",
-          "recommendation": "Enroll in SOSF Bridge Basic/Intermediate form here"
+          "recommendedForm": "Enroll in SOSF Bridge Basic/Intermediate form"
         },
         {
           "id": "QP7C2",
           "text": "NGO working with schools",
-          "recommendation": "Apply for SOSF Grant + Bridge Enrollment form here"
+          "recommendedForm": "Apply for SOSF Grant + Bridge Enrollment form"
         },
         {
           "id": "QP7C3",
           "text": "Farmer Association / Coop",
-          "recommendation": "Join SOSF HeadStart (Agropreneurs) form here"
+          "recommendedForm": "Join SOSF HeadStart (Agropreneurs) form"
         },
         {
           "id": "QP7C4",
           "text": "Informal Sector Worker Group",
-          "recommendation": "Join SOSF HeadStart (General) form here"
+          "recommendedForm": "Join SOSF HeadStart (General) form"
         },
         {
           "id": "QP7C5",
           "text": "Other Organization",
-          "recommendation": "Apply for SOSF Grant (Micro/Small/Large) form here"
+          "recommendedForm": "Apply for SOSF Grant (Micro/Small/Large) form"
         }
       ]
     },
@@ -580,32 +580,32 @@
         {
           "id": "QP8C1",
           "text": "Catalyst - Submit a change initiative (SOSF alumni only)",
-          "recommendation": "Alumni Catalyst Submission Form here"
+          "recommendedForm": "Alumni Catalyst Submission Form"
         },
         {
           "id": "QP8C2",
           "text": "Mobilizer - Engage/host SOSF volunteers in your programs",
-          "recommendation": "Volunteer Access Request Form here"
+          "recommendedForm": "Volunteer Access Request Form"
         },
         {
           "id": "QP8C3",
           "text": "Connector - Join a coalition with SOSF",
-          "recommendation": "Connector Registration Form here"
+          "recommendedForm": "Connector Registration Form"
         },
         {
           "id": "QP8C4",
           "text": "Champion - Support mainstreaming/institutionalizing SOSF programs",
-          "recommendation": "Champion Registration Form here"
+          "recommendedForm": "Champion Registration Form"
         },
         {
           "id": "QP8C5",
           "text": "Awareness Builder - Co-host events or invite SOSF to your platforms",
-          "recommendation": "Awareness Collaboration Form here"
+          "recommendedForm": "Awareness Collaboration Form"
         },
         {
           "id": "QP8C6",
           "text": "Policy Advocate - Co-develop policies or regulatory manuals with SOSF",
-          "recommendation": "Policy Advocacy Form here"
+          "recommendedForm": "Policy Advocacy Form "
         }
       ]
     }

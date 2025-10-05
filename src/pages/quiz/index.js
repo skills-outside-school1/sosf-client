@@ -38,7 +38,7 @@ export default function QuizPage() {
   }, []);
 
   // Save progress + handle submission
-  const handleSave = async (answers, currentQuestionId, recommendation) => {
+  const handleSave = async (answers, currentQuestionId, recommendedForm) => {
     try {
       // Always save progress
       await fetch("/api/saveProgress", {
@@ -47,12 +47,12 @@ export default function QuizPage() {
         body: JSON.stringify({ email, answers, currentQuestionId }),
       });
 
-      // If quiz ends with a recommendation, trigger submission
-      if (recommendation) {
+      // If quiz ends with a recommendedForm, trigger submission
+      if (recommendedForm) {
         await fetch("/api/submitQuiz", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, answers, recommendation }),
+          body: JSON.stringify({ email, answers, recommendedForm }),
         });
         
         // Clear the stored email after submission
