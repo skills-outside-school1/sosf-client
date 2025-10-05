@@ -2,14 +2,14 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
+import { Card, CardContent } from "@/components/shared/cards/card"
 import { User, Users, DollarSign, Building, UserPlus } from "lucide-react"
-import { ParticipateModal } from "./modals/participate-modal"
-import { PartnerModal } from "./modals/partner-modal"
-import { InvestModal } from "./modals/invest-modal"
+import { ParticipateModal } from "../../../modals/participate-modal"
+import { PartnerModal } from "../../../modals/partner-modal"
+import { InvestModal } from "../../../modals/invest-modal"
 
-import IframeModal from "./iframe-modal"   
+import IframeModal from "../../../shared/modals/iframe-modal"   
 
 
 

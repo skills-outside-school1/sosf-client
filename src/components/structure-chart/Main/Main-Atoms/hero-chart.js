@@ -1,6 +1,6 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/shared/cards/card"
 import { Users, Building2, Snowflake, UserStar,ChevronsDown } from "lucide-react"
 import { Link } from "react-scroll"
 import Hero from "@/components/home/Home-Atoms/Hero";

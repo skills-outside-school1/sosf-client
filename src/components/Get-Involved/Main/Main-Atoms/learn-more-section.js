@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/shared/cards/card"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 

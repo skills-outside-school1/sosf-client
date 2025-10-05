@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import Link from "next/link"
 
 export function StructureChart() {
@@ -10,7 +10,7 @@ export function StructureChart() {
           Welcome to the Skills Outside School Foundation (SOSF). Below is your personalized pathway to getting involved
           – whether as a partner, investor, participant, or governance contributor.
         </p>
-        <Link href="/structure-chart" passHref>
+        <Link href="/get-involved/explore-chart" passHref>
           <Button className="w-32 border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9]">Explore the Chart</Button>
         </Link>
       </div>

@@ -1,12 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/structure-chart/Main/Main-Atoms/dialog"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
+import { Card, CardContent } from "@/components/shared/cards/card"
 import { ExternalLink, TrendingUp, HandCoins, Users, Gift } from "lucide-react"
 
-import IframeModal from "../iframe-modal"
+import IframeModal from "../shared/modals/iframe-modal"
 
 const LiquidAssets = [
   { name: "Shares" },

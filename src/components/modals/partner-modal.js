@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Dialog, DialogContent } from "@/components/structure-chart/Main/Main-Atoms/dialog"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
+import { Card, CardContent } from "@/components/shared/cards/card"
 import { User, Building, X } from "lucide-react"
-import IframeModal from "../iframe-modal"
+import IframeModal from "../shared/modals/iframe-modal"
 
 export function PartnerModal({ open, onOpenChange }) {
   // iframe URLs (just the src, not full <iframe> markup)
