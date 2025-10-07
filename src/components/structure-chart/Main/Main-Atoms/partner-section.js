@@ -1,8 +1,6 @@
 import { useRef } from "react";
 import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge";
-import { Button } from "@/components/structure-chart/Main/Main-Atoms/button";
-import { ChevronRight } from "lucide-react";
-import InfoCarousel from "../../../shared/Atoms/Cards-Atoms/InfoCarousel";
+import InfoCarousel from "./InfoCarousel";
 
 // Shared icon for all slides
 const sharedIcon = "/assets/icons/check.svg";

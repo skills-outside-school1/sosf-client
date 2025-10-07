@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CustomIcon from "../../../structure-chart/Main/Main-Atoms/CustomIcon";
+import CustomIcon from "./CustomIcon";
 import { Button } from "@/components/structure-chart/Main/Main-Atoms/button";
 import { ChevronRight } from "lucide-react";
 
