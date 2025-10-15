@@ -1,9 +1,17 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/structure-chart/Main/Main-Atoms/dialog"
 import { Card, CardContent } from "@/components/shared/cards/card"
-import { HandCoins, Users, Briefcase } from "lucide-react" // Assuming an icon for services, e.g., Briefcase
+import { HandCoins, Users, Briefcase } from "lucide-react" 
+import CustomIcon from "../structure-chart/Main/Main-Atoms/CustomIcon";
+
+// icons
+const services = "/assets/icons/services.svg"
+const products = "/assets/icons/products.svg"
+const expertise = "/assets/icons/expertise.svg"
+
 
 import IframeModal from "../shared/modals/iframe-modal"
 
@@ -42,19 +50,19 @@ const financialContributionTypes = [
 // You may need to replace 'Briefcase' and adjust the import for the exact icons from the image.
 const inKindResources = [
     {
-        icon: <HandCoins className="h-6 w-6 text-gray-700" />,
+        icon: <CustomIcon src={products} className="h-6 w-6 text-gray-700" />,
         title: "In-Kind Resources – Products",
         description: "Contributing products or services from you or your organization at a subsidized rate, free, or adapting them to meet the needs of SOSF beneficiaries.",
         action: "organization"
     },
     {
-        icon: <Briefcase className="h-6 w-6 text-gray-700" />, // Placeholder icon
+        icon: <CustomIcon src={services} className="h-6 w-6 text-gray-700" />,
         title: "In-Kind Resources – Services",
         description: "Contributing products or services from you or your organization at a subsidized rate, free, or adapting them to meet the needs of SOSF Trust beneficiaries.",
         action: "organization"
     },
     {
-        icon: <Users className="h-6 w-6 text-gray-700" />,
+        icon: <CustomIcon src={expertise} className="h-6 w-6 text-gray-700" />,
         title: "In-Kind Resources – Expertise",
         description: "Your network, knowledge or skills on a pro bono basis by joining the SOSF Advisory Council.",
         action: "network"
@@ -89,7 +97,7 @@ export function InvestModal({ open, onOpenChange }) {
           <div className="overflow-y-auto max-h-[90vh] p-6 md:p-10">
             <DialogHeader className="text-left mb-6 sm:mb-8">
               <DialogTitle className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                Form of Investment
+                Forms of Investment
               </DialogTitle>
               <p className="text-left text-base md:text-lg text-gray-600">
                 Invest in any of the following assets, what would you like to contribute or invest?
@@ -99,7 +107,30 @@ export function InvestModal({ open, onOpenChange }) {
             <div className="space-y-8">
               {/* Liquid Assets */}
               <div className="text-left bg-background_blue p-4">
-                <h3 className="text-lg font-semibold  text-gray-900 mb-4">Liquid Assets</h3>
+                  <div className="flex justify-between items-center mb-8">
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      Liquid Assets
+                    </h3>
+                    <Link href="#" className="flex items-center space-x-2 text-gray-700 font-medium hover:text-black transition-colors">
+                      <span>See Form</span>
+                      {/* Arrow Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
+
                 <div className="flex flex-wrap gap-3 text-left">
                   {LiquidAssets.map((asset) => (
                     <div
@@ -114,7 +145,27 @@ export function InvestModal({ open, onOpenChange }) {
 
               {/* Non-Liquid Assets */}
               <div className="text-left bg-background_blue p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Non-Liquid Assets</h3>
+                <div className="flex justify-between items-center mb-8">
+                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Non-Liquid Assets</h3>
+                    <Link href="#" className="flex items-center space-x-2 text-gray-700 font-medium hover:text-black transition-colors">
+                      <span>See Form</span>
+                      {/* Arrow Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
                 <div className="flex flex-wrap gap-3 text-left">
                   {nonLiquidAssets.map((asset) => (
                     <div
@@ -129,9 +180,29 @@ export function InvestModal({ open, onOpenChange }) {
 
               {/* Financial Contribution Types */}
               <div className="text-left bg-background_blue p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Invest in any of the following assets, what would you like to contribute or invest?
+                  <div className="flex justify-between items-center mb-8">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Invest Cash- Direct financial contributions in the form of
                 </h3>
+                    <Link href="#" className="flex items-center space-x-2 text-gray-700 font-medium hover:text-black transition-colors">
+                      <span>See Form</span>
+                      {/* Arrow Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
                 <div className="flex flex-wrap gap-3 text-left">
                   {financialContributionTypes.map((type) => (
                     <div
@@ -156,12 +227,14 @@ export function InvestModal({ open, onOpenChange }) {
                         className="bg-gray-100 border-none hover:shadow-md transition-shadow duration-300 cursor-pointer p-6"
                         onClick={() => handleInKindClick(resource.action)}
                     >
-                      <CardContent className="p-0 text-left flex flex-col items-start gap-4">
-                        <div>{resource.icon}</div>
-                        <h4 className="font-bold text-gray-900 text-base">
-                          {resource.title}
-                        </h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">
+                      <CardContent className="p-0 text-center flex flex-col items-start gap-4">
+                        <div className="flex flex-col items-center gap-3">
+                          <div>{resource.icon}</div>
+                          <h4 className="font-bold text-gray-900 text-base">
+                              {resource.title}
+                          </h4>
+                        </div>
+                        <p className="text-sm text-center text-gray-600 leading-relaxed">
                           {resource.description}
                         </p>
                       </CardContent>

@@ -37,7 +37,7 @@ const policyAdvocateFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSF
 // const bridgeFormUrl = "url here"
 // const headstartFormUrl = "url here"
 // const grantsFormUrl = "url here"
-// const osbOscFormUrl = "url here"
+const osbOscFormUrl = "https://www.udemy.com/user/skills-outside-school/?srsltid=AfmBOoq1RoOD9Q_BubAaraqk5kBUbrFip3IOgpWm31fyQPtcVVYhc5pm"
 // const catalystFormUrl = "url here"
 // 
 
@@ -55,6 +55,7 @@ export function ParticipateModal({ open, onOpenChange }) {
     const [connectorFormOpen, setConnectorFormOpen] = useState(false)
     const [awarenessBuilderFormOpen, setAwarenessBuilderFormOpen] = useState(false)
     const [policyAdvocateFormOpen, setPolicyAdvocateFormOpen] = useState(false)
+    const [osbOscFormOpen, setOsbOscFormOpen] = useState(false)
 
 
 
@@ -157,7 +158,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       SOSF Bridge
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                   The SOSF Bridge Program is our flagship education intervention, equipping students in government secondary and tertiary institutions with the knowledge, skills, and attitudes to thrive in tomorrow's world
+                   Our flagship intervention, equipping students in government secondary &  higher educational institutions with the tools, knowledge, skills & attitude to become Valuable, Influential & Profitable through Tongston's all-in-one platform: T-World. 
                     </p>
                     <Button className="w-32 border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] hover:scale-105 hover:shadow-xl transition-transform">
                       Get Started
@@ -174,10 +175,10 @@ export function ParticipateModal({ open, onOpenChange }) {
                       </div>
                     </div>
                     <h3 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-tight">
-                      SOSF Headstart – as a farmer (participant)
+                      SOSF Headstart – as a farmer 
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                     Our SOSF Headstart Agropreneurs Program is transforming small-scale and vulnerable farming across Africa. This initiative boosts yield, income, and resilience for farmers of high-value crops like cassava and plantain
+                     Transforming small-scale and vulnerable farming by boosting yield, income, and resilience for farmers thereby positioning agriculture into a Valuable, Influential & Profitable profession.
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Get Started →
@@ -197,7 +198,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       SOSF Grants
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      SOSF Grants provide targeted, non-programmatic funding to individuals and institutions poised to drive transformative change across Africa.
+                      Providing targeted, non-programmatic funding & capacity building - media, enterprise, education, finance to individuals & institutions running social change projects, initiatives & businesses through Tongston's all in-one-platform: T-World. 
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Get Started →
@@ -217,9 +218,9 @@ export function ParticipateModal({ open, onOpenChange }) {
                       SOSF OSB/OSC
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      It is a series of flagship digital courses designed to equip existing and emerging entrepreneurs, job seekers, students, with the knowledge, skills, and attitude  needed to start, grow, their careers and sustain impactful ventures.
+                      Digital udemy-based courses designed to equip existing & emerging entrepreneurs, job seekers, students, with the knowledge, skills & attitudes to start, grow, sustain their careers and ventures.
                     </p>
-                    <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
+                    <Button onClick={() => setOsbOscFormOpen(true)} className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Get Started →
                     </Button>
                   </CardContent>
@@ -237,7 +238,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       SOSF Funds
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      SSOSF Grants provide targeted, non-programmatic funding to individuals and institutions poised to drive transformative change across Africa.
+                     Providing access to patient & catalytic capital to alumni of our interventions to support careers & business expansion through our flagship Scholarship & Enterprise Funds, accessible through Tongston's all in-one-platform: T-World. 
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Get Started →
@@ -289,7 +290,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As a Mobilizer
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      Advocacy through Volunteer Mobilization (Mobilizer)- access reports on our volunteers + register your organization to engage our volunteers for your work
+                      Access reports on our volunteers + register your organization to engage our volunteers for your work
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Register →
@@ -309,7 +310,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As a Connector
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      Advocacy through Stakeholder Engagement & Coalition Formation – as a user (Connector)- indicate interest to form a coalition with SOSF / invite SOSF to join a coalitionn
+                       Indicate interest to form a coalition with SOSF / invite SOSF to join a coalition
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base" 
                     onClick={() => setConnectorFormOpen(true)}
@@ -331,7 +332,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As a Champion
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      Advocacy through mainstreaming / institutionalizing interventions (champion) register to support us to mainstream/institutionalise our interventions or the outcomes of interventions
+                       Register to support us to mainstream/institutionalize our interventions or the outcomes of interventions
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base" 
                     onClick={() => setChampionFormOpen(true)}
@@ -353,7 +354,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As an Awareness Builder
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      Advocacy for Awareness Building to co-host an event / strategic campaign / invite us to an event to speak
+                       Co-host an event / strategic campaign / invite us to an event to speak
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base" 
                     onClick={() => setAwarenessBuilderFormOpen(true)}
@@ -375,7 +376,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As a Policy Advocate
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                      Advocacy through Policy & Regulation Design & Implementation (Policy Advocate) to co-design a policy/regulation; or a manual for implementation
+                     Co-design a policy/regulation; or a manual for implementation
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base" 
                     onClick={() => setPolicyAdvocateFormOpen(true)}
@@ -431,6 +432,13 @@ export function ParticipateModal({ open, onOpenChange }) {
                   title="Policy Advocate Form"
                   description="Fill out this form to become a policy advocate."
                   iframeUrl={policyAdvocateFormUrl}
+                />
+                <IframeModal
+                  isOpen={osbOscFormOpen}
+                  onClose={() => setOsbOscFormOpen(false)}
+                  title="SOSF OSB/OSC"
+                  description="Visit our Udemy page to explore our courses."
+                  iframeUrl={osbOscFormUrl}
                 />
       </DialogContent>
     </Dialog>
