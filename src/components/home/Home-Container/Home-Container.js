@@ -11,7 +11,7 @@ import PartnerSlide from "../Home-Atoms/Partnar-Slider";
 import SES from "../Home-Atoms/3Es";
 import GetInTouch from "../Home-Atoms/Get-In-Touch";
 import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
-import InteractiveMap from "../Home-Atoms/InteractiveMap";
+// import InteractiveMap from "../Home-Atoms/InteractiveMap";
 
 export default function HomeContainer() {
   return (
@@ -22,7 +22,9 @@ export default function HomeContainer() {
       <SES />
       <SDG />
       <GlobalImpact />
-      <InteractiveMap />
+
+      {/* commented out the Interactive Map */}
+      {/* <InteractiveMap /> */}
       <GetInvolved />
       <PartnerSlide />
       <GetInTouch />

@@ -64,6 +64,7 @@ module.exports = {
   			grey: '#d3d3d3',
   			blue: '#3F5CA8',
 			background_blue: '#EFF1F3',
+			click_blue: '#B7C8F4',
 			partnerblue: '#B9E7FF',
   			investpurple: '#FFBEDE',
   			governblue: '#BFD9FE',

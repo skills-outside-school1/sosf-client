@@ -34,18 +34,18 @@ const Nav2 = () => {
             { name: "Our Pillars", to: "/our-pillars" },
             { name: "Our Core Values", to: "/core-values" },
             { name: "Our USPs", to: "/our-usp" },
-            // { name: "Our Strategic Model", to: "/our-strategic-model" },
+            { name: "Our Strategic Model", to: "/our-strategic-model" },
             { name: "Our Focus Area", to: "/our-focus-areas" },
             { name: "Our Target Audience", to: "/our-target-audience" },
           ],
         },
-        // {
-        //   title: "Our Leadership",
-        //   links: [
-        //     { name: "Leaderships", to: "/leadership" },
-        //     { name: "Ambassadors", to: "/ambassadors" },
-        //   ],
-        // },
+        {
+          title: "Our Leadership",
+          links: [
+            { name: "Leaderships", to: "/leadership" },
+            { name: "Ambassadors", to: "/ambassadors" },
+          ],
+        },
         {
           title: "Global Goals",
           links: [{ name: "SDGs We Align With", to: "/sdgs" }],
@@ -57,9 +57,9 @@ const Nav2 = () => {
       ],
     },
     { name: "Our Work", to: "/our-work" },
-    // { name: "Insights", to: "/news-insights" },
+    { name: "Insights", to: "/news-insights" },
     { name: "Get Involved", to: "/get-involved" },
-    // { name: "Careers", to: "/careers" },
+    { name: "Careers", to: "/careers" },
     { name: "Contact", to: "/contact" },
   ];
 

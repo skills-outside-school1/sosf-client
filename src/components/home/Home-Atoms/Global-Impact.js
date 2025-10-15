@@ -47,7 +47,7 @@ export default function GlobalImpact() {
       number: 100,
       alpha: "k",
       char: "+",
-      description: "Businesses Reached ",
+      description: "Beneficiaries Reached ",
     },
     {
       number: 150,
