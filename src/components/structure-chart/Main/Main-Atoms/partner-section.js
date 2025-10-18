@@ -1,106 +1,153 @@
-import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge"
-import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
-import {ChevronRight } from "lucide-react"
-import CustomIcon from "./CustomIcon"
+import { useRef } from "react";
+import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge";
+import InfoCarousel from "./InfoCarousel";
+
+// Shared icon for all slides
+const sharedIcon = "/assets/icons/check.svg";
+
+// Each object = one container of 4 cards
+const partnerSlides = [
+  {
+    id: 1,
+    title: "Are You an Individual with a Passion for Legacy and Social Impact?",
+    subtitle: "Join as a Scale-Up Impact Partner",
+    sections: {
+      who: {
+        heading: "Who this is for",
+        content:
+          "Senior industry leaders, retirees, philanthropists, and purpose-driven individuals looking to create long-term, scalable impact aligned with their values.",
+      },
+      expected: {
+        heading: "What’s Expected of You",
+        items: [
+          "Provide the vision, funding (or assets), and time (if desired)",
+          "Collaborate in reviews and final decisions",
+        ],
+      },
+      canDo: {
+        heading: "What You Can Do",
+        items: [
+          "Launch your own social initiatives (scholarships, fellowships, mentorships, waqf funds, zakat administration, grant schemes, etc.)",
+          "Co-create and lead impactful projects with SOSF’s full backend support",
+        ],
+      },
+      offers: {
+        heading: "What SOSF Does for You",
+        items: [
+          "Research and Strategy Design",
+          "Full Project Execution",
+          "Marketing and Outreach",
+          "Impact Reporting and Analytics",
+          "Partnership Development",
+          "Financial Oversight and Resource Allocation",
+        ],
+      },
+    },
+  },
+  {
+    id: 2,
+    title: "Are You a Network, Coalition, or Development Platform?",
+    subtitle: "Join as a Network & Ecosystem Partner",
+    sections: {
+      who: {
+        heading: "Who this is for",
+        content:
+          "Associations, advocacy groups, research institutes, academic departments, innovation hubs, umbrella bodies (e.g., CSO forums, youth faith networks, student unions).",
+      },
+      expected: {
+        heading: "What’s Expected of You",
+        items: [
+          "Share opportunities with your network",
+          "Provide referrals and data",
+          "Be an active contributor in knowledge exchange",
+        ],
+      },
+      canDo: {
+        heading: "What You Can Do",
+        items: [
+          "Refer high-potential organizations/individuals to SOSF programs",
+          "Disseminate SOSF programs to your communities",
+          "Participate in ecosystem events and policy consultations",
+          "Co-develop thought leadership and feedback mechanisms",
+        ],
+      },
+      offers: {
+        heading: "What SOSF Offers You",
+        items: [
+          "Data & insights sharing",
+          "Co-curation of convenings, campaigns, and dialogues",
+          "Visibility and inclusion in an African development ecosystem",
+        ],
+      },
+    },
+  },
+  {
+    id: 3,
+    title: "Are You a Corporate or Institution Looking to Scale Your Social Impact?",
+    subtitle: "Join as a Strategic Impact Partner",
+    sections: {
+      who: {
+        heading: "Who this is for",
+        content:
+          "Companies, institutions, or donor agencies seeking to: launch or scale up CSR programs, access data and expertise to shape impactful interventions, support or deploy SOSF programs, and promote employee volunteerism.",
+      },
+      expected: {
+        heading: "What’s Expected of You",
+        items: [
+          "Commit capital (financial, technical, or in-kind) to initiatives",
+          "Co-own and co-review project design and impact reports",
+          "Champion the SOSF approach within your institution",
+          "Engage consistently with the SOSF team on strategic milestones",
+        ],
+      },
+      canDo: {
+        heading: "What You Can Do",
+        items: [
+          "Co-develop and deploy initiatives with SOSF",
+          "Engage SOSF through consultancy",
+          "Access our resources",
+          "Support broader impact",
+          "Support social innovators through Lead4Change",
+        ],
+      },
+      offers: {
+        heading: "What SOSF Offers You",
+        items: [
+          "End-to-end program co-creation",
+          "Consultancy across CSR, SDG integration, and employee engagement",
+          "Access to high-quality data, impact frameworks, and learning",
+          "Deployment support for field-ready or pilot-tested initiatives",
+          "Direct engagement with beneficiaries across Africa",
+          "Amplification of your brand’s social legacy through tailored outreach and reporting",
+        ],
+      },
+    },
+  },
+];
 
 export default function PartnerSection() {
+  const carouselRef = useRef(null);
+
+  const handleNext = () => {
+    if (carouselRef.current && carouselRef.current.nextSlide) {
+      carouselRef.current.nextSlide();
+    }
+  };
+
   return (
-    <section className="py-20 px-4 bg-white">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <Badge variant="outline" className="mb-4 text-partnerblue border-partnerblue rounded-full px-3 py-1 ">
-            Partner
-          </Badge>
-          <p className="text-sm text-gray-600 mb-2">Join as a scale up impact partner</p>
-          <div className="flex items-center justify-between">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-balance">
-              Are You an Individual with a Passion for Legacy and Social Impact?
-            </h2>
-            <Button variant="default" className="hidden md:flex items-center gap-2">
-              <ChevronRight className="w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[25px]">
-          {/* Who this is for */}
-          <div className="bg-background_blue border-gray-200 flex flex-col items-center py-[25px] px-[15px] gap-[21px] w-[355px] h-[354px]">
-             <CustomIcon src="/assets/icons/01.svg" alt="User Icon" className="w-6 h-6 text-blue-600" />
-             <h1 className="text-lg">Who this is for</h1>
-             <p className="text-sm leading-relaxed">
-                Senior industry leaders, retirees, philanthropists, and purpose-driven individuals looking to create long-term, scalable impact aligned with their values.
-              </p>
-          </div>
-
-          {/* What's Expected of You */}
-          <div className="bg-background_blue border-gray-200 flex flex-col items-center p-[25px] px-[15px] gap-[21px] w-[355px] h-[354px]">
-                <CustomIcon src="/assets/icons/02.svg" alt="Target Icon" className="w-6 h-6 text-blue-600" />
-                <h1 className="text-lg">What's Expected of You</h1>
-              <div className="flex justify-center items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check  Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">Provide the vision, funding (or assets), and time (if desired)</p>
-              </div>
-              <div className="flex justify-center items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm"> Collaborate in reviews and final decisions</p>
-              </div>
-          </div>
-
-          {/* What You Can Do */}
-          <div className="bg-background_blue border-gray-200 flex flex-col items-center p-[25px] px-[15px] gap-[21px] w-[355px] h-[354px]">
-                <CustomIcon src="/assets/icons/03.svg" alt="Lightbulb Icon" className="w-6 h-6 text-blue-600 mt-6 ml-6" />
-                <h1 className="text-lg">What You Can Do</h1>
-              <div className="flex items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">
-                 Launch your own social initiatives (scholarships, fellowships, mentorships, waqf funds, zakat administration, grant schemes, etc.)
-                </p>
-              </div>
-              <div className="flex items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">
-                   Co-create and lead impactful projects with SOSF’s full backend support
-                </p>
-              </div>
-          </div>
-
-          {/* What SOSF Does for You */}
-          <div className="bg-background_blue border-gray-200 flex flex-col items-center p-[15px] px-[15px] gap-[21px] w-[353px] h-[354px]">
-                <CustomIcon src="/assets/icons/04.svg" alt="Support Icon"/>
-                <h1 className="text-lg">What SOSF Does for You</h1>
-              <div className="flex items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">Research and Strategy Design</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">Full Project Execution</p>
-              </div>
-              <div className="flex items-start  gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">Marketing and Outreach</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">Marketing and Outreach</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">Impact Reporting and Analytics</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">Partnership Development</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <CustomIcon src="/assets/icons/check.svg" alt="Check Icon" className="w-[16px] h-[16px]" />
-                <p className="text-sm">Financial Oversight and Resource Allocation</p>
-              </div>
-          </div>
-        </div>
+    <div className="max-w-6xl mx-auto">
+      {/* Header Section */}
+      <div className="mb-8 flex items-center justify-between">
+        <Badge
+          variant="outline"
+          className="text-partnerblue border-partnerblue rounded-full px-3 py-1"
+        >
+          Partner
+        </Badge>
       </div>
-    </section>
-  )
+
+      {/* Carousel Section */}
+      <InfoCarousel ref={carouselRef} slides={partnerSlides} icon={sharedIcon} />
+    </div>
+  );
 }
