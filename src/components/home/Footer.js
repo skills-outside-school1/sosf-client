@@ -43,7 +43,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#CDD9F7] px-4 md:px-[4rem] lg:px-[7.6rem] py-8 md:pt-20">
+    <div className="bg-[#CDD9F7] px-4 md:px-[4rem] lg:px-[7.6rem] py-8 md:pt-20 font-inter">
       <div>
         <div className=" flex">
           <div className=" flex flex-col gap-6">
@@ -73,12 +73,40 @@ const Footer = () => {
             </div>
           </div>
           <div className=" w-full grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
+            {/* Our Company */}
+            <div className=" text-center flex flex-col gap-3">
               <H3>Our Company</H3>
+              <Link href="/">News</Link>
+              <Link href="/">About</Link>
+              <Link href="/">Careers</Link>
+              <Link href="/">Insights</Link>
+              <Link href="/">Get Involved</Link>
             </div>
-            <div>B</div>
-            <div>C</div>
+            {/* Our Interventions */}
+            <div className=" text-center flex flex-col gap-3">
+              <H3>Our Interventions</H3>
+              <Link href="/get-involved">SOSF OSBC</Link>
+              <Link href="/get-involved">SOSF Bridge</Link>
+              <Link href="/get-involved">SOSF Funds</Link>
+              <Link href="/get-involved">SOSF Grants</Link>
+              <Link href="/get-involved">SOSF Headstart</Link>
+            </div>
+            {/* Our Work */}
+            <div className=" text-center flex flex-col gap-3">
+              <H3>Our Work</H3>
+              <Link href="/get-involved">SOSF Data</Link>
+              <Link href="/get-involved">SOSF Advocacy</Link>
+              <Link href="/get-involved">SOSF Interventions</Link>
+            </div>
           </div>
+        </div>
+
+        <div className=" mt-10 flex justify-between items-center">
+          <p className=" font-inter">
+            {" "}
+            &copy; Skills Outside School Foundation {new Date().getFullYear()}
+          </p>
+          <p>Copyright by SOSF. All rights Reserved.</p>
         </div>
       </div>
     </div>
