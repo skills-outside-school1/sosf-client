@@ -71,11 +71,11 @@ export default function Subscribe() {
         <div></div>
         <div></div>
         <div>
-          <h3 className="text-xl md:text-xl font-bold text-[#000000] text-left w-full font-lato">
+          <h3 className="text-xl md:text-xl font-bold text-[#000000] text-center md:text-left w-full font-lato">
             Subscribe to our newsletter
           </h3>
 
-          <h4 className="text-base font-normal text-[#000000] text-left w-full font-inter my-5">
+          <h4 className="text-base font-normal text-[#000000] text-center md:text-left w-full font-inter my-5">
             Get news about what we are supporting and more by subscribing to our
             newsletter.
           </h4>
@@ -90,7 +90,7 @@ export default function Subscribe() {
                   type="email"
                   name="email"
                   placeholder="Enter your email address"
-                  className="w-60 bg-transparent focus:outline-none text-[#000000] placeholder:text-sm text-sm"
+                  className="w-full sm:w-60 md:w-60 bg-transparent focus:outline-none text-[#000000] placeholder:text-sm text-sm"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -113,7 +113,7 @@ export default function Subscribe() {
           </section>
 
           <section className="privacy-warning-section w-full mt-5">
-            <p className="text-[#000000] text-sm md:text-base font-normal font-inter">
+            <p className="text-[#000000] text-base md:text-base font-normal font-inter">
               By subscribing, you agree to <br />
               <Link
                 clas
