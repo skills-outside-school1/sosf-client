@@ -1,50 +1,40 @@
 import React from "react";
-import SubHero from "@/components/shared/Atoms/Subhero-Atoms/Subhero";
+import Image from "next/image";
 import { H2 } from "@/components/shared/Atoms/Typography/typography";
+import Heading from "@/components/shared/headings/Case";
 
-export default function FocusSubHero() {
-  const ero_data = [
-    {
-      heading2: "Our Focus Areas",
-      paragraph: (
-        <span className="">
-          <H2>DATA: Evidence That Drives Impact</H2>
-          <br />
-          <b> Data isn’t just a tool. It’s our compass.</b>
-          <br />
-          Through SOSF’s Data & Research Pillar, we:
-          <ul className="list-dash flex flex-col gap-y-3  mt-9 mb-5 ">
-            <li>
-              {" "}
-              Conduct full-cycle <b>
-                Monitoring, Evaluation & Learning (MEL)
-              </b>{" "}
-              for all our interventions.
-            </li>
-            <li>
-              {" "}
-              Deliver<b> third-party advisory services</b> through our
-              integrated, AI-powered systems.
-            </li>
-            <li>
-              Lead strategic <b>thought leadership</b> and{" "}
-              <b>policy-influencing publications</b>.
-            </li>
-          </ul>
-          Key Enabler: SOSF Social & Economic Register A game-changing digital
-          platform that captures real-time, multilingual, geo-tagged data on our
-          direct and intermediary beneficiaries. It powers everything we do—from
-          program design to advocacy, funding decisions, and reporting.
-        </span>
-      ),
-    },
-  ];
+const FocusSubHero = () => {
   return (
-    <div className=" w-full justify-start items-start flex flex-row">
-      <SubHero
-        items={ero_data}
-        className={` w-full md:w-full lg:w-full px-2`}
-      />
+    <div className="">
+      <div className="px-4 md:px-[4rem] lg:px-[7.6rem] mb-4">
+        <Heading text="Our Focus Areas" />
+      </div>
+      <div className=" flex flex-col-reverse md:flex-row items-center px-4 md:px-[3rem] lg:px-[7.6rem] bg-milk py-8 md:py-10 gap-10  ">
+        <div>
+          <div className="">
+            <H2>DATA</H2>
+            <p className=" my-5 font-semibold">Evidence That Drives Impact</p>
+            <span>
+              Data isn’t just a tool. It’s our compass,through SOSF’s Data
+              Pillar, we conduct full-cycle Monitoring, Evaluation & Learning
+              (MEL) for all our interventions, deliver third-party advisory
+              services through our integrated, AI-powered systems, and Lead
+              strategic thought leadership and policy-influencing publications.
+            </span>
+          </div>
+        </div>
+        <div>
+          <Image
+            src="/assets/images/our-focus/Img-1.jpg"
+            width={1450}
+            height={1450}
+            alt="Img1"
+            className="object-cover "
+          />
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default FocusSubHero;
