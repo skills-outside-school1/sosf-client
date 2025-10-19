@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button2 from "@/components/shared/buttons/button2";
+import Transition2 from "@/components/shared/Atoms/Text-Transitions/Transition2";
 
 const ExploreOurWork = () => {
   const texts = [
@@ -9,34 +10,12 @@ const ExploreOurWork = () => {
     "Advocating for Sustainable Social-Economic Development",
   ];
 
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % texts.length);
-    }, 4000); // change every 4s
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="bg-[url('/assets/images/our-focus/Background.png')] bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center px-4 md:px-[4rem] lg:px-[7.6rem]">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="bg-[#EEF3FF] px-7 py-14 rounded-xl overflow-hidden">
-          {/* Animated Headings */}
-          <div className="h-16 relative">
-            {texts.map((text, i) => (
-              <h1
-                key={i}
-                className={`absolute font-semibold text-lg md:text-2xl text-black transition-all duration-700 ease-out ${
-                  i === index
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                }`}
-              >
-                {text}
-              </h1>
-            ))}
-          </div>
+          {/* Reusable Animated Text */}
+          <Transition2 texts={texts} interval={4000} />
 
           {/* Paragraph */}
           <p className="my-6 text-black">
