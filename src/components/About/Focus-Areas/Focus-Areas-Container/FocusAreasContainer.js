@@ -3,7 +3,6 @@ import Hero from "@/components/home/Home-Atoms/Hero";
 import FocusSubHero from "../Focus-Areas-Atoms/FocusSubHero";
 import MoreAboutUs from "../../Who-We-Are/Who-We-Are-Atoms/MoreAboutUs";
 import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
-import FocusAccordions from "../Focus-Areas-Atoms/FocusAccordions";
 import GlobalComponent from "@/components/shared/Atoms/GlobalComponent";
 import MelFramework from "../Focus-Areas-Atoms/MelFramework";
 import Interventions from "../Focus-Areas-Atoms/Interventions";
@@ -18,7 +17,6 @@ export default function FocusContainer() {
       <Advocacy />
       <SocialEconomicRegister />
       <MelFramework />
-      {/* <FocusAccordions /> */}
       <Interventions />
       <GlobalComponent />
       <MoreAboutUs />
