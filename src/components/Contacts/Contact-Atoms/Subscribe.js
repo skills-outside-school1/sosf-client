@@ -66,16 +66,16 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="footer-container w-full flex flex-col justify-center items-center px-2">
-      <div className="relative grid grid-cols-1 md:grid-cols-2 w-full items-center">
+    <div className=" px-4 md:px-[4rem] lg:px-[7.6rem] py-8 md:pt-20 font-mont">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <div></div>
-
-        <div className="bg-transparent w-full h-[400px] z-20 flex flex-col gap-y-8 justify-center items-center lg:px-5 lg:w-[388px] lg:h-[400px] lg:ml-auto lg:mr-9">
+        <div></div>
+        <div>
           <h3 className="text-xl md:text-xl font-bold text-[#000000] text-left w-full font-lato">
             Subscribe to our newsletter
           </h3>
 
-          <h4 className="text-base font-normal text-[#000000] text-left w-full font-inter">
+          <h4 className="text-base font-normal text-[#000000] text-left w-full font-inter my-5">
             Get news about what we are supporting and more by subscribing to our
             newsletter.
           </h4>
@@ -83,44 +83,45 @@ export default function Subscribe() {
           <section className="subscribe-form-section w-full">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-row gap-x-2 justify-start items-center bg-transparent border-b border-b-[#000000] h-[50px]"
+              className="flex flex-row gap-x-2 justify-start items-center bg-transparent"
             >
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email address"
-                className="w-60 bg-transparent focus:outline-none text-[#000000]"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="text-[#000000] text-base font-inter font-bold flex justify-center items-center p-2"
-              >
-                {loading ? (
-                  "Subscribing..."
-                ) : (
-                  <span className="flex justify-center items-center gap-x-3">
-                    Subscribe{" "}
-                    <FontAwesomeIcon
-                      icon={faChevronRight}
-                      className="text-sm text-[#000000] brochure-icon"
-                    />
-                  </span>
-                )}
-              </button>
+              <div className=" border flex border-[#B7C8F4] rounded-2xl pl-5">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email address"
+                  className="w-60 bg-transparent focus:outline-none text-[#000000] placeholder:text-sm text-sm"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="text-[#000000] bg-[#B7C8F4] rounded-2xl text-base font-inter flex justify-center items-center py-2 px-4 ml-2"
+                >
+                  {loading ? (
+                    "Subscribing..."
+                  ) : (
+                    <span className="flex justify-center items-center gap-x-3">
+                      Subscribe{" "}
+                    </span>
+                  )}
+                </button>
+              </div>
             </form>
           </section>
 
-          <section className="privacy-warning-section w-full">
+          <section className="privacy-warning-section w-full mt-5">
             <p className="text-[#000000] text-sm md:text-base font-normal font-inter">
-              By subscribing, you agree to{" "}
-              <Link href="/contact/privacy-policy" className="underline">
-                Skills Outside School&apos;s Privacy Policy
+              By subscribing, you agree to <br />
+              <Link
+                clas
+                href="/contact/privacy-policy"
+                className="underline flex gap-6 md:gap-10 items-center"
+              >
+                Skills Outside School&apos;s <span>Privacy Policy.</span>
               </Link>
-              .
             </p>
           </section>
         </div>
