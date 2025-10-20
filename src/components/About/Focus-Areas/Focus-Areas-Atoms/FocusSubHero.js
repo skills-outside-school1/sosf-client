@@ -27,7 +27,7 @@ const FocusSubHero = () => {
         </div>
         <div>
           <Image
-            src="/assets/images/our-focus/Img-1.jpg"
+            src="/assets/images/our-focus/DataImage.jpg"
             width={1450}
             height={1450}
             alt="Img1"
