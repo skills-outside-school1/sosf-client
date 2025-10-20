@@ -4,17 +4,17 @@ import React from "react";
 
 const SocialEconomicRegister = () => {
   return (
-    <div className="py-8 md:py-10">
+    <div className="py-8 md:py-10 font-inter">
       <div className=" flex lg:flex-row flex-col w-full gap-4 px-4 md:px-[4rem] lg:px-[7.6rem]">
         <div className=" w-full lg:w-[60%]">
           <H2>SOSF Social & Economic Register</H2>
-          <p className=" md:text-md my-6">
+          <p className=" md:text-md my-6 leading-8">
             A game-changing digital platform that captures real-time,
             multilingual, geo-tagged data on our direct and intermediary
             beneficiaries. It powers everything we do—from program design to
             advocacy, funding decisions, and reporting.
           </p>
-          <span className=" md:text-xl font-semibold">
+          <span className=" md:text-xl font-semibold leading-8">
             Powering the Pillars: the backbone of our Data, Interventions &
             Advocacy work, the Register enables:
           </span>

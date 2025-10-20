@@ -26,7 +26,7 @@ const Accordion5 = ({
             className="w-full flex justify-between items-center text-left px-6 py-5  transition-all duration-200"
           >
             <h3
-              className={`font-semibold text-base md:text-lg lg:text-xl text-black ${titleClass}`}
+              className={`font-semibold text-base md:text-lg lg:text-xl text-black font-mont ${titleClass}`}
             >
               {item.title}
             </h3>
@@ -43,7 +43,7 @@ const Accordion5 = ({
               openIndex === index ? " py-3 opacity-100" : "max-h-0 opacity-0"
             } ${contentClass}`}
           >
-            <div className="text-sm md:text-base leading-relaxed md:leading-loose">
+            <div className="text-sm md:text-base leading-relaxed md:leading-loose font-inter">
               {item.content}
             </div>
           </div>

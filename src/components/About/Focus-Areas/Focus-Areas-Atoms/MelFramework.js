@@ -54,7 +54,7 @@ const MelFramework = () => {
                 width={50}
                 height={50}
               />
-              <p className=" mt-8">{step.text}</p>
+              <p className=" mt-8 font-inter text-sm">{step.text}</p>
             </div>
           ))}
         </div>

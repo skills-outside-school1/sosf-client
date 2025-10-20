@@ -18,7 +18,7 @@ const ExploreOurWork = () => {
           <Transition2 texts={texts} interval={4000} />
 
           {/* Paragraph */}
-          <p className="my-6 text-black">
+          <p className="my-6 text-black font-inter">
             We collect, assess & leverage on data to design, deploy &
             disseminate interventions, advocate & inform for collaborative
             impact

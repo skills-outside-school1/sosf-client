@@ -78,7 +78,7 @@ const Interventions = () => {
         {/* Heading */}
         <div className="text-center flex flex-col gap-6">
           <H2>INTERVENTION</H2>
-          <p className="text-black">
+          <p className="text-black font-inter">
             At (SOSF), our strategic model is built on direct, impactful
             interventions designed to address critical gaps in education,
             entrepreneurship, and employability. We empower individuals and
