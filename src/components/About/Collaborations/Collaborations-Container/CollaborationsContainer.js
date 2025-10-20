@@ -5,17 +5,18 @@ import GlobalComponent from "@/components/shared/Atoms/GlobalComponent";
 import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 import PartSubHero from "../Collaborations-Atoms/PartSubHero";
 import PartFlexCards from "../Collaborations-Atoms/PartFlexCards";
-import Partners from "../Collaborations-Atoms/Partners";
 import PartClientSwiper from "../Collaborations-Atoms/PartClientSwiper";
 import PartnersSlider from "../Collaborations-Atoms/PartnersCarousel";
+import Investments from "../Collaborations-Atoms/Investments";
 
 export default function CollaborationsContainer() {
   return (
-    <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[100px] md:gap-y-[100px] justify-start items-start    mb-[2rem] ">
+    <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[10px] justify-start items-start  mb-[1rem] ">
       <Hero />
       <PartSubHero />
       <PartFlexCards />
-      <Partners />
+      <Investments />
+      {/* <Partners /> */}
 
       <PartnersSlider />
       <PartClientSwiper />

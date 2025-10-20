@@ -1,82 +1,71 @@
-// components/PartFlexCards.jsx
-import React from "react";
+import { H2 } from "@/components/shared/Atoms/Typography/typography";
+import Button2 from "@/components/shared/buttons/button2";
 import Image from "next/image";
-import { P } from "@/components/shared/Atoms/Typography/typography";
-import MaskButton from "@/components/shared/Atoms/Button-Atoms/Mask-Button";
-import { useRouter } from "next/router";
+import React from "react";
 
-export default function PartFlexCards() {
-  const router = useRouter();
+const collaborationData = [
+  {
+    id: 1,
+    title: "Investments",
+    image: "/assets/images/collaborations/investmentImg.png",
+    description:
+      "For individuals & organizations that seek to contribute in cash, assets, or in-kind to further our work and that of our beneficiaries.",
+    buttonText: "Invest Now",
+  },
+  {
+    id: 2,
+    title: "Partnerships",
+    image: "/assets/images/collaborations/partnershipsImg.png",
+    description:
+      "For individuals / organizations that are keen to partner with us to design or execute their own initiatives & schemes, or provide grants / resources to a wide range of beneficiaries.",
+    buttonText: "Partner with us",
+  },
+];
 
-  const cards_data = [
-    {
-      image: "/assets/images/home/invest.png",
-      heading: "Investments",
-      content: (
-        <span>
-          For individuals & organizations that seek to contribute in cash,
-          assets or in-kind to further our work and that of our beneficiaries.
-        </span>
-      ),
-      route_name: "Invest Now",
-      sectionRef: "investment-section",
-    },
-    {
-      image: "/assets/images/home/partner.webp",
-      heading: "Partnerships",
-      content: (
-        <span>
-          For individuals / organizations that are keen to partner with us to
-          design/execute their own initiatives & schemes; or provide grants /
-          resources to a wide range of beneficiaries
-        </span>
-      ),
-      route_name: "Partner with us",
-      sectionRef: "partnership-section",
-    },
-  ];
-
-  const handleNavigate = (sectionId) => {
-    router.push(`/get-involved#${sectionId}`);
-  };
-
+const PartFlexCards = () => {
   return (
-    <div className="w-full pb-5 flex flex-col gap-y-8 md:gap-y-1 px-2 pt-5 md:px-[4rem] lg:px-[7rem] bg-gray-50 bg-opacity-70">
-      <section className="w-full">
-        <h3 className="text-gray-800 font-mont text-xl lg:text-2xl font-bold text-center md:text-left md:w-[59%] md:ml-auto">
-          At the Skills Outside School Foundation, we offer two dynamic paths
-          for collaboration:
-        </h3>
-      </section>
+    <div className="bg-milk py-6 md:py-10">
+      <div className="px-4 md:px-[4rem] lg:px-[7.6rem]">
+        {/* Section Heading */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 mb-6">
+          <H2>
+            At the Skills Outside School Foundation, we offer two dynamic paths
+            for collaboration:
+          </H2>
+        </div>
 
-      <section className="flex flex-col gap-y-[4rem]">
-        {cards_data.map((card, index) => (
-          <div
-            key={index}
-            className="w-full flex flex-col gap-y-[3rem] md:flex-row gap-x-[5rem] justify-center items-center"
-          >
-            <section className="w-full md:w-[600px] bg-gray-100 shadow-xl rounded-md p-2 flex justify-center">
+        {/* Collaboration Cards */}
+        <div className="grid gap-10">
+          {collaborationData.map((item) => (
+            <div
+              key={item.id}
+              className="flex md:flex-row flex-col gap-10 items-center"
+            >
+              {/* Image */}
               <Image
-                src={card.image}
-                alt={card.heading}
-                width={500}
-                height={300}
-                className="w-[400px] lg:w-full h-[300px] object-cover rounded-md"
+                src={item.image}
+                alt={item.title}
+                width={330}
+                height={330}
+                className="w-full md:w-[330px] h-auto object-cover"
               />
-            </section>
-            <section className="w-full flex flex-col gap-y-5">
-              <h3 className="text-gray-800 font-mont text-xl lg:text-2xl font-bold">
-                {card.heading}
-              </h3>
-              <P>{card.content}</P>
-              <MaskButton
-                buttontext={card.route_name}
-                onClick={() => handleNavigate(card.sectionRef)}
-              />
-            </section>
-          </div>
-        ))}
-      </section>
+
+              {/* Text Section */}
+              <div className="max-w-lg flex flex-col gap-4">
+                <p className="text-xl font-semibold font-mont">{item.title}</p>
+
+                <span className="font-inter">{item.description}</span>
+
+                <div>
+                  <Button2 text={item.buttonText} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default PartFlexCards;
