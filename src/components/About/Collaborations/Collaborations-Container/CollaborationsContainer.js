@@ -16,7 +16,6 @@ export default function CollaborationsContainer() {
       <PartSubHero />
       <PartFlexCards />
       <Investments />
-      {/* <Partners /> */}
 
       <PartnersSlider />
       <PartClientSwiper />
