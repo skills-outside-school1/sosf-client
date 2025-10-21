@@ -3,41 +3,8 @@ import SubHero from "@/components/shared/Atoms/Subhero-Atoms/Subhero";
 import Marquee3 from "@/components/shared/Atoms/Marquee-Atoms/Marquee3";
 import { H2, H3, P } from "@/components/shared/Atoms/Typography/typography";
 import AutoFocusTabs from "@/components/shared/accordions/AutoFocusTabs";
-import TabbedContentDisplay from "@/components/shared/cards/TouchContentDisplay";
-import MaskButton from "@/components/shared/Atoms/Button-Atoms/Mask-Button";
 
 export default function PartnersSlider() {
-  const hero_data = [
-    {
-      heading1: "Our Organizational Investors & Partners",
-      paragraph: (
-        <span>
-          To truly redefine philanthropy, we must redefine how people give, what
-          they give, & why they give!
-          <br />
-          <br />
-          <section className="flex flex-row gap-x-5 flex-wrap w-full gap-y-5">
-            <MaskButton
-              buttontext={`Give with purpose!`}
-              className={`p-3 h-[80px]`}
-            />
-            <MaskButton
-              buttontext={`Give in cash, assets, or in-kind!`}
-              className={`p-3 h-[80px]`}
-            />
-            <MaskButton
-              buttontext={`Give through collaborations!`}
-              className={`p-3 h-[80px]`}
-            />{" "}
-            <MaskButton
-              buttontext={`Give Now & Always!`}
-              className={`p-3 h-[80px]`}
-            />
-          </section>
-        </span>
-      ),
-    },
-  ];
   //partners
 
   const marquees = [
@@ -79,12 +46,6 @@ export default function PartnersSlider() {
 
   return (
     <div className="w-full h-[fixed] justify-start items-start flex flex-col gap-y-8 ">
-      <section className="contents-container  w-full ">
-        <SubHero
-          items={hero_data}
-          className={`w-full md:w-ful lg:w-full px-2  `}
-        />
-      </section>
       <section className="marque-carousel-section w-full flex flex-col gap-y-5 mt-9 ">
         <div className="flex flex-col gap-y-3 ">
           {" "}

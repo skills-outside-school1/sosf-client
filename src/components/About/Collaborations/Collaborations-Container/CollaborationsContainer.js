@@ -8,6 +8,7 @@ import PartFlexCards from "../Collaborations-Atoms/PartFlexCards";
 import PartClientSwiper from "../Collaborations-Atoms/PartClientSwiper";
 import PartnersSlider from "../Collaborations-Atoms/PartnersCarousel";
 import Investments from "../Collaborations-Atoms/Investments";
+import InvestorsAndPartners from "../Collaborations-Atoms/InvestorsAndPartners";
 
 export default function CollaborationsContainer() {
   return (
@@ -16,10 +17,11 @@ export default function CollaborationsContainer() {
       <PartSubHero />
       <PartFlexCards />
       <Investments />
+      <InvestorsAndPartners />
 
-      <PartnersSlider />
       <PartClientSwiper />
       <GlobalComponent />
+      <PartnersSlider />
       <MoreAboutUs />
       <Subscribe />
     </div>
