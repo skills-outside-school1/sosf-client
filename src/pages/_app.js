@@ -3,9 +3,9 @@ import Head from "next/head";
 import "./global.css";
 import "../styles/swipper.css";
 import "../styles/our_work.css";
-import { FadeLoader } from "react-spinners";
-import Navbar from "@/components/home/nav";
-import SideNav from "../components/home/sidenav";
+// import { FadeLoader } from "react-spinners";
+// import Navbar from "@/components/home/nav";
+// import SideNav from "../components/home/sidenav";
 import Script from "next/script";
 import Footer from "@/components/home/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -20,6 +20,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/saas.css";
 import BackToTop from "@/components/shared/Atoms/Button-Atoms/Backt-To-Top";
 import Loading from "@/components/shared/animations/Loading";
+import Navbar from "@/components/home/Navbar";
 
 config.autoAddCss = false;
 
@@ -190,6 +191,7 @@ function MyApp({ Component, pageProps }) {
       ) : (
         <>
           {iscookiesopen && <CookiesModal onClose={closeCookies} />}
+          {/* <Navbar /> */}
           <Navbar />
           <Component {...pageProps} />
           <Footer />

@@ -125,7 +125,7 @@ const InvestorsAndPartners = () => {
               onClick={() => setSelectedProgram(program)}
               className={`w-full text-left p-3 rounded-2xl duration-150 ${
                 selectedProgram.title === program.title
-                  ? "bg-[#94B2FF] text-black"
+                  ? " text-black"
                   : "hover:bg-[#CEDCFF]"
               }`}
             >
@@ -150,7 +150,7 @@ const InvestorsAndPartners = () => {
                 onClick={() => setSelectedProgram(program)}
                 className={`flex-shrink-0 px-4 py-2 rounded-2xl whitespace-nowrap transition-all duration-150 ${
                   selectedProgram.title === program.title
-                    ? "bg-[#94B2FF] text-black"
+                    ? " text-black"
                     : "bg-[#CEDCFF]/30 hover:bg-[#CEDCFF]"
                 }`}
               >

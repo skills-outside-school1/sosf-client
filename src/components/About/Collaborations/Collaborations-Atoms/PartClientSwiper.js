@@ -24,7 +24,7 @@ const PartClientSwiper = () => {
       setIndex((prev) => (prev + 1) % bgImages.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [bgImages.length]);
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
