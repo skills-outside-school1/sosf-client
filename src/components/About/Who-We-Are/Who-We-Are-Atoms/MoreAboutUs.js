@@ -1,5 +1,6 @@
 import React from "react";
 import CarouselCards from "@/components/shared/Atoms/Cards-Atoms/CarouselCards";
+import { H3 } from "@/components/shared/Atoms/Typography/typography";
 
 export default function WorkNav() {
   // const cardData = [
@@ -88,7 +89,10 @@ export default function WorkNav() {
     },
   ];
   return (
-    <div className="w-full flex flex-col    gap-x-8 justify-center items-start  ">
+    <div className="w-full flex flex-col gap-x-8 justify-center items-start  ">
+      <div className=" px-4 md:px-[4rem] lg:px-[7.6rem] -pb-10">
+        <H3>Learn more about SOSF</H3>
+      </div>
       <CarouselCards cards={cardDataTwo} />
     </div>
   );

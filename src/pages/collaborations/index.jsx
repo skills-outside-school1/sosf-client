@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import PartnersContainer from "@/components/About/Partners/Partners-Container/PartnersContainer";
+import CollaborationsContainer from "@/components/About/Collaborations/Collaborations-Container/CollaborationsContainer";
 
 const Index = () => {
   return (
@@ -10,7 +10,7 @@ const Index = () => {
         <title>Our Partnerships | Skills Outside School Foundation</title>
         <meta name="description" content="" />
       </Head>
-      <PartnersContainer />
+      <CollaborationsContainer />
     </div>
   );
 };
