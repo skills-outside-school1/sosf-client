@@ -20,7 +20,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/saas.css";
 import BackToTop from "@/components/shared/Atoms/Button-Atoms/Backt-To-Top";
 import Loading from "@/components/shared/animations/Loading";
-import Navbar from "@/components/home/Navbar";
+import Navbar from "@/components/home/Navbar/Navbar";
+// import Navbar fro@/components/home/Navbar/Navbarbar";
 
 config.autoAddCss = false;
 
