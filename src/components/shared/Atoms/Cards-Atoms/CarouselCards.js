@@ -154,7 +154,8 @@ CarouselCards.propTypes = {
     PropTypes.shape({
       avatar: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      description: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+        .isRequired,
       route: PropTypes.string.isRequired,
     })
   ).isRequired,

@@ -72,6 +72,7 @@ const Advocacy = () => {
                     width={25}
                     height={25}
                     alt={item.title}
+                    className="h-auto"
                   />
                   <div className=" font-inter">
                     <p className="font-semibold">{item.title}</p>
@@ -90,6 +91,7 @@ const Advocacy = () => {
                     width={25}
                     height={25}
                     alt={item.title}
+                    className="h-auto"
                   />
                   <div className=" font-inter">
                     <p className="font-semibold">{item.title}</p>

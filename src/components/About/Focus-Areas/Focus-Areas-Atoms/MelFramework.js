@@ -53,6 +53,7 @@ const MelFramework = () => {
                 alt={`framework-step-${index + 1}`}
                 width={50}
                 height={50}
+                className="h-auto"
               />
               <p className=" mt-8 font-inter text-sm">{step.text}</p>
             </div>

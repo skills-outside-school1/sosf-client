@@ -11,7 +11,7 @@ import SocialEconomicRegister from "../Focus-Areas-Atoms/SocialEconomicRegister"
 
 export default function FocusContainer() {
   return (
-    <div className="w-full h-[fixed] overflow-hidden flex flex-col gap-y-[10px] justify-start items-start mb-[8rem] ">
+    <div className="w-full h-[fixed] overflow-hidden flex flex-col gap-y-[6px] justify-start items-start mb-[8rem] ">
       <Hero />
       <FocusSubHero />
       <Advocacy />

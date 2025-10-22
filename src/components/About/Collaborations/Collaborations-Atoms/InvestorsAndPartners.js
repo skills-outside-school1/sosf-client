@@ -108,6 +108,7 @@ const InvestorsAndPartners = () => {
                 width={15}
                 height={15}
                 alt="mark"
+                className="h-auto"
               />
               <span className="font-medium text-[15px]">{text}</span>
             </div>

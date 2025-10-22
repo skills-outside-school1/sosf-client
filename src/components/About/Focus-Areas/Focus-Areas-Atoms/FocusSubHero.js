@@ -30,8 +30,8 @@ const FocusSubHero = () => {
             src="/assets/images/our-focus/DataImage.jpg"
             width={1450}
             height={1450}
-            alt="Img1"
-            className="object-cover "
+            alt="DataImage"
+            className="object-cover"
           />
         </div>
       </div>

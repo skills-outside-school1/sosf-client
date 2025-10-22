@@ -34,6 +34,7 @@ const SocialEconomicRegister = () => {
                 width={20}
                 height={20}
                 alt="mark"
+                className="h-auto"
               />
               <p>Seamless partner & grantee selection</p>
             </div>
@@ -52,6 +53,7 @@ const SocialEconomicRegister = () => {
                 width={20}
                 height={20}
                 alt="mark"
+                className="h-auto"
               />
               <p>Localization and personalization of solutions </p>
             </div>
@@ -66,6 +68,7 @@ const SocialEconomicRegister = () => {
                 width={30}
                 height={30}
                 alt="mark"
+                className="h-auto"
               />
               <p>Multilingual, voice-enabled, AI-integrated</p>
             </div>
@@ -75,6 +78,7 @@ const SocialEconomicRegister = () => {
                 width={30}
                 height={30}
                 alt="mark"
+                className="h-auto"
               />
               <p>Offline-capable & mobile-first</p>
             </div>
@@ -84,6 +88,7 @@ const SocialEconomicRegister = () => {
                 width={30}
                 height={30}
                 alt="mark"
+                className="h-auto"
               />
               <p>
                 Auto-generates baseline, midline, endline, and impact reports

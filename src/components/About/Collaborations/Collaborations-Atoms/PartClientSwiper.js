@@ -59,7 +59,7 @@ const PartClientSwiper = () => {
                   width={150}
                   height={150}
                   alt="collaboration"
-                  className={`absolute top-0 right-0 transition-opacity duration-[2000ms] ease-in-out ${
+                  className={` h-auto absolute top-0 right-0 transition-opacity duration-[2000ms] ease-in-out ${
                     i === index ? "opacity-100" : "opacity-0"
                   }`}
                 />
