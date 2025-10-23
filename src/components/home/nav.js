@@ -315,15 +315,16 @@ const Nav2 = () => {
           <div
             className={`${
               menuOpen ? "translate-x-0" : "-translate-x-full"
-            } lg:hidden bg-[#F6F6F6] p-4 w-full h-[1000px] overflow-y-auto hide-scrollbar fixed top-[1.3rem] left-0 z-30 mt-16 transition-transform duration-300 ease-in-out`}
+            } lg:hidden bg-[#F6F6F6] p-4 w-full h-screen overflow-y-auto hide-scrollbar fixed top-[1.3rem] left-0 z-30 mt-16 transition-transform duration-300 ease-in-out`}
           >
-            <div className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-4 relative z-20">
               {navigationLinks.map((link, index) => (
                 <div
                   key={link.name}
                   className="border border-none shadow-xl bg-[#F6F6F6] max-h-[400px] min-h-[70px] p-4"
                 >
-                  {link.dropdown ? (
+                  {/* If About or Our Work → use Accordion */}
+                  {link.dropdown || link.name === "Our Work" ? (
                     <Accordion
                       expanded={expandedAccordion === index}
                       onChange={() => toggleAccordion(index)}
@@ -350,49 +351,175 @@ const Nav2 = () => {
                           {link.name}
                         </span>
                       </AccordionSummary>
+
                       <AccordionDetails>
-                        <div className="flex flex-col gap-y-3 overflow-y-auto">
-                          {link.dropdown.map((column) => (
+                        {/* ABOUT US SECTION */}
+                        {link.dropdown && (
+                          <div className="flex flex-col gap-y-3 overflow-y-auto">
+                            {link.dropdown.map((column) => (
+                              <Accordion
+                                key={column.title}
+                                style={{
+                                  background: "#B7C8F4",
+                                  border: "none",
+                                }}
+                              >
+                                <AccordionSummary
+                                  expandIcon={
+                                    <FontAwesomeIcon
+                                      icon={faChevronDown}
+                                      className="text-xl flex flex-col gap-y-5"
+                                    />
+                                  }
+                                >
+                                  <h4 className="font-bold text-gray-800">
+                                    {column.title}
+                                  </h4>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                  <ul className="flex flex-col gap-y-2 overflow-y-auto min-h-[70px] pb-4 max-h-[300px]">
+                                    {column.links.map((item) => (
+                                      <li
+                                        key={item.name}
+                                        className="bg-[#F6F6F6] w-full shadow-xl p-3"
+                                      >
+                                        <Link
+                                          onClick={handleLinkClick}
+                                          href={item.to}
+                                          className="text-gray-800 hover:text-secondary_blue font-inter text-sm hover-line"
+                                        >
+                                          {item.name}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </AccordionDetails>
+                              </Accordion>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* OUR WORK SECTION */}
+                        {link.name === "Our Work" && (
+                          <div className="flex flex-col gap-y-3 overflow-y-auto">
                             <Accordion
-                              key={column.title}
                               style={{
-                                background: "#B7C8F4",
-                                border: "none",
+                                background: "#F6F6F6",
+                                border: "2px #F6F6F6",
+                                width: "100%",
+                                marginRight: "auto",
                               }}
                             >
-                              <AccordionSummary
-                                expandIcon={
-                                  <FontAwesomeIcon
-                                    icon={faChevronDown}
-                                    className="text-xl flex flex-col gap-y-5"
-                                  />
-                                }
-                              >
-                                <h4 className="font-bold text-gray-800">
-                                  {column.title}
-                                </h4>
-                              </AccordionSummary>
                               <AccordionDetails>
-                                <ul className="flex flex-col gap-y-2 overflow-y-auto min-h-[70px] pb-4 max-h-[300px]">
-                                  {column.links.map((item) => (
-                                    <li
-                                      key={item.name}
-                                      className="bg-[#F6F6F6] w-full shadow-xl p-3"
+                                <div className="flex flex-col gap-y-3">
+                                  {/* Data */}
+                                  <div
+                                    style={{
+                                      background: "#B7C8F4",
+                                      border: "none",
+                                    }}
+                                    className="p-3 rounded flex items-center justify-between"
+                                  >
+                                    <Link
+                                      href="/#"
+                                      onClick={handleLinkClick}
+                                      className="font-semibold text-gray-800 text-sm "
                                     >
-                                      <Link
-                                        onClick={handleLinkClick}
-                                        href={item.to}
-                                        className="text-gray-800 hover:text-secondary_blue font-inter text-sm hover-line"
-                                      >
-                                        {item.name}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
+                                      Data
+                                    </Link>
+                                  </div>
+
+                                  {/* Advocacy */}
+                                  <div
+                                    style={{
+                                      background: "#B7C8F4",
+                                      border: "none",
+                                    }}
+                                    className="p-3 rounded flex items-center justify-between"
+                                  >
+                                    <Link
+                                      href="/#"
+                                      onClick={handleLinkClick}
+                                      className="font-semibold text-gray-800 text-sm"
+                                    >
+                                      Advocacy
+                                    </Link>
+                                  </div>
+
+                                  {/* Interventions (dropdown stays) */}
+                                  <Accordion
+                                    style={{
+                                      background: "#B7C8F4",
+                                      border: "none",
+                                    }}
+                                  >
+                                    <AccordionSummary
+                                      expandIcon={
+                                        <FontAwesomeIcon
+                                          icon={faChevronDown}
+                                          className="text-md"
+                                        />
+                                      }
+                                    >
+                                      <h4 className="font-semibold text-gray-800 text-sm">
+                                        Interventions
+                                      </h4>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                      <ul className="flex flex-col gap-y-2">
+                                        <li>
+                                          <Link
+                                            href="/#"
+                                            onClick={handleLinkClick}
+                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
+                                          >
+                                            SOSF Headstart Agropreneurs
+                                          </Link>
+                                        </li>
+                                        <li>
+                                          <Link
+                                            href="/#"
+                                            onClick={handleLinkClick}
+                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
+                                          >
+                                            SOSF Bridge Program
+                                          </Link>
+                                        </li>
+                                        <li>
+                                          <Link
+                                            href="/#"
+                                            onClick={handleLinkClick}
+                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
+                                          >
+                                            SOSF Online Skill-Up
+                                          </Link>
+                                        </li>
+                                        <li>
+                                          <Link
+                                            href="/#"
+                                            onClick={handleLinkClick}
+                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
+                                          >
+                                            SOSF Grants
+                                          </Link>
+                                        </li>
+                                        <li>
+                                          <Link
+                                            href="/#-funds"
+                                            onClick={handleLinkClick}
+                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
+                                          >
+                                            SOSF Funds
+                                          </Link>
+                                        </li>
+                                      </ul>
+                                    </AccordionDetails>
+                                  </Accordion>
+                                </div>
                               </AccordionDetails>
                             </Accordion>
-                          ))}
-                        </div>
+                          </div>
+                        )}
                       </AccordionDetails>
                     </Accordion>
                   ) : (
