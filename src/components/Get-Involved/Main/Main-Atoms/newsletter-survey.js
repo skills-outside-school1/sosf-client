@@ -12,7 +12,6 @@ export function NewsletterSurvey() {
   const handleStartSurvey = () => {
     if (!email) return
     
-    // Store email in sessionStorage for security (not in URL)
     sessionStorage.setItem("quizEmail", email)
     router.push("/quiz")
   }
@@ -21,28 +20,14 @@ export function NewsletterSurvey() {
     <section className="w-full h-[fixed]  bg-gray-50 flex flex-col py-16">
       <div className="mx-auto pl-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="bg-blue-50 border-0">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Let's Get You the right Pathway !</h3>
-              <p className="text-gray-600 mb-6 text-sm">Enter Your Email and Take a 5 Minutes Survey</p>
-              <div className="space-y-4">
-                <Input 
-                  placeholder="Enter your email address" 
-                  className="w-full bg-white border-gray-200" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                />
-                <Button 
-                  onClick={handleStartSurvey}
-                  className="w-32 border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9]"
-                  disabled={!email}
-                >
-                  Start Survey
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="md:w-1/2 text-center md:text-left">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-4 leading-tight">
+            Let’s Get You the Right Pathway!
+          </h2>
+          <p className="text-lg text-gray-600">
+            Answer a few quick questions and we will guide you to the perfect path that suits you. Start your journey with SOSF today!
+          </p>
+        </div>
 
           <Card className="bg-white border-0">
             <CardContent className="p-8">

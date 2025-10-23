@@ -9,7 +9,7 @@ export default function HeroChart() {
   return (
     <div className="w-full h-[fixed]">
       <Hero />
-      <div className="relative z-10 max-w-6xl mx-auto pt-16 pb-8">
+      <div className="relative z-10 sm:mx-6 sm:mb-6 max-w-6xl mx-auto pt-16 pb-8">
         <div className="text-left mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-balance">
             Which path suits you?

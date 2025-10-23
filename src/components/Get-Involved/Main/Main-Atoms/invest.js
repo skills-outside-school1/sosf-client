@@ -178,7 +178,7 @@ export default function InvestForms() {
                 </div>
 
                 {/* Liquid Assets Grid */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 mb-6">
                   {LiquidAssets.map((asset) => (
                     <CustomTooltip key={asset.name} content={asset.tooltip}>
                       <div className="bg-[#E1E7F3] text-gray-800 py-2 px-3 rounded-md text-sm w-fit transition-colors flex items-center justify-between">
@@ -211,7 +211,7 @@ export default function InvestForms() {
                 </div>
 
                 {/* Non-Liquid Assets Grid */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 mb-6">
                   {nonLiquidAssets.map((asset) => (
                     <CustomTooltip key={asset.name} content={asset.tooltip}>
                       <div className="bg-[#E1E7F3] text-gray-800 py-2 px-3 rounded-md text-sm w-fit transition-colors flex items-center justify-between">

@@ -94,7 +94,7 @@ export function InvolvementCards() {
             <Link href="/get-involved/invest-forms">
             <Button
               variant="outline"
-              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto">
+              className="w-fit bg-gray-50 text-blue">
             
               Learn More
             </Button>
@@ -159,7 +159,7 @@ export function InvolvementCards() {
             <Link href="/get-involved/participate">
             <Button
               variant="outline"
-              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
+              className="w-fit bg-gray-50 text-blue"
             >
               Learn More
             </Button>

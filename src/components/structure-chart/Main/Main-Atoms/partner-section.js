@@ -135,7 +135,7 @@ export default function PartnerSection() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto sm:mx-6 px-4" id="partner-section">
       {/* Header Section */}
       <div className="mb-8 flex items-center justify-between">
         <Badge
