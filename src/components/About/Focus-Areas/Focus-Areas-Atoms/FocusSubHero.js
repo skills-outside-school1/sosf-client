@@ -16,7 +16,7 @@ const FocusSubHero = () => {
             <p className=" my-5 font-semibold font-mont">
               Evidence That Drives Impact
             </p>
-            <span className=" font-inter leading-7">
+            <span className=" font-inter leading-7 text-[15px]">
               Data isn’t just a tool. It’s our compass,through SOSF’s Data
               Pillar, we conduct full-cycle Monitoring, Evaluation & Learning
               (MEL) for all our interventions, deliver third-party advisory

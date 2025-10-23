@@ -57,7 +57,9 @@ const Advocacy = () => {
           <p className="my-5 font-semibold font-mont leading-7">
             {advocacyData.subtitle}
           </p>
-          <span className=" font-inter">{advocacyData.description}</span>
+          <span className=" font-inter leading-7">
+            {advocacyData.description}
+          </span>
         </div>
 
         {/* Right section */}
