@@ -18,7 +18,7 @@ const GlobalComponent = () => {
       setIndex((prev) => (prev + 1) % texts.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [texts.length]);
 
   const slideVariants = {
     hidden: { x: "100%", opacity: 0 },
