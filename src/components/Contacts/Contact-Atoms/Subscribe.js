@@ -1,4 +1,4 @@
-"use client"; // ✅ If using Next.js App Router
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -13,7 +13,6 @@ import {
 } from "@/components/Notification/Notification";
 
 export default function Subscribe() {
-  //  Environment variables for EmailJS
   const service_id = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const template_id = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const user_id = process.env.NEXT_PUBLIC_EMAILJS_PUBKEY;
@@ -26,19 +25,15 @@ export default function Subscribe() {
     setLoading(true);
 
     try {
-      //  Save subscriber to your MongoDB (your API route must return 201 for success)
       const res = await axios.post("/api/subscriberss", { email });
 
       if (res.status === 201) {
-        //  After saving, send the confirmation email
         await emailjs.send(service_id, template_id, { email }, user_id);
 
         showSuccessNotification(
           "Subscribed!",
           "You have been subscribed to the newsletter."
         );
-
-        // ✅ Clear email field after success
         setEmail("");
       } else {
         showErrorNotification(
@@ -66,61 +61,63 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="footer-container w-full flex flex-col justify-center items-center px-2">
-      <div className="relative grid grid-cols-1 md:grid-cols-2 w-full items-center">
+    <div className="px-4 md:px-[4rem] lg:px-[7.6rem] py-10 md:pt-20 font-mont">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div></div>
-
-        <div className="bg-transparent w-full h-[400px] z-20 flex flex-col gap-y-8 justify-center items-center lg:px-5 lg:w-[388px] lg:h-[400px] lg:ml-auto lg:mr-9">
-          <h3 className="text-xl md:text-xl font-bold text-[#000000] text-left w-full font-lato">
-            Subscribe to our newsletter
+        <div></div>
+        <div className="flex flex-col items-center md:items-start">
+          {/* Title */}
+          <h3 className="text-xl md:text-2xl font-bold text-[#000000] text-center md:text-left font-lato">
+            Subscribe to our Newsletter
           </h3>
 
-          <h4 className="text-base font-normal text-[#000000] text-left w-full font-inter">
+          {/* Subtitle */}
+          <p className="text-base font-normal text-[#000000] text-center md:text-left font-inter my-4 leading-relaxed max-w-md">
             Get news about what we are supporting and more by subscribing to our
             newsletter.
-          </h4>
+          </p>
 
-          <section className="subscribe-form-section w-full">
+          {/* Subscribe Form */}
+          <section className="w-full">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-row gap-x-2 justify-start items-center bg-transparent border-b border-b-[#000000] h-[50px]"
+              className="flex items-center bg-transparent border border-[#B7C8F4] rounded-2xl overflow-hidden w-full max-w-md shadow-sm  transition-shadow duration-200"
             >
               <input
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
-                className="w-60 bg-transparent focus:outline-none text-[#000000]"
+                className="flex-1 bg-transparent px-4 py-2 focus:outline-none text-[#000000] placeholder:text-gray-500 text-sm"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+
               <button
                 type="submit"
                 disabled={loading}
-                className="text-[#000000] text-base font-inter font-bold flex justify-center items-center p-2"
+                className={`text-[#000000] bg-[#B7C8F4] hover:bg-[#9eb7f0] transition-colors duration-200 font-inter font-medium text-sm flex items-center gap-x-2 py-2 px-5 ${
+                  loading ? "opacity-75 cursor-not-allowed" : ""
+                }`}
               >
-                {loading ? (
-                  "Subscribing..."
-                ) : (
-                  <span className="flex justify-center items-center gap-x-3">
-                    Subscribe{" "}
-                    <FontAwesomeIcon
-                      icon={faChevronRight}
-                      className="text-sm text-[#000000] brochure-icon"
-                    />
-                  </span>
+                {loading ? "Subscribing..." : "Subscribe"}
+                {!loading && (
+                  <FontAwesomeIcon icon={faChevronRight} className="text-xs" />
                 )}
               </button>
             </form>
           </section>
 
-          <section className="privacy-warning-section w-full">
-            <p className="text-[#000000] text-sm md:text-base font-normal font-inter">
+          {/* Privacy Notice */}
+          <section className="w-full mt-5">
+            <p className="text-[#000000] text-sm md:text-base font-normal font-inter text-center md:text-left leading-relaxed">
               By subscribing, you agree to{" "}
-              <Link href="/contact/privacy-policy" className="underline">
-                Skills Outside School&apos;s Privacy Policy
+              <Link
+                href="/contact/privacy-policy"
+                className="underline text-[#000000] hover:text-[#3b4cca] transition-colors duration-200"
+              >
+                Skills Outside School’s <span>Privacy Policy</span>.
               </Link>
-              .
             </p>
           </section>
         </div>

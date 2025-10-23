@@ -7,7 +7,6 @@ import { StructureChart } from "@/components/Get-Involved/Main/Main-Atoms/struct
 import { NewsletterSurvey } from "@/components/Get-Involved/Main/Main-Atoms/newsletter-survey"
 
 
-
 export default function InvolvedContainer() {
   return (
     <div className="w-full h-[fixed]">
@@ -20,4 +19,3 @@ export default function InvolvedContainer() {
     </div>
   );
 }
-
