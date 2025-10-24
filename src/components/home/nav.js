@@ -23,6 +23,7 @@ const Nav2 = () => {
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [isWorkHovered, setIsWorkHovered] = useState(false);
   const [expandedAccordion, setExpandedAccordion] = useState(null);
+  const [isInterventionOpen, setIsInterventionOpen] = useState(false);
 
   const navigationLinks = [
     {
@@ -103,17 +104,20 @@ const Nav2 = () => {
   };
 
   const NestedInterventions = () => {
-    const [showNested, setShowNested] = useState(false);
+    const toggleInterventionMenu = () => {
+      setIsInterventionOpen(!isInterventionOpen);
+    };
+
     return (
       <div className="relative">
         <button
-          onClick={() => setShowNested(!showNested)}
+          onClick={toggleInterventionMenu}
           className="flex items-center justify-between font-normal hover:text-secondary_blue w-full"
         >
           <span>Interventions</span>
           <span
             className={`transform transition-transform duration-300 ${
-              showNested ? "rotate-90" : ""
+              isInterventionOpen ? "rotate-90" : ""
             }`}
           >
             <FaChevronRight />
@@ -121,10 +125,10 @@ const Nav2 = () => {
         </button>
 
         <div
-          className={`absolute top-0 left-full ml-8 bg-[#F6F6F6] rounded-xl shadow-md py-3 px-5 w-[280px] transition-all duration-500 ease-in-out transform ${
-            showNested
-              ? "translate-x-0 opacity-100"
-              : "-translate-x-5 opacity-0 pointer-events-none"
+          className={`absolute top-0 left-full ml-2 bg-[#F6F6F6] rounded-xl shadow-md py-3 px-5 w-[280px] transition-all duration-500 ease-in-out transform z-50 ${
+            isInterventionOpen
+              ? "opacity-100 translate-x-5"
+              : "opacity-0 -translate-x-10"
           }`}
         >
           <Link
@@ -215,7 +219,11 @@ const Nav2 = () => {
                         leaveTo="opacity-0 translate-y-2"
                       >
                         <div
-                          onMouseLeave={() => setIsWorkHovered(false)}
+                          onMouseLeave={() => {
+                            if (!isInterventionOpen) {
+                              setIsWorkHovered(false);
+                            }
+                          }}
                           className="absolute top-full left-1/2 -translate-x-1/2 mt-8 bg-[#F6F6F6] rounded-xl shadow-sm py-4 px-6 min-w-[200px]"
                         >
                           <div className="flex flex-col gap-3 text-[15px] font-inter">
