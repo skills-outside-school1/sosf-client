@@ -10,12 +10,8 @@ import { PartnerModal } from "../../../modals/partner-modal"
 
 import IframeModal from "../../../shared/modals/iframe-modal"   
 
-import ReusableModal from "../../../shared/modals/reusablemodal"
-
-
 export function InvolvementCards() {
   const [partnerModalOpen, setPartnerModalOpen] = useState(false)
-  const [mailModalOpen, setMailModalOpen] = useState(false)
   // iframe
   const [volunteerModalOpen, setVolunteerModalOpen] = useState(false) 
    const [governModalOpen, setGovernModalOpen] = useState(false) 
@@ -69,8 +65,9 @@ export function InvolvementCards() {
             >
               Learn More
             </Button>
-            <Mail onClick={() => setMailModalOpen(true)} className="inline-block ml-2 h-4 w-4 text-gray-700" />
-             
+            {/* mailto:partner.relations@skillsoutsideschool.com */}
+            <Mail onClick={() => window.open("mailto:partner.relations@skillsoutsideschool.com")} className="inline-block ml-2 h-4 w-4 text-gray-700" />
+
             </div>
           </CardContent>
         </Card>
@@ -190,15 +187,6 @@ export function InvolvementCards() {
         description="Apply to join our Advisors, Executive Council, or Board of Trustees by filling out this form."
         iframeUrl="https://forms.zohopublic.com/halimaabba/form/SKILLSOUTSIDESCHOOLFOUNDATIONAdvisoryCouncilExpres/formperma/Ry1wfylvudjknxAgciW_0AUuzauE0WJShnwO1wkt_pE"
       />
-
-      {/* Mail Modal */}
-      <ReusableModal
-        isOpen={mailModalOpen}
-        onClose={() => setMailModalOpen(false)}
-        className="text-blue"
-      >
-        <p className="font-semibold">partner.relations@skillsoutsideschool.com</p>
-      </ReusableModal>
     </div>
   )
 }
