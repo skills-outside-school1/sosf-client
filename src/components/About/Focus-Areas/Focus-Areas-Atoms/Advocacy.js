@@ -57,7 +57,9 @@ const Advocacy = () => {
           <p className="my-5 font-semibold font-mont leading-7">
             {advocacyData.subtitle}
           </p>
-          <span className=" font-inter">{advocacyData.description}</span>
+          <span className=" font-inter leading-7">
+            {advocacyData.description}
+          </span>
         </div>
 
         {/* Right section */}
@@ -72,6 +74,7 @@ const Advocacy = () => {
                     width={25}
                     height={25}
                     alt={item.title}
+                    className="h-auto"
                   />
                   <div className=" font-inter">
                     <p className="font-semibold">{item.title}</p>
@@ -90,6 +93,7 @@ const Advocacy = () => {
                     width={25}
                     height={25}
                     alt={item.title}
+                    className="h-auto"
                   />
                   <div className=" font-inter">
                     <p className="font-semibold">{item.title}</p>

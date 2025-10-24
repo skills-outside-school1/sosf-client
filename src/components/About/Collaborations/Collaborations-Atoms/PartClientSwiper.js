@@ -1,113 +1,98 @@
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Autoplay } from "swiper/modules";
-import { P } from "@/components/shared/Atoms/Typography/typography";
+"use client";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
-export default function PartClientSwiper() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      title: "Our Clients",
-      description: (
-        <span>
-          As a service-oriented organization, our clients are our
-          ambassadors/beneficiaries. We do after all exist for them and to
-          ensure we disrupt development for our individual and institutional
-          beneficiaries.
-        </span>
-      ),
-      link: "our-work",
-    },
-    {
-      title: "Our Partners",
-      description: (
-        <span>
-          We’re honored to partner with organizations who have a similar mandate
-          that we do. We have partnered with organizations including UNICEF,
-          IITA, Nigerian Breweries, WAYMA, Opportunity Desk, Areai, Open Fees
-          Foundation, Nigerian Breweries, Kaftan TV, Secondary Education Board,
-          Child & Green Foundation, FCT Agency for Science & Technology, Leprosy
-          Mission and more.
-        </span>
-      ),
-      link: "our-work",
-    },
-
-    {
-      title: "Our Investors",
-      description: (
-        <span>
-          We are honoured to have been supported by numerous philanthropic
-          individuals whether through cash, mentoring, training, volunteering,
-          or our diligent trustees & advisors, and institutions through cash,
-          in-kind products & services and expertise. We couldn’t do this without
-          them and count on more! Tongston, Access Bank, ACT Foundation, Alpha
-          Praxis Nigeria Limited, Petroflow Integrated Consultants, Tocam
-          Capital
-        </span>
-      ),
-      link: "our-work",
-    },
+const PartClientSwiper = () => {
+  const bgImages = [
+    "/assets/images/collaborations/clients-bg.png",
+    "/assets/images/collaborations/partners-bg.png",
+    "/assets/images/collaborations/investors-bg.png",
   ];
 
-  return (
-    <div className="parallax-container relative  overflow-hidden  ">
-      <section className="absolute  top-0 left   w-full  h-[600px] flex flex-col justify-center items-start ">
-        <div className=" bg-white w-full  rounded-md shadow-xl   md:w-[700px] h-[350px] p-2 px-4   md:ml-auto  md:mr-6  flex flex-col justify-center items-start ">
-          <Swiper
-            modules={[Autoplay]}
-            autoplay={{ delay: 7000, disableOnInteraction: false }}
-            speed={5000}
-            spaceBetween={50}
-            loop={true}
-            onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
-            className="slider-container w-full h-full flex justify-between  items-center "
-            style={{ marginTop: "2rem" }}
-          >
-            {slides.map((slide, index) => (
-              <SwiperSlide key={index}>
-                <div
-                  key={
-                    currentSlide === index ? `slide-${index}` : `hidden-slide`
-                  }
-                  className="flex flex-col gap-y-5 justify-center items-start mt-2"
-                >
-                  <h3 className="text-gray-800 font-bold font-mont text-2xl md:text-3xl">
-                    {slide.title}
-                  </h3>
-                  <P className="lg:w-[90%]">{slide.description}</P>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
+  const ellipseImages = [
+    "/assets/images/collaborations/Ellipse 25 (1).png",
+    "/assets/images/collaborations/Ellipse 25 (3).png",
+    "/assets/images/collaborations/Ellipse 25 (4).png",
+  ];
 
-      <style jsx>
-        {`
-          .parallax-container {
-            width: 100%;
-            height: 500px;
-             {
-              /* background: url("/assets/images/our_work/hero_1.jpg") no-repeat */
-            }
-            background: url("https://cdn.pixabay.com/photo/2023/06/14/12/30/hands-8062985_640.jpg")
-              no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
-             {
-              /* filter: grayscale(100%); */
-            }
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding-bottom: 1rem;
-          }
-        `}
-      </style>
+  const titles = ["Our Clients", "Our Partners", "Our Investors"];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % bgImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [bgImages.length]);
+
+  return (
+    <div className="relative h-screen w-full overflow-hidden">
+      {/* Backgrounds with smooth fade */}
+      {bgImages.map((img, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-[2000ms] ease-in-out ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            backgroundImage: `url(${img})`,
+            zIndex: i === index ? 1 : 0,
+          }}
+        ></div>
+      ))}
+
+      {/* Main content overlay */}
+      <div className="relative z-10 flex items-center justify-center h-full px-4 md:px-[4rem] lg:px-[7.6rem]">
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          <div></div>
+          <div></div>
+
+          {/* Right content box */}
+          <div className="bg-[#EEF3FF]/90 px-7 py-14 rounded-2xl relative shadow-lg backdrop-blur-sm ">
+            {/* Animated ellipse image */}
+            <div className="absolute right-4 -top-20 h-[150px] w-[150px]">
+              {ellipseImages.map((img, i) => (
+                <Image
+                  key={i}
+                  src={img}
+                  width={150}
+                  height={150}
+                  alt="collaboration"
+                  className={` h-auto absolute top-0 right-0 transition-opacity duration-[2000ms] ease-in-out ${
+                    i === index ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Animated title */}
+            <div className="relative h-[40px] mb-4">
+              {titles.map((title, i) => (
+                <h1
+                  key={i}
+                  className={`absolute text-[#4A7CFD] font-mont font-bold text-[24px] transition-all duration-[1000ms] ease-in-out ${
+                    i === index
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-5"
+                  }`}
+                >
+                  {title}
+                </h1>
+              ))}
+            </div>
+
+            {/* Static paragraph */}
+            <p className="text-[#1F2937] font-inter leading-7">
+              As a service-oriented organization, our clients are our
+              ambassadors and beneficiaries. We exist for them and to ensure we
+              drive development for individuals and institutions.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default PartClientSwiper;

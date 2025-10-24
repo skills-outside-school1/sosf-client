@@ -8,19 +8,17 @@ import MelFramework from "../Focus-Areas-Atoms/MelFramework";
 import Interventions from "../Focus-Areas-Atoms/Interventions";
 import Advocacy from "../Focus-Areas-Atoms/Advocacy";
 import SocialEconomicRegister from "../Focus-Areas-Atoms/SocialEconomicRegister";
-import ExploreOurWork from "../Focus-Areas-Atoms/ExploreOurWork";
 
 export default function FocusContainer() {
   return (
-    <div className="w-full h-[fixed] overflow-hidden flex flex-col gap-y-[10px] justify-start items-start mb-[8rem] ">
+    <div className="w-full h-[fixed] overflow-hidden flex flex-col justify-start items-start mb-[8rem] ">
       <Hero />
       <FocusSubHero />
       <Advocacy />
       <SocialEconomicRegister />
       <MelFramework />
       <Interventions />
-      <ExploreOurWork />
-      {/* <GlobalComponent /> */}
+      <GlobalComponent />
       <MoreAboutUs />
       <Subscribe />
     </div>

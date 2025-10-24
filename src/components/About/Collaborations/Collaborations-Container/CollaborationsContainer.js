@@ -8,19 +8,20 @@ import PartFlexCards from "../Collaborations-Atoms/PartFlexCards";
 import PartClientSwiper from "../Collaborations-Atoms/PartClientSwiper";
 import PartnersSlider from "../Collaborations-Atoms/PartnersCarousel";
 import Investments from "../Collaborations-Atoms/Investments";
+import InvestorsAndPartners from "../Collaborations-Atoms/InvestorsAndPartners";
 
 export default function CollaborationsContainer() {
   return (
-    <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[10px] justify-start items-start  mb-[1rem] ">
+    <div className="w-full h-[fixed] overflow-hidden flex flex-col justify-start items-start  mb-[1rem] ">
       <Hero />
       <PartSubHero />
       <PartFlexCards />
       <Investments />
-      {/* <Partners /> */}
+      <InvestorsAndPartners />
 
-      <PartnersSlider />
       <PartClientSwiper />
       <GlobalComponent />
+      <PartnersSlider />
       <MoreAboutUs />
       <Subscribe />
     </div>
