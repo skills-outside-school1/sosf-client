@@ -6,7 +6,7 @@ export default function Hero() {
     <div className="w-full h-[fixed]">
       <ReuseHero
         overlayOpacity="bg-opacity-5"
-      //  backgroundImage="assets/maps/MapChart_Map.png"
+        //  backgroundImage="assets/maps/MapChart_Map.png"
         backgroundImage="/assets/images/home/1010.png"
       />
     </div>

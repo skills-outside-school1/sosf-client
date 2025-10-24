@@ -9,12 +9,12 @@ import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 
 export default function AMbassadorsContainer() {
   return (
-    <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[100px] md:gap-y-[100px] justify-start items-start    mb-[2rem] ">
+    <div className="w-full h-[fixed] overflow-hidden flex flex-col gap-y-[100px] md:gap-y-[100px] justify-start items-start mb-[2rem] ">
       <Hero />
       <AmbSub />
       <AmbHow />
       <AmbBios />
-   
+
       <GlobalComponent />
       <MoreAboutUs />
       <Subscribe />
