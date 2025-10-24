@@ -68,7 +68,7 @@ export default function InvestmentSection() {
   ]
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 bg-white sm:mx-6 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 text-left">

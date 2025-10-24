@@ -2,20 +2,19 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/structure-chart/Main/Main-Atoms/dialog"
 import { Card, CardContent } from "@/components/shared/cards/card"
-import CustomIcon from "../structure-chart/Main/Main-Atoms/CustomIcon";
-import CustomTooltip from "../shared/tooltip/CustomTooltip";
+import CustomIcon from "../../../structure-chart/Main/Main-Atoms/CustomIcon";
+import CustomTooltip from "../../../shared/tooltip/CustomTooltip";
 
 // icons
 const services = "/assets/icons/services.svg"
 const products = "/assets/icons/products.svg"
 const expertise = "/assets/icons/expertise.svg"
 
-import IframeModal from "../shared/modals/iframe-modal"
+import IframeModal from "../../../shared/modals/iframe-modal"
 
 const LiquidAssets = [
-  { name: "Shares", 
+  { name: "Shares",
     tooltip: "Ownership in a company; you earn when the company grows or pays dividends."
    },
   { name: "Commercial Paper",
@@ -46,7 +45,7 @@ const LiquidAssets = [
 
 const nonLiquidAssets = [
   { name: "Commodities",
-    tooltip: "Raw materials like gold, oil, or wheat that are traded."  
+    tooltip: "Raw materials like gold, oil, or wheat that are traded."
    },
   { name: "Art",
     tooltip: "Investment in paintings or sculptures that may increase in value over time."
@@ -111,7 +110,8 @@ const inKindResources = [
 ]
 
 
-export function InvestModal({ open, onOpenChange }) {
+
+export default function InvestForms() {
   // iframe URLs (logic unchanged)
   const organizationUrl =
     "https://forms.zohopublic.com/halimaabba/form/OrganizationalInvestmentForm/formperma/bZAnv1TTaI3S5-627rPQg90KnJLzx6y_9W-uSU0HrYo"
@@ -131,7 +131,7 @@ export function InvestModal({ open, onOpenChange }) {
       }
   }
 
-  // Arrow icon component
+  // Arrow icon component (unchanged)
   const ArrowIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -151,22 +151,22 @@ export function InvestModal({ open, onOpenChange }) {
   )
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-5xl max-h-[90vh] overflow-hidden p-0 border-0 shadow-2xl text-left bg-white">
-        <div className="relative h-full">
-          <div className="overflow-y-auto max-h-[90vh] p-6 md:p-10">
-            <DialogHeader className="text-left mb-6 sm:mb-8">
-              <DialogTitle className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+    <div className="w-full flex justify-center py-10 md:py-16 bg-white">
+      <div className="w-full max-w-5xl px-4 sm:px-6 lg:px-8 text-left bg-white">
+        <div className="p-0">
+      
+            <div className="text-left my-[60px] sm:mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                 Forms of Investment
-              </DialogTitle>
+              </h2>
               <p className="text-left text-base md:text-lg text-gray-600">
                 Invest in any of the following assets, what would you like to contribute or invest?
               </p>
-            </DialogHeader>
+            </div>
 
             <div className="space-y-8">
               {/* Liquid Assets */}
-              <div className="text-left bg-background_blue p-4 rounded-lg">
+              <div className="text-left bg-background_blue p-10 rounded-[24px]">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-xl font-semibold text-gray-800">
                     Liquid Assets
@@ -177,8 +177,8 @@ export function InvestModal({ open, onOpenChange }) {
                   </Link>
                 </div>
 
-                {/* Liquid Assets Grid - 2 columns for both mobile and desktop */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                {/* Liquid Assets Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 mb-6">
                   {LiquidAssets.map((asset) => (
                     <CustomTooltip key={asset.name} content={asset.tooltip}>
                       <div className="bg-[#E1E7F3] text-gray-800 py-2 px-3 rounded-md text-sm w-fit transition-colors flex items-center justify-between">
@@ -200,8 +200,8 @@ export function InvestModal({ open, onOpenChange }) {
                 </div>
               </div>
 
-              {/* Non-Liquid Assets */}
-              <div className="text-left bg-background_blue p-4 rounded-lg">
+              {/* Non-Liquid Assets  */}
+              <div className="text-left bg-background_blue p-10 rounded-[24px]">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-xl font-semibold text-gray-800">Non-Liquid Assets</h3>
                   <Link href="#" className="hidden md:flex items-center space-x-2 text-gray-700 font-medium hover:text-black transition-colors">
@@ -210,8 +210,8 @@ export function InvestModal({ open, onOpenChange }) {
                   </Link>
                 </div>
 
-                {/* Non-Liquid Assets Grid - 2 columns for both mobile and desktop */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                {/* Non-Liquid Assets Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 mb-6">
                   {nonLiquidAssets.map((asset) => (
                     <CustomTooltip key={asset.name} content={asset.tooltip}>
                       <div className="bg-[#E1E7F3] text-gray-800 py-2 px-3 rounded-md text-sm w-fit transition-colors flex items-center justify-between">
@@ -234,7 +234,7 @@ export function InvestModal({ open, onOpenChange }) {
               </div>
 
               {/* Financial Contribution Types */}
-              <div className="text-left bg-background_blue p-4 rounded-lg">
+              <div className="text-left bg-background_blue p-10 rounded-[24px]">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-lg font-semibold text-gray-900">
                     Invest Cash- Direct financial contributions in the form of
@@ -245,8 +245,8 @@ export function InvestModal({ open, onOpenChange }) {
                   </Link>
                 </div>
 
-                {/* Financial Contributions - 1 column desktop and 2 columns mobile */}
-                <div className="flex flex-col md:flex-row  gap-3 mb-6">
+                {/* Financial Contributions */}
+                <div className="flex flex-col md:flex-row gap-3 mb-6">
                   {financialContributionTypes.map((type) => (
                     <CustomTooltip key={type.name} content={type.tooltip}>
                       <div className="bg-[#E1E7F3] text-gray-800 py-2 px-3 rounded-md text-sm w-fit transition-colors flex items-center justify-between">
@@ -255,7 +255,7 @@ export function InvestModal({ open, onOpenChange }) {
                           <ArrowIcon />
                         </span>
                       </div>
-                    </CustomTooltip>  
+                    </CustomTooltip>
                   ))}
                 </div>
 
@@ -270,43 +270,43 @@ export function InvestModal({ open, onOpenChange }) {
 
               {/* In-Kind Contributions */}
               <div>
-                <div className="flex justify-between items-center mb-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 text-left">
-                  Invest in-kind resources (services, products & expertise)
-                </h3>
-                 <Link href="#" className="hidden md:flex items-center space-x-2 text-gray-700 font-medium hover:text-black transition-colors">
-                    <span>See Form</span>
-                    <ArrowIcon />
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {inKindResources.map((resource) => (
-                    <Card 
-                        key={resource.title}
-                        className="bg-gray-100 border-none hover:shadow-md transition-shadow duration-300 cursor-pointer p-6"
-                        onClick={() => handleInKindClick(resource.action)}
-                    >
-                      <CardContent className="p-0 text-center flex flex-col items-start gap-4">
-                        <div className="flex flex-col items-center gap-3">
-                          <div>{resource.icon}</div>
-                          <h4 className="font-bold text-gray-900 text-base">
-                              {resource.title}
-                          </h4>
-                        </div>
-                        <p className="text-sm text-center text-gray-600 leading-relaxed">
-                          {resource.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+                  <div className="max-w-6xl mx-auto flex justify-between items-center mb-6">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4 text-left">
+                          Invest in-kind resources (services, products & expertise)
+                      </h3>
+                      <Link href="#" className="hidden md:flex items-center space-x-2 text-gray-700 font-medium hover:text-black transition-colors">
+                          <span>See Form</span>
+                          <ArrowIcon />
+                      </Link>
+                  </div>
+                  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {inKindResources.map((resource) => (
+                          <Card
+                              key={resource.title}
+                              className="bg-gray-100 border-none hover:shadow-md transition-shadow duration-300 cursor-pointer p-6"
+                              onClick={() => handleInKindClick(resource.action)}
+                          >
+                    
+                              <CardContent className="h-[250px] py-5 px-10 text-center flex flex-col items-center gap-4">
+                                  <div className="flex flex-col items-center gap-3">
+                                      <div>{resource.icon}</div>
+                                      <h4 className="font-bold text-gray-900 text-base">
+                                          {resource.title}
+                                      </h4>
+                                  </div>
+                                  <p className="text-sm text-center text-gray-600 leading-relaxed">
+                                      {resource.description}
+                                  </p>
+                              </CardContent>
+                          </Card>
+                      ))}
+                  </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Iframe Modals (logic unchanged) */}
+        {/* Iframe Modals */}
         <IframeModal
           isOpen={investOrganizationModalOpen}
           onClose={() => setInvestOrganizationModalOpen(false)}
@@ -322,7 +322,7 @@ export function InvestModal({ open, onOpenChange }) {
           description="Fill out this form to register as a network or ecosystem partner."
           iframeUrl={networkUrl}
         />
-      </DialogContent>
-    </Dialog>
+      </div>
+    
   )
 }

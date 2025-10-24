@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Dialog, DialogContent } from "@/components/structure-chart/Main/Main-Atoms/dialog"
 import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import { Card, CardContent } from "@/components/shared/cards/card"
@@ -40,6 +41,9 @@ export function PartnerModal({ open, onOpenChange }) {
                     An individual with passion for legacy and social impact?
                   </h3>
                   <p className="text-gray-600 text-base">Join as a scale up impact partner</p>
+                  <Link href="/get-involved/explore-chart" className="text-blue inline mb-4">
+                    ... move
+                  </Link>
 
                   <div className="flex items-center justify-start gap-3 mb-3">
                     <User className="h-4" />
@@ -66,6 +70,9 @@ export function PartnerModal({ open, onOpenChange }) {
                     A corporate/institution looking to scale your social impact?
                   </h3>
                   <p className="text-gray-600 text-base">Join as a strategic impact partner</p>
+                  <Link href="/get-involved/explore-chart" className="text-blue inline mb-4">
+                    ... move
+                  </Link>
 
                   <div className="flex items-center justify-start gap-3 mb-3">
                     <Building className="h-4" />

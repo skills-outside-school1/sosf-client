@@ -1,6 +1,5 @@
 "use client"
 
-import { Dialog, DialogContent } from "@/components/structure-chart/Main/Main-Atoms/dialog"
 import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import { Card, CardContent } from "@/components/shared/cards/card"
 import {
@@ -10,7 +9,7 @@ import {
   Trophy,
   Megaphone,
   FileText,
-  X,
+  X, 
   BarChart3,
   Database,
   Award,
@@ -20,35 +19,22 @@ import {
   Building2,
 } from "lucide-react"
 import { useState, useEffect } from "react"
-import IframeModal from "../shared/modals/iframe-modal"
+import IframeModal from "../../../shared/modals/iframe-modal"
 
 
-// forms
+// forms (unchanged)
 const accessDataFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFDataAccessRegistrationForm/formperma/tR1QuQRcSMrGhBum8rBKtcywUIs6hsf9UR4U7m7pW5Q"
 const contributeDataFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFVolunteerAccessRequestForm/formperma/mT1MKvcPwJZJwotBeHYtC-xUaxrnitcQFkZ1vVArjmE"
 const championFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFChampionRegistrationFormMainstreamingInstituti/formperma/vSi3fKfTzzTVYuqFS7xub3G8dP9t3LzzBUb-hv7LStY"
 const connectorFormUrl = "https://forms.zohopublic.com/halimaabba/form/AdvocacythroughStakeholderEngagementCoalitionForma/formperma/53pjv9mULg_uCNa8WKo3_qS456VIhfLqofG_LbwbQ_w"
 const awanessBuilderFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFAwarenessBuildingCollaborationInterestForm/formperma/whFqmCcBj0Fq9iZ1fjI7Z6HF9FKgGapLrz7JUMIshLA"
 const policyAdvocateFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFPolicyRegulationAdvocacyCollaborationForm/formperma/mQOSdgt679TpPzssqcmXYontdRCmnN4auceoWIsuwYM"
-
-// remaining forms ares
-// const mobilizerFormUrl = "url here"
-// const fundsFormUrl = "url here"
-// const bridgeFormUrl = "url here"
-// const headstartFormUrl = "url here"
-// const grantsFormUrl = "url here"
 const osbOscFormUrl = "https://www.udemy.com/user/skills-outside-school/?srsltid=AfmBOoq1RoOD9Q_BubAaraqk5kBUbrFip3IOgpWm31fyQPtcVVYhc5pm"
-// const catalystFormUrl = "url here"
-// 
 
 
-
-
-
-
-export function ParticipateModal({ open, onOpenChange }) {
-  const [isMobile, setIsMobile] = useState(false)
-  // iframe modal states
+export default function Participate() {
+  const [isMobile, setIsMobile] = useState(false) 
+  // iframe modal states 
     const [accessDataFormOpen, setAccessDataFormOpen] = useState(false)
     const [contributeDataFormOpen, setContributeDataFormOpen] = useState(false)
     const [championFormOpen, setChampionFormOpen] = useState(false)
@@ -58,8 +44,7 @@ export function ParticipateModal({ open, onOpenChange }) {
     const [osbOscFormOpen, setOsbOscFormOpen] = useState(false)
 
 
-
-
+  // useEffect kept for responsive icon sizing (unchanged)
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
@@ -74,18 +59,13 @@ export function ParticipateModal({ open, onOpenChange }) {
   }, [])
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] xl:w-[75vw] max-w-7xl max-h-[90vh] sm:max-h-[95vh] overflow-hidden p-0 border-0 shadow-2xl">
-        <div className="relative w-full h-full">
-          <button
-            onClick={() => onOpenChange(false)}
-            className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-50 rounded-full bg-white/95 backdrop-blur-sm p-1.5 sm:p-2 md:p-2.5 hover:bg-gray-100 transition-all duration-200 shadow-lg border border-gray-200"
-            aria-label="Close"
-          >
-            <X size={isMobile ? 14 : 20} className="text-gray-600" />
-          </button>
 
-          <div className="overflow-y-auto max-h-[90vh] text-left max-h-[95vh] p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 pt-8 sm:pt-10 md:pt-12">
+    <div className="w-full flex justify-center mt-10 py-10 px-4 md:px-8 bg-white">
+      <div className="w-full max-w-7xl text-left">
+        <div className="relative">
+        
+          <div className="text-left p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 pt-8 sm:pt-10 md:pt-12">
+
             {/* Data Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 text-left">
@@ -139,7 +119,7 @@ export function ParticipateModal({ open, onOpenChange }) {
               </div>
             </div>
 
-            {/* Intervention Section */}
+            {/* Intervention Section (content unchanged) */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 text-left">
                 PARTICIPATE IN OUR INTERVENTION
@@ -440,7 +420,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                   description="Visit our Udemy page to explore our courses."
                   iframeUrl={osbOscFormUrl}
                 />
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   )
 }
