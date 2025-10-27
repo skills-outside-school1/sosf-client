@@ -13,10 +13,10 @@ export default function AmbSub() {
           mission. Our ambassadors are not merely representatives; they are
           catalysts for change, driving our initiatives forward and amplifying
           our impact. We believe in empowering them to be active agents of
-          transformation, forging a path toward a better future for our
+          transformation, forging a path toward a better future for our 
           <Link
             href={`/our-target-audience`}
-            className="text-blue underline  -"
+            className="underline text-blue"
           >
             {" "}
             target beneficiaries.
@@ -26,8 +26,8 @@ export default function AmbSub() {
     },
   ];
   return (
-    <div className="w-full h-[fixed]   px-2 ">
-      <SubHero items={hero_data} className={`w-ful md:w-full lg:w-full `} />
+    <div className="w-full h-[fixed] px-2">
+      <SubHero items={hero_data} className={`w-full md:w-full lg:w-4/5`} />
     </div>
   );
 }
