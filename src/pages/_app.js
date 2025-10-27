@@ -19,6 +19,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/saas.css";
 import BackToTop from "@/components/shared/Atoms/Button-Atoms/Backt-To-Top";
 import Loading from "@/components/shared/animations/Loading";
+import { SessionProvider } from "next-auth/react";
+
 
 config.autoAddCss = false;
 
@@ -98,6 +100,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <React.Fragment>
+      <SessionProvider session={pageProps.session}>
       <Head>
         <title>Skills Outside School Foundation</title>
         <link
@@ -196,6 +199,7 @@ function MyApp({ Component, pageProps }) {
           <ToastContainer />
         </>
       )}
+      </SessionProvider>
     </React.Fragment>
   );
 }
