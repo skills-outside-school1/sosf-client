@@ -41,8 +41,8 @@ const AnimatedHero = () => {
   };
 
   return (
-    <section className="items-center justify-center w-full px-6 md:px-0">
-      <div className="mx-auto max-w-[1421px]">
+    <section className="items-center justify-center w-full px-6 xl:px-0">
+      <div className="mx-auto xl:max-w-[1421px]">
         <div className="relative overflow-hidden bg-gray-800 rounded-2xl h-[713px] md:h-[600px]">
           <Image
             src="/assets/images/govern.png"

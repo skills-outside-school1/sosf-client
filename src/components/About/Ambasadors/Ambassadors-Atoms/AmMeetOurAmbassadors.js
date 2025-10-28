@@ -43,9 +43,9 @@ export default function AmMeetOurAmbassadors() {
 
 
   return (
-    <section className="items-center justify-center w-full px-6 md:px-0">
-      <div className="py-8 md:mx-auto max-w-[1421px]">
-        <div className="grid items-center grid-cols-1 gap-8 mb-12 md:gap-12 md:grid-cols-2 place-content-between">
+    <section className="items-center justify-center w-full px-6 xl::px-0">
+      <div className="py-8 md:mx-auto xl:max-w-[1421px]">
+        <div className="grid items-center grid-cols-1 gap-8 mb-12 md:gap-12 lg:grid-cols-2 place-content-between">
           <div className="lg:w-3/4">
             <h2 className="mb-6 font-bold text-gray-900 text-[2.3rem] lg:text-[2.875rem] font-mont leading-[40px] lg:leading-[52px]">
               Meet Our <br /> Ambassadors
