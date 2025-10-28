@@ -64,8 +64,8 @@ export default function AmChangeMakingStrategiesCarousel() {
         setCardsPerSlide(1);
         setCardWidthPercent(95);
       } else if (width >= 768 && width < 1024) {
-        setCardsPerSlide(3);
-        setCardWidthPercent(33.3333);
+        setCardsPerSlide(2.5);
+        setCardWidthPercent(40);
       } else if (width >= 1024 && width < 1280) {
         setCardsPerSlide(3.5);
         setCardWidthPercent(28.5);
@@ -90,10 +90,10 @@ export default function AmChangeMakingStrategiesCarousel() {
   };
 
   return (
-    <section className="items-center justify-center w-full px-6 md:px-0">
-      <div className="py-8 rounded-[1.5rem] mx-auto max-w-[1421px] sm:px-6 lg:p-16 bg-[#E1E7F3]">
+    <section className="items-center justify-center w-full px-6 xl:px-0">
+      <div className="py-8 rounded-[1.5rem] mx-auto xl:max-w-[1421px] sm:px-6 lg:p-16 bg-[#E1E7F3]">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-5xl font-semibold tracking-wide text-gray-900 font-mont">
+          <h2 className="mb-4 text-[2.3rem] leading-[40px] lg:leading-[52px] font-semibold tracking-wide text-gray-900 lg:text-5xl font-mont">
             Change making Strategies
           </h2>
           <P className="text-[16px] text-gray- font-inter tracking-wide">
@@ -102,7 +102,7 @@ export default function AmChangeMakingStrategiesCarousel() {
           </P>
         </div>
 
-        <div className="relative overflow-hidden" ref={carouselRef}>
+        <div className="relative overflow-hidden md:px-2" ref={carouselRef}>
           <div
             className="flex transition-transform duration-500 ease-out"
             style={{
