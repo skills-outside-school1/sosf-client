@@ -83,8 +83,8 @@ export default function AmInfoCarousel() {
         setCardsPerSlide(1);
         setCardWidthPercent(90);
       } else if (width >= 768 && width < 1024) {
-        setCardsPerSlide(3);
-        setCardWidthPercent(33.333);
+        setCardsPerSlide(2.5);
+        setCardWidthPercent(40);
       } else if (width >= 1024 && width < 1280) {
         setCardsPerSlide(3.5);
         setCardWidthPercent(28.5);
@@ -117,8 +117,8 @@ export default function AmInfoCarousel() {
   };
 
   return (
-    <section className="items-center justify-center w-full px-6 pb-16 bg-white md:pb-24 md:px-0">
-      <div className="relative py-8 md:mx-auto max-w-[1421px]">
+    <section className="items-center justify-center w-full px-6 pb-16 bg-white md:pb-24 xl:px-0">
+      <div className="relative py-8 md:mx-auto xl:max-w-[1421px]">
         {/* Section header with navigation */}
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-2xl font-bold text-gray-900 md:text-4xl">
