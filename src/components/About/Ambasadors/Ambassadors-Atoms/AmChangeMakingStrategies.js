@@ -108,7 +108,7 @@ export default function AmChangeMakingStrategiesCarousel() {
 
         {/* Desktop Static Grid */}
         {isDesktop ? (
-          <div className="grid grid-cols-5 gap-3 px-4">
+          <div className="grid grid-cols-5 gap-3 p-4">
             {strategies.map((strategy) => (
               <StrategyCard key={strategy.id} strategy={strategy} />
             ))}
@@ -116,7 +116,7 @@ export default function AmChangeMakingStrategiesCarousel() {
         ) : (
           /* Carousel for tablet and mobile */
           <>
-            <div className="relative overflow-hidden md:px-2" ref={carouselRef}>
+            <div className="relative overflow-hidden md:px-2 py-3" ref={carouselRef}>
               <div
                 className="flex transition-transform duration-500 ease-out"
                 style={{
