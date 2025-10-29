@@ -52,28 +52,32 @@ export default function AmChangeMakingStrategiesCarousel() {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [cardsPerSlide, setCardsPerSlide] = useState(4);
-  const [cardWidthPercent, setCardWidthPercent] = useState(25);
+  const [cardsPerSlide, setCardsPerSlide] = useState(1);
+  const [cardWidthPercent, setCardWidthPercent] = useState(100);
+  const [isDesktop, setIsDesktop] = useState(false);
   const carouselRef = useRef();
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
 
-      if (width < 768) {
-        setCardsPerSlide(1);
-        setCardWidthPercent(95);
-      } else if (width >= 768 && width < 1024) {
-        setCardsPerSlide(2.5);
-        setCardWidthPercent(40);
-      } else if (width >= 1024 && width < 1280) {
-        setCardsPerSlide(3.5);
-        setCardWidthPercent(28.5);
+      if (width >= 1280) {
+        // Desktop: disable carousel
+        setIsDesktop(true);
       } else {
-        setCardsPerSlide(4);
-        setCardWidthPercent(25);
+        // Tablet and Mobile: enable carousel
+        setIsDesktop(false);
+        if (width < 768) {
+          setCardsPerSlide(1);
+          setCardWidthPercent(95);
+        } else if (width >= 768 && width < 1024) {
+          setCardsPerSlide(2.5);
+          setCardWidthPercent(40);
+        } else if (width >= 1024 && width < 1280) {
+          setCardsPerSlide(3.5);
+          setCardWidthPercent(28.5);
+        }
       }
-
       setCurrentSlide(0);
     };
 
@@ -102,37 +106,51 @@ export default function AmChangeMakingStrategiesCarousel() {
           </P>
         </div>
 
-        <div className="relative overflow-hidden md:px-2" ref={carouselRef}>
-          <div
-            className="flex transition-transform duration-500 ease-out"
-            style={{
-              transform: `translateX(-${currentSlide * cardWidthPercent}%)`,
-            }}
-          >
+        {/* Desktop Static Grid */}
+        {isDesktop ? (
+          <div className="grid grid-cols-5 gap-3 px-4">
             {strategies.map((strategy) => (
-              <div
-                key={strategy.id}
-                className="flex-shrink-0 px-2"
-                style={{ width: `${cardWidthPercent}%` }}
-              >
-                <StrategyCard strategy={strategy} />
-              </div>
+              <StrategyCard key={strategy.id} strategy={strategy} />
             ))}
           </div>
-        </div>
+        ) : (
+          /* Carousel for tablet and mobile */
+          <>
+            <div className="relative overflow-hidden md:px-2" ref={carouselRef}>
+              <div
+                className="flex transition-transform duration-500 ease-out"
+                style={{
+                  transform: `translateX(-${currentSlide * cardWidthPercent}%)`,
+                }}
+              >
+                {strategies.map((strategy) => (
+                  <div
+                    key={strategy.id}
+                    className="flex-shrink-0 px-2"
+                    style={{ width: `${cardWidthPercent}%` }}
+                  >
+                    <StrategyCard strategy={strategy} />
+                  </div>
+                ))}
+              </div>
+            </div>
 
-        <div className="flex justify-center gap-2 mt-8">
-          {Array.from({ length: totalSlides }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleDotClick(index)}
-              className={`h-3 w-3 rounded-full bg-gray-500 transition-all duration-300 ${
-                index === currentSlide ? "outline outline-2 outline-white" : ""
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: totalSlides }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleDotClick(index)}
+                  className={`h-3 w-3 rounded-full bg-gray-500 transition-all duration-300 ${
+                    index === currentSlide
+                      ? "outline outline-2 outline-white"
+                      : ""
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
