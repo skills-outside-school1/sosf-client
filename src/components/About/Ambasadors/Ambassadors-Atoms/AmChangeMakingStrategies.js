@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import StrategyCard from "./StrategyCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { P } from "@/components/shared/Atoms/Typography/typography";
 
 export default function AmChangeMakingStrategiesCarousel() {
@@ -62,20 +63,18 @@ export default function AmChangeMakingStrategiesCarousel() {
       const width = window.innerWidth;
 
       if (width >= 1280) {
-        // Desktop: disable carousel
         setIsDesktop(true);
       } else {
-        // Tablet and Mobile: enable carousel
         setIsDesktop(false);
         if (width < 768) {
           setCardsPerSlide(1);
-          setCardWidthPercent(95);
+          setCardWidthPercent(100);
         } else if (width >= 768 && width < 1024) {
-          setCardsPerSlide(2.5);
-          setCardWidthPercent(40);
+          setCardsPerSlide(2);
+          setCardWidthPercent(50);
         } else if (width >= 1024 && width < 1280) {
-          setCardsPerSlide(3.5);
-          setCardWidthPercent(28.5);
+          setCardsPerSlide(3);
+          setCardWidthPercent(33.333);
         }
       }
       setCurrentSlide(0);
@@ -88,6 +87,19 @@ export default function AmChangeMakingStrategiesCarousel() {
   }, []);
 
   const totalSlides = Math.ceil(strategies.length / cardsPerSlide);
+  const maxSlide = totalSlides - 1;
+
+  const nextSlide = () => {
+    if (currentSlide < maxSlide) {
+      setCurrentSlide((prev) => prev + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (currentSlide > 0) {
+      setCurrentSlide((prev) => prev - 1);
+    }
+  };
 
   const handleDotClick = (index) => {
     setCurrentSlide(index);
@@ -95,16 +107,37 @@ export default function AmChangeMakingStrategiesCarousel() {
 
   return (
     <section className="items-center justify-center w-full px-6 xl:px-0">
-      <div className="py-8 rounded-[1.5rem] mx-auto xl:max-w-[1421px] sm:px-6 lg:p-16 bg-[#E1E7F3]">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-[2.3rem] leading-[40px] lg:leading-[52px] font-semibold tracking-wide text-gray-900 lg:text-5xl font-mont">
+      <div className="py-8 rounded-[1.5rem] mx-auto xl:max-w-[1421px] sm:px-6 lg:p-16 bg-[#E1E7F3] relative">
+        {/* Heading Section */}
+        <div className="mb-8 text-center">
+          <h2 className="mb-4 text-[2rem] leading-[40px] lg:leading-[52px] font-semibold tracking-wide text-gray-900 lg:text-5xl font-mont">
             Change making Strategies
           </h2>
           <P className="text-[16px] text-gray- font-inter tracking-wide">
-            We’re turning bold strategies into real impact, using creativity,
-            passion, and <br /> purpose to shape the future through these means
+            We're turning bold strategies into real impact, using creativity,
+            passion, and <br className="hidden md:block" /> purpose to shape the future through these means
           </P>
         </div>
+
+        {/* Arrow Buttons (below text, above carousel) */}
+        {!isDesktop && (
+          <div className="flex justify-end gap-3 pr-2 mb-4 md:pr-4">
+            <button
+              onClick={prevSlide}
+              disabled={currentSlide === 0}
+              className="p-1 transition bg-white rounded-sm shadow hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft className="text-gray-800" />
+            </button>
+            <button
+              onClick={nextSlide}
+              disabled={currentSlide === maxSlide}
+              className="p-1 transition bg-white rounded-sm shadow hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronRight className="text-gray-800" />
+            </button>
+          </div>
+        )}
 
         {/* Desktop Static Grid */}
         {isDesktop ? (
@@ -114,9 +147,8 @@ export default function AmChangeMakingStrategiesCarousel() {
             ))}
           </div>
         ) : (
-          /* Carousel for tablet and mobile */
           <>
-            <div className="relative overflow-hidden md:px-2 py-3" ref={carouselRef}>
+            <div className="relative py-3 overflow-hidden md:px-2" ref={carouselRef}>
               <div
                 className="flex transition-transform duration-500 ease-out"
                 style={{
@@ -135,6 +167,7 @@ export default function AmChangeMakingStrategiesCarousel() {
               </div>
             </div>
 
+            {/* Dots */}
             <div className="flex justify-center gap-2 mt-8">
               {Array.from({ length: totalSlides }).map((_, index) => (
                 <button

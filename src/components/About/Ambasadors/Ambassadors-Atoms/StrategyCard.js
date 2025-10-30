@@ -5,30 +5,36 @@ export default function StrategyCard({ strategy }) {
   const { image, title, description } = strategy;
 
   return (
-    <div className="overflow-hidden transition-shadow bg-white rounded-2xl shadow-sm hover:shadow-md h-[425px]">
+    <div className="flex flex-col overflow-hidden transition-all duration-300 bg-white rounded-2xl shadow-sm hover:shadow-lg h-[420px] xl:h-[430px]">
       {/* Image section */}
-      <div className="overflow-hidden bg-gray-200 aspect-square h-[200px] w-full">
+      <div className="relative overflow-hidden bg-gray-200 w-full h-[180px] xl:h-[180px] flex-shrink-0">
         <Image
           src={image}
           alt={title}
-          height={100}
-          width={100}
-          className="object-cover w-full h-full"
+          fill
+          className="object-cover"
         />
       </div>
 
       {/* Content section */}
-      <div className="flex flex-col flex-grow p-4 space-y-4">
-        <h4 className="text-[24px] font-mont leading-tight font-semibold">
+      <div className="flex flex-col flex-grow p-5 xl:p-5">
+        {/* Title */}
+        <h4 className="mb-3 text-[1.29rem] font-semibold leading-tight text-gray-900 font-mont line-clamp-2">
           {title}
         </h4>
-        <p className="text-sm font-medium font-inter">{description}</p>
-        <button className="text-sm font-medium w-fit text-[#4A7CFD]">
-          See more
-        </button>
+        
+        {/* Description */}
+        <p className="flex-grow mb-4 text-sm font-medium leading-relaxed text-gray-700 xl:text-[0.8rem] font-inter line-clamp-4">
+          {description}
+        </p>
+        
+        {/* Button - always at bottom */}
+        <div className="pt-2 mt-auto">
+          <button className="text-sm xl:text-sm font-semibold font-inter text-[#4A7CFD] hover:text-[#3a5fc9] transition-colors duration-200 inline-flex items-center group">
+            See more
+          </button>
+        </div>
       </div>
-
-      
     </div>
   );
 }
