@@ -10,71 +10,79 @@ import ImageOverlayCard from "@/components/shared/Atoms/Cards-Atoms/ImageOverlay
 export default function AMbassadorsContainer() {
 
    const sosf_info = [
-    {
-      id: 1,
-      title: "Our History & Strategy",
-      description:
-        "Explore our journey from inception to where we stand today, guided by a strategic vision aimed at empowering communities and creating sustainable impact.",
-      link: "Visit Page",
-      img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80",
-    },
-    {
-      id: 2,
-      title: "Our Pillars",
-      description:
-        "Discover the foundational principles that drive our work, shaping the framework of our interventions and guiding our mission to empower change.",
-      link: "Visit Page",
-      img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-    },
-    {
-      id: 3,
-      title: "Our Core Values",
-      description:
-        "At the SOSF, we hold integrity, service, and collaboration as our core values, defining our commitment to impactful change.",
-      link: "Visit Page",
-      img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-    },
-    {
-      id: 4,
-      title: "Our USPs",
-      description:
-        "Skills Outside School Foundation has reached over 100,000 people, delivering tailored solutions to real-world challenges.",
-      link: "Visit Page",
-      img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-    },
-    {
-      id: 5,
-      title: "Our History & Strategy",
-      description:
-        "Explore our journey from inception to where we stand today, guided by a strategic vision aimed at empowering communities and creating sustainable impact.",
-      link: "Visit Page",
-      img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80",
-    },
-    {
-      id: 6,
-      title: "Our Pillars",
-      description:
-        "Discover the foundational principles that drive our work, shaping the framework of our interventions and guiding our mission to empower change.",
-      link: "Visit Page",
-      img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-    },
-    {
-      id: 7,
-      title: "Our Core Values",
-      description:
-        "At the SOSF, we hold integrity, service, and collaboration as our core values, defining our commitment to impactful change.",
-      link: "Visit Page",
-      img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-    },
-    {
-      id: 8,
-      title: "Our USPs",
-      description:
-        "Skills Outside School Foundation has reached over 100,000 people, delivering tailored solutions to real-world challenges.",
-      link: "Visit Page",
-      img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-    },
-  ];
+  {
+    id: 1,
+    title: "Get Involved",
+    description:
+      "Join us in making a difference! Whether you contribute your time, skills, or resources, your involvement helps create lasting impact in the lives of those we serve. Together, we can build a brighter future.",
+    link: "get-involved",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZeH1t5cynPXzy-TEScAnDhiQRHqCJDm64g&s",
+  },
+  {
+    id: 2,
+    title: "Partner",
+    description:
+      "Collaborate with us to amplify your impact. By partnering with SOSF, you contribute to data-driven, sustainable solutions that address real-world challenges and improve communities.",
+    link: "partnerships",
+    img: "https://www.startupdonut.co.uk/sites/default/files/production/image/strategic_partnerships_306153968.jpg",
+  },
+  {
+    id: 3,
+    title: "See how our work impacts the UN SDGs",
+    description:
+      "SOSF actively supports the United Nations Sustainable Development Goals (SDGs), focusing on key areas such as quality education, good health and well-being, gender equality, and sustainable communities to drive meaningful change.",
+    link: "sdg",
+    img: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
+  },
+  {
+    id: 4,
+    title: "Get Involved",
+    description:
+      "Join us in making a difference! Whether you contribute your time, skills, or resources, your involvement helps create lasting impact in the lives of those we serve. Together, we can build a brighter future.",
+    link: "get-involved",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZeH1t5cynPXzy-TEScAnDhiQRHqCJDm64g&s",
+  },
+  {
+    id: 5,
+    title: "Partner",
+    description:
+      "Collaborate with us to amplify your impact. By partnering with SOSF, you contribute to data-driven, sustainable solutions that address real-world challenges and improve communities.",
+    link: "partnerships",
+    img: "https://www.startupdonut.co.uk/sites/default/files/production/image/strategic_partnerships_306153968.jpg",
+  },
+  {
+    id: 6,
+    title: "See how our work impacts the UN SDGs",
+    description:
+      "SOSF actively supports the United Nations Sustainable Development Goals (SDGs), focusing on key areas such as quality education, good health and well-being, gender equality, and sustainable communities to drive meaningful change.",
+    link: "sdg",
+    img: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
+  },
+  {
+    id: 7,
+    title: "Get Involved",
+    description:
+      "Join us in making a difference! Whether you contribute your time, skills, or resources, your involvement helps create lasting impact in the lives of those we serve. Together, we can build a brighter future.",
+    link: "get-involved",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZeH1t5cynPXzy-TEScAnDhiQRHqCJDm64g&s",
+  },
+  {
+    id: 8,
+    title: "Partner",
+    description:
+      "Collaborate with us to amplify your impact. By partnering with SOSF, you contribute to data-driven, sustainable solutions that address real-world challenges and improve communities.",
+    link: "partnerships",
+    img: "https://www.startupdonut.co.uk/sites/default/files/production/image/strategic_partnerships_306153968.jpg",
+  },
+  {
+    id: 9,
+    title: "See how our work impacts the UN SDGs",
+    description:
+      "SOSF actively supports the United Nations Sustainable Development Goals (SDGs), focusing on key areas such as quality education, good health and well-being, gender equality, and sustainable communities to drive meaningful change.",
+    link: "sdg",
+    img: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
+  },
+];
 
 
 
