@@ -110,7 +110,7 @@ export default function AmChangeMakingStrategiesCarousel() {
       <div className="py-8 rounded-[1.5rem] mx-auto xl:max-w-[1421px] sm:px-6 lg:p-16 bg-[#E1E7F3] relative">
         {/* Heading Section */}
         <div className="mb-8 text-center">
-          <h2 className="mb-4 text-[2.3rem] leading-[40px] lg:leading-[52px] font-semibold tracking-wide text-gray-900 lg:text-5xl font-mont">
+          <h2 className="mb-4 text-[2rem] leading-[40px] lg:leading-[52px] font-semibold tracking-wide text-gray-900 lg:text-5xl font-mont">
             Change making Strategies
           </h2>
           <P className="text-[16px] text-gray- font-inter tracking-wide">
