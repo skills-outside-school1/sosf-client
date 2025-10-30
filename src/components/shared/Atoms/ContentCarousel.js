@@ -1,17 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function ContentCarousel({ 
-  items, 
-  title, 
+export default function ContentCarousel({
+  items,
+  title,
   CardComponent,
   showDots = true,
   showNavigation = true,
-  className = ""
+  onCardClick,
+  className = "",
 }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [cardsPerSlide, setCardsPerSlide] = useState(1);
   const [cardWidthPercent, setCardWidthPercent] = useState(100);
+  const [isMobile, setIsMobile] = useState(false);
   const carouselRef = useRef();
 
   useEffect(() => {
@@ -19,15 +21,19 @@ export default function ContentCarousel({
       const width = window.innerWidth;
 
       if (width < 768) {
+        setIsMobile(true);
         setCardsPerSlide(1);
-        setCardWidthPercent(100);
+        setCardWidthPercent(85);
       } else if (width >= 768 && width < 1024) {
+        setIsMobile(false);
         setCardsPerSlide(2);
         setCardWidthPercent(50);
       } else if (width >= 1024 && width < 1280) {
+        setIsMobile(false);
         setCardsPerSlide(3);
         setCardWidthPercent(33.333);
       } else {
+        setIsMobile(false);
         setCardsPerSlide(4);
         setCardWidthPercent(25);
       }
@@ -37,7 +43,6 @@ export default function ContentCarousel({
 
     window.addEventListener("resize", handleResize);
     handleResize();
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -57,7 +62,9 @@ export default function ContentCarousel({
   };
 
   return (
-    <section className={`items-center justify-center w-full px-6 xl:px-0 ${className}`}>
+    <section
+      className={`items-center justify-center w-full px-6 xl:px-0 ${className}`}
+    >
       <div className="relative py-12 md:py-16 md:mx-auto xl:max-w-[1421px]">
         {/* Section header with navigation */}
         {(title || showNavigation) && (
@@ -93,7 +100,7 @@ export default function ContentCarousel({
         {/* Carousel content */}
         <div className="relative overflow-hidden" ref={carouselRef}>
           <div
-            className="flex transition-transform duration-500 ease-out"
+            className={`flex transition-transform duration-500 ease-out`}
             style={{
               transform: `translateX(-${currentSlide * cardWidthPercent}%)`,
             }}
@@ -104,7 +111,14 @@ export default function ContentCarousel({
                 className="flex-shrink-0 px-2 md:px-3"
                 style={{ width: `${cardWidthPercent}%` }}
               >
-                <CardComponent item={item} />
+                <CardComponent
+                  item={item}
+                  onClick={
+                    typeof onCardClick === "function"
+                      ? () => onCardClick(item)
+                      : undefined
+                  }
+                />
               </div>
             ))}
           </div>
