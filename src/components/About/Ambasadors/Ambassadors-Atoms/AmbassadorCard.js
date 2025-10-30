@@ -16,10 +16,10 @@ export default function AmbassadorCard({ item, onClick }) {
         </div>
       </div>
       <span className="block w-full h-[5px] bg-white"></span>
-      <div className="p-3">
-        <p className="text-sm font-medium text-gray-900 font-mont">
+      <div className="flex flex-col items-center p-3 space-y-0">
+        <span className="text-lg font-bold text-gray-900 font-mont">
           {item.name}
-        </p>
+        </span>
         <span className="text-xs font-inter">{item.title}</span>
       </div>
     </div>
