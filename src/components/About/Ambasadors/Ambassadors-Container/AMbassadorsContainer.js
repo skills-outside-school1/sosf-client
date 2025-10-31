@@ -118,7 +118,6 @@ export default function AMbassadorsContainer() {
           slides={heroSlides}
           image="/assets/images/govern.png"
           height="h-[700px]"
-          overlayColor="bg-black/60"
           contentPosition="right"
         />
 

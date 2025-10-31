@@ -5,19 +5,17 @@ import Image from "next/image";
 
 /**
  * Reusable AnimatedHero component
- * 
+ *
  * Props:
  * - slides: Array of { title, description, buttonText }
  * - image: Background image path
  * - height: (optional) custom height (default: h-[713px])
- * - overlayColor: (optional) overlay color e.g. "bg-black/50"
  * - contentPosition: (optional) "left" | "right" | "center" (default: right)
  */
 const AnimatedHero = ({
   slides = [],
   image = "/assets/images/default-hero.jpg",
   height = "h-[713px]",
-  overlayColor = "bg-black/50",
   contentPosition = "right",
 }) => {
   const [index, setIndex] = useState(0);
@@ -43,6 +41,12 @@ const AnimatedHero = ({
       ? "justify-center"
       : "justify-end";
 
+  // Dynamic gradient overlay depending on position
+  const gradientOverlay =
+    contentPosition === "left"
+      ? "bg-gradient-to-r from-black/70 via-black/50 to-transparent"
+      : "bg-gradient-to-l from-black/70 via-black/50 to-transparent";
+
   return (
     <section className="items-center justify-center w-full px-6 xl:px-0">
       <div className="mx-auto xl:max-w-[1421px]">
@@ -57,9 +61,9 @@ const AnimatedHero = ({
             priority
           />
 
-          {/* Dark overlay with configurable alignment */}
+          {/* Gradient overlay with configurable alignment */}
           <div
-            className={`absolute inset-0 flex items-center ${justifyClass} p-6 md:p-12 ${overlayColor}`}
+            className={`absolute inset-0 flex items-center ${justifyClass} p-6 md:p-12 ${gradientOverlay}`}
           >
             <AnimatePresence mode="wait">
               <motion.div
