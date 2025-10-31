@@ -1,6 +1,30 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+
+
+/**
+ * ContentCarousel Component
+ *
+ *
+ * Props:
+ * @param {Array} items - Array of content objects to render in the carousel. Each item should have a unique `id`.
+ * @param {string} [title] - Optional section title displayed above the carousel.
+ * @param {React.ComponentType} CardComponent - Component used to render each carousel card.
+ * @param {boolean} [showDots=true] - Toggles visibility of the slide indicator dots below the carousel.
+ * @param {boolean} [showNavigation=true] - Toggles visibility of the left and right navigation buttons.
+ * @param {Function} [onCardClick] - Optional click handler that triggers when a card is clicked. Receives the clicked `item` as an argument.
+ * @param {string} [className=""] - Optional additional class names for styling the outer section wrapper.
+ *
+ * Example usage:
+ * <ContentCarousel
+ *    items={dataArray}
+ *    title="Explore Our Work"
+ *    CardComponent={MyCard}
+ *    onCardClick={(item) => console.log(item)}
+ * />
+ */
+
 export default function ContentCarousel({
   items,
   title,
