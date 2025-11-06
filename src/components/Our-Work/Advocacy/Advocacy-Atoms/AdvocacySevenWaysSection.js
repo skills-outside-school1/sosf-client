@@ -78,7 +78,7 @@ export default function AdvocacySevenWaysSection() {
       <div className="py-8 rounded-[1.5rem] mx-auto xl:max-w-[1421px] sm:px-6 lg:p-16">
         <AnimatedSection>
           <div className="mb-12 text-center">
-            <div className="inline-block py-3 rounded-full md:px-8 bg-[rgba(59,130,246,0.36)]">
+            <div className="inline-block py-3 rounded-full px-4 md:px-8 bg-[rgba(59,130,246,0.36)]">
               <h2 className="text-2xl font-bold text-gray-900 font-mont">7 Ways We Advocate</h2>
             </div>
           </div>
