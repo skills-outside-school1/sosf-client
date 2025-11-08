@@ -26,7 +26,7 @@ export default function ActionableInsights() {
   ]
 
   return (
-    <section className="relative z-10 min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+    <section className="relative z-10 min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/70 opacity-95">
       <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
 
       <div className="relative z-20 w-full max-w-4xl">
