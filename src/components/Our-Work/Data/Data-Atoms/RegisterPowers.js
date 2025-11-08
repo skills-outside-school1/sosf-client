@@ -55,7 +55,7 @@ export default function RegisterPowers() {
             )) }
           </div>
             {/* Second row - 2 items centered */}
-            <div className="flex flex-row justify-center items-stretch gap-6  w-full max-w-3xl mt-6 md:mt-8">
+            <div className="flex flex-col md:flex-row justify-center items-stretch gap-6  w-full max-w-3xl mt-6 md:mt-8">
             { featureData.slice(3).map((feature, index) => (
                 <div key={index} className="flex flex-col items-center text-center p-6 rounded-lg">
                   <CustomIcon src={feature.icon} alt={`${feature.title} Icon`} className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-6 text-blue-400" />
