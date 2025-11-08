@@ -220,7 +220,7 @@ const Nav2 = () => {
                         >
                           <div className="flex flex-col gap-3 text-[15px] font-inter">
                             <Link
-                              href="/projects"
+                              href="/our-work/data"
                               className="font-normal hover:text-secondary_blue"
                               onClick={handleLinkClick}
                             >
