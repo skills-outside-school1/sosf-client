@@ -227,7 +227,7 @@ const Nav2 = () => {
                               Data
                             </Link>
                             <Link
-                              href="/initiatives"
+                              href="/our-work/advocacy"
                               className="font-normal hover:text-secondary_blue"
                               onClick={handleLinkClick}
                             >
@@ -421,7 +421,7 @@ const Nav2 = () => {
                                     className="p-3 rounded flex items-center justify-between"
                                   >
                                     <Link
-                                      href="/#"
+                                      href="/our-work/data"
                                       onClick={handleLinkClick}
                                       className="font-semibold text-gray-800 text-sm "
                                     >
@@ -438,7 +438,7 @@ const Nav2 = () => {
                                     className="p-3 rounded flex items-center justify-between"
                                   >
                                     <Link
-                                      href="/#"
+                                      href="/our-work/advocacy"
                                       onClick={handleLinkClick}
                                       className="font-semibold text-gray-800 text-sm"
                                     >
