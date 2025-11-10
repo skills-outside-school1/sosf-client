@@ -3,9 +3,8 @@ import Head from "next/head";
 import "./global.css";
 import "../styles/swipper.css";
 import "../styles/our_work.css";
-import { FadeLoader } from "react-spinners";
+// import { FadeLoader } from "react-spinners";
 import Navbar from "@/components/home/nav";
-import SideNav from "../components/home/sidenav";
 import Script from "next/script";
 import Footer from "@/components/home/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -20,6 +19,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/saas.css";
 import BackToTop from "@/components/shared/Atoms/Button-Atoms/Backt-To-Top";
 import Loading from "@/components/shared/animations/Loading";
+import { SessionProvider } from "next-auth/react";
+
 
 config.autoAddCss = false;
 
@@ -99,6 +100,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <React.Fragment>
+      <SessionProvider session={pageProps.session}>
       <Head>
         <title>Skills Outside School Foundation</title>
         <link
@@ -197,6 +199,7 @@ function MyApp({ Component, pageProps }) {
           <ToastContainer />
         </>
       )}
+      </SessionProvider>
     </React.Fragment>
   );
 }

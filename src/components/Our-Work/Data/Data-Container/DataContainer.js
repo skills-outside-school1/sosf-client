@@ -1,21 +1,43 @@
-import React from "react";
+import RegisterPowers from "../Data-Atoms/RegisterPowers"
+import WhyMatters from "../Data-Atoms/WhyMatters"
+import ActionableInsights from "../Data-Atoms/ActionableInsights"
+import DataHero from "../Data-Atoms/DataHero"
 import Hero from "@/components/home/Home-Atoms/Hero";
-import DataInter from "../Data-Atoms/DataInter";
-import DataSub from "../Data-Atoms/DataSub";
-import DataScrollLinks from "../Data-Atoms/DataScrollLinks";
-import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
-import WorkNav from "../../Main/Work-Atoms/WorkNav";
-import { Element } from "react-scroll";
-import EndToEnd from "../Data-Atoms/EndToEnd";
-import Consultancy from "../Data-Atoms/Consultancy";
-import ResearchThough from "../Data-Atoms/ResearchThough";
+import GameChanger from "../Data-Atoms/Game-Changer"
+import WhatWeDo from "../Data-Atoms/whatWeDo"
+import Support from "../Data-Atoms/Support"
+import Framework from "../Data-Atoms/Framework"
 
 export default function DataContainer() {
   return (
-    <div className="w-full h-[fixed] overflow-hidden   flex flex-col gap-y-[100px] md:gap-y-[100px] justify-start items-start    mb-[2rem] ">
-      <DataSub />
-      <DataScrollLinks />
-      <ResearchThough />
-    </div>
-  );
+    <>
+      <Hero />
+      <DataHero />
+      <WhatWeDo />
+      <GameChanger />
+    <div
+      className="w-full"
+      style={{
+        backgroundImage:
+          "url(/assets/images/our_work/background.jpg)",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Transparent: - Register Powers Section */}
+        <RegisterPowers />
+        {/* Opaque White Background Sections */}
+        <WhyMatters />
+        {/* Transparent: - Evaluation, Platform Integration, Thought Leadership */}
+
+        <Framework />
+        {/* Opaque White Background Sections */}
+        <Support />
+        {/* Transparent: - Actionable Insights with Accordion */}
+        <ActionableInsights />
+      </div>
+    </>
+  )
 }
