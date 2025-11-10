@@ -108,7 +108,7 @@ const Nav2 = () => {
       <div className="relative">
         <button
           onClick={() => setShowNested(!showNested)}
-          className="flex items-center justify-between font-normal hover:text-secondary_blue w-full"
+          className="flex items-center justify-between w-full font-normal hover:text-secondary_blue"
         >
           <span>Interventions</span>
           <span
@@ -176,7 +176,7 @@ const Nav2 = () => {
     >
       {({ open }) => (
         <>
-          <div className="flex flex-row items-center mt-6 justify-between w-full md:px-2">
+          <div className="flex flex-row items-center justify-between w-full mt-6 md:px-2">
             <div className="md:ml-[4rem] h-auto ml-4 flex flex-row gap-x-2 justify-center items-center">
               <Link href="/">
                 <Image
@@ -227,7 +227,7 @@ const Nav2 = () => {
                               Data
                             </Link>
                             <Link
-                              href="/initiatives"
+                              href="/advocacy"
                               className="font-normal hover:text-secondary_blue"
                               onClick={handleLinkClick}
                             >
@@ -277,7 +277,7 @@ const Nav2 = () => {
                                     <Link
                                       onClick={handleLinkClick}
                                       href={item.to}
-                                      className="text-gray-800 hover:text-secondary_blue font-inter text-sm hover-line"
+                                      className="text-sm text-gray-800 hover:text-secondary_blue font-inter hover-line"
                                     >
                                       {item.name}
                                     </Link>
@@ -302,7 +302,7 @@ const Nav2 = () => {
             </div>
 
             {/* Hamburger Menu */}
-            <div className="lg:hidden flex items-center">
+            <div className="flex items-center lg:hidden">
               <FontAwesomeIcon
                 icon={menuOpen ? faTimes : faBars}
                 className="text-2xl p-3 cursor-pointer text-gray-800  mr-8 border-2 border-secondary_blue rounded-[50%]"
@@ -317,7 +317,7 @@ const Nav2 = () => {
               menuOpen ? "translate-x-0" : "-translate-x-full"
             } lg:hidden bg-[#F6F6F6] p-4 w-full h-screen overflow-y-auto hide-scrollbar fixed top-[1.3rem] left-0 z-30 mt-16 transition-transform duration-300 ease-in-out`}
           >
-            <div className="flex flex-col gap-y-4 relative z-20">
+            <div className="relative z-20 flex flex-col gap-y-4">
               {navigationLinks.map((link, index) => (
                 <div
                   key={link.name}
@@ -355,7 +355,7 @@ const Nav2 = () => {
                       <AccordionDetails>
                         {/* ABOUT US SECTION */}
                         {link.dropdown && (
-                          <div className="flex flex-col gap-y-3 overflow-y-auto">
+                          <div className="flex flex-col overflow-y-auto gap-y-3">
                             {link.dropdown.map((column) => (
                               <Accordion
                                 key={column.title}
@@ -368,7 +368,7 @@ const Nav2 = () => {
                                   expandIcon={
                                     <FontAwesomeIcon
                                       icon={faChevronDown}
-                                      className="text-xl flex flex-col gap-y-5"
+                                      className="flex flex-col text-xl gap-y-5"
                                     />
                                   }
                                 >
@@ -386,7 +386,7 @@ const Nav2 = () => {
                                         <Link
                                           onClick={handleLinkClick}
                                           href={item.to}
-                                          className="text-gray-800 hover:text-secondary_blue font-inter text-sm hover-line"
+                                          className="text-sm text-gray-800 hover:text-secondary_blue font-inter hover-line"
                                         >
                                           {item.name}
                                         </Link>
@@ -401,7 +401,7 @@ const Nav2 = () => {
 
                         {/* OUR WORK SECTION */}
                         {link.name === "Our Work" && (
-                          <div className="flex flex-col gap-y-3 overflow-y-auto">
+                          <div className="flex flex-col overflow-y-auto gap-y-3">
                             <Accordion
                               style={{
                                 background: "#F6F6F6",
@@ -418,12 +418,12 @@ const Nav2 = () => {
                                       background: "#B7C8F4",
                                       border: "none",
                                     }}
-                                    className="p-3 rounded flex items-center justify-between"
+                                    className="flex items-center justify-between p-3 rounded"
                                   >
                                     <Link
                                       href="/#"
                                       onClick={handleLinkClick}
-                                      className="font-semibold text-gray-800 text-sm "
+                                      className="text-sm font-semibold text-gray-800 "
                                     >
                                       Data
                                     </Link>
@@ -435,12 +435,12 @@ const Nav2 = () => {
                                       background: "#B7C8F4",
                                       border: "none",
                                     }}
-                                    className="p-3 rounded flex items-center justify-between"
+                                    className="flex items-center justify-between p-3 rounded"
                                   >
                                     <Link
                                       href="/#"
                                       onClick={handleLinkClick}
-                                      className="font-semibold text-gray-800 text-sm"
+                                      className="text-sm font-semibold text-gray-800"
                                     >
                                       Advocacy
                                     </Link>
@@ -461,7 +461,7 @@ const Nav2 = () => {
                                         />
                                       }
                                     >
-                                      <h4 className="font-semibold text-gray-800 text-sm">
+                                      <h4 className="text-sm font-semibold text-gray-800">
                                         Interventions
                                       </h4>
                                     </AccordionSummary>

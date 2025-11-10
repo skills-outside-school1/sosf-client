@@ -30,7 +30,7 @@ export const navData = [
     type: "dropdown",
     links: [
       { name: "Data", href: "/projects" },
-      { name: "Advocacy", href: "/initiatives" },
+      { name: "Advocacy", href: "/advocacy" },
       {
         name: "Interventions",
         nested: [
