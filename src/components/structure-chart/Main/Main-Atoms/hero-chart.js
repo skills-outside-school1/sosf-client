@@ -4,14 +4,16 @@ import { Card, CardContent } from "@/components/shared/cards/card"
 import { Users, Building2, Snowflake, UserStar,ChevronsDown } from "lucide-react"
 import { Link } from "react-scroll"
 import Hero from "@/components/home/Home-Atoms/Hero";
+import MainSub from "@/components/Get-Involved/Main/Main-Atoms/MainSub";
 
 export default function HeroChart() {
   return (
     <div className="w-full h-[fixed]">
       <Hero />
+      <MainSub/>
       <div className="relative z-10 sm:mx-6 sm:mb-6 max-w-6xl mx-auto pt-16 pb-8">
         <div className="text-left mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-balance">
+          <h1 className="text-lg md:text-xl font-bold text-gray-900 mb-4 text-balance">
             Which path suits you?
           </h1>
         </div>
