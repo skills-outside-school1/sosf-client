@@ -132,35 +132,35 @@ const Nav2 = () => {
           }`}
         >
           <Link
-            href="/sosf-headstart-agropreneurs"
+            href="/#"
             className="block py-1 hover:text-secondary_blue"
             onClick={handleLinkClick}
           >
             SOSF Headstart Agropreneurs
           </Link>
           <Link
-            href="/sosf-bridge-program"
+            href="/#"
             className="block py-1 hover:text-secondary_blue"
             onClick={handleLinkClick}
           >
             SOSF Bridge Program
           </Link>
           <Link
-            href="/sosf-online-skillup"
+            href="/#"
             className="block py-1 hover:text-secondary_blue"
             onClick={handleLinkClick}
           >
             SOSF Online Skill-Up
           </Link>
           <Link
-            href="/sosf-grants"
+            href="/#"
             className="block py-1 hover:text-secondary_blue"
             onClick={handleLinkClick}
           >
             SOSF Grants
           </Link>
           <Link
-            href="/sosf-funds"
+            href="/#"
             className="block py-1 hover:text-secondary_blue"
             onClick={handleLinkClick}
           >
