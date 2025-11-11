@@ -57,8 +57,9 @@ function Footer({ onClose }) {
   ];
 
   return (
-    <div className="footer-container   w-full h-[fixed] pb-8 bg-secondary_blue bg-opacity-70   flex flex-col gap-y-[5rem]     py-8  justify-start lg:items-start px-2  overflow-hidden">
-      <Marquees />
+    <div className="footer-container   w-full min-h-[400px] pb-8 bg-secondary_blue bg-opacity-70   flex flex-col gap-y-[5rem]     py-8  justify-start lg:items-start px-2  overflow-hidden">
+    
+    <section className="mt-[4rem]">  <Marquees /></section>
 
       {/* <Link href="/">
         <h1 className="   text-gray-800  hover:text-blue  font-mont font-thin  md:ml-6  transform duration-700 ease-in-out    animated-text ">

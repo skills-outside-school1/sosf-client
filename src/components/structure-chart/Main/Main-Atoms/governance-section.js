@@ -3,6 +3,7 @@ import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge"
 import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import {  CheckCircle2 } from "lucide-react"
 import CustomIcon from "./CustomIcon";
+import Link from "next/link";
 
 
 
@@ -45,27 +46,29 @@ export default function GovernanceSection() {
   ]
 
   return (
-    <section className="py-10 px-4 bg-white sm:mx-2 px-4">
+    <section className="py-10  bg-white sm:mx-2 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12">
           <Badge
             variant="outline"
-            className="mb-4 text-governblue border-governblue rounded-lg px-4 py-1 font-medium"
+            className="mb-4 text-black text-2xl  border-governblue rounded-lg px-4 py-1 font-medium"
           >
             Govern
           </Badge>
-          <p className="text-md text-gray-600 mb-2">Join as a scale up impact partner</p>
+          <p className="text-md text-gray-600 mb-2 text-xl ">Join as a scale up impact partner</p>
           <div className="flex items-center justify-between">
             <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 tracking-tight">
               Want to Shape Strategy and Oversight?
             </h2>
+            <Link href={`https://pifafrica.org/careers`} target="_blank">
             <Button
               variant="default"
               className="hidden md:inline-flex bg-[#B7C8F4] text-blue-800 hover:bg-bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold"
             >
               Join the team
-            </Button>
+              </Button>
+              </Link>
           </div>
         </div>
 

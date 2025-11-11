@@ -27,7 +27,7 @@ export default function InfoCarousel({ slides = [] }) {
       {/* Header */}
       <div className="flex items-end justify-between w-full mb-12">
         <div>
-          <p className="text-sm text-gray-600 mb-2">{subtitle}</p>
+          <p className=" text-gray-600 mb-2 text-xl ">{subtitle}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             {title}
           </h2>
@@ -46,7 +46,7 @@ export default function InfoCarousel({ slides = [] }) {
         {Object.entries(sections).map(([key, section]) => (
           <div
             key={key}
-            className="flex flex-col items-center bg-background_blue border-gray-200 shadow-sm rounded-2xl border border-gray-100 p-[25px] px-[15px] gap-[21px] w-[355px] h-[354px]"
+            className="flex flex-col items-center bg-background_blue  shadow-sm rounded-2xl border border-gray-100  p-5  md:p-[25px] md:px-[15px] gap-[21px] w-[300px] md:w-[355px] min-h-[354px]   max-h-[fixed]"
           >
             <CustomIcon
               src={sectionIcons[key]}

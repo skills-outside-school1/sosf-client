@@ -4,10 +4,13 @@ import InvestmentSection from "../Main-Atoms/investment-section"
 import GovernanceSection from "../Main-Atoms/governance-section"
 import ParticipationSection from "../Main-Atoms/participation-section"
 import { Element } from "react-scroll"
+import WorkNav from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs"
+import MainSub from "@/components/Get-Involved/Main/Main-Atoms/MainSub"
 
 export default function StructureChartContainer() {
   return (
       <div className="w-full h-[fixed]">
+   
         <Element name="hero-section">
             <HeroChart />
         </Element>
@@ -22,7 +25,8 @@ export default function StructureChartContainer() {
         </Element>
         <Element name="participate-section">
             <ParticipationSection />
-        </Element>
+          </Element>
+          <WorkNav/>
         </div>
   )
 }

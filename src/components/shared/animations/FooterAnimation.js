@@ -19,7 +19,7 @@ export default function FooterAnimation() {
       <motion.span
         initial="hidden"
         animate="visible"
-        className=" text-gray-800  hover:text-blue  font-mont font-thin  md:ml-6  transform duration-700 ease-in-out    animated-text  flex flex-row gap-x-4 "
+        className=" text-gray-800  hover:text-blue   font-light   md:ml-6  transform duration-700 ease-in-out    animated-text  flex flex-row gap-x-4 "
       >
         {text.map((letter, i) => (
           <motion.span key={i} custom={i} variants={letterVariants}>

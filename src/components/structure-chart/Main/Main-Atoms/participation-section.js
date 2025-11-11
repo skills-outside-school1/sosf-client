@@ -14,6 +14,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import CustomIcon from "./CustomIcon";
+import Link from "next/link";
 
 // icons
 const Student_ss1 = "/assets/icons/ss1.svg"
@@ -126,11 +127,11 @@ export default function ParticipationSection() {
   };
 
   return (
-    <section className="py-20 px-4 bg-white sm:mx-6 px-4">
+    <section className="py-20 px-4 bg-white sm:mx-6 ">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Badge variant="solid" className="mb-4 text-[#E5CC34] border-[#E5CC34] rounded-md px-4 py-1.5 border-0 font-semibold">
+          <Badge variant="solid" className="mb-4  rounded-lg  border-[#E5CC34] px-4 py-1.5  text-2xl text-black border font-semibold">
             Participate
           </Badge>
           <div className="flex items-center justify-between">
@@ -205,10 +206,10 @@ export default function ParticipationSection() {
                       ))}
                     </CardContent>
                     <CardFooter className="pt-8 pb-0">
-                      <a href="#" className="flex items-center gap-2 text-indigo-400 font-semibold hover:text-blue-300 transition-colors">
+                      <Link href="#" className="flex items-center gap-2 text-indigo-400 font-semibold hover:text-blue-300 transition-colors">
                         <span className="text-center">Learn More</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </a>
+                        <ArrowRight className="w-4 h-4  -rotate-45" />
+                      </Link>
                     </CardFooter>
                   </Card>
                 );

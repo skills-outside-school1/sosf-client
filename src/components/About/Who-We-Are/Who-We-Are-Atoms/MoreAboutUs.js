@@ -1,11 +1,13 @@
 import React from "react";
 import CarouselCards from "@/components/shared/Atoms/Cards-Atoms/CarouselCards";
 import { H3 } from "@/components/shared/Atoms/Typography/typography";
+import ContentCarousel from "@/components/shared/Atoms/ContentCarousel";
+import ImageOverlayCard from "@/components/shared/Atoms/Cards-Atoms/ImageOverlayCard";
 
 export default function WorkNav() {
   // const cardData = [
   //   {
-  //     avatar:
+  //     image:
   //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZeH1t5cynPXzy-TEScAnDhiQRHqCJDm64g&s",
   //     title: "Get Involved",
   //     description: (
@@ -15,10 +17,10 @@ export default function WorkNav() {
   //         the lives of those we serve. Together, we can build a brighter future.
   //       </span>
   //     ),
-  //     route: "/get-involved",
+  //     link: "/get-involved",
   //   },
   //   {
-  //     avatar:
+  //     image:
   //       "https://www.startupdonut.co.uk/sites/default/files/production/image/strategic_partnerships_306153968.jpg",
   //     title: "Partner",
   //     description: (
@@ -28,11 +30,11 @@ export default function WorkNav() {
   //         real-world challenges and improve communities.
   //       </span>
   //     ),
-  //     route: "/partnerships",
+  //     link: "/partnerships",
   //   },
 
   //   {
-  //     avatar: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
+  //     image: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
   //     title: "See how our work impact's the UN SDGs",
   //     description: (
   //       <span>
@@ -42,14 +44,13 @@ export default function WorkNav() {
   //         drive meaningful change.
   //       </span>
   //     ),
-  //     route: "/sdg",
+  //     link: "/sdg",
   //   },
   // ];
 
   const cardDataTwo = [
     {
-      avatar:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZeH1t5cynPXzy-TEScAnDhiQRHqCJDm64g&s",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZeH1t5cynPXzy-TEScAnDhiQRHqCJDm64g&s",
       title: "Get Involved",
       description: (
         <span>
@@ -58,11 +59,11 @@ export default function WorkNav() {
           the lives of those we serve. Together, we can build a brighter future.
         </span>
       ),
-      route: "/get-involved",
+      link: "/get-involved",
+      id: 1,
     },
     {
-      avatar:
-        "https://www.startupdonut.co.uk/sites/default/files/production/image/strategic_partnerships_306153968.jpg",
+      img: "https://www.firmofthefuture.com/oidam/intuit/sbseg/en_us/Blog/Photography/Stock/tough-talks-business-partner-us-en.png",
       title: "Partner",
       description: (
         <span>
@@ -71,11 +72,12 @@ export default function WorkNav() {
           real-world challenges and improve communities.
         </span>
       ),
-      route: "/partnerships",
+      link: "/partnerships",
+      id: 2,
     },
 
     {
-      avatar: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
+      img: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
       title: "See how our work impact's the UN SDGs",
       description: (
         <span>
@@ -85,15 +87,31 @@ export default function WorkNav() {
           drive meaningful change.
         </span>
       ),
-      route: "/sdg",
+      link: "/sdg",
+      id: 3,
+    },
+
+    //next card
+    {
+      img: "https://media.istockphoto.com/id/1663279091/photo/two-young-colleagues-working-together-at-modern-office.jpg?s=612x612&w=0&k=20&c=6GpKPmfPBA1DyxfthG28GUMh6a0zRBxguPsL8insYuc=",
+      title: "Explore Our Work",
+      description: (
+        <span>
+          Supporting the UN SDGs with a Focus on Quality Education, Good Health
+          and Well-being, Gender Equality, and Sustainable Communities
+        </span>
+      ),
+      link: "//our-work/data",
+      id: 4,
     },
   ];
   return (
     <div className="w-full flex flex-col gap-x-8 justify-center items-start  ">
-      <div className=" px-4 md:px-[4rem] lg:px-[7.6rem] -pb-10">
-        <H3>Learn more about SOSF</H3>
-      </div>
-      <CarouselCards cards={cardDataTwo} />
+      <ContentCarousel
+        items={cardDataTwo}
+        CardComponent={ImageOverlayCard}
+        title="Learn more about SOSF"
+      />
     </div>
   );
 }

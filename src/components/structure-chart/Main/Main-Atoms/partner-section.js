@@ -135,12 +135,12 @@ export default function PartnerSection() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto sm:mx-6 px-4" id="partner-section">
+    <div className="max-w-6xl mx-auto sm:mx-6 px-4  mt-[5rem] " id="partner-section">
       {/* Header Section */}
       <div className="mb-8 flex items-center justify-between">
         <Badge
           variant="outline"
-          className="text-partnerblue border-partnerblue rounded-full px-3 py-1"
+          className="text-black border-partnerblue rounded-full px-3 py-1 text-xl "
         >
           Partner
         </Badge>
