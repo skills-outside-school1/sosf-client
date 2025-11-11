@@ -311,7 +311,7 @@ export default function AmMeetOurAmbassadors() {
                       key={item.id}
                       item={item}
                       onClick={() => setSelectedAmbassador(item)}
-                      className="snap-start h-[350px] flex-shrink-0"
+                      className="h-[350px] flex-shrink-0"
                     />
                   ))}
                 </div>

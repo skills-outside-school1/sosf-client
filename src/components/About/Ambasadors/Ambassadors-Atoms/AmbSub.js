@@ -26,8 +26,8 @@ export default function AmbSub() {
     },
   ];
   return (
-    <div className="w-full h-[fixed] px-2">
-      <SubHero items={hero_data} className={`w-full md:w-full lg:w-4/5`} />
+    <div className="xl:max-w-[1421px] h-[fixed] px-2 mx-auto">
+      <SubHero items={hero_data} className={`w-full md:w-full lg:w-4/5 md:px-0 lg:px-0`} />
     </div>
   );
 }

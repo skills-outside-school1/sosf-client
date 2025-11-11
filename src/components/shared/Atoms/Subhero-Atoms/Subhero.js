@@ -27,7 +27,7 @@ function SubHero({
   return (
     <div
       data-aos={`${aos}`}
-      className={`w-full  justify-start items-start  flex flex-col px-4  md:px-[4rem]  gap-y-4  lg:px-[7.6rem]  md:w-[80%] ${className}`}
+      className={`w-full  justify-start items-start flex flex-col px-4 gap-y-4 md:w-[80%] ${className}`}
     >
       {items.map((item, index) => (
         <div
