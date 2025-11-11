@@ -132,7 +132,7 @@ const Nav2 = () => {
           }`}
         >
           <Link
-            href="/#"
+            href="/sosf-agropreneurs"
             className="block py-1 hover:text-secondary_blue"
             onClick={handleLinkClick}
           >
