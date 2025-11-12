@@ -1,9 +1,9 @@
 import React from "react";
-import Hero from "@/components/home/Home-Atoms/Hero";
-import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
-import WorkNav from "../../Main/Work-Atoms/WorkNav";
+// import Hero from "@/components/home/Home-Atoms/Hero";
+// import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
+// import WorkNav from "../../Main/Work-Atoms/WorkNav";
 
-import AdInter from "../Advocacy-Atoms/AdInter";
+// import AdInter from "../Advocacy-Atoms/AdInter";
 import AdvSub from "../Advocacy-Atoms/AdvSub";
 
 export default function AdvocacyContainer() {

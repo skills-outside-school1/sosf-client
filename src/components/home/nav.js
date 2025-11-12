@@ -45,9 +45,13 @@ const Nav2 = () => {
         },
         {
           title: "Our Leadership",
+          links: [{ name: "Leaderships", to: "/leadership" }],
+        },
+        {
+          title: "People & Purpose",
           links: [
-            { name: "Leaderships", to: "/leadership" },
             { name: "Ambassadors", to: "/ambassadors" },
+            { name: "Our-Impact", to: "/our-impact" },
           ],
         },
         {
@@ -269,7 +273,7 @@ const Nav2 = () => {
                       >
                         <div
                           onMouseLeave={() => setIsAboutHovered(false)}
-                          className="fixed left-0 mt-[2rem] bg-[#F6F6F6] w-[100%] p-7 grid grid-cols-4 gap-4 shadow-lg"
+                          className="fixed left-0 mt-[2rem] bg-[#F6F6F6] w-[100%] p-7 grid grid-cols-5 gap-4 shadow-lg"
                         >
                           {link.dropdown.map((column) => (
                             <div
