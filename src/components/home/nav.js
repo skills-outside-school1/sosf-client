@@ -135,7 +135,7 @@ const Nav2 = () => {
             SOSF Headstart Agropreneurs
           </Link>
           <Link
-            href="/sosf-bridge-program"
+            href="/sour-work/Interventions/bridge"
             className="block py-1 hover:text-secondary_blue"
             onClick={handleLinkClick}
           >
