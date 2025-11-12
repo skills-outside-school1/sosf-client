@@ -62,7 +62,7 @@ const FarmerGrowthFund = () => {
       </div>
 
       {/* Content Grid */}
-      <div className="grid grid-cols md:grid-cols-2 gap-8 md:gap-14 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 mt-8">
         {/* Key Features */}
         <div className="shadow-[4px_4px_4px_0_rgba(183,200,244,0.5)] rounded-2xl bg-white px-4 md:px-6">
           <h1 className="font-mont text-[20px] font-semibold my-10">
@@ -71,21 +71,21 @@ const FarmerGrowthFund = () => {
           <div className="flex flex-col gap-3">
             {keyFeatures.map((item, index) => (
               <React.Fragment key={index}>
-                <div className="flex gap-4">
-                  <div>
+                <div className="flex gap-4 items-start">
+                  <div className="flex-shrink-0">
                     <Image
                       src="/assets/images/sosf-images/Vector.svg"
                       alt="vector icon"
-                      width={25}
-                      height={25}
-                      className="w-[25px] h-auto mt-1"
+                      width={20}
+                      height={20}
+                      className="mt-1"
                     />
                   </div>
                   <div>
                     <p className="font-mont font-medium text-[18px] mb-2">
                       {item.title}
                     </p>
-                    <span className="font-inter font-light text-[16px] leading-2">
+                    <span className="font-inter font-light text-[16px] leading-6">
                       {item.desc}
                     </span>
                   </div>
@@ -106,21 +106,21 @@ const FarmerGrowthFund = () => {
           <div className="flex flex-col gap-3">
             {successData.map((item, index) => (
               <React.Fragment key={index}>
-                <div className="flex gap-4">
-                  <div>
+                <div className="flex gap-4 items-start">
+                  <div className="flex-shrink-0">
                     <Image
-                      src="/assets/images/sosf-images/Vector.svg"
+                      src="/assets/images/sosf-images/Vector.png"
                       alt="vector icon"
-                      width={25}
-                      height={25}
-                      className="w-[25px] h-auto mt-1"
+                      width={20}
+                      height={20}
+                      className="mt-1"
                     />
                   </div>
                   <div>
                     <p className="font-mont font-medium text-[18px] mb-2">
                       {item.title}
                     </p>
-                    <span className="font-inter font-light text-[16px] leading-2">
+                    <span className="font-inter font-light text-[16px] leading-6">
                       {item.desc}
                     </span>
                   </div>
