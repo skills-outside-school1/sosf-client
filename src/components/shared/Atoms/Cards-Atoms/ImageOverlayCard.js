@@ -18,6 +18,7 @@ export default function ImageOverlayCard({ item }) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
+      
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
