@@ -24,12 +24,12 @@ export default function LoginForm({
 
         <form onSubmit={handleLogin} className="space-y-6">
           <InputField
-            label="Username"
+            label="Email"
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter username"
+            placeholder="Enter email"
             disabled={loading}
           />
 
