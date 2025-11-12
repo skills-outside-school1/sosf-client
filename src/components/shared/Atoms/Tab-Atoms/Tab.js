@@ -127,7 +127,7 @@ const Tabs = ({
               opacity-0 transition-all duration-1000 ease-in-out group-hover:translate-y-[14%]
                group-hover:bg-secondary_blue group-hover:opacity-100 mt-auto flex justify-center items-center  text-black font-bold text-xl   ${hoverClass}`}
               >
-                <Link href={work.route} className="hover-line">
+                <Link href={work.route} className="hover-line" target={work.target}>
                   {" "}
                   View Profile
                 </Link>

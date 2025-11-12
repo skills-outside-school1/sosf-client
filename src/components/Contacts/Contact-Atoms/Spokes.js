@@ -12,13 +12,15 @@ function Spokes() {
         image: "/assets/images/teams/halimaabba (2).png",
         title: "Chair & Founder ",
         name: "Halima Ibrahim Abba",
-        route: "#",
+        route: "/leadership/halima-abba",
+        target: "blank"
       },
       {
         image: "/assets/images/teams/salamatu (2).png",
         title: "Secretary, Nigeria Board ",
         name: "Salamatu Sule",
-        route: "#",
+        route: "/leadership/salamatu-sule",
+          target: "blank"
       },
     ],
   };
