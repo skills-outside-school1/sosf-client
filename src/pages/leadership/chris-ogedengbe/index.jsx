@@ -16,7 +16,7 @@ import { Element } from "react-scroll";
 const Index = () => {
   const member_profile = [
     {
-      picture: "/assets/images/teams/halimaabba.png",
+      picture: "/assets/images/teams/Chris.jpg",
       nomenclature: "Mr. Chris Ogedengbe ",
       profession:
         "Chief Executive Officer, Alpha Research and Development Centre Limited",
