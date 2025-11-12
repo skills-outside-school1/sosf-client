@@ -61,11 +61,11 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="px-4 md:px-[4rem] lg:px-[7.6rem] py-10 md:pt-20 font-mont">
+    <div className="px-4 md:px-[4rem] lg:px-[7.6rem] py-10 md:pt-20 font-mont  bg-transparent  quiz-environment">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div></div>
         <div></div>
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-center md:items-start  ">
           {/* Title */}
           <h3 className="text-xl md:text-2xl font-bold text-[#000000] text-center md:text-left font-lato">
             Subscribe to our Newsletter

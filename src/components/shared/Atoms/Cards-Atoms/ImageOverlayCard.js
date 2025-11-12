@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ImageOverlayCard({ item }) {
   const { img, title, description, link } = item;
@@ -13,7 +14,7 @@ export default function ImageOverlayCard({ item }) {
       <div className="absolute inset-0">
         <Image
           src={img}
-          alt={title}
+          alt={` ${title}  `}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -34,10 +35,11 @@ export default function ImageOverlayCard({ item }) {
             {description}
           </p>
         </div>
-        
-        <button className="inline-flex font-inter items-center mt-6 text-sm font-medium transition-all duration-200 md:text-base w-fit text-[#C9DEFF] hover:text-white group/btn">
-          {link}
-        </button>
+        <Link href=   {link}>
+        <button className="inline-flex items-center mt-6 text-sm font-medium transition-all duration-200 md:text-base w-fit text-[#C9DEFF] hover:text-white group/btn">
+       Learn More
+          </button>
+          </Link>
       </div>
     </div>
   );
