@@ -3,12 +3,12 @@ import Navbar from "@/components/home/nav";
 import Footer from "@/components/home/Footer";
 import BackToTop from "@/components/shared/Atoms/Button-Atoms/Backt-To-Top";
 
-export default function MainLayout({ children }) {
+export default function MainLayout({ children, showFooter = true }) {
   return (
     <>
       <Navbar />
       {children}
-      <Footer />
+      {showFooter && <Footer />}
       <BackToTop />
     </>
   );
