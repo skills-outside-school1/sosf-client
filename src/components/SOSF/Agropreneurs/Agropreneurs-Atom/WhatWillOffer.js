@@ -4,14 +4,14 @@ import React from "react";
 const WhatWillOffer = () => {
   return (
     <section className="px-4 md:px-[4rem] lg:px-[7.6rem]">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-14">
         <div>
           <Image
             src="/assets/images/sosf-images/Offer.png"
             alt="offer pics"
             width={400}
             height={100}
-            className="w-auto h-auto"
+            className="w-full h-auto"
           />
         </div>
         <div>

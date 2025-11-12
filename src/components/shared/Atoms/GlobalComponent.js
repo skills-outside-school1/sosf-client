@@ -16,11 +16,11 @@ const GlobalComponent = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % texts.length);
-    }, 5000);
+    }, 7000);
     return () => clearInterval(timer);
   }, [texts.length]);
 
-  const slideVariants = {
+  const textVariants = {
     hidden: { x: "100%", opacity: 0 },
     visible: { x: "0%", opacity: 1 },
     exit: { x: "-100%", opacity: 0 },
@@ -29,27 +29,30 @@ const GlobalComponent = () => {
   return (
     <div className="bg-[url('/assets/images/our-focus/Background.png')] bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center px-4 md:px-[4rem] lg:px-[7.6rem]">
       <div className="grid grid-cols-1 md:grid-cols-2 relative overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            variants={slideVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{ duration: 1, ease: "easeInOut" }}
-            className="bg-[#EEF3FF] px-7 py-14 rounded-xl overflow-hidden"
-          >
-            <Transition2 texts={[texts[index]]} interval={5000} />
+        {/* Card stays static */}
+        <div className="bg-[#EEF3FF] px-7 py-14 rounded-xl overflow-hidden">
+          {/* Only the text transitions */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 1, ease: "easeInOut" }}
+            >
+              <Transition2 texts={[texts[index]]} interval={5000} />
 
-            <p className="my-6 text-black font-inter">
-              We collect, assess & leverage on data to design, deploy &
-              disseminate interventions, advocate & inform for collaborative
-              impact
-            </p>
+              <p className="my-6 text-black font-inter">
+                We collect, assess & leverage on data to design, deploy &
+                disseminate interventions, advocate & inform for collaborative
+                impact
+              </p>
+            </motion.div>
+          </AnimatePresence>
 
-            <Button2 text="Explore our Work" />
-          </motion.div>
-        </AnimatePresence>
+          <Button2 text="Explore our Work" />
+        </div>
       </div>
     </div>
   );

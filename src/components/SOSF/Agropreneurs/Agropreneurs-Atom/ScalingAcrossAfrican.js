@@ -3,7 +3,7 @@ import React from "react";
 
 const ScalingAcrossAfrican = () => {
   return (
-    <section className="px-4 md:px-[4rem] lg:px-[7.6rem] mt-14 mb-4">
+    <section className="px-4 md:px-[4rem] lg:px-[7.6rem] mt-8 mb-4">
       <div className=" bg-[#EDF1FC] grid grid-cols-1 md:grid-cols-3 gap-8 px-4 py-6 rounded-2xl">
         <div className=" flex flex-col md:flex-row justify-between">
           <div>

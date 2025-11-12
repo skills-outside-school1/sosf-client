@@ -4,6 +4,7 @@ import PartSubHero from "../Agropreneurs-Atom/PartSubHero";
 import WhatWillOffer from "../Agropreneurs-Atom/WhatWillOffer";
 import ScalingAcrossAfrican from "../Agropreneurs-Atom/ScalingAcrossAfrican";
 import OurAi from "../Agropreneurs-Atom/OurAi";
+import FarmerGrowthFund from "../Agropreneurs-Atom/FarmerGrowthFund";
 
 const AgropreneursContaner = () => {
   return (
@@ -12,7 +13,7 @@ const AgropreneursContaner = () => {
       <PartSubHero />
       <WhatWillOffer />
       <OurAi />
-
+      <FarmerGrowthFund />
       <ScalingAcrossAfrican />
     </div>
   );
