@@ -88,7 +88,7 @@ const LoginPage = () => {
 };
 
 LoginPage.getLayout = function getLayout(page) {
-  return <MainLayout showFooter={false}>{page}</MainLayout>;
+  return <MainLayout showFooter={false} showNav={false}>{page}</MainLayout>;
 };
 
 export default LoginPage;
