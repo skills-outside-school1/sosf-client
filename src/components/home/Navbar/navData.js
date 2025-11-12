@@ -35,7 +35,7 @@ export const navData = [
         name: "Interventions",
         nested: [
           { name: "SOSF Headstart Agropreneurs", href: "/#" },
-          { name: "SOSF Bridge Program", href: "/#" },
+          { name: "SOSF Bridge Program", href: "/our-work/Interventions/bridge" },
           { name: "SOSF Online Skill-Up for Business", href: "/#" },
           { name: "SOSF Grants", href: "/#" },
           { name: "SOSF Funds", href: "/#" },

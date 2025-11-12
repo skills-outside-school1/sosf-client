@@ -1,7 +1,7 @@
 import React from "react";
-import AdminNavbar from "@/components/admin/AdminNavbar";
-import AdminSidebar from "@/components/admin/AdminSidebar";
-import AdminFooter from "@/components/admin/AdminFooter";
+import AdminNavbar from "@/components/admin/Admin-Atoms/AdminNavbar";
+import AdminSidebar from "@/components/admin/Admin-Atoms/AdminSidebar";
+import AdminFooter from "@/components/admin/Admin-Atoms/AdminFooter";
 
 export default function AdminLayout({ children }) {
   return (

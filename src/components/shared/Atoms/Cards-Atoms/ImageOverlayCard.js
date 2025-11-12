@@ -34,7 +34,8 @@ export default function ImageOverlayCard({ item }) {
             {description}
           </p>
         </div>
-        <Link href=   {link}>
+        <Link href={link}>
+
         <button className="inline-flex items-center mt-6 text-sm font-medium transition-all duration-200 md:text-base w-fit text-[#C9DEFF] hover:text-white group/btn">
        Learn More
           </button>
