@@ -1,13 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/shared/cards/card";
 import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge";
 import {
-  GraduationCap,
   Users,
-  Briefcase,
-  Lightbulb,
-  Building,
-  Globe,
   ChevronRight,
   CheckCircle2,
   ArrowRight,
@@ -29,10 +24,7 @@ const professinal = "/assets/icons/professional.svg"
 const school =  "/assets/icons/school.svg"
 const informal =  "/assets/icons/informal.svg"
 
-
-
 // --- Data for Carousel Slides ---
-
 const participationSlides = [
   {
     id: 1,
@@ -120,11 +112,45 @@ const participationSlides = [
 // --- Main Component ---
 export default function ParticipationSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const autoSlideRef = useRef(null);
   const currentSlide = participationSlides[currentIndex];
+
+  const autoNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % participationSlides.length);
+  };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % participationSlides.length);
   };
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto slide effect
+  useEffect(() => {
+    if (participationSlides.length > 0) {
+      autoSlideRef.current = setInterval(() => {
+        autoNext();
+      }, 7000); // 7 seconds
+    }
+
+    return () => {
+      if (autoSlideRef.current) {
+        clearInterval(autoSlideRef.current);
+      }
+    };
+  }, [participationSlides.length]);
+
+  // Reset auto-slide timer when user interacts
+  useEffect(() => {
+    if (autoSlideRef.current) {
+      clearInterval(autoSlideRef.current);
+      autoSlideRef.current = setInterval(() => {
+        autoNext();
+      }, 7000);
+    }
+  }, [currentIndex]);
 
   return (
     <section className="py-20 px-4 bg-white sm:mx-6 ">
@@ -152,7 +178,6 @@ export default function ParticipationSection() {
           {currentSlide.type === "beneficiaryGrid" && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentSlide.participants.map((participant, index) => {
-                // const IconComponent = participant.icon;
                 return (
                   <Card
                     key={index}
@@ -216,6 +241,19 @@ export default function ParticipationSection() {
               })}
             </div>
           )}
+        </div>
+
+        {/* Navigation Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {participationSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => handleDotClick(i)}
+              className={`h-2 w-2 rounded-full transition-all ${
+                i === currentIndex ? "bg-blue-600 w-4" : "bg-gray-300"
+              }`}
+            ></button>
+          ))}
         </div>
       </div>
     </section>
