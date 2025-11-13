@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import CustomIcon from "./CustomIcon";
 import { Button } from "@/components/structure-chart/Main/Main-Atoms/button";
 import { ChevronRight } from "lucide-react";
@@ -14,10 +14,40 @@ const sectionIcons = {
 export default function InfoCarousel({ slides = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const total = slides.length;
+  const autoSlideRef = useRef(null);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
   };
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto slide effect
+  useEffect(() => {
+    if (total > 0) {
+      autoSlideRef.current = setInterval(() => {
+        handleNext();
+      }, 7000); // 7 seconds
+    }
+
+    return () => {
+      if (autoSlideRef.current) {
+        clearInterval(autoSlideRef.current);
+      }
+    };
+  }, [total]);
+
+  // Reset auto-slide timer when user interacts
+  useEffect(() => {
+    if (autoSlideRef.current) {
+      clearInterval(autoSlideRef.current);
+      autoSlideRef.current = setInterval(() => {
+        handleNext();
+      }, 7000);
+    }
+  }, [currentIndex]);
 
   const currentSlide = slides[currentIndex];
   const { title, subtitle, sections } = currentSlide;
@@ -80,12 +110,13 @@ export default function InfoCarousel({ slides = [] }) {
       {/* Dots */}
       <div className="flex gap-2 mt-4">
         {slides.map((_, i) => (
-          <div
+          <button
             key={i}
+            onClick={() => handleDotClick(i)}
             className={`h-2 w-2 rounded-full transition-all ${
               i === currentIndex ? "bg-blue-600 w-4" : "bg-gray-300"
             }`}
-          ></div>
+          ></button>
         ))}
       </div>
     </div>
