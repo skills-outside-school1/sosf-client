@@ -1,80 +1,95 @@
-import { useSession, signOut } from "next-auth/react";
-import { useEffect } from "react";
+"use client";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import MainLayout from "@/components/layouts/MainLayout";
+import LoginContainer from "@/components/Auth/Login/Login-Container/LoginContainer";
+import Head from "next/head";
 
-export default function AdminPage() {
+const LoginPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.replace("/auth/login");
-    } else if (status === "authenticated" && session?.user?.role !== "admin") {
-      router.replace("/");
-    }
-  }, [status, session, router]);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  if (status === "loading" || !session) {
-    return (
-      <div className="flex items-center justify-center h-screen text-lg font-medium">
-        Loading admin dashboard...
-      </div>
-    );
-  }
+  // Show unauthorized error
+  useEffect(() => {
+    if (router.query?.error === "NotAuthorized") {
+      toast.error(
+        "This account is not authorized to access the admin dashboard."
+      );
+      router.replace("/auth/login", undefined, { shallow: true });
+    }
+  }, [router]);
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (status === "authenticated") router.replace("/admin");
+  }, [status, router]);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    toast.info("Authenticating...");
+
+    const result = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+      callbackUrl: "/admin",
+    });
+
+    toast.dismiss();
+    if (result?.ok) {
+      toast.success("Login Successful! Redirecting...");
+      setTimeout(() => router.push("/admin"), 1500);
+    } else {
+      toast.error(result?.error || "Invalid email or password");
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = () => {
+    toast.info("Redirecting to Google...");
+    signIn("google", { callbackUrl: "/admin" });
+  };
+
+  const handleGithubLogin = () => {
+    toast.info("Redirecting to GitHub...");
+    signIn("github", { callbackUrl: "/admin" });
+  };
+
+  if (status === "loading") return null;
 
   return (
-    <div className="min-h-screen p-8 pt-24 bg-gray-50">
-      <div className="max-w-3xl p-8 mx-auto bg-white border border-gray-200 shadow-lg rounded-xl">
-        {/* Header */}
-        <h1 className="mb-2 text-3xl font-bold text-center text-gray-800">
-          Admin Dashboard
-        </h1>
-        <p className="mb-8 text-center text-gray-500">
-          Access granted to administrators only
-        </p>
-
-        {/* User Credentials Card */}
-        <div className="p-6 mb-8 bg-gray-100 border border-gray-300 rounded-lg">
-          <h2 className="mb-4 text-xl font-semibold text-gray-700">
-            Admin Credentials
-          </h2>
-          <ul className="space-y-2 text-gray-700">
-            <li>
-              <span className="font-medium">Name:</span> {session?.user?.name}
-            </li>
-            <li>
-              <span className="font-medium">Email:</span> {session?.user?.email}
-            </li>
-            <li>
-              <span className="font-medium">Role:</span>{" "}
-              <span className="font-semibold text-green-700 uppercase">
-                {session?.user?.role}
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Description */}
-        <div className="mb-8">
-          <h3 className="mb-2 text-lg font-semibold text-gray-800">
-            Admin Controls
-          </h3>
-          <p className="text-gray-600">
-            You can manage users, monitor activities, and perform administrative
-            operations from this dashboard.
-          </p>
-        </div>
-
-        {/* Logout Button */}
-        <div className="text-center">
-          <button
-            onClick={() => signOut({ callbackUrl: "/auth/login" })}
-            className="px-6 py-3 font-medium text-white transition bg-red-600 rounded-lg hover:bg-red-700"
-          >
-            Logout
-          </button>
-        </div>
-      </div>
-    </div>
+    <>
+      <Head>
+        {/* in page seo for the history page  */}
+        <title>Our Work | Skills Outside School Foundation</title>
+        <meta name="description" content="" />
+      </Head>
+      <LoginContainer
+        email={email}
+        password={password}
+        loading={loading}
+        showPassword={showPassword}
+        setEmail={setEmail}
+        setPassword={setPassword}
+        setShowPassword={setShowPassword}
+        handleLogin={handleLogin}
+        handleGoogleLogin={handleGoogleLogin}
+        handleGithubLogin={handleGithubLogin}
+      />
+    </>
   );
-}
+};
+
+LoginPage.getLayout = function getLayout(page) {
+  return <MainLayout showFooter={false} showNav={false}>{page}</MainLayout>;
+};
+
+export default LoginPage;
