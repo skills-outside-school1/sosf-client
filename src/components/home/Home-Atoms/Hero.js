@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <div className="w-full h-[fixed]">
+    <div className="w-full h-[fixed] mt-16 md:mt-0">
       <ReuseHero
         overlayOpacity="bg-opacity-5"
         //  backgroundImage="assets/maps/MapChart_Map.png"

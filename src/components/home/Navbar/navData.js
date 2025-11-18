@@ -29,14 +29,23 @@ export const navData = [
     title: "Our Work",
     type: "dropdown",
     links: [
-      { name: "Data", href: "/projects" },
-      { name: "Advocacy", href: "/initiatives" },
+      { name: "Data", href: "/our-work/data" },
+      { name: "Advocacy", href: "/our-work/advocacy" },
       {
         name: "Interventions",
         nested: [
-          { name: "SOSF Headstart Agropreneurs", href: "/sosf-agropreneurs" },
-          { name: "SOSF Bridge Program", href: "/#" },
-          { name: "SOSF Online Skill-Up for Business", href: "/#" },
+          {
+            name: "SOSF Headstart Agropreneurs",
+            href: "/our-work/interventions/sosf-agropreneurs",
+          },
+          {
+            name: "SOSF Bridge Program",
+            href: "/our-work/interventions/bridge",
+          },
+          {
+            name: "SOSF Online Skill-Up for Business",
+            href: "/our-work/interventions/skill-up",
+          },
           { name: "SOSF Grants", href: "/#" },
           { name: "SOSF Funds", href: "/#" },
         ],

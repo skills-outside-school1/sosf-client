@@ -2,21 +2,16 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import { Card, CardContent } from "@/components/shared/cards/card"
-import { User, Users, DollarSign, Building, UserPlus } from "lucide-react"
-import { ParticipateModal } from "../../../modals/participate-modal"
+import { User, Users, DollarSign, Building, UserPlus, Mail } from "lucide-react"
 import { PartnerModal } from "../../../modals/partner-modal"
-import { InvestModal } from "../../../modals/invest-modal"
 
 import IframeModal from "../../../shared/modals/iframe-modal"   
 
-
-
 export function InvolvementCards() {
-  const [participateModalOpen, setParticipateModalOpen] = useState(false)
   const [partnerModalOpen, setPartnerModalOpen] = useState(false)
-  const [investModalOpen, setInvestModalOpen] = useState(false)
   // iframe
   const [volunteerModalOpen, setVolunteerModalOpen] = useState(false) 
    const [governModalOpen, setGovernModalOpen] = useState(false) 
@@ -26,7 +21,7 @@ export function InvolvementCards() {
       {/* First row - 3 cards */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-start items-start px-4 w-full md:px-[4rem] lg:px-[7rem]">
          {/* Volunteer Card */}
-        <Card className="overflow-hidden bg-gray-50 border-0 w-full h-full flex flex-col">
+        <Card className="overflow-hidden bg-gray-50 border-0 rounded-[24px] w-full h-full flex flex-col">
           <div className="aspect-[4/3] relative min-h-[150px]">
             <Image src="/assets/images/volunteer.png" alt="Volunteer" fill className="object-cover" />
           </div>
@@ -40,8 +35,8 @@ export function InvolvementCards() {
             </p>
             <Button 
               variant="outline" 
-              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
-              onClick={() => setVolunteerModalOpen(true)} // ⬅ open modal
+              className="w-fit rounded-[15px]  border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
+              onClick={() => setVolunteerModalOpen(true)} 
             >
               Start as a Volunteer
             </Button>
@@ -62,13 +57,18 @@ export function InvolvementCards() {
               As NGOs, private & public sector, partner with us to scale our impact, community or advocacy through
               co-design/delivery, consultancy, grants & more partner opportunities.
             </p>
-            <Button
+            <div className="flex items-center justify-between">
+              <Button
               variant="outline"
-              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
+              className="w-fit bg-gray-50 text-blue"
               onClick={() => setPartnerModalOpen(true)}
             >
               Learn More
             </Button>
+            {/* mailto:partner.relations@skillsoutsideschool.com */}
+            <Mail onClick={() => window.open("mailto:partner.relations@skillsoutsideschool.com")} className="inline-block ml-2 h-4 w-4 text-gray-700" />
+
+            </div>
           </CardContent>
         </Card>
 
@@ -88,13 +88,14 @@ export function InvolvementCards() {
               <p>Cash contribution</p>
               <p>Service contribution</p>
             </div>
+            <Link href="/get-involved/invest-forms">
             <Button
               variant="outline"
-              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
-              onClick={() => setInvestModalOpen(true)}
-            >
+              className="w-fit bg-gray-50 text-blue">
+            
               Learn More
             </Button>
+            </Link>
           </CardContent>
         </Card>
       </section>
@@ -152,13 +153,14 @@ export function InvolvementCards() {
               <p>Our Interventions</p>
               <p>Our Advocacy</p>
             </div>
+            <Link href="/get-involved/participate">
             <Button
               variant="outline"
-              className="w-full border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] mt-auto"
-              onClick={() => setParticipateModalOpen(true)}
+              className="w-fit bg-gray-50 text-blue"
             >
               Learn More
             </Button>
+            </Link>
           </CardContent>
         </Card>
 
@@ -167,10 +169,7 @@ export function InvolvementCards() {
           {/* Empty spacer to maintain 3-column grid on desktop */}
         </div>
       </section>
-
-      <ParticipateModal open={participateModalOpen} onOpenChange={setParticipateModalOpen} />
       <PartnerModal open={partnerModalOpen} onOpenChange={setPartnerModalOpen} />
-      <InvestModal open={investModalOpen} onOpenChange={setInvestModalOpen} />
       
       {/* New Volunteer Modal form*/}
       <IframeModal

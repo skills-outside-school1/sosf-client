@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Head from "next/head";
 import InvolvedContainer from "@/components/Get-Involved/Main/Main-Container/InvolvedContainer";
 
+
 const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);

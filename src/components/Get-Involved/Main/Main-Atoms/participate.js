@@ -1,6 +1,5 @@
 "use client"
 
-import { Dialog, DialogContent } from "@/components/structure-chart/Main/Main-Atoms/dialog"
 import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import { Card, CardContent } from "@/components/shared/cards/card"
 import {
@@ -10,7 +9,7 @@ import {
   Trophy,
   Megaphone,
   FileText,
-  X,
+  X, 
   BarChart3,
   Database,
   Award,
@@ -20,45 +19,32 @@ import {
   Building2,
 } from "lucide-react"
 import { useState, useEffect } from "react"
-import IframeModal from "../shared/modals/iframe-modal"
+import IframeModal from "../../../shared/modals/iframe-modal"
 
 
-// forms
+// forms (unchanged)
 const accessDataFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFDataAccessRegistrationForm/formperma/tR1QuQRcSMrGhBum8rBKtcywUIs6hsf9UR4U7m7pW5Q"
 const contributeDataFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFVolunteerAccessRequestForm/formperma/mT1MKvcPwJZJwotBeHYtC-xUaxrnitcQFkZ1vVArjmE"
 const championFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFChampionRegistrationFormMainstreamingInstituti/formperma/vSi3fKfTzzTVYuqFS7xub3G8dP9t3LzzBUb-hv7LStY"
 const connectorFormUrl = "https://forms.zohopublic.com/halimaabba/form/AdvocacythroughStakeholderEngagementCoalitionForma/formperma/53pjv9mULg_uCNa8WKo3_qS456VIhfLqofG_LbwbQ_w"
 const awanessBuilderFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFAwarenessBuildingCollaborationInterestForm/formperma/whFqmCcBj0Fq9iZ1fjI7Z6HF9FKgGapLrz7JUMIshLA"
 const policyAdvocateFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFPolicyRegulationAdvocacyCollaborationForm/formperma/mQOSdgt679TpPzssqcmXYontdRCmnN4auceoWIsuwYM"
-
-// remaining forms ares
-// const mobilizerFormUrl = "url here"
-// const fundsFormUrl = "url here"
-// const bridgeFormUrl = "url here"
-// const headstartFormUrl = "url here"
-// const grantsFormUrl = "url here"
-// const osbOscFormUrl = "url here"
-// const catalystFormUrl = "url here"
-// 
+const osbOscFormUrl = "https://www.udemy.com/user/skills-outside-school/?srsltid=AfmBOoq1RoOD9Q_BubAaraqk5kBUbrFip3IOgpWm31fyQPtcVVYhc5pm"
 
 
-
-
-
-
-export function ParticipateModal({ open, onOpenChange }) {
-  const [isMobile, setIsMobile] = useState(false)
-  // iframe modal states
+export default function Participate() {
+  const [isMobile, setIsMobile] = useState(false) 
+  // iframe modal states 
     const [accessDataFormOpen, setAccessDataFormOpen] = useState(false)
     const [contributeDataFormOpen, setContributeDataFormOpen] = useState(false)
     const [championFormOpen, setChampionFormOpen] = useState(false)
     const [connectorFormOpen, setConnectorFormOpen] = useState(false)
     const [awarenessBuilderFormOpen, setAwarenessBuilderFormOpen] = useState(false)
     const [policyAdvocateFormOpen, setPolicyAdvocateFormOpen] = useState(false)
+    const [osbOscFormOpen, setOsbOscFormOpen] = useState(false)
 
 
-
-
+  // useEffect kept for responsive icon sizing (unchanged)
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
@@ -73,18 +59,13 @@ export function ParticipateModal({ open, onOpenChange }) {
   }, [])
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] xl:w-[75vw] max-w-7xl max-h-[90vh] sm:max-h-[95vh] overflow-hidden p-0 border-0 shadow-2xl">
-        <div className="relative w-full h-full">
-          <button
-            onClick={() => onOpenChange(false)}
-            className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-50 rounded-full bg-white/95 backdrop-blur-sm p-1.5 sm:p-2 md:p-2.5 hover:bg-gray-100 transition-all duration-200 shadow-lg border border-gray-200"
-            aria-label="Close"
-          >
-            <X size={isMobile ? 14 : 20} className="text-gray-600" />
-          </button>
 
-          <div className="overflow-y-auto max-h-[90vh] text-left max-h-[95vh] p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 pt-8 sm:pt-10 md:pt-12">
+    <div className="w-full flex justify-center mt-10 py-10 px-4 md:px-8 bg-white">
+      <div className="w-full max-w-7xl text-left">
+        <div className="relative">
+        
+          <div className="text-left p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 pt-8 sm:pt-10 md:pt-12">
+
             {/* Data Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 text-left">
@@ -138,7 +119,7 @@ export function ParticipateModal({ open, onOpenChange }) {
               </div>
             </div>
 
-            {/* Intervention Section */}
+            {/* Intervention Section (content unchanged) */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 text-left">
                 PARTICIPATE IN OUR INTERVENTION
@@ -157,7 +138,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       SOSF Bridge
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                   The SOSF Bridge Program is our flagship education intervention, equipping students in government secondary and tertiary institutions with the knowledge, skills, and attitudes to thrive in tomorrow's world
+                   Our flagship intervention, equipping students in government secondary &  higher educational institutions with the tools, knowledge, skills & attitude to become Valuable, Influential & Profitable through Tongston's all-in-one platform: T-World. 
                     </p>
                     <Button className="w-32 border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] hover:scale-105 hover:shadow-xl transition-transform">
                       Get Started
@@ -174,10 +155,10 @@ export function ParticipateModal({ open, onOpenChange }) {
                       </div>
                     </div>
                     <h3 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-tight">
-                      SOSF Headstart – as a farmer (participant)
+                      SOSF Headstart – as a farmer 
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                     Our SOSF Headstart Agropreneurs Program is transforming small-scale and vulnerable farming across Africa. This initiative boosts yield, income, and resilience for farmers of high-value crops like cassava and plantain
+                     Transforming small-scale and vulnerable farming by boosting yield, income, and resilience for farmers thereby positioning agriculture into a Valuable, Influential & Profitable profession.
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Get Started →
@@ -197,7 +178,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       SOSF Grants
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      SOSF Grants provide targeted, non-programmatic funding to individuals and institutions poised to drive transformative change across Africa.
+                      Providing targeted, non-programmatic funding & capacity building - media, enterprise, education, finance to individuals & institutions running social change projects, initiatives & businesses through Tongston's all in-one-platform: T-World. 
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Get Started →
@@ -217,9 +198,9 @@ export function ParticipateModal({ open, onOpenChange }) {
                       SOSF OSB/OSC
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      It is a series of flagship digital courses designed to equip existing and emerging entrepreneurs, job seekers, students, with the knowledge, skills, and attitude  needed to start, grow, their careers and sustain impactful ventures.
+                      Digital udemy-based courses designed to equip existing & emerging entrepreneurs, job seekers, students, with the knowledge, skills & attitudes to start, grow, sustain their careers and ventures.
                     </p>
-                    <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
+                    <Button onClick={() => setOsbOscFormOpen(true)} className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Get Started →
                     </Button>
                   </CardContent>
@@ -237,7 +218,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       SOSF Funds
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      SSOSF Grants provide targeted, non-programmatic funding to individuals and institutions poised to drive transformative change across Africa.
+                     Providing access to patient & catalytic capital to alumni of our interventions to support careers & business expansion through our flagship Scholarship & Enterprise Funds, accessible through Tongston's all in-one-platform: T-World. 
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Get Started →
@@ -289,7 +270,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As a Mobilizer
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      Advocacy through Volunteer Mobilization (Mobilizer)- access reports on our volunteers + register your organization to engage our volunteers for your work
+                      Access reports on our volunteers + register your organization to engage our volunteers for your work
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base">
                       Register →
@@ -309,7 +290,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As a Connector
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      Advocacy through Stakeholder Engagement & Coalition Formation – as a user (Connector)- indicate interest to form a coalition with SOSF / invite SOSF to join a coalitionn
+                       Indicate interest to form a coalition with SOSF / invite SOSF to join a coalition
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base" 
                     onClick={() => setConnectorFormOpen(true)}
@@ -331,7 +312,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As a Champion
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      Advocacy through mainstreaming / institutionalizing interventions (champion) register to support us to mainstream/institutionalise our interventions or the outcomes of interventions
+                       Register to support us to mainstream/institutionalize our interventions or the outcomes of interventions
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base" 
                     onClick={() => setChampionFormOpen(true)}
@@ -353,7 +334,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As an Awareness Builder
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed flex-grow">
-                      Advocacy for Awareness Building to co-host an event / strategic campaign / invite us to an event to speak
+                       Co-host an event / strategic campaign / invite us to an event to speak
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base" 
                     onClick={() => setAwarenessBuilderFormOpen(true)}
@@ -375,7 +356,7 @@ export function ParticipateModal({ open, onOpenChange }) {
                       As a Policy Advocate
                     </h3>
                     <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                      Advocacy through Policy & Regulation Design & Implementation (Policy Advocate) to co-design a policy/regulation; or a manual for implementation
+                     Co-design a policy/regulation; or a manual for implementation
                     </p>
                     <Button className="bg-background_blue text-blue w-fit hover:bg-background_blue font-semibold py-1.5 py-2 md:py-2.5 lg:py-3 text-xs md:text-base" 
                     onClick={() => setPolicyAdvocateFormOpen(true)}
@@ -432,7 +413,14 @@ export function ParticipateModal({ open, onOpenChange }) {
                   description="Fill out this form to become a policy advocate."
                   iframeUrl={policyAdvocateFormUrl}
                 />
-      </DialogContent>
-    </Dialog>
+                <IframeModal
+                  isOpen={osbOscFormOpen}
+                  onClose={() => setOsbOscFormOpen(false)}
+                  title="SOSF OSB/OSC"
+                  description="Visit our Udemy page to explore our courses."
+                  iframeUrl={osbOscFormUrl}
+                />
+      </div>
+    </div>
   )
 }
