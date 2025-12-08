@@ -40,7 +40,7 @@
     "leaflet": "^1.9.4",
     "lucide-react": "^0.544.0",
     "mongoose": "^8.16.1",
-    "next": "^15.3.4",
+    "next": "15.3.6",
     "next-auth": "^4.24.11",
     "nodemailer": "^7.0.10",
     "primeicons": "^7.0.0",
