@@ -42,7 +42,7 @@
     "mongoose": "^8.16.1",
     "next": "15.3.6",
     "next-auth": "^4.24.11",
-    "nodemailer": "^7.0.10",
+    "nodemailer": "^6.10.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.7.0",
     "react": "^18",
