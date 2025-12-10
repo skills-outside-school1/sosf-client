@@ -136,14 +136,14 @@ const Nav2 = () => {
           }`}
         >
           <Link
-            href="/sosf-headstart-agropreneurs"
+            href="/interventions/sosf-agropreneurs"
             className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Headstart Agropreneurs
           </Link>
           <Link
-            href="/interventions/bridge"
+            href="/interventions/sosf-bridge"
             className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
@@ -481,7 +481,7 @@ const Nav2 = () => {
                                       <ul className="flex flex-col gap-y-2">
                                         <li>
                                           <Link
-                                            href="/#"
+                                            href="/interventions/sosf-agropreneurs"
                                             onClick={handleLinkClick}
                                             className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
                                           >
@@ -490,7 +490,7 @@ const Nav2 = () => {
                                         </li>
                                         <li>
                                           <Link
-                                            href="/#"
+                                            href="/interventions/sosf-bridge"
                                             onClick={handleLinkClick}
                                             className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
                                           >
