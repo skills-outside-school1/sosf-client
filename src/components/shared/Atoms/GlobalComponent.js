@@ -39,11 +39,12 @@ const GlobalComponent = () => {
         bg-cover bg-center bg-no-repeat
         h-[420px] w-full
         flex items-center
-        px-4 md:px-[4rem] lg:px-[7.6rem]
+        px-4 md:px-[4rem] lg:px-[7.6rem] relative
+        justify-center 
       "
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 relative">
-        <div className="max-w-xl">
+      <div className="absolute top-0  left-0 w-full h-[420px] bg-black bg-opacity-60 flex  justify-start items-center ">
+        <div className="max-w-xl  ">
           {/* Transparent, sliding card */}
           <div className="bg-black/55 md:bg-black/60 rounded-xl border border-white/30 shadow-2xl px-7 py-10 md:px-9 md:py-12 backdrop-blur-sm overflow-hidden">
             <Swiper
@@ -69,7 +70,7 @@ const GlobalComponent = () => {
                     className="text-left"
                   >
                     {/* Slide Title */}
-                    <h2 className="text-white font-mont font-semibold text-lg md:text-2xl leading-tight">
+                    <h2 className="text-white font-mont font-semibold text-lg md:text-2xl leading-tight w-[80%] md:w-full ">
                       {title}
                     </h2>
 

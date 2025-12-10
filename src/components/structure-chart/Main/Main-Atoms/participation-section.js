@@ -5,7 +5,6 @@ import {
   Users,
   ChevronRight,
   CheckCircle2,
-  ArrowRight,
   BarChart3,
 } from "lucide-react";
 import CustomIcon from "./CustomIcon";
@@ -157,8 +156,11 @@ const participationSlides = [
 // --- Main Component ---
 export default function ParticipationSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false); 
+  const [isFading, setIsFading] = useState(false); 
   const autoSlideRef = useRef(null);
   const currentSlide = participationSlides[currentIndex];
+  const totalSlides = participationSlides.length;
 
   // Modal states
   const [activeModal, setActiveModal] = useState({
@@ -168,16 +170,30 @@ export default function ParticipationSection() {
     url: ""
   });
 
+  // Function to handle the index change with fade transition
+  const goToIndex = (newIndex) => {
+    if (newIndex === currentIndex || newIndex < 0 || newIndex >= totalSlides) return;
+
+    // 1. Start the fade-out
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setIsFading(false);
+    }, 300);
+  };
+
+
   const autoNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % participationSlides.length);
+    goToIndex((currentIndex + 1) % totalSlides);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % participationSlides.length);
+    // Manually trigger next slide using the fade logic
+    goToIndex((currentIndex + 1) % totalSlides);
   };
 
   const handleDotClick = (index) => {
-    setCurrentIndex(index);
+    goToIndex(index);
   };
 
   // Modal handlers
@@ -199,37 +215,71 @@ export default function ParticipationSection() {
     });
   };
 
-  // Auto slide effect
-  useEffect(() => {
-    if (participationSlides.length > 0) {
-      autoSlideRef.current = setInterval(() => {
+  const startTimer = () => {
+    if (totalSlides > 0) {
+      // Reduced timer: 4000ms (4 seconds)
+      return setInterval(() => {
         autoNext();
-      }, 7000); // 7 seconds
+      }, 4000); 
+    }
+    return null;
+  };
+
+  useEffect(() => {
+    // Clear any existing timer
+    if (autoSlideRef.current) {
+      clearInterval(autoSlideRef.current);
+    }
+    
+    // Start the timer only if not paused
+    if (!isPaused) {
+      autoSlideRef.current = startTimer();
     }
 
+    // Cleanup function
     return () => {
       if (autoSlideRef.current) {
         clearInterval(autoSlideRef.current);
       }
     };
-  }, [participationSlides.length]);
+  }, [totalSlides, isPaused]); // Depend on totalSlides and isPaused
 
-  // Reset auto-slide timer when user interacts
   useEffect(() => {
-    if (autoSlideRef.current) {
+    if (!isPaused && autoSlideRef.current) {
+      // Clear interval set by interaction
       clearInterval(autoSlideRef.current);
+      // Set a new timer for the original duration (7000ms from your initial code)
       autoSlideRef.current = setInterval(() => {
         autoNext();
-      }, 7000);
+      }, 7000); 
     }
-  }, [currentIndex]);
+  }, [currentIndex]); 
+
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+    if (autoSlideRef.current) {
+      clearInterval(autoSlideRef.current);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+  };
+  
+  // Tailwind class based on the fading state (NEW)
+  const fadeClass = isFading ? 'opacity-0' : 'opacity-100';
+
 
   return (
-    <section className="py-20 px-4 bg-white sm:mx-6 ">
+    <section 
+      className="py-20 px-4 bg-white sm:mx-6 "
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave} 
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Badge variant="solid" className="mb-4  rounded-lg  border-[#E5CC34] px-4 py-1.5  text-2xl text-black border font-semibold">
+          <Badge variant="solid" className="mb-4  rounded-lg  border-[#E5CC34] px-4 py-1.5  text-2xl text-black border font-semibold">
             Participate
           </Badge>
           <div className="flex items-center justify-between">
@@ -245,8 +295,10 @@ export default function ParticipationSection() {
           </div>
         </div>
 
-        {/* Carousel Content */}
-        <div>
+        {/* Carousel Content*/}
+        <div 
+          className={`transition-opacity duration-300 ease-in-out ${fadeClass}`} 
+        >
           {currentSlide.type === "beneficiaryGrid" && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentSlide.participants.map((participant, index) => {
