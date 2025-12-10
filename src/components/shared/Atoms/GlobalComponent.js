@@ -87,7 +87,7 @@ const GlobalComponent = () => {
                       >
                         {/* dynamic button title */}
                         {btntitles[index]}
-                        <span className="ml-2 text-base leading-none">↗</span>
+                        {/* <span className="ml-2 text-base leading-none">↗</span> */}
                       </button>
                     </Link>
                   </motion.div>
