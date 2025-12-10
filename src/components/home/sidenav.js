@@ -69,12 +69,13 @@ export default function CustomizedAccordions() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <Disclosure as="nav" className="p-7 bg-grey bg-opacity-10 hidden lg:flex  lg:flex-col h-[fixed] w-[50px] sticky top-[4rem] z-10 ">
+    <Disclosure
+      as="nav"
+      className="p-7 bg-grey bg-opacity-10 hidden lg:flex  lg:flex-col h-[fixed] w-[50px] sticky top-[4rem] z-10 "
+    >
       {({ open }) => (
         <>
           <div className="container mx-auto flex items-center justify-between">
-          
-
             <div className="hidden lg:flex ">
               <Disclosure.Button
                 className="text-pink border-2 border-blue p-2 rounded-[50%]"
@@ -99,7 +100,7 @@ export default function CustomizedAccordions() {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <Disclosure.Panel className="hidden  lg:flex bg-grey    inset-0  w-[310px]  fixed flex flex-col top-[12rem] h-[400px]">
+            <Disclosure.Panel className="hidden  lg:flex bg-grey    inset-0  w-[310px]  fixed flex-col top-[12rem] h-[400px]">
               <div className="flex flex-col space-y-4 p-4 pt-16 justify-start items-start gap-6 text-sm">
                 <div className="hidden lg:flex lg:flex-col lg:gap-5 lg:w-[290px] lg:px-4 lg:h-[300px] overflow-y-auto">
                   <section className="header-section flex flex-col w-[225px] h-[70px] bg-white border border-black justify-start items-start px-2">

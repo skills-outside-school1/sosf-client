@@ -202,35 +202,31 @@ export default function AmbBios() {
     <div className="w-full h-[fixed] flex flex-col lg:flex-row gap-y-8  gap-x-4 justify-start items-start bg-secondary_blue bg-opacity-70 pb-8  lg:pt-8 ">
       <section className="title-container  w-full lg:w-[500px]   lg:px-[7rem]   ">
         <h3 className="text-gray-800 font-mont text-2xl lg:text-3xl font-bold text-center lg:text-left ">
-         Showcasing  Our Ambassadors
+          Showcasing Our Ambassadors
         </h3>
       </section>
 
       <section className="ambassadors-bio-container h-[fixed]    w-full  md:w-[800px] ml-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-y-8 gap-x-3 justify-center items-center px-2  pt-2  ">
-     
-          {" "}
-          {team_bios.map((team, index) => (
-            <div
-              onClick={() => setSelectedTeamMember(team)}
-              key={index}
-              className={` mx-auto   w-[340px] h-[500px]   lg:w-[240px] lg:h-[370px] flex flex-col bg-gray-100 rounded-md gap-y-5 justify-start items-start p-2 shadow-xl cursor-pointer  group  overflow-hidden `}
-            >
-              <Image
-                src={team.image}
-                alt={team.name}
-                width={400}
-                height={400}
-                className="      h-[350px]  lg:h-[250px] w-full object-cover rounded-b-md rounded-t-md group-hover:scale-110 transform ease-in-out duration-1000 "
-              />
-              <h4 className="text-gray-800 font-mont font-bold md:text-base text-sm">
-                {team.name}
-              </h4>
-              <P className=" text-sm md:text-base">
-                {team.position}
-              </P>
-            </div>
-          ))}
-
+        {" "}
+        {team_bios.map((team, index) => (
+          <div
+            onClick={() => setSelectedTeamMember(team)}
+            key={index}
+            className={` mx-auto   w-[340px] h-[500px]   lg:w-[240px] lg:h-[370px] flex flex-col bg-gray-100 rounded-md gap-y-5 justify-start items-start p-2 shadow-xl cursor-pointer  group  overflow-hidden `}
+          >
+            <Image
+              src={team.image}
+              alt={team.name}
+              width={400}
+              height={400}
+              className="      h-[350px]  lg:h-[250px] w-full object-cover rounded-b-md rounded-t-md group-hover:scale-110 transform ease-in-out duration-1000 "
+            />
+            <h4 className="text-gray-800 font-mont font-bold md:text-base text-sm">
+              {team.name}
+            </h4>
+            <P className=" text-sm md:text-base">{team.position}</P>
+          </div>
+        ))}
       </section>
 
       {/* Modal */}
