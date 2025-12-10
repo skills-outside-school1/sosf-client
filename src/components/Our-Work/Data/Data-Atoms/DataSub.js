@@ -57,7 +57,6 @@ export default function DataSub() {
   ];
 
   return (
-<<<<<<< HEAD
     <div className="w-full h-auto px-2 md:px-14 lg:px-[110px] flex">
       <div className=" bg-governblue rounded-xl py-3 px-4 flex flex-col gap-3">
         <Image
@@ -74,23 +73,6 @@ export default function DataSub() {
       <div className=" ">
         <div></div>
       </div>
-=======
-    <div className="w-full h-[fixed] flex flex-col gap-y-5  justify-start items-start ">
-      <span className=" font-mont text-gray-800   px-2  md:px-[4rem] lg:px-[7rem]">
-        <H1 className={`my-7`}>
-          {" "}
-          <b>DATA</b>
-        </H1>
-        <H3> Evidence That Drives Impact</H3>
-        <br />
-        <strong>
-          Data isn’t just a tool. It’s our compass.Through SOSF’s Data Pillar,
-          we:
-        </strong>
-        <br />
-      </span>
-      <SubHero items={data} className={`w-full md:w-full  px-2`} />
->>>>>>> ab827d8c7561d219203a3c788fce41a5781c0bb0
     </div>
   );
 }
