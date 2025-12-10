@@ -13,47 +13,86 @@ const sectionIcons = {
 
 export default function InfoCarousel({ slides = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isFading, setIsFading] = useState(false); 
   const total = slides.length;
   const autoSlideRef = useRef(null);
 
+  // Helper function to handle the actual index change with fade
+  const goToIndex = (newIndex) => {
+    if (newIndex === currentIndex) return;
+
+    // 1. Start the fade-out
+    setIsFading(true); 
+
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setIsFading(false); 
+    }, 300); // 300ms for fade-out duration
+  };
+
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % total);
+    const nextIndex = (currentIndex + 1) % total;
+    goToIndex(nextIndex);
   };
 
   const handleDotClick = (index) => {
-    setCurrentIndex(index);
+    goToIndex(index);
   };
 
-  // Auto slide effect
-  useEffect(() => {
+  // Function to start the auto-slide timer
+  const startTimer = () => {
     if (total > 0) {
-      autoSlideRef.current = setInterval(() => {
+      // Shorter interval: 4000ms (4 seconds)
+      return setInterval(() => {
         handleNext();
-      }, 7000); // 7 seconds
+      }, 4000); 
+    }
+    return null;
+  };
+  useEffect(() => {
+    if (autoSlideRef.current) {
+      clearInterval(autoSlideRef.current);
+    }
+    
+    if (!isPaused) {
+      autoSlideRef.current = startTimer();
     }
 
+    // Cleanup function
     return () => {
       if (autoSlideRef.current) {
         clearInterval(autoSlideRef.current);
       }
     };
-  }, [total]);
+  }, [total, isPaused]); 
 
-  // Reset auto-slide timer when user interacts
-  useEffect(() => {
+  // Handlers for mouse events
+  const handleMouseEnter = () => {
+    setIsPaused(true);
     if (autoSlideRef.current) {
       clearInterval(autoSlideRef.current);
-      autoSlideRef.current = setInterval(() => {
-        handleNext();
-      }, 7000);
     }
-  }, [currentIndex]);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+  };
 
   const currentSlide = slides[currentIndex];
+  if (!currentSlide) return null; 
+  
   const { title, subtitle, sections } = currentSlide;
+  
+  // Tailwind class based on the fading state
+  const fadeClass = isFading ? 'opacity-0' : 'opacity-100';
 
   return (
-    <div className="w-full flex flex-col items-center justify-center transition-all duration-500">
+    <div 
+      className="w-full flex flex-col items-center justify-center transition-all duration-500"
+      onMouseEnter={handleMouseEnter} 
+      onMouseLeave={handleMouseLeave} 
+    >
       {/* Header */}
       <div className="flex items-end justify-between w-full mb-12">
         <div>
@@ -72,7 +111,10 @@ export default function InfoCarousel({ slides = [] }) {
       </div>
 
       {/* Four Sections (Cards) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-3xl mb-10">
+      <div 
+        // Apply the transition class and the dynamic opacity class
+        className={`grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-3xl mb-10 transition-opacity duration-300 ease-in-out ${fadeClass}`}
+      >
         {Object.entries(sections).map(([key, section]) => (
           <div
             key={key}

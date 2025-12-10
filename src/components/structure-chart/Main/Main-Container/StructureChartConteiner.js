@@ -6,6 +6,7 @@ import ParticipationSection from "../Main-Atoms/participation-section"
 import { Element } from "react-scroll"
 import WorkNav from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs"
 import MainSub from "@/components/Get-Involved/Main/Main-Atoms/MainSub"
+import Pathway from "@/components/Get-Involved/Main/Main-Atoms/Pathway"
 
 export default function StructureChartContainer() {
   return (
@@ -26,6 +27,7 @@ export default function StructureChartContainer() {
         <Element name="participate-section">
             <ParticipationSection />
           </Element>
+          <Pathway />
           <WorkNav/>
         </div>
   )
