@@ -1,6 +1,7 @@
 import { H2 } from "@/components/shared/Atoms/Typography/typography";
 import Button2 from "@/components/shared/buttons/button2";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const collaborationData = [
@@ -11,14 +12,16 @@ const collaborationData = [
     description:
       "For individuals & organizations that seek to contribute in cash, assets, or in-kind to further our work and that of our beneficiaries.",
     buttonText: "Invest Now",
+    url: "/get-involved/invest-forms",
   },
   {
     id: 2,
     title: "Partnerships",
-    image: "/assets/images/collaborations/partnershipsImg.png",
+    image: "/assets/images/collaborations/partnerships.jpg",
     description:
       "For individuals / organizations that are keen to partner with us to design or execute their own initiatives & schemes, or provide grants / resources to a wide range of beneficiaries.",
     buttonText: "Partner with us",
+    url: "/get-involved",
   },
 ];
 
@@ -57,7 +60,9 @@ const PartFlexCards = () => {
                 <span className="font-inter">{item.description}</span>
 
                 <div>
-                  <Button2 text={item.buttonText} />
+                  <Link href={item.url}>
+                    <Button2 text={item.buttonText} />
+                  </Link>
                 </div>
               </div>
             </div>

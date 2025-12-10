@@ -35,18 +35,18 @@ const GlobalComponent = () => {
   return (
     <section
       className="
-        bg-[url('/assets/images/collaborations/swiper-bg.jpg')]
-        bg-cover bg-center bg-no-repeat
+        bg-[url('/assets/images/collaborations/swiper-bg-1.jpg')]
+        bg-cover bg-left bg-no-repeat
         h-[420px] w-full
         flex items-center
         px-4 md:px-[4rem] lg:px-[7.6rem] relative
         justify-center 
       "
     >
-      <div className="absolute top-0  left-0 w-full h-[420px] bg-black bg-opacity-60 flex  justify-start items-center ">
-        <div className="max-w-xl  ">
+      <div className="absolute top-0  left-0 w-full h-[420px] bg-black bg-opacity-60 flex  justify-start items-center px-3 ">
+        <div className="w-full md:max-w-xl  ">
           {/* Transparent, sliding card */}
-          <div className="bg-black/55 md:bg-black/60 rounded-xl border border-white/30 shadow-2xl px-7 py-10 md:px-9 md:py-12 backdrop-blur-sm overflow-hidden">
+          <div className="bg-black/55 md:bg-black/60 rounded-xl border border-white/30 shadow-2xl px-5 py-10 md:px-9 md:py-12 backdrop-blur-sm overflow-hidden">
             <Swiper
               modules={[Autoplay]}
               slidesPerView={1}
@@ -70,7 +70,7 @@ const GlobalComponent = () => {
                     className="text-left"
                   >
                     {/* Slide Title */}
-                    <h2 className="text-white font-mont font-semibold text-lg md:text-2xl leading-tight w-[80%] md:w-full ">
+                    <h2 className="text-white font-mont font-semibold text-lg md:text-2xl leading-tight md:w-full ">
                       {title}
                     </h2>
 
@@ -83,7 +83,7 @@ const GlobalComponent = () => {
                     <Link href={links[index]}>
                       <button
                         type="button"
-                        className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#6558D3] text-white text-xs md:text-sm font-semibold tracking-[0.16em] uppercase shadow-md hover:bg-[#5647c8] transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-[#6558D3]"
+                        className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#6558D3] text-white text-xs md:text-sm font-semibold tracking-[0.16em] uppercase shadow-md hover:bg-[#5647c8] transition focus:outline-none "
                       >
                         {/* dynamic button title */}
                         {btntitles[index]}

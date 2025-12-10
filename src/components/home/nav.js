@@ -50,8 +50,8 @@ const Nav2 = () => {
         {
           title: "People & Purpose",
           links: [
-            { name: "Ambassadors", to: "/ambassadors" },
-            { name: "Our-Impact", to: "/our-impact" },
+            { name: "Leaderships", to: "/leadership" },
+            // { name: "Ambassadors", to: "/ambassadors" },
           ],
         },
         {
