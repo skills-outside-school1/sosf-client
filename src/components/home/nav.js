@@ -46,7 +46,7 @@ const Nav2 = () => {
           title: "Our Leadership",
           links: [
             { name: "Leaderships", to: "/leadership" },
-            { name: "Ambassadors", to: "/ambassadors" },
+            // { name: "Ambassadors", to: "/ambassadors" },
           ],
         },
         {
