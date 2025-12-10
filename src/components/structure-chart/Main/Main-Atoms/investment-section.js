@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/shared/cards/card"
 import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge"
 import { CheckCircle2 } from "lucide-react"
+import Link from "next/link"
+import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
 import CustomIcon from "./CustomIcon";
 
 // icons 
@@ -78,10 +80,24 @@ export default function InvestmentSection() {
           >
             Invest
           </Badge>
+    
           <p className="text-md text-gray-600 mb-2 text-xl ">Invest what you can</p>
-          <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 tracking-tight">
-            What Would You Like to Contribute?
-          </h2>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+  <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-800 tracking-tight">
+    What Would You Like to Contribute?
+  </h2>
+
+  <Link href="/get-involved/invest-forms">
+    <Button
+      variant="default"
+      className="bg-[#B7C8F4] text-blue-800 hover:bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold w-full md:w-auto"
+    >
+      Invest Now
+    </Button>
+  </Link>
+
+</div>
         </div>
 
         {/* Cards Grid */}
