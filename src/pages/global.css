@@ -537,3 +537,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes fade {
+    from { opacity: 0 }
+    to   { opacity: 1 }
+  }
+
+  .animate-fade {
+    animation: fade .7s ease-in-out forwards;
+  }
+}
