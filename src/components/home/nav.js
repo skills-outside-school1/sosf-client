@@ -65,9 +65,9 @@ const Nav2 = () => {
       ],
     },
     { name: "Our Work", to: "/our-work" },
-    { name: "Insights", to: "/news-insights" },
+    // { name: "Insights", to: "/news-insights" },
     { name: "Get Involved", to: "/get-involved" },
-    { name: "Careers", to: "/careers" },
+    // { name: "Careers", to: "/careers" },
     { name: "Contact", to: "/contact" },
   ];
 
@@ -136,36 +136,36 @@ const Nav2 = () => {
           }`}
         >
           <Link
-            href="/sosf-agropreneurs"
-            className="block py-1 hover:text-secondary_blue"
+            href="/sosf-headstart-agropreneurs"
+            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Headstart Agropreneurs
           </Link>
           <Link
             href="/our-work/interventions/bridge"
-            className="block py-1 hover:text-secondary_blue"
+            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Bridge Program
           </Link>
           <Link
             href="/our-work/interventions/skill-up"
-            className="block py-1 hover:text-secondary_blue"
+            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Online Skill-Up
           </Link>
           <Link
-            href="/#"
-            className="block py-1 hover:text-secondary_blue"
+            href="/sosf-grants"
+            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Grants
           </Link>
           <Link
-            href="/#"
-            className="block py-1 hover:text-secondary_blue"
+            href="/sosf-funds"
+            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Funds

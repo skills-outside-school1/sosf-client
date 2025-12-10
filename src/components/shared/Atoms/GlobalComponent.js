@@ -1,71 +1,103 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Button2 from "@/components/shared/buttons/button2";
-import Transition2 from "@/components/shared/Atoms/Text-Transitions/Transition2";
-import { motion, AnimatePresence } from "framer-motion";
+
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+import "swiper/css";
 
 const GlobalComponent = () => {
-  const texts = [
+  const titles = [
     "Data-Driven Sustainable Interventions for Impact",
     "Strategic Direct & Indirect Interventions for our Beneficiaries",
     "Advocating for Sustainable Social-Economic Development",
   ];
 
-  const [index, setIndex] = useState(0);
+  const description =
+    "We collect, assess & leverage on data to design, deploy & disseminate interventions, advocate & inform for collaborative impact";
 
-  useEffect(() => {
-    const timer = setInterval(
-      () => setIndex((prev) => (prev + 1) % texts.length),
-      5000
-    );
-    return () => clearInterval(timer);
-  }, []);
+  const links = [
+    "/our-work/data",
+    "/get-involved/invest-forms",
+    "/our-work/advocacy",
+  ];
 
-  const slideVariants = {
-    hidden: { x: "100%", opacity: 0 },
-    visible: { x: "0%", opacity: 1 },
-    exit: { x: "-100%", opacity: 0 },
-  };
+  const btntitles = [
+    "Explore Our Work",
+    " Investment Approach",
+    "Explore Our Advocacies",
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="relative h-screen w-full flex items-center justify-center px-4 md:px-[4rem] lg:px-[7.6rem]">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/images/our-focus/Background.png')",
-        }}
-      />
-
-      {/* LEFT → RIGHT GRADIENT OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-
-      {/* CONTENT */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2">
-        <div className="bg-black/70 border-[1.5px] border-white text-white px-5 py-8 rounded-xl overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              variants={slideVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ duration: 1, ease: "easeInOut" }}
+    <section
+      className="
+        bg-[url('/assets/images/collaborations/swiper-bg.jpg')]
+        bg-cover bg-center bg-no-repeat
+        h-[420px] w-full
+        flex items-center
+        px-4 md:px-[4rem] lg:px-[7.6rem] relative
+        justify-center 
+      "
+    >
+      <div className="absolute top-0  left-0 w-full h-[420px] bg-black bg-opacity-60 flex  justify-start items-center ">
+        <div className="max-w-xl  ">
+          {/* Transparent, sliding card */}
+          <div className="bg-black/55 md:bg-black/60 rounded-xl border border-white/30 shadow-2xl px-7 py-10 md:px-9 md:py-12 backdrop-blur-sm overflow-hidden">
+            <Swiper
+              modules={[Autoplay]}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: 6000,
+                disableOnInteraction: false,
+              }}
+              speed={5000} // smooth slide change
+              spaceBetween={50}
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+              className="w-full"
             >
-              <Transition2 texts={[texts[index]]} interval={5000} />
+              {titles.map((title, index) => (
+                <SwiperSlide key={index}>
+                  <motion.div
+                    key={`${index}-${activeIndex}`}
+                    initial={{ x: 40, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.9, ease: "easeOut" }}
+                    className="text-left"
+                  >
+                    {/* Slide Title */}
+                    <h2 className="text-white font-mont font-semibold text-lg md:text-2xl leading-tight w-[80%] md:w-full ">
+                      {title}
+                    </h2>
 
-              <p className="my-6 text-white font-inter">
-                We collect, assess & leverage on data to design, deploy &
-                disseminate interventions, advocate & inform for collaborative
-                impact
-              </p>
+                    {/* Description */}
+                    <p className="my-6 text-sm md:text-base text-white/90 font-inter max-w-lg">
+                      {description}
+                    </p>
 
-              <Button2 text="Explore our Work" />
-            </motion.div>
-          </AnimatePresence>
+                    {/* Dynamic Link + Button Title */}
+                    <Link href={links[index]}>
+                      <button
+                        type="button"
+                        className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#6558D3] text-white text-xs md:text-sm font-semibold tracking-[0.16em] uppercase shadow-md hover:bg-[#5647c8] transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-[#6558D3]"
+                      >
+                        {/* dynamic button title */}
+                        {btntitles[index]}
+                        <span className="ml-2 text-base leading-none">↗</span>
+                      </button>
+                    </Link>
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
