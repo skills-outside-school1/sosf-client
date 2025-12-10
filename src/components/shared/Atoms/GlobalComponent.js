@@ -14,28 +14,39 @@ const GlobalComponent = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % texts.length);
-    }, 7000);
+    const timer = setInterval(
+      () => setIndex((prev) => (prev + 1) % texts.length),
+      5000
+    );
     return () => clearInterval(timer);
-  }, [texts.length]);
+  }, []);
 
-  const textVariants = {
+  const slideVariants = {
     hidden: { x: "100%", opacity: 0 },
     visible: { x: "0%", opacity: 1 },
     exit: { x: "-100%", opacity: 0 },
   };
 
   return (
-    <div className="bg-[url('/assets/images/our-focus/Background.png')] bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center px-4 md:px-[4rem] lg:px-[7.6rem]">
-      <div className="grid grid-cols-1 md:grid-cols-2 relative overflow-hidden">
-        {/* Card stays static */}
-        <div className="bg-[#EEF3FF] px-7 py-14 rounded-xl overflow-hidden">
-          {/* Only the text transitions */}
+    <div className="relative h-screen w-full flex items-center justify-center px-4 md:px-[4rem] lg:px-[7.6rem]">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/assets/images/our-focus/Background.png')",
+        }}
+      />
+
+      {/* LEFT → RIGHT GRADIENT OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+
+      {/* CONTENT */}
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2">
+        <div className="bg-black/70 border-[1.5px] border-white text-white px-5 py-8 rounded-xl overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              variants={textVariants}
+              variants={slideVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -43,15 +54,15 @@ const GlobalComponent = () => {
             >
               <Transition2 texts={[texts[index]]} interval={5000} />
 
-              <p className="my-6 text-black font-inter">
+              <p className="my-6 text-white font-inter">
                 We collect, assess & leverage on data to design, deploy &
                 disseminate interventions, advocate & inform for collaborative
                 impact
               </p>
+
+              <Button2 text="Explore our Work" />
             </motion.div>
           </AnimatePresence>
-
-          <Button2 text="Explore our Work" />
         </div>
       </div>
     </div>
