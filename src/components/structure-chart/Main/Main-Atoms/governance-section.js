@@ -88,19 +88,23 @@ export default function GovernanceSection() {
             Govern
           </Badge>
           <p className="text-md text-gray-600 mb-2 text-xl ">Join as a scale up impact partner</p>
-          <div className="flex items-center justify-between">
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 tracking-tight">
-              Want to Shape Strategy and Oversight?
-            </h2>
-            <Link href={`https://pifafrica.org/careers`} target="_blank">
-              <Button
-                variant="default"
-                className="hidden md:inline-flex bg-[#B7C8F4] text-blue-800 hover:bg-bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold"
-              >
-                Join the team
-              </Button>
-            </Link>
-          </div>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+  <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-800 tracking-tight">
+    Want to Shape Strategy and Oversight?
+  </h2>
+
+  <Link href="https://pifafrica.org/careers" target="_blank">
+    <Button
+      variant="default"
+      className="bg-[#B7C8F4] text-blue-800 hover:bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold w-full md:w-auto"
+    >
+      Join the team
+    </Button>
+  </Link>
+
+</div>
+
         </div>
 
         {/* Cards Grid */}

@@ -72,7 +72,7 @@ export default function WorkNav() {
           real-world challenges and improve communities.
         </span>
       ),
-      link: "/partnerships",
+      link: "/get-involved",
       id: 2,
     },
 
