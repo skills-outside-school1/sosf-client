@@ -15,13 +15,12 @@ export default function CollaborationsContainer() {
     <div className="w-full h-[fixed] overflow-hidden flex flex-col justify-start items-start  mb-[1rem] ">
       <Hero />
       <PartSubHero />
+      <PartClientSwiper />
       <PartFlexCards />
       <Investments />
       <InvestorsAndPartners />
-
-      <PartClientSwiper />
-      <GlobalComponent />
       <PartnersSlider />
+      <GlobalComponent />
       <MoreAboutUs />
       <Subscribe />
     </div>
