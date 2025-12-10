@@ -65,7 +65,7 @@ const Nav2 = () => {
       ],
     },
     { name: "Our Work", to: "#" },
-    { name: "Insights", to: "/news-insights" },
+    // { name: "Insights", to: "/news-insights" },
     { name: "Get Involved", to: "/get-involved" },
     // { name: "Careers", to: "/careers" },
     { name: "Contact", to: "/contact" },
