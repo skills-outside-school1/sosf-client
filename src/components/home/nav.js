@@ -23,6 +23,7 @@ const Nav2 = () => {
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [isWorkHovered, setIsWorkHovered] = useState(false);
   const [expandedAccordion, setExpandedAccordion] = useState(null);
+  const [isInterventionOpen, setIsInterventionOpen] = useState(false);
 
   const navigationLinks = [
     {
@@ -44,6 +45,10 @@ const Nav2 = () => {
         },
         {
           title: "Our Leadership",
+          links: [{ name: "Leaderships", to: "/leadership" }],
+        },
+        {
+          title: "People & Purpose",
           links: [
             { name: "Leaderships", to: "/leadership" },
             // { name: "Ambassadors", to: "/ambassadors" },
@@ -59,7 +64,7 @@ const Nav2 = () => {
         },
       ],
     },
-    { name: "Our Work", to: "/our-work" },
+    { name: "Our Work", to: "#" },
     // { name: "Insights", to: "/news-insights" },
     { name: "Get Involved", to: "/get-involved" },
     // { name: "Careers", to: "/careers" },
@@ -103,17 +108,20 @@ const Nav2 = () => {
   };
 
   const NestedInterventions = () => {
-    const [showNested, setShowNested] = useState(false);
+    const toggleInterventionMenu = () => {
+      setIsInterventionOpen(!isInterventionOpen);
+    };
+
     return (
       <div className="relative">
         <button
-          onClick={() => setShowNested(!showNested)}
+          onClick={toggleInterventionMenu}
           className="flex items-center justify-between w-full font-normal hover:text-secondary_blue"
         >
           <span>Interventions</span>
           <span
             className={`transform transition-transform duration-300 ${
-              showNested ? "rotate-90" : ""
+              isInterventionOpen ? "rotate-90" : ""
             }`}
           >
             <FaChevronRight />
@@ -121,43 +129,43 @@ const Nav2 = () => {
         </button>
 
         <div
-          className={`absolute top-0 left-full ml-8 bg-[#F6F6F6] rounded-xl shadow-md py-3 px-5 w-[280px] transition-all duration-500 ease-in-out transform ${
-            showNested
-              ? "translate-x-0 opacity-100"
-              : "-translate-x-5 opacity-0 pointer-events-none"
+          className={`absolute top-0 left-full ml-2 bg-[#F6F6F6] rounded-xl shadow-md py-3 px-5 w-[280px] transition-all duration-500 ease-in-out transform z-50 ${
+            isInterventionOpen
+              ? "opacity-100 translate-x-5"
+              : "opacity-0 -translate-x-10"
           }`}
         >
           <Link
-            href="/sosf-headstart-agropreneurs"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            href="/interventions/sosf-agropreneurs"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Headstart Agropreneurs
           </Link>
           <Link
-            href="/our-work/interventions/bridge"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            href="/interventions/sosf-bridge"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Bridge Program
           </Link>
           <Link
-            href="/our-work/interventions/skill-up"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            href="/interventions/skill-up"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Online Skill-Up
           </Link>
           <Link
             href="/sosf-grants"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Grants
           </Link>
           <Link
             href="/sosf-funds"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Funds
@@ -215,19 +223,23 @@ const Nav2 = () => {
                         leaveTo="opacity-0 translate-y-2"
                       >
                         <div
-                          onMouseLeave={() => setIsWorkHovered(false)}
+                          onMouseLeave={() => {
+                            if (!isInterventionOpen) {
+                              setIsWorkHovered(false);
+                            }
+                          }}
                           className="absolute top-full left-1/2 -translate-x-1/2 mt-8 bg-[#F6F6F6] rounded-xl shadow-sm py-4 px-6 min-w-[200px]"
                         >
                           <div className="flex flex-col gap-3 text-[15px] font-inter">
                             <Link
-                              href="/our-work/data"
+                              href="/data"
                               className="font-normal hover:text-secondary_blue"
                               onClick={handleLinkClick}
                             >
                               Data
                             </Link>
                             <Link
-                              href="/our-work/advocacy"
+                              href="/advocacy"
                               className="font-normal hover:text-secondary_blue"
                               onClick={handleLinkClick}
                             >
@@ -261,7 +273,7 @@ const Nav2 = () => {
                       >
                         <div
                           onMouseLeave={() => setIsAboutHovered(false)}
-                          className="fixed left-0 mt-[2rem] bg-[#F6F6F6] w-[100%] p-7 grid grid-cols-4 gap-4 shadow-lg"
+                          className="fixed left-0 mt-[2rem] bg-[#F6F6F6] w-[100%] p-7 grid grid-cols-5 gap-4 shadow-lg"
                         >
                           {link.dropdown.map((column) => (
                             <div
@@ -421,7 +433,7 @@ const Nav2 = () => {
                                     className="flex items-center justify-between p-3 rounded"
                                   >
                                     <Link
-                                      href="/our-work/data"
+                                      href="/data"
                                       onClick={handleLinkClick}
                                       className="text-sm font-semibold text-gray-800 "
                                     >
@@ -438,7 +450,7 @@ const Nav2 = () => {
                                     className="flex items-center justify-between p-3 rounded"
                                   >
                                     <Link
-                                      href="/our-work/advocacy"
+                                      href="/advocacy"
                                       onClick={handleLinkClick}
                                       className="text-sm font-semibold text-gray-800"
                                     >
@@ -469,7 +481,7 @@ const Nav2 = () => {
                                       <ul className="flex flex-col gap-y-2">
                                         <li>
                                           <Link
-                                            href="/#"
+                                            href="/interventions/sosf-agropreneurs"
                                             onClick={handleLinkClick}
                                             className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
                                           >
@@ -478,7 +490,7 @@ const Nav2 = () => {
                                         </li>
                                         <li>
                                           <Link
-                                            href="/#"
+                                            href="/interventions/sosf-bridge"
                                             onClick={handleLinkClick}
                                             className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
                                           >

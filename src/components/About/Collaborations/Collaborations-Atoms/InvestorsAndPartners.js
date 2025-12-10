@@ -34,7 +34,7 @@ const InvestorsAndPartners = () => {
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  // ✅ Investment programs data
+  // Investment programs data
   const investmentPrograms = [
     {
       title: "SOSF Bridge",
