@@ -38,34 +38,32 @@ const CarouselCards = ({
 
   return (
     <div
-      className={`relative flex-col  flex w-full   md:flex md:h-[500px] md:w-full justify-center items-center  ${className}`}
+      className={`relative flex-col  flex w-full   md:flex md:w-full justify-center items-center  ${className}`}
     >
-    
       <div className="buttons-container  invisible  md:visible  ml-auto  mr-3 gap-x-4 flex flex-row  mb-5">
         <button onClick={handlePrevClick} className={`   ${prevButtonClass}`}>
           <FontAwesomeIcon
             icon={faChevronLeft}
-            className="text-white font-bold text-xl bg-[#8A96B8]  rounded-none  md:rounded-sm   p-2  md:p-4"
+            className="text-white font-bold text-lg bg-[#B7C8F4]  rounded-none  md:rounded-sm   p-3"
           />
         </button>
 
         <button onClick={handleNextClick} className={`  g ${nextButtonClass}`}>
           <FontAwesomeIcon
             icon={faChevronRight}
-            className="text-white font-bold text-xl bg-[#8A96B8]  rounded-none  md:rounded-sm   p-2  md:p-4"
+            className="text-white font-bold text-lg bg-[#B7C8F4]  rounded-none  md:rounded-sm   p-3"
           />
         </button>
       </div>
-   
+
       {/* arrow for desktop  */}
       <div className="flex gap-[2rem] md:gap-2   mb-6 lg:lex md:grid md:grid-cols-3 justify-center items-center transition-opacity duration-500  md:ml-auto ">
-      
         {visibleCards.map((card, index) => (
           <div
             key={index}
             className={` group  relative transition-opacity duration-500 w-[330px]  md:w-[270px] lg:w-[294px] h-[440px]   shadow-2xl rounded-sm    flex flex-col justify-start items-start gap-y-5  x overflow-hidden ${
               index === 0
-                ? "bg-[#8A96B8] "
+                ? "bg-[#B7C8F4] "
                 : index === 1
                 ? "bg-[#B7C8F4]"
                 : index === 2
@@ -125,14 +123,14 @@ const CarouselCards = ({
         <button onClick={handlePrevClick} className={`   ${prevButtonClass}`}>
           <FontAwesomeIcon
             icon={faChevronLeft}
-            className="text-white font-bold text-xl bg-[#8A96B8]  rounded-none  md:rounded-sm   p-2  md:p-4"
+            className="text-white font-bold text-xl bg-[#B7C8F4]  rounded-none  md:rounded-sm   p-2  md:p-4"
           />
         </button>
 
         <button onClick={handleNextClick} className={`  g ${nextButtonClass}`}>
           <FontAwesomeIcon
             icon={faChevronRight}
-            className="text-white font-bold text-xl bg-[#8A96B8]  rounded-none  md:rounded-sm   p-2  md:p-4"
+            className="text-white font-bold text-xl bg-[#B7C8F4]  rounded-none  md:rounded-sm   p-2  md:p-4"
           />
         </button>
       </div>
@@ -156,7 +154,8 @@ CarouselCards.propTypes = {
     PropTypes.shape({
       avatar: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      description: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+        .isRequired,
       route: PropTypes.string.isRequired,
     })
   ).isRequired,

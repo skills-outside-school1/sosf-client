@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import CustomIcon from "./CustomIcon";
 import { Button } from "@/components/structure-chart/Main/Main-Atoms/button";
 import { ChevronRight } from "lucide-react";
@@ -14,10 +14,40 @@ const sectionIcons = {
 export default function InfoCarousel({ slides = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const total = slides.length;
+  const autoSlideRef = useRef(null);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
   };
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto slide effect
+  useEffect(() => {
+    if (total > 0) {
+      autoSlideRef.current = setInterval(() => {
+        handleNext();
+      }, 7000); // 7 seconds
+    }
+
+    return () => {
+      if (autoSlideRef.current) {
+        clearInterval(autoSlideRef.current);
+      }
+    };
+  }, [total]);
+
+  // Reset auto-slide timer when user interacts
+  useEffect(() => {
+    if (autoSlideRef.current) {
+      clearInterval(autoSlideRef.current);
+      autoSlideRef.current = setInterval(() => {
+        handleNext();
+      }, 7000);
+    }
+  }, [currentIndex]);
 
   const currentSlide = slides[currentIndex];
   const { title, subtitle, sections } = currentSlide;
@@ -27,7 +57,7 @@ export default function InfoCarousel({ slides = [] }) {
       {/* Header */}
       <div className="flex items-end justify-between w-full mb-12">
         <div>
-          <p className="text-sm text-gray-600 mb-2">{subtitle}</p>
+          <p className=" text-gray-600 mb-2 text-xl ">{subtitle}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             {title}
           </h2>
@@ -46,7 +76,7 @@ export default function InfoCarousel({ slides = [] }) {
         {Object.entries(sections).map(([key, section]) => (
           <div
             key={key}
-            className="flex flex-col items-center bg-background_blue border-gray-200 shadow-sm rounded-2xl border border-gray-100 p-[25px] px-[15px] gap-[21px] w-[355px] h-[354px]"
+            className="flex flex-col items-center bg-background_blue  shadow-sm rounded-2xl border border-gray-100  p-5  md:p-[25px] md:px-[15px] gap-[21px] w-[300px] md:w-[355px] min-h-[354px]   max-h-[fixed]"
           >
             <CustomIcon
               src={sectionIcons[key]}
@@ -80,12 +110,13 @@ export default function InfoCarousel({ slides = [] }) {
       {/* Dots */}
       <div className="flex gap-2 mt-4">
         {slides.map((_, i) => (
-          <div
+          <button
             key={i}
+            onClick={() => handleDotClick(i)}
             className={`h-2 w-2 rounded-full transition-all ${
               i === currentIndex ? "bg-blue-600 w-4" : "bg-gray-300"
             }`}
-          ></div>
+          ></button>
         ))}
       </div>
     </div>

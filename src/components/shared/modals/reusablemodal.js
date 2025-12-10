@@ -39,7 +39,7 @@ export default function ReusableModal({ isOpen, onClose, title, children }) {
             {title && (
               <H3 className="text-2xl font-bold text-gray-800 mb-4">{title}</H3>
             )}
-            <div className="text-gray-700">{children}</div>
+            <div className="text-gray-700 text-[#3558A2]">{children}</div>
           </motion.div>
         </motion.div>
       )}

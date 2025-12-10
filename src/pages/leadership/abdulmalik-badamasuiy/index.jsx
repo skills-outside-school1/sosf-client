@@ -16,7 +16,7 @@ import { Element } from "react-scroll";
 const Index = () => {
   const member_profile = [
     {
-      picture: "/assets/images/teams/halimaabba.png",
+      picture: "/assets/images/teams/adbumalik.jpg",
       nomenclature: "Mr. Abdulmalik Badamasuiy  ",
       profession: "Managing DirectorABC Multidisciplinary Consulting Services",
 

@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import "./global.css";
 import "../styles/swipper.css";
 import "../styles/our_work.css";
-import { FadeLoader } from "react-spinners";
-import Navbar from "@/components/home/nav";
-import SideNav from "../components/home/sidenav";
 import Script from "next/script";
-import Footer from "@/components/home/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../utils/helpers/fontawesome";
@@ -18,14 +15,22 @@ import CookiesModal from "@/components/shared/modals/modal1";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/saas.css";
-import BackToTop from "@/components/shared/Atoms/Button-Atoms/Backt-To-Top";
 import Loading from "@/components/shared/animations/Loading";
+import { SessionProvider } from "next-auth/react";
+
+// Import Layouts
+import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   const [iscookiesopen, setIsCookiesOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  // Check if current route is admin
+  const isAdminRoute = router.pathname.startsWith("/admin");
 
   const closeCookies = () => {
     setIsCookiesOpen(false);
@@ -65,16 +70,16 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const cookiesShown = sessionStorage.getItem("cookiesShown");
-    if (!cookiesShown) {
+    if (!cookiesShown && !isAdminRoute) {
       const timeout = setTimeout(() => {
         setIsCookiesOpen(true);
-      }, 20000); // 20 seconds in milliseconds
+      }, 20000);
 
       return () => {
         clearTimeout(timeout);
       };
     }
-  }, []);
+  }, [isAdminRoute]);
 
   useEffect(() => {
     const preferences = JSON.parse(localStorage.getItem("cookiePreferences"));
@@ -97,66 +102,75 @@ function MyApp({ Component, pageProps }) {
     document.body.appendChild(script);
   };
 
+  // Use custom layout if page has one, otherwise use default based on route
+  const getLayout = Component.getLayout || ((page) => {
+    if (isAdminRoute) {
+      return <AdminLayout>{page}</AdminLayout>;
+    }
+    return <MainLayout>{page}</MainLayout>;
+  });
+
   return (
     <React.Fragment>
-      <Head>
-        <title>Skills Outside School Foundation</title>
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href="/assets/images/logos/logo-renew.png"
-        />
+      <SessionProvider session={pageProps.session}>
+        <Head>
+          <title>Skills Outside School Foundation</title>
+          <link
+            rel="icon"
+            type="image/x-icon"
+            href="/assets/images/logos/logo-renew.png"
+          />
 
-        {/* Primary SEO Meta Tags */}
-        <meta
-          name="description"
-          content="Skills Outside School Foundation is the leading pan-African organization focused on education, employability, and entrepreneurship, driving transformational socio-economic development globally."
-        />
-        <meta
-          name="keywords"
-          content="education, employability, entrepreneurship, pan-African, socio-economic development, Skills Outside School Foundation, Grants, Grant, Startup, Farmers, Investment, Investors, 
+          {/* Primary SEO Meta Tags */}
+          <meta
+            name="description"
+            content="Skills Outside School Foundation is the leading pan-African organization focused on education, employability, and entrepreneurship, driving transformational socio-economic development globally."
+          />
+          <meta
+            name="keywords"
+            content="education, employability, entrepreneurship, pan-African, socio-economic development, Skills Outside School Foundation, Grants, Grant, Startup, Farmers, Investment, Investors, 
           Partnerships, Partnership, Volunteering, Relationship, Volunteer, Govern, Governance, "
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="UTF-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
-        {/* Open Graph Meta Tags (for Facebook, LinkedIn) */}
-        <meta property="og:title" content="Skills Outside School Foundation" />
-        <meta
-          property="og:description"
-          content="Leading organization in Africa promoting education, employability, and entrepreneurship for transformational development."
-        />
-        <meta
-          property="og:image"
-          content="/assets/images/logos/logo-renew.png"
-        />
-        <meta property="og:url" content="https://www.skillsoutsideschool.com" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_US" />
+          {/* Open Graph Meta Tags (for Facebook, LinkedIn) */}
+          <meta property="og:title" content="Skills Outside School Foundation" />
+          <meta
+            property="og:description"
+            content="Leading organization in Africa promoting education, employability, and entrepreneurship for transformational development."
+          />
+          <meta
+            property="og:image"
+            content="/assets/images/logos/logo-renew.png"
+          />
+          <meta property="og:url" content="https://www.skillsoutsideschool.com" />
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content="en_US" />
 
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Skills Outside School Foundation" />
-        <meta
-          name="twitter:description"
-          content="A foundation focused on education, employability, and entrepreneurship, driving socio-economic development globally."
-        />
-        <meta
-          name="twitter:image"
-          content="/assets/images/logos/logo-renew.png"
-        />
-        <meta name="twitter:site" content="@sosf" />
+          {/* Twitter Card Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Skills Outside School Foundation" />
+          <meta
+            name="twitter:description"
+            content="A foundation focused on education, employability, and entrepreneurship, driving socio-economic development globally."
+          />
+          <meta
+            name="twitter:image"
+            content="/assets/images/logos/logo-renew.png"
+          />
+          <meta name="twitter:site" content="@sosf" />
 
-        {/* Additional Meta Tags for SEO */}
-        <meta name="robots" content="index, follow" />
-        <meta name="author" content="Skills Outside School Foundation" />
-        <meta name="theme-color" content="#ffffff" />
-        <link rel="canonical" href="https://www.skillsoutsdeschool.com" />
+          {/* Additional Meta Tags for SEO */}
+          <meta name="robots" content="index, follow" />
+          <meta name="author" content="Skills Outside School Foundation" />
+          <meta name="theme-color" content="#ffffff" />
+          <link rel="canonical" href="https://www.skillsoutsdeschool.com" />
 
-        {/* Structured Data for SEO (JSON-LD) */}
-        <script type="application/ld+json">
-          {`{
+          {/* Structured Data for SEO (JSON-LD) */}
+          <script type="application/ld+json">
+            {`{
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Skills Outside School Foundation",
@@ -169,34 +183,34 @@ function MyApp({ Component, pageProps }) {
             ],
             "description": "The Skills Outside School Foundation is the leading pan-African organization focusing on education, employability, and entrepreneurship."
           }`}
-        </script>
-      </Head>
-      {/* Google tag (gtag.js) */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-M02SK14LBZ"
-        strategy="afterInteractive"
-      />
-      <Script id="gtag-init" strategy="afterInteractive">
-        {`
+          </script>
+        </Head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-M02SK14LBZ"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-M02SK14LBZ');
         `}
-      </Script>
+        </Script>
 
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          {iscookiesopen && <CookiesModal onClose={closeCookies} />}
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-          <BackToTop />
-          <ToastContainer />
-        </>
-      )}
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            {iscookiesopen && !isAdminRoute && (
+              <CookiesModal onClose={closeCookies} />
+            )}
+            {getLayout(<Component {...pageProps} />)}
+            <ToastContainer />
+          </>
+        )}
+      </SessionProvider>
     </React.Fragment>
   );
 }

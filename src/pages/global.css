@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'tw-animate-css';
+@import "tw-animate-css";
 
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap");
@@ -255,7 +255,7 @@ body,
 .illustration-holder .shape-four {
   right: -4%;
   top: 50%;
- animation: jumpThree 3.5s infinite linear;
+  animation: jumpThree 3.5s infinite linear;
 }
 .illustration-holder .shape-five {
   right: 13%;
@@ -465,8 +465,6 @@ body {
   background-attachment: fixed;
 }
 
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -523,7 +521,13 @@ body {
   }
 }
 
-
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 @layer base {
   * {

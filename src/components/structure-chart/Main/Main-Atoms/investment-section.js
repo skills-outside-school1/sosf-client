@@ -68,17 +68,17 @@ export default function InvestmentSection() {
   ]
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 bg-white sm:mx-6 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 text-left">
           <Badge
             variant="outline"
-            className="mb-4 text-pink-600 border-pink-600 rounded-lg px-4 py-1 font-medium"
+            className="mb-4 text-black  text-2xl  border-pink-600 rounded-lg px-4 py-1 font-medium"
           >
             Invest
           </Badge>
-          <p className="text-md text-gray-600 mb-2">Invest what you can</p>
+          <p className="text-md text-gray-600 mb-2 text-xl ">Invest what you can</p>
           <h2 className="text-4xl md:text-5xl font-semibold text-gray-800 tracking-tight">
             What Would You Like to Contribute?
           </h2>

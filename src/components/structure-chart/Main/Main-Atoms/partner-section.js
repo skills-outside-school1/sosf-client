@@ -18,7 +18,7 @@ const partnerSlides = [
           "Senior industry leaders, retirees, philanthropists, and purpose-driven individuals looking to create long-term, scalable impact aligned with their values.",
       },
       expected: {
-        heading: "What’s Expected of You",
+        heading: "What's Expected of You",
         items: [
           "Provide the vision, funding (or assets), and time (if desired)",
           "Collaborate in reviews and final decisions",
@@ -28,7 +28,7 @@ const partnerSlides = [
         heading: "What You Can Do",
         items: [
           "Launch your own social initiatives (scholarships, fellowships, mentorships, waqf funds, zakat administration, grant schemes, etc.)",
-          "Co-create and lead impactful projects with SOSF’s full backend support",
+          "Co-create and lead impactful projects with SOSF's full backend support",
         ],
       },
       offers: {
@@ -55,7 +55,7 @@ const partnerSlides = [
           "Associations, advocacy groups, research institutes, academic departments, innovation hubs, umbrella bodies (e.g., CSO forums, youth faith networks, student unions).",
       },
       expected: {
-        heading: "What’s Expected of You",
+        heading: "What's Expected of You",
         items: [
           "Share opportunities with your network",
           "Provide referrals and data",
@@ -92,7 +92,7 @@ const partnerSlides = [
           "Companies, institutions, or donor agencies seeking to: launch or scale up CSR programs, access data and expertise to shape impactful interventions, support or deploy SOSF programs, and promote employee volunteerism.",
       },
       expected: {
-        heading: "What’s Expected of You",
+        heading: "What's Expected of You",
         items: [
           "Commit capital (financial, technical, or in-kind) to initiatives",
           "Co-own and co-review project design and impact reports",
@@ -118,7 +118,7 @@ const partnerSlides = [
           "Access to high-quality data, impact frameworks, and learning",
           "Deployment support for field-ready or pilot-tested initiatives",
           "Direct engagement with beneficiaries across Africa",
-          "Amplification of your brand’s social legacy through tailored outreach and reporting",
+          "Amplification of your brand's social legacy through tailored outreach and reporting",
         ],
       },
     },
@@ -126,28 +126,20 @@ const partnerSlides = [
 ];
 
 export default function PartnerSection() {
-  const carouselRef = useRef(null);
-
-  const handleNext = () => {
-    if (carouselRef.current && carouselRef.current.nextSlide) {
-      carouselRef.current.nextSlide();
-    }
-  };
-
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto sm:mx-6 px-4  mt-[5rem] " id="partner-section">
       {/* Header Section */}
       <div className="mb-8 flex items-center justify-between">
         <Badge
           variant="outline"
-          className="text-partnerblue border-partnerblue rounded-full px-3 py-1"
+          className="text-black border-partnerblue rounded-full px-3 py-1 text-xl "
         >
           Partner
         </Badge>
       </div>
 
       {/* Carousel Section */}
-      <InfoCarousel ref={carouselRef} slides={partnerSlides} icon={sharedIcon} />
+      <InfoCarousel slides={partnerSlides} icon={sharedIcon} />
     </div>
   );
 }

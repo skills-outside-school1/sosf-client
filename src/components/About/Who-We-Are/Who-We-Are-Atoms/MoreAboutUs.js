@@ -1,74 +1,117 @@
 import React from "react";
 import CarouselCards from "@/components/shared/Atoms/Cards-Atoms/CarouselCards";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStrava, faSimplybuilt } from "@fortawesome/free-brands-svg-icons";
+import { H3 } from "@/components/shared/Atoms/Typography/typography";
+import ContentCarousel from "@/components/shared/Atoms/ContentCarousel";
+import ImageOverlayCard from "@/components/shared/Atoms/Cards-Atoms/ImageOverlayCard";
 
-export default function MoreAboutUs() {
-  const cardData = [
+export default function WorkNav() {
+  // const cardData = [
+  //   {
+  //     image:
+  //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZeH1t5cynPXzy-TEScAnDhiQRHqCJDm64g&s",
+  //     title: "Get Involved",
+  //     description: (
+  //       <span>
+  //         Join us in making a difference! Whether you contribute your time,
+  //         skills, or resources, your involvement helps create lasting impact in
+  //         the lives of those we serve. Together, we can build a brighter future.
+  //       </span>
+  //     ),
+  //     link: "/get-involved",
+  //   },
+  //   {
+  //     image:
+  //       "https://www.startupdonut.co.uk/sites/default/files/production/image/strategic_partnerships_306153968.jpg",
+  //     title: "Partner",
+  //     description: (
+  //       <span>
+  //         Collaborate with us to amplify your impact. By partnering with SOSF,
+  //         you contribute to data-driven, sustainable solutions that address
+  //         real-world challenges and improve communities.
+  //       </span>
+  //     ),
+  //     link: "/partnerships",
+  //   },
+
+  //   {
+  //     image: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
+  //     title: "See how our work impact's the UN SDGs",
+  //     description: (
+  //       <span>
+  //         SOSF actively supports the United Nations Sustainable Development
+  //         Goals (SDGs), focusing on key areas such as quality education, good
+  //         health and well-being, gender equality, and sustainable communities to
+  //         drive meaningful change.
+  //       </span>
+  //     ),
+  //     link: "/sdg",
+  //   },
+  // ];
+
+  const cardDataTwo = [
     {
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVPs-iR7mPOb75FMlA83czJb-aY-kfXDBOpA&s",
-      title: "Our History & Strategy",
-      description:
-        "Explore our journey from inception to where we stand today, guided by a strategic vision aimed at empowering communities and creating sustainable impact.",
-      route: "/history",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZeH1t5cynPXzy-TEScAnDhiQRHqCJDm64g&s",
+      title: "Get Involved",
+      description: (
+        <span>
+          Join us in making a difference! Whether you contribute your time,
+          skills, or resources, your involvement helps create lasting impact in
+          the lives of those we serve. Together, we can build a brighter future.
+        </span>
+      ),
+      link: "/get-involved",
+      id: 1,
     },
     {
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkrl-RUYeJRyY3kRzXwIFsTNFBjfzcDBf_3A&s",
-      title: "Our Pillars",
-      description:
-        "Discover the foundational principles that drive our work, shaping the framework of our interventions and guiding our mission to empower change.",
-      route: "/our-pillars",
+      img: "https://www.firmofthefuture.com/oidam/intuit/sbseg/en_us/Blog/Photography/Stock/tough-talks-business-partner-us-en.png",
+      title: "Partner",
+      description: (
+        <span>
+          Collaborate with us to amplify your impact. By partnering with SOSF,
+          you contribute to data-driven, sustainable solutions that address
+          real-world challenges and improve communities.
+        </span>
+      ),
+      link: "/partnerships",
+      id: 2,
     },
+
     {
-      avatar:
-        "https://media.licdn.com/dms/image/C4D12AQGfcT0xG3P_ew/article-cover_image-shrink_720_1280/0/1651162715269?e=2147483647&v=beta&t=8DT0cKvvJiJh0ETUyYmBpwGdYCdOb-XVwDdlZ1i2wEI",
-      title: "Our Core Values",
-      description:
-        "At the SOSF, we hold integrity, service, and collaboration as our fundamental core values. Our pledge to these principles defines our commitment to impactful change.",
-      route: "/core-values",
+      img: "https://images.news18.com/ibnlive/uploads/2022/08/unitedsgs.png",
+      title: "See how our work impact's the UN SDGs",
+      description: (
+        <span>
+          SOSF actively supports the United Nations Sustainable Development
+          Goals (SDGs), focusing on key areas such as quality education, good
+          health and well-being, gender equality, and sustainable communities to
+          drive meaningful change.
+        </span>
+      ),
+      link: "/sdg",
+      id: 3,
     },
+
+    //next card
     {
-      avatar:
-        "https://media.licdn.com/dms/image/D5612AQEW1d-x3KPlUw/article-cover_image-shrink_720_1280/0/1717675741327?e=2147483647&v=beta&t=022jor7uUr6_cYghDsE5ROmd0-_CpD3gl_LMGq_vWlI",
-      title: "Our USPs",
-      description:
-        "Skills Outside School Foundation has reached over 100,000 people across diverse regions, delivering unique solutions tailored to real-world challenges.",
-      route: "/our-usp",
-    },
-    {
-      avatar:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFi2X12sOXQUpOiOqgc8oWowduB2tzqkDnCQ&s",
-      title: "Our Impact",
-      description:
-        "Learn how SOSF's initiatives have transformed lives and communities through measurable outcomes and sustainable solutions across various regions.",
-      route: "/impact",
-    },
-    {
-      avatar:
-        "https://websaweprd.blob.core.windows.net/cms-assets-international/styles/640w/public/2021-03/Focus%20Area_OVERVIEW_main%20pic_2880%20x%201620px.jpg?itok=HnwnooeZ",
-      title: "Our Focus Areas",
-      description:
-        "At SOSF, we are dedicated to tackling socio-economic challenges in Africa through strategic interventions in education, empowerment, and sustainability.",
-      route: "/our-focus-areas",
-    },
-    {
-      avatar:
-        "https://www.iita.org/wp-content/uploads/2024/09/Showcasing-farmer-harvest-1.jpg",
-      title: "Our Target Audience & Beneficiaries",
-      description:
-        "Understand the diverse groups we serve, ranging from youth and underserved communities to partners and stakeholders working towards societal betterment.",
-      route: "/beneficiaries",
+      img: "https://media.istockphoto.com/id/1663279091/photo/two-young-colleagues-working-together-at-modern-office.jpg?s=612x612&w=0&k=20&c=6GpKPmfPBA1DyxfthG28GUMh6a0zRBxguPsL8insYuc=",
+      title: "Explore Our Work",
+      description: (
+        <span>
+          Supporting the UN SDGs with a Focus on Quality Education, Good Health
+          and Well-being, Gender Equality, and Sustainable Communities
+        </span>
+      ),
+      link: "//our-work/data",
+      id: 4,
     },
   ];
-
   return (
-    <div className="w-full flex flex-col    gap-x-8 justify-center items-start  ">
-    <section className="px-2 md:px-[6%]  lg:px-[28%] ">
-       <h3 className="text-gray-800 font-bold  font-mont  text-center   text-2xl   lg:text-3xl     md:text-left  px-2">
-        Learn more about SOSF
-      </h3>
-      </section>
-      <CarouselCards cards={cardData} />
+    <div className="w-full flex flex-col gap-x-8 justify-center items-start  ">
+      <ContentCarousel
+        items={cardDataTwo}
+        CardComponent={ImageOverlayCard}
+        title="Learn more about SOSF"
+      />
     </div>
   );
 }
