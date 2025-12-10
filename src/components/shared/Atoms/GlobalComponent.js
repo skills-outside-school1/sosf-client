@@ -35,8 +35,8 @@ const GlobalComponent = () => {
   return (
     <section
       className="
-        bg-[url('/assets/images/collaborations/swiper-bg.jpg')]
-        bg-cover bg-center bg-no-repeat
+        bg-[url('/assets/images/collaborations/swiper-bg-1.jpg')]
+        bg-cover bg-left bg-no-repeat
         h-[420px] w-full
         flex items-center
         px-4 md:px-[4rem] lg:px-[7.6rem] relative
@@ -83,7 +83,7 @@ const GlobalComponent = () => {
                     <Link href={links[index]}>
                       <button
                         type="button"
-                        className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#6558D3] text-white text-xs md:text-sm font-semibold tracking-[0.16em] uppercase shadow-md hover:bg-[#5647c8] transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-[#6558D3]"
+                        className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#6558D3] text-white text-xs md:text-sm font-semibold tracking-[0.16em] uppercase shadow-md hover:bg-[#5647c8] transition focus:outline-none "
                       >
                         {/* dynamic button title */}
                         {btntitles[index]}
