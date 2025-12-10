@@ -26,8 +26,8 @@
 
 // export default DataSub;
 import React from "react";
-import SubHero from "@/components/shared/Atoms/Subhero-Atoms/Subhero";
-import { H1, H3 } from "@/components/shared/Atoms/Typography/typography";
+import { H1, H2, H3, P } from "@/components/shared/Atoms/Typography/typography";
+import Image from "next/image";
 
 export default function DataSub() {
   const data = [
@@ -68,7 +68,7 @@ export default function DataSub() {
 
         <H2>Data</H2>
         <P>Evidence that drives Impact</P>
-        <p>Data isn't just a tool. It's our compass.</p>
+        <P>Data isn't just a tool. It's our compass.</P>
       </div>
       <div className=" ">
         <div></div>
