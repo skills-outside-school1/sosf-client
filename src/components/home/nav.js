@@ -64,8 +64,8 @@ const Nav2 = () => {
         },
       ],
     },
-    { name: "Our Work", to: "/our-work" },
-    // { name: "Insights", to: "/news-insights" },
+    { name: "Our Work", to: "#" },
+    { name: "Insights", to: "/news-insights" },
     { name: "Get Involved", to: "/get-involved" },
     // { name: "Careers", to: "/careers" },
     { name: "Contact", to: "/contact" },
@@ -116,7 +116,7 @@ const Nav2 = () => {
       <div className="relative">
         <button
           onClick={toggleInterventionMenu}
-          className="flex items-center justify-between font-normal hover:text-secondary_blue w-full"
+          className="flex items-center justify-between w-full font-normal hover:text-secondary_blue"
         >
           <span>Interventions</span>
           <span
@@ -137,35 +137,35 @@ const Nav2 = () => {
         >
           <Link
             href="/sosf-headstart-agropreneurs"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Headstart Agropreneurs
           </Link>
           <Link
-            href="/our-work/interventions/bridge"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            href="/interventions/bridge"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Bridge Program
           </Link>
           <Link
-            href="/our-work/interventions/skill-up"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            href="/interventions/skill-up"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Online Skill-Up
           </Link>
           <Link
             href="/sosf-grants"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Grants
           </Link>
           <Link
             href="/sosf-funds"
-            className="block py-1 hover:text-secondary_blue text-base md:text-xs"
+            className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Funds
@@ -232,14 +232,14 @@ const Nav2 = () => {
                         >
                           <div className="flex flex-col gap-3 text-[15px] font-inter">
                             <Link
-                              href="/our-work/data"
+                              href="/data"
                               className="font-normal hover:text-secondary_blue"
                               onClick={handleLinkClick}
                             >
                               Data
                             </Link>
                             <Link
-                              href="/our-work/advocacy"
+                              href="/advocacy"
                               className="font-normal hover:text-secondary_blue"
                               onClick={handleLinkClick}
                             >
@@ -433,7 +433,7 @@ const Nav2 = () => {
                                     className="flex items-center justify-between p-3 rounded"
                                   >
                                     <Link
-                                      href="/our-work/data"
+                                      href="/data"
                                       onClick={handleLinkClick}
                                       className="text-sm font-semibold text-gray-800 "
                                     >
@@ -450,7 +450,7 @@ const Nav2 = () => {
                                     className="flex items-center justify-between p-3 rounded"
                                   >
                                     <Link
-                                      href="/our-work/advocacy"
+                                      href="/advocacy"
                                       onClick={handleLinkClick}
                                       className="text-sm font-semibold text-gray-800"
                                     >
