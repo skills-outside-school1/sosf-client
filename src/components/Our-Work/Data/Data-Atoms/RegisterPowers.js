@@ -1,6 +1,6 @@
-import CustomIcon from "@/components/structure-chart/Main/Main-Atoms/CustomIcon"
+import CustomIcon from "@/components/structure-chart/Atoms/CustomIcon";
 
-const  featureData = [
+const featureData = [
   {
     icon: "/assets/icons/paintbrush-pencil.svg",
     title: "Design of Interventions",
@@ -31,7 +31,7 @@ const  featureData = [
     description:
       "Data is continuously fed into program updates, ensuring SOSF remains adaptive and evidence-based",
   },
-]
+];
 
 export default function RegisterPowers() {
   return (
@@ -46,26 +46,48 @@ export default function RegisterPowers() {
         <div className="flex flex-col items-center">
           {/* First row - 3 items */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-7xl">
-          { featureData.slice(0, 3).map((feature, index) => (
-              <div key={index} className="flex flex-col items-center text-center p-6 rounded-lg">
-                <CustomIcon src={feature.icon} alt={`${feature.title} Icon`} className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-6 text-blue-400" />
-                <h3 className="text-[24px] font-semibold text-white font-[500] mb-3">{feature.title}</h3>
-                <p className="text-[16px] text-base text-gray-200 leading-[24px] font-[400]">{feature.description}</p>
+            {featureData.slice(0, 3).map((feature, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center p-6 rounded-lg"
+              >
+                <CustomIcon
+                  src={feature.icon}
+                  alt={`${feature.title} Icon`}
+                  className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-6 text-blue-400"
+                />
+                <h3 className="text-[24px] font-semibold text-white font-[500] mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-[16px] text-base text-gray-200 leading-[24px] font-[400]">
+                  {feature.description}
+                </p>
               </div>
-            )) }
+            ))}
           </div>
-            {/* Second row - 2 items centered */}
-            <div className="flex flex-col md:flex-row justify-center items-stretch gap-6  w-full max-w-3xl mt-6 md:mt-8">
-            { featureData.slice(3).map((feature, index) => (
-                <div key={index} className="flex flex-col items-center text-center p-6 rounded-lg">
-                  <CustomIcon src={feature.icon} alt={`${feature.title} Icon`} className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-6 text-blue-400" />
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">{feature.title}</h3>
-                  <p className="text-[16px] text-base text-gray-200 leading-[24px] font-[400]">{feature.description}</p>
-                </div>
-              )) }
-            </div>
+          {/* Second row - 2 items centered */}
+          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6  w-full max-w-3xl mt-6 md:mt-8">
+            {featureData.slice(3).map((feature, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center p-6 rounded-lg"
+              >
+                <CustomIcon
+                  src={feature.icon}
+                  alt={`${feature.title} Icon`}
+                  className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-6 text-blue-400"
+                />
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-[16px] text-base text-gray-200 leading-[24px] font-[400]">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
           </div>
+        </div>
       </div>
     </section>
-  )
+  );
 }

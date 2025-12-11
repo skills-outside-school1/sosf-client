@@ -1,33 +1,37 @@
 import { useState, useEffect, useRef } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/shared/cards/card";
-import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge";
 import {
-  Users,
-  ChevronRight,
-  CheckCircle2,
-  BarChart3,
-} from "lucide-react";
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardFooter,
+} from "@/components/shared/cards/card";
+import { Badge } from "@/components/structure-chart/Atoms/badge";
+import { Users, ChevronRight, CheckCircle2, BarChart3 } from "lucide-react";
 import CustomIcon from "./CustomIcon";
-import IframeModal from "../../../shared/modals/iframe-modal"
-import { Button } from "./button"
+import IframeModal from "../../shared/modals/iframe-modal";
+import { Button } from "./button";
 
 // forms
-const accessDataFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFDataAccessRegistrationForm/formperma/tR1QuQRcSMrGhBum8rBKtcywUIs6hsf9UR4U7m7pW5Q"
-const contributeDataFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFVolunteerAccessRequestForm/formperma/mT1MKvcPwJZJwotBeHYtC-xUaxrnitcQFkZ1vVArjmE"
-const awanessBuilderFormUrl = "https://forms.zohopublic.com/halimaabba/form/SOSFAwarenessBuildingCollaborationInterestForm/formperma/whFqmCcBj0Fq9iZ1fjI7Z6HF9FKgGapLrz7JUMIshLA"
+const accessDataFormUrl =
+  "https://forms.zohopublic.com/halimaabba/form/SOSFDataAccessRegistrationForm/formperma/tR1QuQRcSMrGhBum8rBKtcywUIs6hsf9UR4U7m7pW5Q";
+const contributeDataFormUrl =
+  "https://forms.zohopublic.com/halimaabba/form/SOSFVolunteerAccessRequestForm/formperma/mT1MKvcPwJZJwotBeHYtC-xUaxrnitcQFkZ1vVArjmE";
+const awanessBuilderFormUrl =
+  "https://forms.zohopublic.com/halimaabba/form/SOSFAwarenessBuildingCollaborationInterestForm/formperma/whFqmCcBj0Fq9iZ1fjI7Z6HF9FKgGapLrz7JUMIshLA";
 
 // icons
-const Student_ss1 = "/assets/icons/ss1.svg"
-const Student_jss3 = "/assets/icons/jss3.svg"
-const endntrepreneur = "/assets/icons/enterprenuer.svg"
-const teacherjss3 = "/assets/icons/teacherjss3.svg"
-const teacherss1 = "/assets/icons/teacherss1.svg"
-const tercherstd = "/assets/icons/tertiarystd.svg"
-const intermediary = "/assets/icons/intermediary.svg"
-const farmer = "/assets/icons/farmer.svg"
-const professinal = "/assets/icons/professional.svg"
-const school = "/assets/icons/school.svg"
-const informal = "/assets/icons/informal.svg"
+const Student_ss1 = "/assets/icons/ss1.svg";
+const Student_jss3 = "/assets/icons/jss3.svg";
+const endntrepreneur = "/assets/icons/enterprenuer.svg";
+const teacherjss3 = "/assets/icons/teacherjss3.svg";
+const teacherss1 = "/assets/icons/teacherss1.svg";
+const tercherstd = "/assets/icons/tertiarystd.svg";
+const intermediary = "/assets/icons/intermediary.svg";
+const farmer = "/assets/icons/farmer.svg";
+const professinal = "/assets/icons/professional.svg";
+const school = "/assets/icons/school.svg";
+const informal = "/assets/icons/informal.svg";
 
 // --- Data for Carousel Slides ---
 const participationSlides = [
@@ -39,59 +43,97 @@ const participationSlides = [
     participants: [
       {
         title: "K–12 Student (JSS3)",
-        details: ["Start with SOSF Bridge Basic", "Apply for SOSF Funds OR go through:", "Online Skill Up for Career", "Online Skill Up for Businesses"],
+        details: [
+          "Start with SOSF Bridge Basic",
+          "Apply for SOSF Funds OR go through:",
+          "Online Skill Up for Career",
+          "Online Skill Up for Businesses",
+        ],
         icon: Student_jss3,
         formModal: awanessBuilderFormUrl,
         modalTitle: "K–12 Student (JSS3) Registration",
-        modalDescription: "Register as a K–12 Student (JSS3) to start your journey with SOSF Bridge Basic"
+        modalDescription:
+          "Register as a K–12 Student (JSS3) to start your journey with SOSF Bridge Basic",
       },
       {
         title: "K–12 Student (SS1-SS3)",
-        details: ["Start with SOSF Bridge Intermediate", "Apply for SOSF Funds OR go through:", "Online Skill Up for Career", "Online Skill Up for Businesses"],
+        details: [
+          "Start with SOSF Bridge Intermediate",
+          "Apply for SOSF Funds OR go through:",
+          "Online Skill Up for Career",
+          "Online Skill Up for Businesses",
+        ],
         icon: Student_ss1,
         formModal: awanessBuilderFormUrl,
         modalTitle: "K–12 Student (SS1-SS3) Registration",
-        modalDescription: "Register as a K–12 Student (SS1-SS3) to start your journey with SOSF Bridge Intermediate"
+        modalDescription:
+          "Register as a K–12 Student (SS1-SS3) to start your journey with SOSF Bridge Intermediate",
       },
       {
         title: "K–12 Teacher (JSS3)",
-        details: ["Join as a Bridge Basic Teacher", "Apply for SOSF Funds OR go through:", "Online Skill Up for Career", "Online Skill Up for Businesses"],
+        details: [
+          "Join as a Bridge Basic Teacher",
+          "Apply for SOSF Funds OR go through:",
+          "Online Skill Up for Career",
+          "Online Skill Up for Businesses",
+        ],
         icon: teacherjss3,
         formModal: awanessBuilderFormUrl,
         modalTitle: "K–12 Teacher (JSS3) Registration",
-        modalDescription: "Register as a K–12 Teacher (JSS3) to join as a Bridge Basic Teacher"
+        modalDescription:
+          "Register as a K–12 Teacher (JSS3) to join as a Bridge Basic Teacher",
       },
       {
         title: "K–12 Teacher (SS1-SS3)",
-        details: ["Join as a Bridge Intermediate Teacher", "Apply for SOSF Funds OR go through:", "Online Skill Up for Career", "Online Skill Up for Businesses"],
+        details: [
+          "Join as a Bridge Intermediate Teacher",
+          "Apply for SOSF Funds OR go through:",
+          "Online Skill Up for Career",
+          "Online Skill Up for Businesses",
+        ],
         icon: teacherss1,
         formModal: awanessBuilderFormUrl,
         modalTitle: "K–12 Teacher (SS1-SS3) Registration",
-        modalDescription: "Register as a K–12 Teacher (SS1-SS3) to join as a Bridge Intermediate Teacher"
+        modalDescription:
+          "Register as a K–12 Teacher (SS1-SS3) to join as a Bridge Intermediate Teacher",
       },
       {
         title: "Tertiary Student",
-        details: ["Start with SOSF Bridge Advanced", "Apply for SOSF Funds OR go through:", "Online Skill Up for Career", "Online Skill Up for Businesses"],
+        details: [
+          "Start with SOSF Bridge Advanced",
+          "Apply for SOSF Funds OR go through:",
+          "Online Skill Up for Career",
+          "Online Skill Up for Businesses",
+        ],
         icon: tercherstd,
         formModal: awanessBuilderFormUrl,
         modalTitle: "Tertiary Student Registration",
-        modalDescription: "Register as a Tertiary Student to start your journey with SOSF Bridge Advanced"
+        modalDescription:
+          "Register as a Tertiary Student to start your journey with SOSF Bridge Advanced",
       },
       {
         title: "Entrepreneur (Any age)",
-        details: ["Start with Online Skill Up for Business", "Apply for SOSF Enterprise Funds"],
+        details: [
+          "Start with Online Skill Up for Business",
+          "Apply for SOSF Enterprise Funds",
+        ],
         icon: endntrepreneur,
         formModal: awanessBuilderFormUrl,
         modalTitle: "Entrepreneur Registration",
-        modalDescription: "Register as an Entrepreneur to start with Online Skill Up for Business"
+        modalDescription:
+          "Register as an Entrepreneur to start with Online Skill Up for Business",
       },
       {
         title: "Professional (Any age)",
-        details: ["Start with Online Skill Up for Business", "Apply for SOSF Scholarship Funds"],
+        details: [
+          "Start with Online Skill Up for Business",
+          "Apply for SOSF Scholarship Funds",
+        ],
         icon: professinal,
         formModal: awanessBuilderFormUrl,
         modalTitle: "Professional Registration",
-        modalDescription: "Register as a Professional to start with Online Skill Up for Business"
+        modalDescription:
+          "Register as a Professional to start with Online Skill Up for Business",
       },
       {
         title: "Farmer (Smallholder)",
@@ -99,15 +141,19 @@ const participationSlides = [
         icon: farmer,
         formModal: awanessBuilderFormUrl,
         modalTitle: "Farmer Registration",
-        modalDescription: "Register as a Farmer to join SOSF Headstart Agropreneurs"
+        modalDescription:
+          "Register as a Farmer to join SOSF Headstart Agropreneurs",
       },
       {
         title: "School K-12",
-        details: ["Enroll teachers/students in SOSF Bridge Basic or Intermediate"],
+        details: [
+          "Enroll teachers/students in SOSF Bridge Basic or Intermediate",
+        ],
         icon: school,
         formModal: awanessBuilderFormUrl,
         modalTitle: "School Registration",
-        modalDescription: "Register your school to enroll teachers/students in SOSF Bridge programs"
+        modalDescription:
+          "Register your school to enroll teachers/students in SOSF Bridge programs",
       },
       {
         title: "Informal Sector Worker (Other Industries)",
@@ -115,7 +161,8 @@ const participationSlides = [
         icon: informal,
         formModal: awanessBuilderFormUrl,
         modalTitle: "Informal Sector Worker Registration",
-        modalDescription: "Register as an Informal Sector Worker to join SOSF Headstart (General)"
+        modalDescription:
+          "Register as an Informal Sector Worker to join SOSF Headstart (General)",
       },
       {
         title: "Intermediary Organization (NGO, Trust, Company etc)",
@@ -123,7 +170,7 @@ const participationSlides = [
         icon: intermediary,
         formModal: awanessBuilderFormUrl,
         modalTitle: "Intermediary Organization Registration",
-        modalDescription: "Register your organization to apply for SOSF Grants"
+        modalDescription: "Register your organization to apply for SOSF Grants",
       },
     ],
   },
@@ -139,15 +186,20 @@ const participationSlides = [
         details: ["Access Data (as User)", "Contribute Data (as Contributor)"],
         formModal: accessDataFormUrl,
         modalTitle: "Data Access & Contribution",
-        modalDescription: "Access or contribute to SOSF data resources"
+        modalDescription: "Access or contribute to SOSF data resources",
       },
       {
         title: "Advocacy",
         icon: Users,
-        details: ["As a Catalyst (Ambassador)", "As a Mobilizer", "As a Connector"],
+        details: [
+          "As a Catalyst (Ambassador)",
+          "As a Mobilizer",
+          "As a Connector",
+        ],
         formModal: contributeDataFormUrl,
         modalTitle: "Advocacy Participation",
-        modalDescription: "Join our advocacy efforts as a Catalyst, Mobilizer, or Connector"
+        modalDescription:
+          "Join our advocacy efforts as a Catalyst, Mobilizer, or Connector",
       },
     ],
   },
@@ -156,8 +208,8 @@ const participationSlides = [
 // --- Main Component ---
 export default function ParticipationSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false); 
-  const [isFading, setIsFading] = useState(false); 
+  const [isPaused, setIsPaused] = useState(false);
+  const [isFading, setIsFading] = useState(false);
   const autoSlideRef = useRef(null);
   const currentSlide = participationSlides[currentIndex];
   const totalSlides = participationSlides.length;
@@ -167,12 +219,13 @@ export default function ParticipationSection() {
     isOpen: false,
     title: "",
     description: "",
-    url: ""
+    url: "",
   });
 
   // Function to handle the index change with fade transition
   const goToIndex = (newIndex) => {
-    if (newIndex === currentIndex || newIndex < 0 || newIndex >= totalSlides) return;
+    if (newIndex === currentIndex || newIndex < 0 || newIndex >= totalSlides)
+      return;
 
     // 1. Start the fade-out
     setIsFading(true);
@@ -181,7 +234,6 @@ export default function ParticipationSection() {
       setIsFading(false);
     }, 300);
   };
-
 
   const autoNext = () => {
     goToIndex((currentIndex + 1) % totalSlides);
@@ -202,7 +254,7 @@ export default function ParticipationSection() {
       isOpen: true,
       title,
       description,
-      url
+      url,
     });
   };
 
@@ -211,7 +263,7 @@ export default function ParticipationSection() {
       isOpen: false,
       title: "",
       description: "",
-      url: ""
+      url: "",
     });
   };
 
@@ -220,7 +272,7 @@ export default function ParticipationSection() {
       // Reduced timer: 4000ms (4 seconds)
       return setInterval(() => {
         autoNext();
-      }, 4000); 
+      }, 4000);
     }
     return null;
   };
@@ -230,7 +282,7 @@ export default function ParticipationSection() {
     if (autoSlideRef.current) {
       clearInterval(autoSlideRef.current);
     }
-    
+
     // Start the timer only if not paused
     if (!isPaused) {
       autoSlideRef.current = startTimer();
@@ -251,9 +303,9 @@ export default function ParticipationSection() {
       // Set a new timer for the original duration (7000ms from your initial code)
       autoSlideRef.current = setInterval(() => {
         autoNext();
-      }, 7000); 
+      }, 7000);
     }
-  }, [currentIndex]); 
+  }, [currentIndex]);
 
   const handleMouseEnter = () => {
     setIsPaused(true);
@@ -265,21 +317,24 @@ export default function ParticipationSection() {
   const handleMouseLeave = () => {
     setIsPaused(false);
   };
-  
-  // Tailwind class based on the fading state (NEW)
-  const fadeClass = isFading ? 'opacity-0' : 'opacity-100';
 
+  // Tailwind class based on the fading state (NEW)
+  const fadeClass = isFading ? "opacity-0" : "opacity-100";
 
   return (
-    <section 
+    <section
       className="py-20 px-4 bg-white sm:mx-6 "
+      id="participate-section"
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave} 
+      onMouseLeave={handleMouseLeave}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <Badge variant="solid" className="mb-4  rounded-lg  border-[#E5CC34] px-4 py-1.5  text-2xl text-black border font-semibold">
+          <Badge
+            variant="solid"
+            className="mb-4  rounded-lg  border-[#E5CC34] px-4 py-1.5  text-2xl text-black border font-semibold"
+          >
             Participate
           </Badge>
           <div className="flex items-center justify-between">
@@ -296,11 +351,11 @@ export default function ParticipationSection() {
         </div>
 
         {/* Carousel Content*/}
-        <div 
-          className={`transition-opacity duration-300 ease-in-out ${fadeClass}`} 
+        <div
+          className={`transition-opacity duration-300 ease-in-out ${fadeClass}`}
         >
           {currentSlide.type === "beneficiaryGrid" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center ">
               {currentSlide.participants.map((participant, index) => {
                 return (
                   <Card
@@ -309,7 +364,10 @@ export default function ParticipationSection() {
                   >
                     <CardHeader className="pb-4">
                       <div className="flex flex-col items-center gap-4">
-                        <CustomIcon src={participant.icon} className="w-8 h-8 text-indigo-400" />
+                        <CustomIcon
+                          src={participant.icon}
+                          className="w-8 h-8 text-indigo-400"
+                        />
                         <CardTitle className="text-lg font-semibold leading-tight">
                           {participant.title}
                         </CardTitle>
@@ -317,7 +375,10 @@ export default function ParticipationSection() {
                     </CardHeader>
                     <CardContent className="space-y-2.5 pt-0">
                       {participant.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-start gap-3">
+                        <div
+                          key={detailIndex}
+                          className="flex items-start gap-3"
+                        >
                           <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
                           <p className="text-sm ">{detail}</p>
                         </div>
@@ -326,11 +387,13 @@ export default function ParticipationSection() {
                     <CardFooter className="pt-4">
                       <Button
                         className="w-32 border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] hover:scale-105 hover:shadow-xl transition-transform"
-                        onClick={() => handleOpenModal(
-                          participant.modalTitle,
-                          participant.modalDescription,
-                          participant.formModal
-                        )}
+                        onClick={() =>
+                          handleOpenModal(
+                            participant.modalTitle,
+                            participant.modalDescription,
+                            participant.formModal
+                          )
+                        }
                       >
                         Get Started
                       </Button>
@@ -342,7 +405,7 @@ export default function ParticipationSection() {
           )}
 
           {currentSlide.type === "advocacyCards" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mx-auto justify-center items-center">
               {currentSlide.cards.map((card, index) => {
                 const IconComponent = card.icon;
                 return (
@@ -360,7 +423,10 @@ export default function ParticipationSection() {
                     </CardHeader>
                     <CardContent className="flex-grow space-y-3 pt-0">
                       {card.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-center gap-3">
+                        <div
+                          key={detailIndex}
+                          className="flex items-center gap-3"
+                        >
                           <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
                           <p className="text-md">{detail}</p>
                         </div>
@@ -369,11 +435,13 @@ export default function ParticipationSection() {
                     <CardFooter className="pt-8 pb-0">
                       <Button
                         className="w-32 border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] hover:scale-105 hover:shadow-xl transition-transform"
-                        onClick={() => handleOpenModal(
-                          card.modalTitle,
-                          card.modalDescription,
-                          card.formModal
-                        )}
+                        onClick={() =>
+                          handleOpenModal(
+                            card.modalTitle,
+                            card.modalDescription,
+                            card.formModal
+                          )
+                        }
                       >
                         Get Started
                       </Button>
@@ -391,8 +459,9 @@ export default function ParticipationSection() {
             <button
               key={i}
               onClick={() => handleDotClick(i)}
-              className={`h-2 w-2 rounded-full transition-all ${i === currentIndex ? "bg-blue-600 w-4" : "bg-gray-300"
-                }`}
+              className={`h-2 w-2 rounded-full transition-all ${
+                i === currentIndex ? "bg-blue-600 w-4" : "bg-gray-300"
+              }`}
             ></button>
           ))}
         </div>

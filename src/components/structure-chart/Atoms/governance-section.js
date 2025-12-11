@@ -1,22 +1,30 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/shared/cards/card"
-import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge"
-import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
-import { CheckCircle2 } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/shared/cards/card";
+import { Badge } from "@/components/structure-chart/Atoms/badge";
+import { Button } from "@/components/structure-chart/Atoms/button";
+import { CheckCircle2 } from "lucide-react";
 import CustomIcon from "./CustomIcon";
 import Link from "next/link";
-import IframeModal from "../../../shared/modals/iframe-modal"
+import IframeModal from "../../shared/modals/iframe-modal";
 import { useState } from "react";
 
-// Shared icon 
+// Shared icon
 const advisor = "/assets/icons/advisor.svg";
-const board = "/assets/icons/advisor.svg"
-const tertiarystd = "/assets/icons/tertiarystd.svg"
+const board = "/assets/icons/advisor.svg";
+const tertiarystd = "/assets/icons/tertiarystd.svg";
 
 const formUrls = {
-  volunteerFormUrl: "https://forms.zohopublic.com/halimaabba/form/VolunteerApplicationForm/formperma/WKRQtXOv2NVaAQbw77Rd_LTMyKSX2bYqp0BlYzvRRvg",
-  advisorFormUrl: "https://forms.zohopublic.com/halimaabba/form/VolunteerApplicationForm/formperma/WKRQtXOv2NVaAQbw77Rd_LTMyKSX2bYqp0BlYzvRRvg",
-  trusteesFormUrl: "https://forms.zohopublic.com/halimaabba/form/VolunteerApplicationForm/formperma/WKRQtXOv2NVaAQbw77Rd_LTMyKSX2bYqp0BlYzvRRvg",
-}
+  volunteerFormUrl:
+    "https://forms.zohopublic.com/halimaabba/form/VolunteerApplicationForm/formperma/WKRQtXOv2NVaAQbw77Rd_LTMyKSX2bYqp0BlYzvRRvg",
+  advisorFormUrl:
+    "https://forms.zohopublic.com/halimaabba/form/VolunteerApplicationForm/formperma/WKRQtXOv2NVaAQbw77Rd_LTMyKSX2bYqp0BlYzvRRvg",
+  trusteesFormUrl:
+    "https://forms.zohopublic.com/halimaabba/form/VolunteerApplicationForm/formperma/WKRQtXOv2NVaAQbw77Rd_LTMyKSX2bYqp0BlYzvRRvg",
+};
 
 export default function GovernanceSection() {
   // Modal state
@@ -24,19 +32,21 @@ export default function GovernanceSection() {
     isOpen: false,
     title: "",
     description: "",
-    url: ""
+    url: "",
   });
 
   const advisorContent = [
     {
       title: "Who this is for",
-      description: "Experts and leaders with deep knowledge in education, enterprise, finance, policy, development",
+      description:
+        "Experts and leaders with deep knowledge in education, enterprise, finance, policy, development",
     },
     {
       title: "Role",
-      description: "Provide insights, strategic advice, review initiatives, represent SOSF at engagements",
+      description:
+        "Provide insights, strategic advice, review initiatives, represent SOSF at engagements",
     },
-  ]
+  ];
 
   const volunteerRoles = [
     "Program facilitation",
@@ -44,7 +54,7 @@ export default function GovernanceSection() {
     "Event hosting",
     "Content support",
     "Training & curriculum delivery",
-  ]
+  ];
 
   const trusteesContent = [
     {
@@ -53,9 +63,10 @@ export default function GovernanceSection() {
     },
     {
       title: "What's expected of you",
-      description: "Attendance at board meetings, approvals, strategic alignment",
+      description:
+        "Attendance at board meetings, approvals, strategic alignment",
     },
-  ]
+  ];
 
   // Modal handlers
   const handleOpenModal = (title, description, url) => {
@@ -63,7 +74,7 @@ export default function GovernanceSection() {
       isOpen: true,
       title,
       description,
-      url
+      url,
     });
   };
 
@@ -72,12 +83,12 @@ export default function GovernanceSection() {
       isOpen: false,
       title: "",
       description: "",
-      url: ""
+      url: "",
     });
   };
 
   return (
-    <section className="py-10  bg-white sm:mx-2 px-4">
+    <section className="py-10  bg-white sm:mx-2 px-4" id="govern-section">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -87,24 +98,23 @@ export default function GovernanceSection() {
           >
             Govern
           </Badge>
-          <p className="text-md text-gray-600 mb-2 text-xl ">Join as a scale up impact partner</p>
+          <p className="text-md text-gray-600 mb-2 text-xl ">
+            Join as a scale up impact partner
+          </p>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-800 tracking-tight">
+              Want to Shape Strategy and Oversight?
+            </h2>
 
-  <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-800 tracking-tight">
-    Want to Shape Strategy and Oversight?
-  </h2>
-
-  <Link href="https://pifafrica.org/careers" target="_blank">
-    <Button
-      variant="default"
-      className="bg-[#B7C8F4] text-blue-800 hover:bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold w-full md:w-auto"
-    >
-      Join the team
-    </Button>
-  </Link>
-
-</div>
-
+            <Link href="https://pifafrica.org/careers" target="_blank">
+              <Button
+                variant="default"
+                className="bg-[#B7C8F4] text-blue-800 hover:bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold w-full md:w-auto"
+              >
+                Join the team
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Cards Grid */}
@@ -116,13 +126,17 @@ export default function GovernanceSection() {
               <Button
                 variant="default"
                 className="bg-[#B7C8F4] text-blue-800 hover:bg-bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold"
-                onClick={() => handleOpenModal(
-                  "Become an SOSF Advisor",
-                  "Apply to become an SOSF Advisor and provide strategic guidance in education, enterprise, finance, policy, and development.",
-                  formUrls.advisorFormUrl
-                )}
+                onClick={() =>
+                  handleOpenModal(
+                    "Become an SOSF Advisor",
+                    "Apply to become an SOSF Advisor and provide strategic guidance in education, enterprise, finance, policy, and development.",
+                    formUrls.advisorFormUrl
+                  )
+                }
               >
-                <CardTitle className="text-lg font-semibold text-gray-800">Become an SOSF Advisor</CardTitle>
+                <CardTitle className="text-lg font-semibold text-gray-800">
+                  Become an SOSF Advisor
+                </CardTitle>
               </Button>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -130,8 +144,12 @@ export default function GovernanceSection() {
                 <div key={index} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-sm text-gray-800">{item.title}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                    <h4 className="font-semibold text-sm text-gray-800">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -141,21 +159,30 @@ export default function GovernanceSection() {
           {/* Become a Volunteer */}
           <Card className="bg-background_blue border border-gray-200/80 rounded-2xl shadow-sm p-4">
             <CardHeader className="text-center items-center pb-4">
-              <CustomIcon src={board} className="text-center w-8 h-8 text-indigo-400" />
+              <CustomIcon
+                src={board}
+                className="text-center w-8 h-8 text-indigo-400"
+              />
               <Button
                 variant="default"
                 className="bg-[#B7C8F4] text-blue-800 hover:bg-bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold"
-                onClick={() => handleOpenModal(
-                  "Become a Volunteer",
-                  "Apply to become a SOSF Volunteer and contribute through program facilitation, mentorship, event hosting, content support, and training.",
-                  formUrls.volunteerFormUrl
-                )}
+                onClick={() =>
+                  handleOpenModal(
+                    "Become a Volunteer",
+                    "Apply to become a SOSF Volunteer and contribute through program facilitation, mentorship, event hosting, content support, and training.",
+                    formUrls.volunteerFormUrl
+                  )
+                }
               >
-                <CardTitle className="text-lg font-semibold text-gray-800">Become a Volunteer</CardTitle>
+                <CardTitle className="text-lg font-semibold text-gray-800">
+                  Become a Volunteer
+                </CardTitle>
               </Button>
             </CardHeader>
             <CardContent>
-              <h4 className="font-semibold text-sm text-left mb-3">Types of Volunteer Roles</h4>
+              <h4 className="font-semibold text-sm text-left mb-3">
+                Types of Volunteer Roles
+              </h4>
               <div className="space-y-3">
                 {volunteerRoles.map((role, index) => (
                   <div key={index} className="flex items-start gap-3">
@@ -170,17 +197,24 @@ export default function GovernanceSection() {
           {/* Join the Board of Trustees */}
           <Card className="bg-background_blue border border-gray-200/80 rounded-2xl shadow-sm p-4">
             <CardHeader className="text-center items-center pb-4">
-              <CustomIcon src={tertiarystd} className="w-8 h-8 text-indigo-400" />
+              <CustomIcon
+                src={tertiarystd}
+                className="w-8 h-8 text-indigo-400"
+              />
               <Button
                 variant="default"
                 className="bg-[#B7C8F4] text-blue-800 hover:bg-bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold"
-                onClick={() => handleOpenModal(
-                  "Join the Board of Trustees",
-                  "Apply to join the SOSF Board of Trustees and provide governance, fiduciary oversight, and strategic alignment.",
-                  formUrls.trusteesFormUrl
-                )}
+                onClick={() =>
+                  handleOpenModal(
+                    "Join the Board of Trustees",
+                    "Apply to join the SOSF Board of Trustees and provide governance, fiduciary oversight, and strategic alignment.",
+                    formUrls.trusteesFormUrl
+                  )
+                }
               >
-                <CardTitle className="text-lg font-semibold text-gray-800">Join the Board of Trustees</CardTitle>
+                <CardTitle className="text-lg font-semibold text-gray-800">
+                  Join the Board of Trustees
+                </CardTitle>
               </Button>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -188,8 +222,12 @@ export default function GovernanceSection() {
                 <div key={index} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-sm text-gray-800">{item.title}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                    <h4 className="font-semibold text-sm text-gray-800">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -212,5 +250,5 @@ export default function GovernanceSection() {
         <div className="border-t-2 border-blue-400 border-dashed"></div>
       </div>
     </section>
-  )
+  );
 }

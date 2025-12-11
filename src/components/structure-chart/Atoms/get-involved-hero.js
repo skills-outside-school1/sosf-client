@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/shared/cards/card"
-import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
-import { Users, Handshake, DollarSign, Building, Laptop } from "lucide-react"
-import Image from "next/image"
+import { Card, CardContent } from "@/components/shared/cards/card";
+import { Button } from "@/components/structure-chart/Atoms/button";
+import { Users, Handshake, DollarSign, Building, Laptop } from "lucide-react";
+import Image from "next/image";
 
 export default function GetInvolvedHero() {
   const cards = [
@@ -31,7 +31,8 @@ export default function GetInvolvedHero() {
       id: "invest",
       title: "Invest",
       icon: <DollarSign className="w-5 h-5 text-gray-600" />,
-      description: "Liquid invest\nNon-liquid asset\nCash contribution\nService contribution",
+      description:
+        "Liquid invest\nNon-liquid asset\nCash contribution\nService contribution",
       image: "/images/plant-coins.jpg",
       buttonText: "Learn More",
       buttonStyle: "bg-blue-100 text-blue-700 hover:bg-blue-200",
@@ -40,7 +41,8 @@ export default function GetInvolvedHero() {
       id: "govern",
       title: "Govern",
       icon: <Building className="w-5 h-5 text-gray-600" />,
-      description: "Join the Advisors\nJoin the Team, Executive Council\nJoin the Board of Trustees",
+      description:
+        "Join the Advisors\nJoin the Team, Executive Council\nJoin the Board of Trustees",
       image: "/images/meeting-room.jpg",
       buttonText: "Learn More",
       buttonStyle: "bg-blue-100 text-blue-700 hover:bg-blue-200",
@@ -54,7 +56,7 @@ export default function GetInvolvedHero() {
       buttonText: "Learn More",
       buttonStyle: "bg-blue-100 text-blue-700 hover:bg-blue-200",
     },
-  ]
+  ];
 
   return (
     <section className="py-16 px-4 bg-white">
@@ -62,8 +64,8 @@ export default function GetInvolvedHero() {
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-black mb-4">Get Involved</h1>
           <p className="text-lg text-gray-700 max-w-4xl">
-            There are several made-to-measure solutions and ways for you to disrupt development and redefine
-            philanthropy with us!
+            There are several made-to-measure solutions and ways for you to
+            disrupt development and redefine philanthropy with us!
           </p>
         </div>
 
@@ -74,21 +76,33 @@ export default function GetInvolvedHero() {
               className="overflow-hidden border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
             >
               <div className="relative h-48 w-full">
-                <Image src={card.image || "/placeholder.svg"} alt={card.title} fill className="object-cover" />
+                <Image
+                  src={card.image || "/placeholder.svg"}
+                  alt={card.title}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <CardContent className="p-6">
                 <div className="flex items-center gap-2 mb-4">
                   {card.icon}
-                  <h3 className="text-lg font-semibold text-black">{card.title}</h3>
+                  <h3 className="text-lg font-semibold text-black">
+                    {card.title}
+                  </h3>
                 </div>
                 <div className="mb-6">
                   {card.description.split("\n").map((line, index) => (
-                    <p key={index} className="text-sm text-gray-600 leading-relaxed">
+                    <p
+                      key={index}
+                      className="text-sm text-gray-600 leading-relaxed"
+                    >
                       {line}
                     </p>
                   ))}
                 </div>
-                <Button className={`w-full ${card.buttonStyle} font-medium text-sm py-2 rounded-md transition-colors`}>
+                <Button
+                  className={`w-full ${card.buttonStyle} font-medium text-sm py-2 rounded-md transition-colors`}
+                >
                   {card.buttonText}
                 </Button>
               </CardContent>
@@ -97,5 +111,5 @@ export default function GetInvolvedHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

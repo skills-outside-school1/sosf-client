@@ -1,23 +1,26 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Dialog, DialogContent } from "@/components/structure-chart/Main/Main-Atoms/dialog"
-import { Button } from "@/components/structure-chart/Main/Main-Atoms/button"
-import { Card, CardContent } from "@/components/shared/cards/card"
-import { User, Building, X } from "lucide-react"
-import IframeModal from "../shared/modals/iframe-modal"
+import { useState } from "react";
+import Link from "next/link";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/structure-chart/Atoms/dialog";
+import { Button } from "@/components/structure-chart/Atoms/button";
+import { Card, CardContent } from "@/components/shared/cards/card";
+import { User, Building, X } from "lucide-react";
+import IframeModal from "../shared/modals/iframe-modal";
 
 export function PartnerModal({ open, onOpenChange }) {
   // iframe URLs (just the src, not full <iframe> markup)
   const individualUrl =
-    "https://forms.zohopublic.com/halimaabba/form/SOSFScaleupimpactEOIFormIndividual/formperma/_6dt-f6LUe1dKRsucb6PyuCieYiSGeCO3pF2wtMjDmo"
+    "https://forms.zohopublic.com/halimaabba/form/SOSFScaleupimpactEOIFormIndividual/formperma/_6dt-f6LUe1dKRsucb6PyuCieYiSGeCO3pF2wtMjDmo";
   const corporateUrl =
-    "https://forms.zohopublic.com/halimaabba/form/241CORPORATEINNOVATIVEPARTNERSHIPSTRATEGICIMPACTPA/formperma/nHhsgIjr47PijzuUaC5aM2tK1Lp0jX8nHgK9IoW3d2s"
+    "https://forms.zohopublic.com/halimaabba/form/241CORPORATEINNOVATIVEPARTNERSHIPSTRATEGICIMPACTPA/formperma/nHhsgIjr47PijzuUaC5aM2tK1Lp0jX8nHgK9IoW3d2s";
 
   // Modal states
-  const [individualModalOpen, setIndividualModalOpen] = useState(false)
-  const [corporateModalOpen, setCorporateModalOpen] = useState(false)
+  const [individualModalOpen, setIndividualModalOpen] = useState(false);
+  const [corporateModalOpen, setCorporateModalOpen] = useState(false);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -40,8 +43,13 @@ export function PartnerModal({ open, onOpenChange }) {
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 leading-tight">
                     An individual with passion for legacy and social impact?
                   </h3>
-                  <p className="text-gray-600 text-base">Join as a scale up impact partner</p>
-                  <Link href="/get-involved/explore-chart" className="text-blue inline mb-4">
+                  <p className="text-gray-600 text-base">
+                    Join as a scale up impact partner
+                  </p>
+                  <Link
+                    href="/get-involved/explore-chart"
+                    className="text-blue inline mb-4"
+                  >
                     ... move
                   </Link>
 
@@ -69,16 +77,25 @@ export function PartnerModal({ open, onOpenChange }) {
                   <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-3 leading-tight">
                     A corporate/institution looking to scale your social impact?
                   </h3>
-                  <p className="text-gray-600 text-base">Join as a strategic impact partner</p>
-                  <Link href="/get-involved/explore-chart" className="text-blue inline mb-4">
+                  <p className="text-gray-600 text-base">
+                    Join as a strategic impact partner
+                  </p>
+                  <Link
+                    href="/get-involved/explore-chart"
+                    className="text-blue inline mb-4"
+                  >
                     ... move
                   </Link>
 
                   <div className="flex items-center justify-start gap-3 mb-3">
                     <Building className="h-4" />
-                    <span className="font-bold text-gray-900 text-base">Corporate</span>
+                    <span className="font-bold text-gray-900 text-base">
+                      Corporate
+                    </span>
                   </div>
-                  <p className="text-xs text-gray-600">(NGOs, Private & Public Sector)</p>
+                  <p className="text-xs text-gray-600">
+                    (NGOs, Private & Public Sector)
+                  </p>
                   <p className="text-gray-600 font-medium text-sm sm:text-base">
                     SOSF Strategic Impact partnership - as an applicant
                   </p>
@@ -114,5 +131,5 @@ export function PartnerModal({ open, onOpenChange }) {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

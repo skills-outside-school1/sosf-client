@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Head from "next/head";
+import StructureChartContainer from "@/components/structure-chart/Container/StructureChart-Container";
 
 const Index = () => {
   useEffect(() => {
@@ -12,7 +13,9 @@ const Index = () => {
         <title> Get Involved | Skills Outside School Foundation </title>
       </Head>
 
-      <div className="w-full h-[fixed] justify-start items-start "></div>
+      <div className="w-full h-[fixed] justify-start items-start ">
+        <StructureChartContainer />
+      </div>
     </>
   );
 };
