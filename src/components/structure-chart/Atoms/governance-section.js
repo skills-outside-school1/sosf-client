@@ -88,28 +88,28 @@ export default function GovernanceSection() {
   };
 
   return (
-    <section className="py-10  bg-white sm:mx-2 px-4" id="govern-section">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-4 py-16 mx-auto bg-white sm:px-6" id="govern-section">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-16">
           <Badge
             variant="outline"
-            className="mb-4 text-black text-2xl  border-governblue rounded-lg px-4 py-1 font-medium"
+            className="px-4 py-1.5 mb-6 text-2xl font-medium text-black rounded-lg border-governblue"
           >
             Govern
           </Badge>
-          <p className="text-md text-gray-600 mb-2 text-xl ">
+          <p className="mb-4 text-lg text-gray-600">
             Join as a scale up impact partner
           </p>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-800 tracking-tight">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <h2 className="text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
               Want to Shape Strategy and Oversight?
             </h2>
 
             <Link href="https://pifafrica.org/careers" target="_blank">
               <Button
                 variant="default"
-                className="bg-[#B7C8F4] text-blue-800 hover:bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold w-full md:w-auto"
+                className="bg-[#B7C8F4] text-blue-800 hover:bg-[#A5B9E9] rounded-lg px-6 py-3 font-semibold w-full md:w-auto whitespace-nowrap"
               >
                 Join the team
               </Button>
@@ -118,14 +118,16 @@ export default function GovernanceSection() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Become an SOSF Advisor */}
-          <Card className="bg-background_blue border border-gray-200/80 rounded-2xl shadow-sm p-4">
-            <CardHeader className="text-center items-center pb-4">
-              <CustomIcon src={advisor} className="w-8 h-8 text-indigo-400" />
+          <Card className="flex flex-col p-6 border shadow-sm bg-background_blue border-gray-200/80 rounded-2xl">
+            <CardHeader className="items-center pb-6 space-y-4 text-center">
+              <div className="p-3 rounded-full bg-indigo-50">
+                <CustomIcon src={advisor} className="w-8 h-8 text-indigo-500" />
+              </div>
               <Button
                 variant="default"
-                className="bg-[#B7C8F4] text-blue-800 hover:bg-bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold"
+                className="bg-[#B7C8F4] text-blue-800 hover:bg-[#A5B9E9] rounded-lg px-5 py-2.5 font-semibold w-full"
                 onClick={() =>
                   handleOpenModal(
                     "Become an SOSF Advisor",
@@ -139,15 +141,15 @@ export default function GovernanceSection() {
                 </CardTitle>
               </Button>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="pt-0 space-y-5">
               {advisorContent.map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-sm text-gray-800">
+                  <CheckCircle2 className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <h4 className="text-sm font-semibold text-gray-800">
                       {item.title}
                     </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm leading-relaxed text-gray-600">
                       {item.description}
                     </p>
                   </div>
@@ -157,15 +159,17 @@ export default function GovernanceSection() {
           </Card>
 
           {/* Become a Volunteer */}
-          <Card className="bg-background_blue border border-gray-200/80 rounded-2xl shadow-sm p-4">
-            <CardHeader className="text-center items-center pb-4">
-              <CustomIcon
-                src={board}
-                className="text-center w-8 h-8 text-indigo-400"
-              />
+          <Card className="flex flex-col p-6 border shadow-sm bg-background_blue border-gray-200/80 rounded-2xl">
+            <CardHeader className="items-center pb-6 space-y-4 text-center">
+              <div className="p-3 rounded-full bg-indigo-50">
+                <CustomIcon
+                  src={board}
+                  className="w-8 h-8 text-indigo-500"
+                />
+              </div>
               <Button
                 variant="default"
-                className="bg-[#B7C8F4] text-blue-800 hover:bg-bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold"
+                className="bg-[#B7C8F4] text-blue-800 hover:bg-[#A5B9E9] rounded-lg px-5 py-2.5 font-semibold w-full"
                 onClick={() =>
                   handleOpenModal(
                     "Become a Volunteer",
@@ -179,15 +183,15 @@ export default function GovernanceSection() {
                 </CardTitle>
               </Button>
             </CardHeader>
-            <CardContent>
-              <h4 className="font-semibold text-sm text-left mb-3">
+            <CardContent className="pt-0 space-y-4">
+              <h4 className="text-sm font-semibold text-gray-800">
                 Types of Volunteer Roles
               </h4>
               <div className="space-y-3">
                 {volunteerRoles.map((role, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm text-gray-600">{role}</p>
+                    <CheckCircle2 className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm leading-relaxed text-gray-600">{role}</p>
                   </div>
                 ))}
               </div>
@@ -195,15 +199,17 @@ export default function GovernanceSection() {
           </Card>
 
           {/* Join the Board of Trustees */}
-          <Card className="bg-background_blue border border-gray-200/80 rounded-2xl shadow-sm p-4">
-            <CardHeader className="text-center items-center pb-4">
-              <CustomIcon
-                src={tertiarystd}
-                className="w-8 h-8 text-indigo-400"
-              />
+          <Card className="flex flex-col p-6 border shadow-sm bg-background_blue border-gray-200/80 rounded-2xl">
+            <CardHeader className="items-center pb-6 space-y-4 text-center">
+              <div className="p-3 rounded-full bg-indigo-50">
+                <CustomIcon
+                  src={tertiarystd}
+                  className="w-8 h-8 text-indigo-500"
+                />
+              </div>
               <Button
                 variant="default"
-                className="bg-[#B7C8F4] text-blue-800 hover:bg-bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold"
+                className="bg-[#B7C8F4] text-blue-800 hover:bg-[#A5B9E9] rounded-lg px-5 py-2.5 font-semibold w-full"
                 onClick={() =>
                   handleOpenModal(
                     "Join the Board of Trustees",
@@ -217,15 +223,15 @@ export default function GovernanceSection() {
                 </CardTitle>
               </Button>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="pt-0 space-y-5">
               {trusteesContent.map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-sm text-gray-800">
+                  <CheckCircle2 className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <h4 className="text-sm font-semibold text-gray-800">
                       {item.title}
                     </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm leading-relaxed text-gray-600">
                       {item.description}
                     </p>
                   </div>
@@ -246,7 +252,7 @@ export default function GovernanceSection() {
       />
 
       {/* Dashed Line Divider */}
-      <div className="max-w-7xl mx-auto mt-20">
+      <div className="mx-auto mt-24 max-w-7xl">
         <div className="border-t-2 border-blue-400 border-dashed"></div>
       </div>
     </section>

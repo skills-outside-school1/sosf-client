@@ -129,14 +129,14 @@ const partnerSlides = [
 export default function PartnerSection() {
   return (
     <div
-      className="max-w-6xl mx-auto sm:mx-6 px-4  mt-[5rem] "
+      className="max-w-6xl mx-auto px-4 mt-[5rem] w-full"
       id="partner-section"
     >
       {/* Header Section */}
-      <div className="mb-8 flex items-center justify-between">
+      <div className="flex items-center justify-between mb-8">
         <Badge
           variant="outline"
-          className="text-black border-partnerblue rounded-full px-3 py-1 text-xl "
+            className="mb-4 rounded-lg border-partnerblue px-4 py-1.5 text-2xl text-black border font-semibold"
         >
           Partner
         </Badge>
