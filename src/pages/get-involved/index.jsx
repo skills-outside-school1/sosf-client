@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import Head from "next/head";
-// import InvolvedContainer from "@/components/Get-Involved/Main/Main-Container/InvolvedContainer";
-// import StructureChartContainer from "@/components/structure-chart/Main/Main-Atoms/StructureChartConteiner"
-
+import StructureChartContainer from "@/components/structure-chart/Container/StructureChart-Container";
 
 const Index = () => {
   useEffect(() => {
@@ -16,8 +14,7 @@ const Index = () => {
       </Head>
 
       <div className="w-full h-[fixed] justify-start items-start ">
-        {/* <InvolvedContainer /> */}
-        {/* <StructureChartContainer /> */}
+        <StructureChartContainer />
       </div>
     </>
   );
