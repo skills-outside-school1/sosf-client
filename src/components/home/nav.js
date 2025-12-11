@@ -27,7 +27,7 @@ const Nav2 = () => {
 
   const interventionTimeoutRef = useRef(null);
 
-  const navigationLinks = [
+    const navigationLinks = [
     {
       name: "About",
       to: "/about",
@@ -49,6 +49,13 @@ const Nav2 = () => {
           title: "Our Leadership",
           links: [{ name: "Leaderships", to: "/leadership" }],
         },
+        // {
+        //   title: "People & Purpose",
+        //   links: [
+        //     { name: "Leaderships", to: "/leadership" },
+        //     // { name: "Ambassadors", to: "/ambassadors" },
+        //   ],
+        // },
         {
           title: "Global Goals",
           links: [{ name: "SDGs We Align With", to: "/sdgs" }],
@@ -60,9 +67,12 @@ const Nav2 = () => {
       ],
     },
     { name: "Our Work", to: "#" },
+    // { name: "Insights", to: "/news-insights" },
     { name: "Get Involved", to: "/get-involved" },
+    // { name: "Careers", to: "/careers" },
     { name: "Contact", to: "/contact" },
   ];
+
 
   useEffect(() => {
     Aos.init({ duration: 2000, easing: "ease-in-cubic" });
