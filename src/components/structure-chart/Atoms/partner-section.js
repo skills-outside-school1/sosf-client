@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Badge } from "@/components/structure-chart/Main/Main-Atoms/badge";
+import { Badge } from "@/components/structure-chart/Atoms/badge";
 import InfoCarousel from "./InfoCarousel";
 
 // Shared icon for all slides
@@ -83,7 +83,8 @@ const partnerSlides = [
   },
   {
     id: 3,
-    title: "Are You a Corporate or Institution Looking to Scale Your Social Impact?",
+    title:
+      "Are You a Corporate or Institution Looking to Scale Your Social Impact?",
     subtitle: "Join as a Strategic Impact Partner",
     sections: {
       who: {
@@ -127,7 +128,10 @@ const partnerSlides = [
 
 export default function PartnerSection() {
   return (
-    <div className="max-w-6xl mx-auto sm:mx-6 px-4  mt-[5rem] " id="partner-section">
+    <div
+      className="max-w-6xl mx-auto sm:mx-6 px-4  mt-[5rem] "
+      id="partner-section"
+    >
       {/* Header Section */}
       <div className="mb-8 flex items-center justify-between">
         <Badge
