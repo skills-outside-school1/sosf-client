@@ -47,13 +47,13 @@ const Nav2 = () => {
           title: "Our Leadership",
           links: [{ name: "Leaderships", to: "/leadership" }],
         },
-        {
-          title: "People & Purpose",
-          links: [
-            { name: "Leaderships", to: "/leadership" },
-            // { name: "Ambassadors", to: "/ambassadors" },
-          ],
-        },
+        // {
+        //   title: "People & Purpose",
+        //   links: [
+        //     { name: "Leaderships", to: "/leadership" },
+        //     // { name: "Ambassadors", to: "/ambassadors" },
+        //   ],
+        // },
         {
           title: "Global Goals",
           links: [{ name: "SDGs We Align With", to: "/sdgs" }],
@@ -65,7 +65,7 @@ const Nav2 = () => {
       ],
     },
     { name: "Our Work", to: "#" },
-    { name: "Insights", to: "/news-insights" },
+    // { name: "Insights", to: "/news-insights" },
     { name: "Get Involved", to: "/get-involved" },
     // { name: "Careers", to: "/careers" },
     { name: "Contact", to: "/contact" },
@@ -315,24 +315,22 @@ const Nav2 = () => {
             </div>
 
             {/* Hamburger Menu */}
-            <div className="flex items-center lg:hidden">
+            <div
+              className="flex items-center justify-center w-12 h-12 mb-2 mr-8 border-2 rounded-full cursor-pointer border-secondary_blue lg:hidden"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
               <FontAwesomeIcon
                 icon={menuOpen ? faTimes : faBars}
-                className="text-2xl p-3 cursor-pointer text-gray-800  mr-8 border-2 border-secondary_blue rounded-[50%]"
-                onClick={() => setMenuOpen(!menuOpen)}
+                className="text-2xl text-gray-800"
               />
             </div>
           </div>
 
           {/* Mobile Navigation */}
-          <Transition
-            show={menuOpen}
-            enter="transition duration-300 ease-out"
-            enterFrom="opacity-0 -translate-x-full"
-            enterTo="opacity-100 translate-x-0"
-            leave="transition duration-250 ease-in"
-            leaveFrom="opacity-100 translate-x-0"
-            leaveTo="opacity-0 -translate-x-full"
+          <div
+            className={`${
+              menuOpen ? "translate-x-0" : "-translate-x-full"
+            } lg:hidden bg-[#F6F6F6] p-4 w-full h-screen overflow-y-auto hide-scrollbar fixed top-[1.3rem] left-0 z-30 mt-16 transition-transform duration-300 ease-in-out`}
           >
             <div className="fixed top-0 left-0 z-30 w-full h-screen px-5 pt-24 pb-8 overflow-y-auto lg:hidden bg-gradient-to-b from-white to-gray-50">
               <div className="relative z-20 flex flex-col max-w-md mx-auto gap-y-3">
@@ -538,7 +536,7 @@ const Nav2 = () => {
                 ))}
               </div>
             </div>
-          </Transition>
+          </div>
         </>
       )}
     </Disclosure>
