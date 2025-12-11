@@ -46,7 +46,6 @@ export default function InvestmentSection() {
     "Sadaqah",
   ];
 
-  // Updated to better match the image where "Expertise" has no description
   const inKindContributions = [
     {
       category: "Products",
@@ -58,52 +57,52 @@ export default function InvestmentSection() {
     },
     {
       category: "Expertise",
-      items: "", // Empty string ensures no description is rendered
+      items: "",
     },
   ];
 
   const investmentOptions = [
     {
       title: "Liquid Financial Assets",
-      icon: <CustomIcon src={nonliquid} className="w-8 h-8 text-indigo-400" />,
+      icon: <CustomIcon src={nonliquid} className="w-8 h-8 text-indigo-500" />,
       items: liquidAssets.map((item) => ({ name: item })),
     },
     {
       title: "Non-Liquid Assets",
-      icon: <CustomIcon src={liquid} className="w-8 h-8 text-indigo-400" />,
+      icon: <CustomIcon src={liquid} className="w-8 h-8 text-indigo-500" />,
       items: nonLiquidAssets.map((item) => ({ name: item })),
     },
     {
       title: "Cash Contribution",
-      icon: <CustomIcon src={cash} className="w-8 h-8 text-indigo-400" />,
+      icon: <CustomIcon src={cash} className="w-8 h-8 text-indigo-500" />,
       items: cashContributions.map((item) => ({ name: item })),
     },
   ];
 
   return (
-    <section className="py-20 bg-white sm:mx-6 px-4 " id="invest-section">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-4 py-16 mx-auto bg-white sm:px-6" id="invest-section">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-12 text-left">
+        <div className="mb-16 text-left">
           <Badge
             variant="outline"
-            className="mb-4 text-black  text-2xl  border-pink-600 rounded-lg px-4 py-1 font-medium"
+            className="px-4 py-1.5 mb-6 text-2xl font-medium text-black border-pink-600 rounded-lg"
           >
             Invest
           </Badge>
 
-          <p className="text-md text-gray-600 mb-2 text-xl ">
+          <p className="mb-4 text-lg text-gray-600">
             Invest what you can
           </p>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-800 tracking-tight">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <h2 className="text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
               What Would You Like to Contribute?
             </h2>
 
             <Link href="/get-involved/invest-forms">
               <Button
                 variant="default"
-                className="bg-[#B7C8F4] text-blue-800 hover:bg-[#B7C8F4] rounded-lg px-5 py-2.5 font-semibold w-full md:w-auto"
+                className="bg-[#B7C8F4] text-blue-800 hover:bg-[#A5B9E9] rounded-lg px-6 py-3 font-semibold w-full md:w-auto whitespace-nowrap"
               >
                 Invest Now
               </Button>
@@ -112,24 +111,26 @@ export default function InvestmentSection() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid items-stretch grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Generic Asset Cards */}
           {investmentOptions.map((option) => (
             <Card
               key={option.title}
-              className="bg-background_blue border-0 rounded-xl shadow-sm p-4"
+              className="flex flex-col h-full p-6 border shadow-sm bg-background_blue border-gray-200/80 rounded-xl"
             >
-              <CardHeader className="items-center text-center pb-4">
-                {option.icon}
-                <CardTitle className="text-lg font-semibold text-gray-800 mt-2">
+              <CardHeader className="items-center pb-6 space-y-4 text-center">
+                <div className="p-3 rounded-full bg-indigo-50">
+                  {option.icon}
+                </div>
+                <CardTitle className="text-lg font-semibold leading-tight text-gray-800">
                   {option.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardContent className="flex-grow pt-0 space-y-3">
                 {option.items.map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm text-gray-700">{item.name}</p>
+                    <CheckCircle2 className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm leading-relaxed text-gray-700">{item.name}</p>
                   </div>
                 ))}
               </CardContent>
@@ -137,23 +138,25 @@ export default function InvestmentSection() {
           ))}
 
           {/* In-Kind Contribution Card (custom structure) */}
-          <Card className="bg-background_blue border-0 rounded-xl shadow-sm p-4">
-            <CardHeader className="items-center text-center pb-4">
-              <CustomIcon src={inkind} className="w-8 h-8 text-indigo-400" />,
-              <CardTitle className="text-lg font-semibold text-gray-800 mt-2">
+          <Card className="flex flex-col h-full p-6 border shadow-sm bg-background_blue border-gray-200/80 rounded-xl">
+            <CardHeader className="items-center pb-6 space-y-4 text-center">
+              <div className="p-3 rounded-full bg-indigo-50">
+                <CustomIcon src={inkind} className="w-8 h-8 text-indigo-500" />
+              </div>
+              <CardTitle className="text-lg font-semibold leading-tight text-gray-800">
                 In-Kind Contribution
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="flex-grow pt-0 space-y-4">
               {inKindContributions.map((contribution, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                  <div>
+                  <CheckCircle2 className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
+                  <div className="space-y-1">
                     <p className="text-sm font-semibold text-gray-800">
                       {contribution.category}
                     </p>
                     {contribution.items && (
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm leading-relaxed text-gray-600">
                         {contribution.items}
                       </p>
                     )}
