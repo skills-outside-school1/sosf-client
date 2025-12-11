@@ -105,6 +105,7 @@ const Nav2 = () => {
     setMenuOpen(false);
     setIsAboutHovered(false);
     setIsWorkHovered(false);
+    setIsInterventionOpen(!isInterventionOpen);
   };
 
   const NestedInterventions = () => {
@@ -347,38 +348,43 @@ const Nav2 = () => {
                         sx={{
                           background: "white",
                           boxShadow: "none",
-                          '&:before': { display: 'none' },
-                          borderRadius: '16px',
+                          "&:before": { display: "none" },
+                          borderRadius: "16px",
                         }}
                       >
                         <AccordionSummary
                           expandIcon={
                             <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary_blue/10">
                               <FontAwesomeIcon
-                                icon={expandedAccordion === index ? faChevronUp : faChevronDown}
+                                icon={
+                                  expandedAccordion === index
+                                    ? faChevronUp
+                                    : faChevronDown
+                                }
                                 className="text-sm text-secondary_blue"
                               />
                             </div>
                           }
-                          sx={{ padding: '16px 20px' }}
+                          sx={{ padding: "16px 20px" }}
                         >
                           <span className="text-base font-bold text-gray-900">
                             {link.name}
                           </span>
                         </AccordionSummary>
 
-                        <AccordionDetails sx={{ padding: '0 20px 20px 20px' }}>
+                        <AccordionDetails sx={{ padding: "0 20px 20px 20px" }}>
                           {link.dropdown && (
                             <div className="flex flex-col gap-y-2">
                               {link.dropdown.map((column) => (
                                 <Accordion
                                   key={column.title}
                                   sx={{
-                                    background: "linear-gradient(135deg, #B7C8F4 0%, #A8BBEF 100%)",
-                                    borderRadius: '12px',
-                                    overflow: 'hidden',
-                                    '&:before': { display: 'none' },
-                                    marginBottom: '8px',
+                                    background:
+                                      "linear-gradient(135deg, #B7C8F4 0%, #A8BBEF 100%)",
+                                    borderRadius: "12px",
+                                    overflow: "hidden",
+                                    "&:before": { display: "none" },
+                                    marginBottom: "8px",
                                   }}
                                 >
                                   <AccordionSummary
@@ -390,16 +396,21 @@ const Nav2 = () => {
                                         />
                                       </div>
                                     }
-                                    sx={{ padding: '12px 16px' }}
+                                    sx={{ padding: "12px 16px" }}
                                   >
                                     <h4 className="text-sm font-bold text-gray-900">
                                       {column.title}
                                     </h4>
                                   </AccordionSummary>
-                                  <AccordionDetails sx={{ padding: '0 16px 12px 16px' }}>
+                                  <AccordionDetails
+                                    sx={{ padding: "0 16px 12px 16px" }}
+                                  >
                                     <ul className="flex flex-col gap-y-2">
                                       {column.links.map((item) => (
-                                        <li key={item.name} className="transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md">
+                                        <li
+                                          key={item.name}
+                                          className="transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md"
+                                        >
                                           <Link
                                             onClick={handleLinkClick}
                                             href={item.to}
@@ -425,7 +436,7 @@ const Nav2 = () => {
                               >
                                 Data
                               </Link>
-                              
+
                               <Link
                                 href="/advocacy"
                                 onClick={handleLinkClick}
@@ -436,25 +447,31 @@ const Nav2 = () => {
 
                               <Accordion
                                 sx={{
-                                  background: "linear-gradient(135deg, #B7C8F4 0%, #A8BBEF 100%)",
-                                  borderRadius: '12px',
-                                  overflow: 'hidden',
-                                  '&:before': { display: 'none' },
+                                  background:
+                                    "linear-gradient(135deg, #B7C8F4 0%, #A8BBEF 100%)",
+                                  borderRadius: "12px",
+                                  overflow: "hidden",
+                                  "&:before": { display: "none" },
                                 }}
                               >
                                 <AccordionSummary
                                   expandIcon={
                                     <div className="flex items-center justify-center rounded-full w-7 h-7 bg-white/30">
-                                      <FontAwesomeIcon icon={faChevronDown} className="text-xs text-gray-800" />
+                                      <FontAwesomeIcon
+                                        icon={faChevronDown}
+                                        className="text-xs text-gray-800"
+                                      />
                                     </div>
                                   }
-                                  sx={{ padding: '12px 16px' }}
+                                  sx={{ padding: "12px 16px" }}
                                 >
                                   <h4 className="text-sm font-bold text-gray-900">
                                     Interventions
                                   </h4>
                                 </AccordionSummary>
-                                <AccordionDetails sx={{ padding: '0 16px 12px 16px' }}>
+                                <AccordionDetails
+                                  sx={{ padding: "0 16px 12px 16px" }}
+                                >
                                   <ul className="flex flex-col gap-y-2">
                                     <li>
                                       <Link
