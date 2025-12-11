@@ -318,32 +318,32 @@ export default function ParticipationSection() {
     setIsPaused(false);
   };
 
-  // Tailwind class based on the fading state (NEW)
+  // Tailwind class based on the fading state
   const fadeClass = isFading ? "opacity-0" : "opacity-100";
 
   return (
     <section
-      className="py-20 px-4 bg-white sm:mx-6 "
+      className="w-full px-4 py-20 mx-auto bg-white"
       id="participate-section"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-12">
           <Badge
             variant="solid"
-            className="mb-4  rounded-lg  border-[#E5CC34] px-4 py-1.5  text-2xl text-black border font-semibold"
+            className="mb-4 rounded-lg border-[#E5CC34] px-4 py-1.5 text-2xl text-black border font-semibold"
           >
             Participate
           </Badge>
           <div className="flex items-center justify-between">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+            <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
               {currentSlide.title}
             </h2>
             <div
               onClick={handleNext}
-              className="bg-slate-700/80 hover:bg-slate-700 p-2 rounded-full cursor-pointer hidden md:block"
+              className="p-2 rounded-lg cursor-pointer  bg-slate-700/80 hover:bg-slate-700 md:block"
             >
               <ChevronRight className="w-6 h-6 text-gray-300" />
             </div>
@@ -355,38 +355,40 @@ export default function ParticipationSection() {
           className={`transition-opacity duration-300 ease-in-out ${fadeClass}`}
         >
           {currentSlide.type === "beneficiaryGrid" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center ">
+            <div className="grid items-stretch justify-center grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {currentSlide.participants.map((participant, index) => {
                 return (
                   <Card
                     key={index}
-                    className="bg-background_blue border border-slate-700 hover:border-slate-600 rounded-2xl shadow-lg shadow-black/20 transition-all duration-300 flex flex-col p-4"
+                    className="flex flex-col h-full p-6 transition-all duration-300 border shadow-sm bg-background_blue border-slate-200 hover:border-indigo-300 hover:shadow-md rounded-xl"
                   >
                     <CardHeader className="pb-4">
                       <div className="flex flex-col items-center gap-4">
-                        <CustomIcon
-                          src={participant.icon}
-                          className="w-8 h-8 text-indigo-400"
-                        />
-                        <CardTitle className="text-lg font-semibold leading-tight">
+                        <div className="p-3 rounded-full bg-indigo-50">
+                          <CustomIcon
+                            src={participant.icon}
+                            className="w-8 h-8 text-indigo-500"
+                          />
+                        </div>
+                        <CardTitle className="text-lg font-semibold leading-tight text-center">
                           {participant.title}
                         </CardTitle>
                       </div>
                     </CardHeader>
-                    <CardContent className="space-y-2.5 pt-0">
+                    <CardContent className="flex-grow pt-0 space-y-3">
                       {participant.details.map((detail, detailIndex) => (
                         <div
                           key={detailIndex}
                           className="flex items-start gap-3"
                         >
-                          <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                          <p className="text-sm ">{detail}</p>
+                          <CheckCircle2 className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
+                          <p className="text-sm leading-relaxed text-gray-700">{detail}</p>
                         </div>
                       ))}
                     </CardContent>
-                    <CardFooter className="pt-4">
+                    <CardFooter className="pt-6">
                       <Button
-                        className="w-32 border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] hover:scale-105 hover:shadow-xl transition-transform"
+                        className="w-fit border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] hover:scale-[1.02] transition-all duration-200"
                         onClick={() =>
                           handleOpenModal(
                             participant.modalTitle,
@@ -405,36 +407,38 @@ export default function ParticipationSection() {
           )}
 
           {currentSlide.type === "advocacyCards" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mx-auto justify-center items-center">
+            <div className="grid items-stretch justify-center w-full max-w-4xl grid-cols-1 gap-6 mx-auto md:grid-cols-2">
               {currentSlide.cards.map((card, index) => {
                 const IconComponent = card.icon;
                 return (
                   <Card
                     key={index}
-                    className="bg-background_blue border border-bg-background_blue rounded-2xl shadow-lg shadow-black/20 flex flex-col p-8"
+                    className="flex flex-col h-full p-6 transition-all duration-300 border shadow-sm bg-background_blue border-slate-200 hover:border-indigo-300 hover:shadow-md rounded-xl"
                   >
                     <CardHeader className="pb-6">
                       <div className="flex flex-col items-center gap-4">
-                        <IconComponent className="w-8 h-8 text-indigo-400" />
-                        <CardTitle className="text-xl font-semibold">
+                        <div className="p-3 rounded-full bg-indigo-50">
+                          <IconComponent className="w-8 h-8 text-indigo-500" />
+                        </div>
+                        <CardTitle className="text-xl font-semibold text-center">
                           {card.title}
                         </CardTitle>
                       </div>
                     </CardHeader>
-                    <CardContent className="flex-grow space-y-3 pt-0">
+                    <CardContent className="flex-grow pt-0 space-y-3">
                       {card.details.map((detail, detailIndex) => (
                         <div
                           key={detailIndex}
                           className="flex items-center gap-3"
                         >
-                          <CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                          <p className="text-md">{detail}</p>
+                          <CheckCircle2 className="flex-shrink-0 w-5 h-5 text-indigo-500" />
+                          <p className="leading-relaxed text-gray-700 text-md">{detail}</p>
                         </div>
                       ))}
                     </CardContent>
-                    <CardFooter className="pt-8 pb-0">
+                    <CardFooter className="pt-6">
                       <Button
-                        className="w-32 border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] hover:scale-105 hover:shadow-xl transition-transform"
+                        className="w-fit border-[#B7C8F4] bg-[#B7C8F4] text-gray-900 hover:bg-[#A5B9E9] hover:border-[#A5B9E9] hover:scale-[1.02] transition-all duration-200"
                         onClick={() =>
                           handleOpenModal(
                             card.modalTitle,
@@ -460,7 +464,7 @@ export default function ParticipationSection() {
               key={i}
               onClick={() => handleDotClick(i)}
               className={`h-2 w-2 rounded-full transition-all ${
-                i === currentIndex ? "bg-blue-600 w-4" : "bg-gray-300"
+                i === currentIndex ? "bg-indigo-600 w-4" : "bg-gray-300"
               }`}
             ></button>
           ))}
