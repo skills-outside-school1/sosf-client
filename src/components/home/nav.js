@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Disclosure, Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,6 +25,8 @@ const Nav2 = () => {
   const [expandedAccordion, setExpandedAccordion] = useState(null);
   const [isInterventionOpen, setIsInterventionOpen] = useState(false);
 
+  const interventionTimeoutRef = useRef(null);
+
   const navigationLinks = [
     {
       name: "About",
@@ -47,13 +49,6 @@ const Nav2 = () => {
           title: "Our Leadership",
           links: [{ name: "Leaderships", to: "/leadership" }],
         },
-        // {
-        //   title: "People & Purpose",
-        //   links: [
-        //     { name: "Leaderships", to: "/leadership" },
-        //     // { name: "Ambassadors", to: "/ambassadors" },
-        //   ],
-        // },
         {
           title: "Global Goals",
           links: [{ name: "SDGs We Align With", to: "/sdgs" }],
@@ -65,9 +60,7 @@ const Nav2 = () => {
       ],
     },
     { name: "Our Work", to: "#" },
-    // { name: "Insights", to: "/news-insights" },
     { name: "Get Involved", to: "/get-involved" },
-    // { name: "Careers", to: "/careers" },
     { name: "Contact", to: "/contact" },
   ];
 
@@ -96,6 +89,15 @@ const Nav2 = () => {
     return () => (document.body.style.overflow = "auto");
   }, [menuOpen]);
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (interventionTimeoutRef.current) {
+        clearTimeout(interventionTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const router = useRouter();
 
   const toggleAccordion = (index) =>
@@ -105,20 +107,32 @@ const Nav2 = () => {
     setMenuOpen(false);
     setIsAboutHovered(false);
     setIsWorkHovered(false);
-    setIsInterventionOpen(!isInterventionOpen);
+    setIsInterventionOpen(false);
+  };
+
+  const handleInterventionMouseEnter = () => {
+    // Clear any existing timeout
+    if (interventionTimeoutRef.current) {
+      clearTimeout(interventionTimeoutRef.current);
+    }
+    setIsInterventionOpen(true);
+  };
+
+  const handleInterventionMouseLeave = () => {
+    // Add a small delay before closing
+    interventionTimeoutRef.current = setTimeout(() => {
+      setIsInterventionOpen(false);
+    }, 150); // 150ms delay - enough time to move mouse to submenu
   };
 
   const NestedInterventions = () => {
-    const toggleInterventionMenu = () => {
-      setIsInterventionOpen(!isInterventionOpen);
-    };
-
     return (
-      <div className="relative">
-        <button
-          onClick={toggleInterventionMenu}
-          className="flex items-center justify-between w-full font-normal hover:text-secondary_blue"
-        >
+      <div
+        className="relative"
+        onMouseEnter={handleInterventionMouseEnter}
+        onMouseLeave={handleInterventionMouseLeave}
+      >
+        <button className="flex items-center justify-between w-full font-normal hover:text-secondary_blue">
           <span>Interventions</span>
           <span
             className={`transform transition-transform duration-300 ${
@@ -130,10 +144,10 @@ const Nav2 = () => {
         </button>
 
         <div
-          className={`absolute top-0 left-full ml-2 bg-[#F6F6F6] rounded-xl shadow-md py-3 px-5 w-[280px] transition-all duration-500 ease-in-out transform z-50 ${
+          className={`absolute top-0 left-full ml-2 bg-[#F6F6F6] rounded-xl shadow-md py-3 px-5 min-w-max transition-all duration-300 ease-in-out transform z-50 ${
             isInterventionOpen
-              ? "opacity-100 translate-x-5"
-              : "opacity-0 -translate-x-10"
+              ? "opacity-100 translate-x-5 pointer-events-auto"
+              : "opacity-0 translate-x-0 pointer-events-none"
           }`}
         >
           <Link
@@ -199,7 +213,7 @@ const Nav2 = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden w-auto lg:flex ml-auto mr-[2rem] lg:flex-row space-x-8 justify-center p-2 items-center">
+            <div className="hidden w-auto lg:flex ml-auto mr-[2rem] lg:flex-row space-x-8 justify-center p-2 pr-9 items-center">
               {navigationLinks.map((link) => (
                 <div key={link.name} className="relative">
                   {/* Our Work */}
@@ -207,8 +221,9 @@ const Nav2 = () => {
                     <div
                       onMouseEnter={() => {
                         setIsWorkHovered(true);
-                        setIsAboutHovered(false); // close About modal
+                        setIsAboutHovered(false);
                       }}
+                      onMouseLeave={() => setIsWorkHovered(false)}
                       className="relative cursor-pointer"
                     >
                       <span className="text-[#000000] font-bold hover-line">
@@ -223,14 +238,7 @@ const Nav2 = () => {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-2"
                       >
-                        <div
-                          onMouseLeave={() => {
-                            if (!isInterventionOpen) {
-                              setIsWorkHovered(false);
-                            }
-                          }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-8 bg-[#F6F6F6] rounded-xl shadow-sm py-4 px-6 min-w-[200px]"
-                        >
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-8 bg-[#F6F6F6] rounded-xl shadow-sm py-4 px-6 min-w-[200px]">
                           <div className="flex flex-col gap-3 text-[15px] font-inter">
                             <Link
                               href="/data"
@@ -256,8 +264,9 @@ const Nav2 = () => {
                     <div
                       onMouseEnter={() => {
                         setIsAboutHovered(true);
-                        setIsWorkHovered(false); // close Our Work modal
+                        setIsWorkHovered(false);
                       }}
+                      onMouseLeave={() => setIsAboutHovered(false)}
                       className="relative"
                     >
                       <span className="text-[#000000] font-bold hover-line">
@@ -272,10 +281,7 @@ const Nav2 = () => {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-2"
                       >
-                        <div
-                          onMouseLeave={() => setIsAboutHovered(false)}
-                          className="fixed left-0 mt-[2rem] bg-[#F6F6F6] w-[100%] p-7 grid grid-cols-5 gap-4 shadow-lg"
-                        >
+                        <div className="fixed left-0 mt-[2rem] bg-[#F6F6F6] w-[100%] p-7 grid grid-cols-4 gap-4 shadow-lg">
                           {link.dropdown.map((column) => (
                             <div
                               key={column.title}
