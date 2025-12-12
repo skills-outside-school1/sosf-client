@@ -27,7 +27,7 @@ const Nav2 = () => {
 
   const interventionTimeoutRef = useRef(null);
 
-    const navigationLinks = [
+  const navigationLinks = [
     {
       name: "About",
       to: "/about",
@@ -72,7 +72,6 @@ const Nav2 = () => {
     // { name: "Careers", to: "/careers" },
     { name: "Contact", to: "/contact" },
   ];
-
 
   useEffect(() => {
     Aos.init({ duration: 2000, easing: "ease-in-cubic" });
