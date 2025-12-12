@@ -506,7 +506,7 @@ const Nav2 = () => {
                                     </li>
                                     <li>
                                       <Link
-                                        href="/#"
+                                        href="/interventions/skill-up"
                                         onClick={handleLinkClick}
                                         className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
                                       >
@@ -524,7 +524,7 @@ const Nav2 = () => {
                                     </li>
                                     <li>
                                       <Link
-                                        href="/#-funds"
+                                        href="/sosf-funds"
                                         onClick={handleLinkClick}
                                         className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
                                       >
