@@ -11,7 +11,7 @@ const button2 = ({
     <button
       type={type}
       onClick={onClick}
-      className={`bg-[#B7C8F4] rounded-full px-4 py-1 text-md text-black  hover:bg-[#7b97e4] transition-all duration-200 font-mont ${className}`}
+      className={`bg-[#B7C8F4] rounded-full px-4 py-2 text-md text-black  hover:bg-[#7b97e4] transition-all duration-200 font-mont ${className}`}
     >
       {text}
     </button>

@@ -1,5 +1,6 @@
 import SubHero from "@/components/shared/Atoms/Subhero-Atoms/Subhero";
 import Button from "@/components/shared/buttons/button2";
+import Image from "next/image";
 import React from "react";
 
 const SkillupHero = () => {
@@ -18,11 +19,27 @@ const SkillupHero = () => {
         items={items}
         aos="fade-up"
         // className=""
-        className2=""
+        className2=" relative"
         className3=""
         // className4=""
         // className5=""
       />
+      <div className=" absolute bottom-8 right-[700px] -z-10">
+        <Image
+          src="/assets/images/sosf-images/cyc.png"
+          alt=""
+          width={220}
+          height={220}
+        />
+      </div>
+      <div className=" absolute bottom-2 right-[100px] -z-10">
+        <Image
+          src="/assets/images/sosf-images/cyc2.png"
+          alt=""
+          width={220}
+          height={220}
+        />
+      </div>
       <div className="px-4 py-6 md:px-16 lg:px-28">
         <Button text="Apply for funding" />
       </div>
