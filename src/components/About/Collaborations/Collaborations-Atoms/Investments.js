@@ -82,33 +82,32 @@ const Investments = () => {
             </div>
           </div>
 
-         {/* Right Section */}
-<div className="col-span-2 font-inter">
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-    {investmentItems.map((item) => (
-      <div
-        key={item.id}
-        className="bg-[#EEF3FF] p-4 rounded-lg flex gap-3 items-center"
-      >
-        <Image
-          src={`/assets/images/collaborations/${item.id}.png`}
-          width={40}
-          height={40}
-          className="w-auto h-auto"
-          alt={item.title}
-        />
+          {/* Right Section */}
+          <div className="col-span-2 font-inter">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {investmentItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="bg-[#EEF3FF] p-4 rounded-lg flex gap-3 items-center"
+                >
+                  <Image
+                    src={`/assets/images/collaborations/${item.id}.png`}
+                    width={40}
+                    height={40}
+                    className="w-auto h-auto"
+                    alt={item.title}
+                  />
 
-        <div>
-          <p className="font-semibold mb-2 text-[18px]">
-            {item.title}
-          </p>
-          <span className="text-[15px]">{item.description}</span>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
+                  <div>
+                    <p className="font-semibold mb-2 text-[18px]">
+                      {item.title}
+                    </p>
+                    <span className="text-[15px]">{item.description}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
