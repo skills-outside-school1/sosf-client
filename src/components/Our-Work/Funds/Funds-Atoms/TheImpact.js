@@ -32,7 +32,7 @@ export default function TheImpact() {
             className={` h-[350px]  md:h-[550px]  w-[auto]  object-cover `}
           />
           <div
-            className="hover-container  w-[100%] h-[400px]  absolute top-0 left-0 bg-secondary_blue  opacity-0  transform  duration-1000
+            className="hover-container  w-[100%] h-[550px]  absolute top-0 left-0 bg-secondary_blue  opacity-0  transform  duration-1000
           md:group-hover:opacity-100   flex flex-col  justify-center items-center 
           "
           >
