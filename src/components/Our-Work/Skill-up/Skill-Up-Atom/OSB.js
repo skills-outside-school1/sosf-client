@@ -12,11 +12,11 @@ const OSB = () => {
         {/* LEFT SIDE IMAGE TEXT */}
         <div>
           <Image
-            src="/assets/images/sosf-images/OSB.png"
+            src="/assets/images/sosf-images/OSB.jpg"
             alt="OSB-images"
             width={400}
             height={400}
-            className="w-full"
+            className="w-full rounded-lg"
           />
 
           <h1 className="font-medium text-md my-5">Key Offerings</h1>
