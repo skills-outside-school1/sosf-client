@@ -4,6 +4,7 @@ import Link from "next/link";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { P } from "../Typography/typography";
+import Image from "next/image";
 
 // Reusable GetInvolvedCards Component
 const GetInvolvedCards = ({
@@ -12,6 +13,7 @@ const GetInvolvedCards = ({
   cardHeight = "652.32px", // Default card height, can be changed via props
   // cardWidth = "326px", // Default card width, can be changed via props
   transitionDuration = 700, // Control transition timing
+  descriptionClassName = "",
 }) => {
   useEffect(() => {
     Aos.init({
@@ -25,7 +27,7 @@ const GetInvolvedCards = ({
     });
   }, []);
 
-  const [activeCard, setActiveCard] = useState(null); // Track the active card
+  const [activeCard, setActiveCard] = useState(0); // Track the active card
 
   const handleCardClick = (index) => {
     setActiveCard(activeCard === index ? null : index); // Toggle the card
@@ -59,7 +61,7 @@ const GetInvolvedCards = ({
           >
             <button
               onClick={() => handleCardClick(index)}
-              className={`w-full  h-[180px] object-contain  md:h-[${cardHeight}] flex flex-col gap-y-4 justify-start items-start p-4 transition duration-300`}
+              className={`w-full    h-[180px] object-contain  md:h-[${cardHeight}] flex flex-col gap-y-4 justify-start items-start p-4 transition duration-300`}
               style={{
                 backgroundColor: item.color,
               }}
@@ -70,7 +72,9 @@ const GetInvolvedCards = ({
               {/* <h3 className="text-base md:text-base font-bold lg:text-base font-mont  text-[#000000]">
                 {item.title}
               </h3> */}
-              <p className="text-[#000000]  font-mont font-semibold text-lg md:text-xl lg:text-2xl">
+              <p
+                className={` text-[#000000]  font-mont font-normal text-lg  text-left  ${descriptionClassName} `}
+              >
                 {item.description}
               </p>
             </button>
@@ -100,6 +104,18 @@ const GetInvolvedCards = ({
                   X
                 </button>
                 <section className="w-full h-[fixed] mt-auto flex flex-col gap-y-4">
+                  {item.icon ? (
+                    <section className="icon-container flex flex-col w-auto">
+                      <Image
+                        src={item.icon}
+                        alt={item.title2 || item.title || "Card icon"}
+                        width={176}
+                        height={176}
+                        className="w-[50px] h-[50px] object-contain  "
+                      />
+                    </section>
+                  ) : null}
+
                   <h5 className="text-base md:text-base lg:text-xl text-white font-bold font-mont">
                     {item.title2}
                   </h5>
@@ -108,12 +124,31 @@ const GetInvolvedCards = ({
                   >
                     {item.content}
                   </P>
-                  <Link
+                  {/* <Link
                     href={item.link}
                     className="text-white font-normal font-inter text-base gap-x-4 flex"
                   >
                     {item.route_name || "Learn More"}&rarr;
-                  </Link>
+                  </Link> */}
+
+                  {item.link &&
+                    (item.link.startsWith("http") ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white font-normal font-inter text-base gap-x-4 flex"
+                      >
+                        {item.route_name || "Learn More"} &rarr;
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.link}
+                        className="text-white font-normal font-inter text-base gap-x-4 flex"
+                      >
+                        {item.route_name || "Learn More"} &rarr;
+                      </Link>
+                    ))}
                 </section>
               </div>
             </div>

@@ -14,21 +14,22 @@ const sectionIcons = {
 export default function InfoCarousel({ slides = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [isFading, setIsFading] = useState(false);
+  const [fadeState, setFadeState] = useState("fade-in"); // NEW: fade-in/out
   const total = slides.length;
   const autoSlideRef = useRef(null);
 
-  // Helper function to handle the actual index change with fade
   const goToIndex = (newIndex) => {
     if (newIndex === currentIndex) return;
 
-    // 1. Start the fade-out
-    setIsFading(true);
+    // 1. Fade OUT slowly
+    setFadeState("fade-out");
 
     setTimeout(() => {
       setCurrentIndex(newIndex);
-      setIsFading(false);
-    }, 300); // 300ms for fade-out duration
+
+      // 2. Fade IN slowly
+      setFadeState("fade-in");
+    }, 500); // smoother animation (500ms)
   };
 
   const handleNext = () => {
@@ -36,103 +37,82 @@ export default function InfoCarousel({ slides = [] }) {
     goToIndex(nextIndex);
   };
 
-  const handleDotClick = (index) => {
-    goToIndex(index);
-  };
-
-  // Function to start the auto-slide timer
   const startTimer = () => {
     if (total > 0) {
-      // Shorter interval: 4000ms (4 seconds)
       return setInterval(() => {
         handleNext();
-      }, 4000);
+      }, 6000); // slower slide change
     }
     return null;
   };
+
   useEffect(() => {
-    if (autoSlideRef.current) {
-      clearInterval(autoSlideRef.current);
-    }
+    if (autoSlideRef.current) clearInterval(autoSlideRef.current);
+    if (!isPaused) autoSlideRef.current = startTimer();
 
-    if (!isPaused) {
-      autoSlideRef.current = startTimer();
-    }
-
-    // Cleanup function
-    return () => {
-      if (autoSlideRef.current) {
-        clearInterval(autoSlideRef.current);
-      }
-    };
+    return () => autoSlideRef.current && clearInterval(autoSlideRef.current);
   }, [total, isPaused]);
-
-  // Handlers for mouse events
-  const handleMouseEnter = () => {
-    setIsPaused(true);
-    if (autoSlideRef.current) {
-      clearInterval(autoSlideRef.current);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setIsPaused(false);
-  };
 
   const currentSlide = slides[currentIndex];
   if (!currentSlide) return null;
 
   const { title, subtitle, sections } = currentSlide;
 
-  // Tailwind class based on the fading state
-  const fadeClass = isFading ? "opacity-0" : "opacity-100";
-
   return (
     <div
-      className="w-full flex flex-col items-center justify-center transition-all duration-500"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className="flex flex-col items-center justify-center w-full mx-auto"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Header */}
       <div className="flex items-end justify-between w-full mb-12">
-        <div>
-          <p className=" text-gray-600 mb-2 text-xl ">{subtitle}</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <div className="max-w-[85%]">
+          <p className="mb-1 text-xl text-gray-600">{subtitle}</p>
+          <h2 className="text-3xl font-bold leading-tight text-gray-900 md:text-4xl">
             {title}
           </h2>
         </div>
+
         <Button
           variant="default"
           onClick={handleNext}
-          className="hidden md:flex items-center gap-2 bg-[#B7C8F4]"
+          className="md:flex items-center justify-center bg-[#B7C8F4] min-w-[45px] min-h-[45px] rounded-lg"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-5 h-5" />
         </Button>
       </div>
 
-      {/* Four Sections (Cards) */}
+      {/* Cards */}
       <div
-        // Apply the transition class and the dynamic opacity class
-        className={`grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-3xl mb-10 transition-opacity duration-300 ease-in-out ${fadeClass}`}
+        className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mb-10 transition-all duration-500 ${
+          fadeState === "fade-out"
+            ? "opacity-0 translate-y-2"
+            : "opacity-100 translate-y-0"
+        }`}
       >
         {Object.entries(sections).map(([key, section]) => (
           <div
             key={key}
-            className="flex flex-col items-center bg-background_blue  shadow-sm rounded-2xl border border-gray-100  p-5  md:p-[25px] md:px-[15px] gap-[21px] w-[300px] md:w-[355px] min-h-[354px]   max-h-[fixed]"
+            className="flex flex-col items-center bg-background_blue shadow-sm rounded-2xl border border-gray-100 p-5 md:p-6 gap-5 w-[300px] md:w-[355px] min-h-[350px]"
           >
-            <CustomIcon
-              src={sectionIcons[key]}
-              alt={section.heading}
-              className="w-6 h-6 text-blue-600"
-            />
-            <h1 className="text-lg font-semibold">{section.heading}</h1>
+            <div className="p-3 rounded-full bg-indigo-50">
+              <CustomIcon
+                src={sectionIcons[key]}
+                alt={section.heading}
+                className="w-7 h-7"
+              />
+            </div>
+
+            <h1 className="text-lg font-semibold text-center">
+              {section.heading}
+            </h1>
 
             {section.content ? (
-              <p className="text-gray-600 text-sm leading-relaxed text-center">
+              <p className="px-1 text-sm leading-relaxed text-center text-gray-600">
                 {section.content}
               </p>
             ) : (
-              <ul className="text-gray-600 text-sm space-y-2 list-none pl-3 text-left">
+              <ul className="w-full space-y-2 text-sm text-left text-gray-600 list-none">
                 {section.items.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CustomIcon
@@ -154,9 +134,9 @@ export default function InfoCarousel({ slides = [] }) {
         {slides.map((_, i) => (
           <button
             key={i}
-            onClick={() => handleDotClick(i)}
-            className={`h-2 w-2 rounded-full transition-all ${
-              i === currentIndex ? "bg-blue-600 w-4" : "bg-gray-300"
+            onClick={() => goToIndex(i)}
+            className={`h-2 rounded-full transition-all ${
+              i === currentIndex ? "bg-blue-600 w-4" : "bg-gray-300 w-2"
             }`}
           ></button>
         ))}
