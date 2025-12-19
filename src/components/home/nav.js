@@ -181,7 +181,7 @@ const Nav2 = () => {
             SOSF Online Skill-Up
           </Link>
           <Link
-            href="/sosf-grants"
+            href="/interventions/grants"
             className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
