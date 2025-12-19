@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Disclosure, Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,6 +25,8 @@ const Nav2 = () => {
   const [expandedAccordion, setExpandedAccordion] = useState(null);
   const [isInterventionOpen, setIsInterventionOpen] = useState(false);
 
+  const interventionTimeoutRef = useRef(null);
+
   const navigationLinks = [
     {
       name: "About",
@@ -47,13 +49,13 @@ const Nav2 = () => {
           title: "Our Leadership",
           links: [{ name: "Leaderships", to: "/leadership" }],
         },
-        {
-          title: "People & Purpose",
-          links: [
-            { name: "Leaderships", to: "/leadership" },
-            // { name: "Ambassadors", to: "/ambassadors" },
-          ],
-        },
+        // {
+        //   title: "People & Purpose",
+        //   links: [
+        //     { name: "Leaderships", to: "/leadership" },
+        //     // { name: "Ambassadors", to: "/ambassadors" },
+        //   ],
+        // },
         {
           title: "Global Goals",
           links: [{ name: "SDGs We Align With", to: "/sdgs" }],
@@ -96,6 +98,15 @@ const Nav2 = () => {
     return () => (document.body.style.overflow = "auto");
   }, [menuOpen]);
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (interventionTimeoutRef.current) {
+        clearTimeout(interventionTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const router = useRouter();
 
   const toggleAccordion = (index) =>
@@ -105,19 +116,32 @@ const Nav2 = () => {
     setMenuOpen(false);
     setIsAboutHovered(false);
     setIsWorkHovered(false);
+    setIsInterventionOpen(false);
+  };
+
+  const handleInterventionMouseEnter = () => {
+    // Clear any existing timeout
+    if (interventionTimeoutRef.current) {
+      clearTimeout(interventionTimeoutRef.current);
+    }
+    setIsInterventionOpen(true);
+  };
+
+  const handleInterventionMouseLeave = () => {
+    // Add a small delay before closing
+    interventionTimeoutRef.current = setTimeout(() => {
+      setIsInterventionOpen(false);
+    }, 150); // 150ms delay - enough time to move mouse to submenu
   };
 
   const NestedInterventions = () => {
-    const toggleInterventionMenu = () => {
-      setIsInterventionOpen(!isInterventionOpen);
-    };
-
     return (
-      <div className="relative">
-        <button
-          onClick={toggleInterventionMenu}
-          className="flex items-center justify-between w-full font-normal hover:text-secondary_blue"
-        >
+      <div
+        className="relative"
+        onMouseEnter={handleInterventionMouseEnter}
+        onMouseLeave={handleInterventionMouseLeave}
+      >
+        <button className="flex items-center justify-between w-full font-normal hover:text-secondary_blue">
           <span>Interventions</span>
           <span
             className={`transform transition-transform duration-300 ${
@@ -129,10 +153,10 @@ const Nav2 = () => {
         </button>
 
         <div
-          className={`absolute top-0 left-full ml-2 bg-[#F6F6F6] rounded-xl shadow-md py-3 px-5 w-[280px] transition-all duration-500 ease-in-out transform z-50 ${
+          className={`absolute top-0 left-full ml-2 bg-[#F6F6F6] rounded-xl shadow-md py-3 px-5 min-w-max transition-all duration-300 ease-in-out transform z-50 ${
             isInterventionOpen
-              ? "opacity-100 translate-x-5"
-              : "opacity-0 -translate-x-10"
+              ? "opacity-100 translate-x-5 pointer-events-auto"
+              : "opacity-0 translate-x-0 pointer-events-none"
           }`}
         >
           <Link
@@ -157,7 +181,7 @@ const Nav2 = () => {
             SOSF Online Skill-Up
           </Link>
           <Link
-            href="/sosf-grants"
+            href="/interventions/grants"
             className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
@@ -198,7 +222,7 @@ const Nav2 = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden w-auto lg:flex ml-auto mr-[2rem] lg:flex-row space-x-8 justify-center p-2 items-center">
+            <div className="hidden w-auto lg:flex ml-auto mr-[2rem] lg:flex-row space-x-8 justify-center p-2 pr-9 items-center">
               {navigationLinks.map((link) => (
                 <div key={link.name} className="relative">
                   {/* Our Work */}
@@ -206,8 +230,9 @@ const Nav2 = () => {
                     <div
                       onMouseEnter={() => {
                         setIsWorkHovered(true);
-                        setIsAboutHovered(false); // close About modal
+                        setIsAboutHovered(false);
                       }}
+                      onMouseLeave={() => setIsWorkHovered(false)}
                       className="relative cursor-pointer"
                     >
                       <span className="text-[#000000] font-bold hover-line">
@@ -222,14 +247,7 @@ const Nav2 = () => {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-2"
                       >
-                        <div
-                          onMouseLeave={() => {
-                            if (!isInterventionOpen) {
-                              setIsWorkHovered(false);
-                            }
-                          }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-8 bg-[#F6F6F6] rounded-xl shadow-sm py-4 px-6 min-w-[200px]"
-                        >
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-8 bg-[#F6F6F6] rounded-xl shadow-sm py-4 px-6 min-w-[200px]">
                           <div className="flex flex-col gap-3 text-[15px] font-inter">
                             <Link
                               href="/data"
@@ -255,8 +273,9 @@ const Nav2 = () => {
                     <div
                       onMouseEnter={() => {
                         setIsAboutHovered(true);
-                        setIsWorkHovered(false); // close Our Work modal
+                        setIsWorkHovered(false);
                       }}
+                      onMouseLeave={() => setIsAboutHovered(false)}
                       className="relative"
                     >
                       <span className="text-[#000000] font-bold hover-line">
@@ -271,10 +290,7 @@ const Nav2 = () => {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-2"
                       >
-                        <div
-                          onMouseLeave={() => setIsAboutHovered(false)}
-                          className="fixed left-0 mt-[2rem] bg-[#F6F6F6] w-[100%] p-7 grid grid-cols-5 gap-4 shadow-lg"
-                        >
+                        <div className="fixed left-0 mt-[2rem] bg-[#F6F6F6] w-[100%] p-7 grid grid-cols-4 gap-4 shadow-lg">
                           {link.dropdown.map((column) => (
                             <div
                               key={column.title}
@@ -314,11 +330,13 @@ const Nav2 = () => {
             </div>
 
             {/* Hamburger Menu */}
-            <div className="flex items-center lg:hidden">
+            <div
+              className="flex items-center justify-center w-12 h-12 mb-2 mr-8 border-2 rounded-full cursor-pointer border-secondary_blue lg:hidden"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
               <FontAwesomeIcon
                 icon={menuOpen ? faTimes : faBars}
-                className="text-2xl p-3 cursor-pointer text-gray-800  mr-8 border-2 border-secondary_blue rounded-[50%]"
-                onClick={() => setMenuOpen(!menuOpen)}
+                className="text-2xl text-gray-800"
               />
             </div>
           </div>
@@ -329,222 +347,209 @@ const Nav2 = () => {
               menuOpen ? "translate-x-0" : "-translate-x-full"
             } lg:hidden bg-[#F6F6F6] p-4 w-full h-screen overflow-y-auto hide-scrollbar fixed top-[1.3rem] left-0 z-30 mt-16 transition-transform duration-300 ease-in-out`}
           >
-            <div className="relative z-20 flex flex-col gap-y-4">
-              {navigationLinks.map((link, index) => (
-                <div
-                  key={link.name}
-                  className="border border-none shadow-xl bg-[#F6F6F6] max-h-[400px] min-h-[70px] p-4"
-                >
-                  {/* If About or Our Work → use Accordion */}
-                  {link.dropdown || link.name === "Our Work" ? (
-                    <Accordion
-                      expanded={expandedAccordion === index}
-                      onChange={() => toggleAccordion(index)}
-                      style={{
-                        background: "#F6F6F6",
-                        border: "2px #F6F6F6",
-                        width: "100%",
-                        marginRight: "auto",
-                      }}
-                    >
-                      <AccordionSummary
-                        expandIcon={
-                          <FontAwesomeIcon
-                            icon={
-                              expandedAccordion === index
-                                ? faChevronUp
-                                : faChevronDown
-                            }
-                            className="text-xl"
-                          />
-                        }
+            <div className="fixed top-0 left-0 z-30 w-full h-screen px-5 pt-24 pb-8 overflow-y-auto lg:hidden bg-gradient-to-b from-white to-gray-50">
+              <div className="relative z-20 flex flex-col max-w-md mx-auto gap-y-3">
+                {navigationLinks.map((link, index) => (
+                  <div
+                    key={link.name}
+                    className="overflow-hidden transition-all duration-300 bg-white border border-gray-100 shadow-md rounded-2xl hover:shadow-lg"
+                  >
+                    {link.dropdown || link.name === "Our Work" ? (
+                      <Accordion
+                        expanded={expandedAccordion === index}
+                        onChange={() => toggleAccordion(index)}
+                        sx={{
+                          background: "white",
+                          boxShadow: "none",
+                          "&:before": { display: "none" },
+                          borderRadius: "16px",
+                        }}
                       >
-                        <span className="text-[#000000] font-bold relative right-[1rem] p-3">
-                          {link.name}
-                        </span>
-                      </AccordionSummary>
+                        <AccordionSummary
+                          expandIcon={
+                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary_blue/10">
+                              <FontAwesomeIcon
+                                icon={
+                                  expandedAccordion === index
+                                    ? faChevronUp
+                                    : faChevronDown
+                                }
+                                className="text-sm text-secondary_blue"
+                              />
+                            </div>
+                          }
+                          sx={{ padding: "16px 20px" }}
+                        >
+                          <span className="text-base font-bold text-gray-900">
+                            {link.name}
+                          </span>
+                        </AccordionSummary>
 
-                      <AccordionDetails>
-                        {/* ABOUT US SECTION */}
-                        {link.dropdown && (
-                          <div className="flex flex-col overflow-y-auto gap-y-3">
-                            {link.dropdown.map((column) => (
+                        <AccordionDetails sx={{ padding: "0 20px 20px 20px" }}>
+                          {link.dropdown && (
+                            <div className="flex flex-col gap-y-2">
+                              {link.dropdown.map((column) => (
+                                <Accordion
+                                  key={column.title}
+                                  sx={{
+                                    background:
+                                      "linear-gradient(135deg, #B7C8F4 0%, #A8BBEF 100%)",
+                                    borderRadius: "12px",
+                                    overflow: "hidden",
+                                    "&:before": { display: "none" },
+                                    marginBottom: "8px",
+                                  }}
+                                >
+                                  <AccordionSummary
+                                    expandIcon={
+                                      <div className="flex items-center justify-center rounded-full w-7 h-7 bg-white/30">
+                                        <FontAwesomeIcon
+                                          icon={faChevronDown}
+                                          className="text-xs text-gray-800"
+                                        />
+                                      </div>
+                                    }
+                                    sx={{ padding: "12px 16px" }}
+                                  >
+                                    <h4 className="text-sm font-bold text-gray-900">
+                                      {column.title}
+                                    </h4>
+                                  </AccordionSummary>
+                                  <AccordionDetails
+                                    sx={{ padding: "0 16px 12px 16px" }}
+                                  >
+                                    <ul className="flex flex-col gap-y-2">
+                                      {column.links.map((item) => (
+                                        <li
+                                          key={item.name}
+                                          className="transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md"
+                                        >
+                                          <Link
+                                            onClick={handleLinkClick}
+                                            href={item.to}
+                                            className="block px-4 py-3 text-sm text-gray-800 transition-colors duration-200 hover:text-secondary_blue font-inter"
+                                          >
+                                            {item.name}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </AccordionDetails>
+                                </Accordion>
+                              ))}
+                            </div>
+                          )}
+
+                          {link.name === "Our Work" && (
+                            <div className="flex flex-col gap-y-2">
+                              <Link
+                                href="/data"
+                                onClick={handleLinkClick}
+                                className="p-4 font-semibold text-gray-800 transition-all duration-200 shadow-sm bg-gradient-to-r from-blue-100 to-blue-50 rounded-xl hover:from-blue-200 hover:to-blue-100"
+                              >
+                                Data
+                              </Link>
+
+                              <Link
+                                href="/advocacy"
+                                onClick={handleLinkClick}
+                                className="p-4 font-semibold text-gray-800 transition-all duration-200 shadow-sm bg-gradient-to-r from-blue-100 to-blue-50 rounded-xl hover:from-blue-200 hover:to-blue-100"
+                              >
+                                Advocacy
+                              </Link>
+
                               <Accordion
-                                key={column.title}
-                                style={{
-                                  background: "#B7C8F4",
-                                  border: "none",
+                                sx={{
+                                  background:
+                                    "linear-gradient(135deg, #B7C8F4 0%, #A8BBEF 100%)",
+                                  borderRadius: "12px",
+                                  overflow: "hidden",
+                                  "&:before": { display: "none" },
                                 }}
                               >
                                 <AccordionSummary
                                   expandIcon={
-                                    <FontAwesomeIcon
-                                      icon={faChevronDown}
-                                      className="flex flex-col text-xl gap-y-5"
-                                    />
+                                    <div className="flex items-center justify-center rounded-full w-7 h-7 bg-white/30">
+                                      <FontAwesomeIcon
+                                        icon={faChevronDown}
+                                        className="text-xs text-gray-800"
+                                      />
+                                    </div>
                                   }
+                                  sx={{ padding: "12px 16px" }}
                                 >
-                                  <h4 className="font-bold text-gray-800">
-                                    {column.title}
+                                  <h4 className="text-sm font-bold text-gray-900">
+                                    Interventions
                                   </h4>
                                 </AccordionSummary>
-                                <AccordionDetails>
-                                  <ul className="flex flex-col gap-y-2 overflow-y-auto min-h-[70px] pb-4 max-h-[300px]">
-                                    {column.links.map((item) => (
-                                      <li
-                                        key={item.name}
-                                        className="bg-[#F6F6F6] w-full shadow-xl p-3"
+                                <AccordionDetails
+                                  sx={{ padding: "0 16px 12px 16px" }}
+                                >
+                                  <ul className="flex flex-col gap-y-2">
+                                    <li>
+                                      <Link
+                                        href="/interventions/sosf-agropreneurs"
+                                        onClick={handleLinkClick}
+                                        className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
                                       >
-                                        <Link
-                                          onClick={handleLinkClick}
-                                          href={item.to}
-                                          className="text-sm text-gray-800 hover:text-secondary_blue font-inter hover-line"
-                                        >
-                                          {item.name}
-                                        </Link>
-                                      </li>
-                                    ))}
+                                        SOSF Headstart Agropreneurs
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        href="/interventions/sosf-bridge"
+                                        onClick={handleLinkClick}
+                                        className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
+                                      >
+                                        SOSF Bridge Program
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        href="/interventions/skill-up"
+                                        onClick={handleLinkClick}
+                                        className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
+                                      >
+                                        SOSF Online Skill-Up
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        href="/#"
+                                        onClick={handleLinkClick}
+                                        className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
+                                      >
+                                        SOSF Grants
+                                      </Link>
+                                    </li>
+                                    <li>
+                                      <Link
+                                        href="/sosf-funds"
+                                        onClick={handleLinkClick}
+                                        className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
+                                      >
+                                        SOSF Funds
+                                      </Link>
+                                    </li>
                                   </ul>
                                 </AccordionDetails>
                               </Accordion>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* OUR WORK SECTION */}
-                        {link.name === "Our Work" && (
-                          <div className="flex flex-col overflow-y-auto gap-y-3">
-                            <Accordion
-                              style={{
-                                background: "#F6F6F6",
-                                border: "2px #F6F6F6",
-                                width: "100%",
-                                marginRight: "auto",
-                              }}
-                            >
-                              <AccordionDetails>
-                                <div className="flex flex-col gap-y-3">
-                                  {/* Data */}
-                                  <div
-                                    style={{
-                                      background: "#B7C8F4",
-                                      border: "none",
-                                    }}
-                                    className="flex items-center justify-between p-3 rounded"
-                                  >
-                                    <Link
-                                      href="/data"
-                                      onClick={handleLinkClick}
-                                      className="text-sm font-semibold text-gray-800 "
-                                    >
-                                      Data
-                                    </Link>
-                                  </div>
-
-                                  {/* Advocacy */}
-                                  <div
-                                    style={{
-                                      background: "#B7C8F4",
-                                      border: "none",
-                                    }}
-                                    className="flex items-center justify-between p-3 rounded"
-                                  >
-                                    <Link
-                                      href="/advocacy"
-                                      onClick={handleLinkClick}
-                                      className="text-sm font-semibold text-gray-800"
-                                    >
-                                      Advocacy
-                                    </Link>
-                                  </div>
-
-                                  {/* Interventions (dropdown stays) */}
-                                  <Accordion
-                                    style={{
-                                      background: "#B7C8F4",
-                                      border: "none",
-                                    }}
-                                  >
-                                    <AccordionSummary
-                                      expandIcon={
-                                        <FontAwesomeIcon
-                                          icon={faChevronDown}
-                                          className="text-md"
-                                        />
-                                      }
-                                    >
-                                      <h4 className="text-sm font-semibold text-gray-800">
-                                        Interventions
-                                      </h4>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                      <ul className="flex flex-col gap-y-2">
-                                        <li>
-                                          <Link
-                                            href="/interventions/sosf-agropreneurs"
-                                            onClick={handleLinkClick}
-                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
-                                          >
-                                            SOSF Headstart Agropreneurs
-                                          </Link>
-                                        </li>
-                                        <li>
-                                          <Link
-                                            href="/interventions/sosf-bridge"
-                                            onClick={handleLinkClick}
-                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
-                                          >
-                                            SOSF Bridge Program
-                                          </Link>
-                                        </li>
-                                        <li>
-                                          <Link
-                                            href="/#"
-                                            onClick={handleLinkClick}
-                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
-                                          >
-                                            SOSF Online Skill-Up
-                                          </Link>
-                                        </li>
-                                        <li>
-                                          <Link
-                                            href="/#"
-                                            onClick={handleLinkClick}
-                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
-                                          >
-                                            SOSF Grants
-                                          </Link>
-                                        </li>
-                                        <li>
-                                          <Link
-                                            href="/#-funds"
-                                            onClick={handleLinkClick}
-                                            className="text-gray-800 bg-[#F6F6F6] w-full shadow-xl p-3 hover:text-secondary_blue flex text-sm"
-                                          >
-                                            SOSF Funds
-                                          </Link>
-                                        </li>
-                                      </ul>
-                                    </AccordionDetails>
-                                  </Accordion>
-                                </div>
-                              </AccordionDetails>
-                            </Accordion>
-                          </div>
-                        )}
-                      </AccordionDetails>
-                    </Accordion>
-                  ) : (
-                    <Link
-                      href={link.to}
-                      onClick={handleLinkClick}
-                      className="text-[#000000] font-bold"
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
+                            </div>
+                          )}
+                        </AccordionDetails>
+                      </Accordion>
+                    ) : (
+                      <Link
+                        href={link.to}
+                        onClick={handleLinkClick}
+                        className="block px-5 py-5 font-bold text-gray-900 transition-colors duration-200 hover:text-secondary_blue"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </>
@@ -554,3 +559,4 @@ const Nav2 = () => {
 };
 
 export default Nav2;
+

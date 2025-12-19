@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import AgropreneursContaner from "@/components/SOSF/Agropreneurs/Agropreneurs-Container/AgropreneursContaner";
+import AgropreneursContaner from "@/components/Our-Work/Interventions/sosf-agropreneurs/Agropreneurs-Container/AgropreneursContaner";
 
 const Index = () => {
   return (
