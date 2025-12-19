@@ -15,12 +15,7 @@ const AdvocacyHeroSection = () => {
 
   return (
     <div>
-      <SubHero
-        items={items}
-        aos="fade-up"
-        className2=" relative"
-        className4="mb-4"
-      />
+      <SubHero items={items} className2=" relative" className4="mb-4" />
       <div className=" w-full justify-start items-start flex flex-col px-4  md:px-[4rem] gap-y-4 lg:px-[7.6rem] md:w-[80%] ">
         <p className=" leading-normal tracking-wide text-[#000]">
           At SOSF, advocacy is not just an add-on—it is a core pillar that

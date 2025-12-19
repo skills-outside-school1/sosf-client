@@ -11,14 +11,12 @@ export const GrantCard = ({
 }) => {
   return (
     <div
-      data-aos="fade-up"
-      data-aos-delay={delay}
       className={`flex flex-col justify-between w-full h-full bg-[#FAFAFA] rounded-[8px] p-8 hover:shadow-lg transition-shadow duration-300 ${className}`}
     >
       {/* Top Content */}
       <div className="flex flex-col items-start gap-4 mb-8">
         {/* Tier (Blue Text) */}
-        <p className="font-mont font-medium text-[#4A7CFD] text-sm md:text-base tracking-wide uppercase">
+        <p className="font-mont font-semibold  text-primary_blue text-sm md:text-base tracking-wide uppercase">
           {tiers}
         </p>
 
@@ -28,7 +26,7 @@ export const GrantCard = ({
         </h3>
 
         {/* Description (Dark Gray, Readable) */}
-        <p className="font-inter font-normal text-gray-700 text-base leading-[1.6] text-left">
+        <p className="font-inter font-normal text-gray-800 text-base leading-[1.6] text-left">
           {description}
         </p>
       </div>
@@ -36,7 +34,7 @@ export const GrantCard = ({
       {/* Bottom Link */}
       <div className="mt-auto">
         <Link
-           href={link}
+          href={link}
           className="font-mont font-medium text-gray-900 text-base hover:text-[#4A7CFD] transition-colors"
         >
           Learn More

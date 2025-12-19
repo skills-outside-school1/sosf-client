@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { GrantCard } from "./GrantCard"; 
+import { GrantCard } from "./GrantCard";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -41,15 +41,16 @@ export const ProgramDetailsSection = () => {
   return (
     <section className="flex flex-col w-full items-center gap-12 px-4 py-16 md:px-10 lg:px-28 bg-white">
       {/* Header Section */}
-      <div 
-        data-aos="fade-down" 
+      <div
+        // data-aos="fade-down"
         className="flex flex-col max-w-[700px] items-center gap-4 text-center"
       >
         <h2 className="font-mont font-bold text-black text-2xl md:text-3xl lg:text-4xl">
           Our Grant Programs
         </h2>
-        <p className="font-inter font-normal text-gray-600 text-base md:text-lg leading-relaxed">
-          We offer distinct grant schemes tailored to various stages and scales of impactful initiatives.
+        <p className="font-inter font-normal text-gray-800 text-base md:text-lg leading-relaxed">
+          We offer distinct grant schemes tailored to various stages and scales
+          of impactful initiatives.
         </p>
       </div>
 

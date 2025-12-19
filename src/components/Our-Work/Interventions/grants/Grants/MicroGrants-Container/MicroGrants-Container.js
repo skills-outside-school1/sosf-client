@@ -3,6 +3,8 @@ import MicroGrantsHeroSection from "../MicroGrants-Atoms/MicroGrantsHeroSection"
 import MicroGrantsOfferSection from "../MicroGrants-Atoms/MicroGrantsOfferSection";
 import MicroGrantsProcessAndEligibilitySection from "../MicroGrants-Atoms/MicroGrantsProcessAndEligibilitySection";
 import MicroGrantsCTASection from "../MicroGrants-Atoms/MicroGrantsCTASection";
+import WorkNav from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs";
+import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 
 const eligibilityIcon = "/assets/icons/grant Vector 3.png";
 const HeroImage = "/assets/images/grants_sub.jpg";
@@ -55,7 +57,8 @@ const MicroGrantsContainer = () => {
       },
       {
         title: "Disbursements",
-        description: "Disbursements occur from January 1st of the following year",
+        description:
+          "Disbursements occur from January 1st of the following year",
         bgColor: "bg-[#E5CC34]",
       },
       {
@@ -103,7 +106,7 @@ const MicroGrantsContainer = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-inter">
+    <div className="min-h-screen bg-white font-inter w-full ">
       <MicroGrantsHeroSection
         paragraphs={heroParagraphs}
         heroImage={HeroImage}
@@ -116,10 +119,9 @@ const MicroGrantsContainer = () => {
           eligibilityIntroText="We welcome applications from a diverse range of African-led entities with a clear presence and operations in Sub-Saharan Africa. This includes, but is not limited to"
           eligibilityCriteria={eligibilityCriteria}
         />
-        <MicroGrantsCTASection
-          description="If your initiative is ready to grow and meets our criteria, we encourage you to apply. Applications open June 26th and close August 26th annually. Decisions communicated on October 1st, with disbursements from January 1st of the following year."
-        />
+        <MicroGrantsCTASection description="If your initiative is ready to grow and meets our criteria, we encourage you to apply. Applications open June 26th and close August 26th annually. Decisions communicated on October 1st, with disbursements from January 1st of the following year." />
       </div>
+      <WorkNav />
     </div>
   );
 };

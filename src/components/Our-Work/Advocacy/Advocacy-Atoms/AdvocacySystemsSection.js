@@ -25,7 +25,7 @@ export default function AdvocacySystemsSection() {
     <section className="items-center justify-center w-full px-6 xl:px-0">
       <div className="py-8 rounded-[1.5rem] mx-auto xl:max-w-[1421px] sm:px-6 lg:p-16">
         <AnimatedSection>
-          <h2 className="mb-12 text-2xl font-bold text-center text-gray-900 md:text-left md:text-3xl font-mont">
+          <h2 className="mb-12 text-2xl font-bold text-center text-gray-900 md:text-left md:text-3xl font-mont lg:pl-[3rem]">
             Advocacy That Moves Systems and People
           </h2>
         </AnimatedSection>

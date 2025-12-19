@@ -6,19 +6,15 @@ import { ProgramDetailsSection } from "@/components/Our-Work/Interventions/grant
 
 import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 
-
 const GrantsContainer = () => {
   return (
-    <div className="w-full h-[fixed] overflow-hidden flex flex-col mb-[1rem] ">
-        <Hero />
-        <GrantsHero />
-        <Catalyzing />
-        <ProgramDetailsSection />
-     
+    <div className="w-full min-h-screen overflow-hidden flex flex-col mb-[1rem]  gap-y-[80px]">
+      <Hero />
+      <GrantsHero />
+      <Catalyzing />
+      <ProgramDetailsSection />
 
-
-          <Subscribe />
-
+      <Subscribe />
     </div>
   );
 };

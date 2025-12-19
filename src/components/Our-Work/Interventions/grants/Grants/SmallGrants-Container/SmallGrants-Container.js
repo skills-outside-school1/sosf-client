@@ -2,6 +2,7 @@ import React from "react";
 import GrantsHeroSection from "../Grants-Atoms/GrantsHeroSection";
 import GrantsContentSection from "../Grants-Atoms/GrantsContentSection";
 import GrantsCTASection from "../Grants-Atoms/GrantsCTASection";
+import WorkNav from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs";
 const eligibilityIcon = "/assets/icons/grant Vector 3.png";
 
 const SmallGrantsContainer = () => {
@@ -51,49 +52,48 @@ const SmallGrantsContainer = () => {
     },
   ];
 
- const eligibilityCriteria = [
-  {
-    icon: eligibilityIcon,
-    text: "Organizations with a minimum of 6 months of experience delivering relevant projects/initiatives in Sub-Saharan Africa",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "Proven implementation of your program at least once with measurable results.",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "A dedicated team of paid or unpaid volunteers, contractors, or support staff",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "African-led/majority founding and management team",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "Evidence of credible collaborations with other entities",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "Directly responsible for the project's management (not an intermediary)",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "Clear presence and operations in Sub-Saharan Africa",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "Projects with clear alignment to SOSF themes and a robust scalability plan",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "Strong letters of recommendation vouching for your credibility",
-  },
-  {
-    icon: eligibilityIcon,
-    text: "Designated organizational bank account for project funds and sound financial planning.",
-  },
-];
-
+  const eligibilityCriteria = [
+    {
+      icon: eligibilityIcon,
+      text: "Organizations with a minimum of 6 months of experience delivering relevant projects/initiatives in Sub-Saharan Africa",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "Proven implementation of your program at least once with measurable results.",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "A dedicated team of paid or unpaid volunteers, contractors, or support staff",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "African-led/majority founding and management team",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "Evidence of credible collaborations with other entities",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "Directly responsible for the project's management (not an intermediary)",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "Clear presence and operations in Sub-Saharan Africa",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "Projects with clear alignment to SOSF themes and a robust scalability plan",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "Strong letters of recommendation vouching for your credibility",
+    },
+    {
+      icon: eligibilityIcon,
+      text: "Designated organizational bank account for project funds and sound financial planning.",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white font-inter">
@@ -109,6 +109,7 @@ const SmallGrantsContainer = () => {
       <div className="px-4 md:px-[4rem] lg:px-[7.6rem]">
         <GrantsCTASection />
       </div>
+      <WorkNav />
     </div>
   );
 };
