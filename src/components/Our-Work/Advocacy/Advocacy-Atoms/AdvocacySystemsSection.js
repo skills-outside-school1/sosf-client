@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import { H3, P } from "@/components/shared/Atoms/Typography/typography";
 
 export default function AdvocacySystemsSection() {
   const pillars = [
@@ -46,20 +47,19 @@ export default function AdvocacySystemsSection() {
                    w-full max-w-[350px] h-[400px] px-5 py-10
                    flex flex-col text-white rounded-3xl
                    shadow-md transition-all md:w-full sm:h-auto
-                   relative overflow-hidden
-  "
+                   relative overflow-hidden"
               >
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/30 rounded-3xl" />
 
                 <div className="relative z-10">
-                  <h3 className="mb-6 text-xl font-bold text-center font-mont md:text-left">
+                  <h3 className={`mb-6 text-xl font-bold text-center font-mont md:text-left`}>
                     {pillar.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-center text-gray-100 sm:text-lg md:text-left">
+                  <p   className="text-base leading-relaxed text-center text-gray-100 sm:text-lg md:text-left">
                     {pillar.desc}
                   </p>
-                </div>
+                                  </div>
               </motion.div>
             </AnimatedSection>
           ))}

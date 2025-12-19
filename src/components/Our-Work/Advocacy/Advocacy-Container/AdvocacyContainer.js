@@ -5,6 +5,7 @@ import AdvocacySevenWaysSection from "../Advocacy-Atoms/AdvocacySevenWaysSection
 import AdvocacySystemsSection from "../Advocacy-Atoms/AdvocacySystemsSection";
 import AdvocacyInActionSection from "../Advocacy-Atoms/AdvocacyInActionSection";
 import Hero from "@/components/home/Home-Atoms/Hero";
+import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 
 const AdvocacyContainer = () => {
   return (
@@ -14,6 +15,7 @@ const AdvocacyContainer = () => {
       <AdvocacySevenWaysSection />
       <AdvocacySystemsSection />
       <AdvocacyInActionSection />
+      <Subscribe/>
     </div>
   );
 };
