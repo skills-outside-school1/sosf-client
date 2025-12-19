@@ -1,52 +1,43 @@
-"use client";
-import { motion } from "framer-motion";
+import SubHero from "@/components/shared/Atoms/Subhero-Atoms/Subhero";
+import Button from "@/components/shared/buttons/button2";
+import Image from "next/image";
+import React from "react";
 
-export default function AdvocacyHeroSection() {
+const AdvocacyHeroSection = () => {
+  const items = [
+    {
+      // heading1: "",
+      heading2: "Advocacy",
+      paragraph:
+        "Institutionalizing Change through Impact: Turning Evidence into Action. Transforming Awareness into Reform.",
+    },
+  ];
+
   return (
-    <section className="items-center justify-center w-full px-2 xl:px-0">
-      <div className="py-8 rounded-[1.5rem] mx-auto xl:max-w-[1421px] sm:px-6 lg:p-16">
-        <div className="max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-6 text-4xl font-bold text-gray-900 font-mont md:text-6xl"
-          >
-            Advocacy
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8 text-lg leading-relaxed text-gray-700 font-mont md:text-2xl"
-          >
-            Institutionalizing Change through Impact: Turning Evidence into
-            Action. Transforming Awareness into Reform.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-4 leading-relaxed text-gray-600"
-          >
-            <p>
-              At SOSF, advocacy is not just an add-on—it is a core pillar that
-              converts insights into influence and influence into systemic
-              change. We use proofs of concept from our interventions to raise
-              awareness, build coalitions, shape policy, and institutionalize
-              sustainable solutions across Africa’s education, employment, and
-              entrepreneurship ecosystems.
-            </p>
-            <p>
-              Our advocacy is grounded in data, community, and action—mobilizing
-              people and evidence to shift mindsets, drive reforms, and create
-              an enabling environment for lasting impact.
-            </p>
-          </motion.div>
-        </div>
+    <div>
+      <SubHero
+        items={items}
+        aos="fade-up"
+        className2=" relative"
+        className4="mb-4"
+      />
+      <div className=" w-full justify-start items-start flex flex-col px-4  md:px-[4rem] gap-y-4 lg:px-[7.6rem] md:w-[80%] ">
+        <p className=" leading-normal tracking-wide text-[#000]">
+          At SOSF, advocacy is not just an add-on—it is a core pillar that
+          converts insights into influence and influence into systemic change.
+          We use proofs of concept from our interventions to raise awareness,
+          build coalitions, shape policy, and institutionalize sustainable
+          solutions across Africa’s education, employment, and entrepreneurship
+          ecosystems.
+        </p>
+        <p className=" leading-normal tracking-wide text-[#000]">
+          Our advocacy is grounded in data, community, and action—mobilizing
+          people and evidence to shift mindsets, drive reforms, and create an
+          enabling environment for lasting impact.
+        </p>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default AdvocacyHeroSection;
