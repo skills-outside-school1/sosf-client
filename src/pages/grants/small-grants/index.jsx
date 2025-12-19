@@ -1,5 +1,7 @@
 import React from "react";
 import Head from "next/head";
+import SmallGrantsContainer from "@/components/Our-Work/Interventions/grants/Grants/SmallGrants-Container/SmallGrants-Container";
+
 
 const Index = () => {
   return (
@@ -9,6 +11,7 @@ const Index = () => {
         <title>Grants | Skills Outside School Foundation</title>
         <meta name="description" content="" />
       </Head>
+      <SmallGrantsContainer />
     </div>
   );
 };

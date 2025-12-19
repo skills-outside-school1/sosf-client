@@ -1,16 +1,17 @@
 import React from "react";
 import Head from "next/head";
-import GrantsContainer from "@/components/Our-Work/grants/grants-Container/GrantsContainer";
+import LargeGrantsContainer from "@/components/Our-Work/Interventions/grants/Grants/LargeGrants-Container/LargeGrants-Container";
+
 
 const Index = () => {
   return (
-    <div className="main w-full h-auto overflow-hidden flex flex-col">
+    <div className="flex flex-col w-full h-auto overflow-hidden main">
       <Head>
         {/* in page seo for the history page  */}
         <title>Grants | Skills Outside School Foundation</title>
         <meta name="description" content="" />
       </Head>
-      <GrantsContainer />
+      <LargeGrantsContainer />
     </div>
   );
 };
