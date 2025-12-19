@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 export default function AdvocacySystemsSection() {
@@ -32,10 +31,8 @@ export default function AdvocacySystemsSection() {
 
         <div className="grid items-stretch justify-center max-w-5xl gap-6 mx-auto md:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {pillars.map((pillar, i) => (
-            <AnimatedSection key={i} delay={i * 0.2 + 0.2}>
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.3 }}
+            <AnimatedSection key={i}>
+              <div
                 style={{
                   backgroundImage: `url(${pillar.image})`,
                   backgroundSize: "cover",
@@ -43,11 +40,11 @@ export default function AdvocacySystemsSection() {
                   backgroundRepeat: "no-repeat",
                 }}
                 className="
-                   w-full max-w-[350px] h-[400px] px-5 py-10
-                   flex flex-col text-white rounded-3xl
-                   shadow-md transition-all md:w-full sm:h-auto
-                   relative overflow-hidden
-  "
+                  w-full max-w-[350px] h-[400px] px-5 py-10
+                  flex flex-col text-white rounded-3xl
+                  shadow-md transition-all md:w-full sm:h-auto
+                  relative overflow-hidden
+                "
               >
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/30 rounded-3xl" />
@@ -60,7 +57,7 @@ export default function AdvocacySystemsSection() {
                     {pillar.desc}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             </AnimatedSection>
           ))}
         </div>
