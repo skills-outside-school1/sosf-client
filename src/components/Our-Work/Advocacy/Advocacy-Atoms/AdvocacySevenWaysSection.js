@@ -1,67 +1,78 @@
-"use client";
-import { motion } from "framer-motion";
-import AnimatedSection from "./AnimatedSection";
+import { ChevronRight } from "lucide-react";
+import React, { useState } from "react";
 
-export default function AdvocacySevenWaysSection() {
-  const cards = [
+const AdvocacySevenWaysSection = () => {
+  const advocacyWays = [
     {
       title: "Ambassadors as Catalysts of Change",
-      desc:
+      description:
         "We empower youth, teachers, and farmers to lead change from within their communities. Our ambassadors raise awareness, deploy grassroots interventions, and mentor their peers.",
-      heading: "Spotlight",
-      items: [
+      listTitle: "Spotlight",
+      spotlight: [
+        "GreenLITE turns peanut husk + plastic waste into eco-friendly boards (Nigeria)",
         "Skills on Wheels supports Almajiri children with literacy and tech skills (Nigeria)",
         "Kenyan Kids Network builds literacy through child-friendly libraries (Kenya)",
       ],
     },
     {
       title: "Volunteer Mobilization",
-      desc:
+      description:
         "Our network of over 1,000 volunteers includes mentors, trainers, evaluators, and program assistants. They help us deliver our work, raise awareness, and expand SOSF’s reach across Africa.",
-      heading: "Highlights",
-      items: ["139 mentors", "120 certified trainers", "900+ active field and departmental volunteers"],
+      listTitle: "Highlights ",
+      spotlight: [
+        "139 mentors",
+        "120 certified trainers",
+        "900+ active field and departmental volunteers ",
+      ],
     },
     {
       title: "Data & Research for Advocacy",
-      desc:
+      description:
         "We turn data into insight and insight into action. Through our Social & Economic Register, we design factsheets, baseline reports, and public briefs to raise awareness and guide reform.",
-      heading: "Impact",
-      items: [
-        "Data from our reports influenced integration of life skills into the Nigerian secondary school curriculum (with UNICEF)",
-        "GreenLITE turns peanut husk + plastic waste into eco-friendly boards (Nigeria)",
+      listTitle: "Impact",
+      spotlight: [
+        "Data from our reports influenced integration of life skills into the Nigerian secondary school curriculum in partnership with UNICEF.",
       ],
     },
     {
       title: "Policy & Regulatory Reform",
-      desc:
+      description:
         "We advocate for legal and policy changes that improve access to education, employment, and entrepreneurship.",
-      heading: "Wins",
-      items: ["Universal Basic Education Act amendment", "NGO regulatory input", "Youth policy contributions at national level"],
+      listTitle: "Wins",
+      spotlight: [
+        "Universal Basic Education Act amendment",
+        "NGO regulatory input",
+        "Youth policy contributions at national level",
+      ],
     },
     {
       title: "Awareness & Movement Building",
-      desc:
+      description:
         "From tweet chats to summits, we amplify voices and spotlight causes through strategic media engagement.",
-      heading: "Channels",
-      items: ["Social Media & Webinars", "Print, Radio, and TV (NTA, Kaftan TV, etc.)", "Flagship Events: TEES, International Youth Day, YALI Summit"],
+      listTitle: "Channels",
+      spotlight: [
+        "Social Media & Webinars",
+        "Print, Radio, and TV (NTA, Kaftan TV, etc.)",
+        "Flagship Events: TEES, International Youth Day, Walk4Education, Digital Nigeria Conference, YALI Summit",
+      ],
     },
     {
       title: "Institutionalizing Our Interventions",
-      desc:
+      description:
         "We embed SOSF’s proven programs into national systems for long-term sustainability.",
-      heading: "Examples",
-      items: [
+      listTitle: "Examples",
+      spotlight: [
         "300+ schools across 12 states integrated Girls4Girls & He4She programs",
         "15,000+ girls reached with life skills training",
-        "SOSF-led curriculum design and teacher training for UNICEF Girls Empowerment Program",
+        "Curriculum design and teacher training for UNICEF Girls Empowerment Program",
       ],
     },
     {
       title: "Stakeholder Engagement & Coalitions",
-      desc:
+      description:
         "We co-create with government, private sector, and NGOs to scale impact and policy influence.",
-      heading: "",
-      items: [
+      // listTitle: "Key Stakeholders",
+      spotlight: [
         "Public Sector: NBS, FCT-SEB, NAFDAC, FAAN, Ministry of Education, NUC",
         "Private Sector: Shell, CBN, MTN, Flexisaf, Tongston",
         "NGOs & Donors: ACT Foundation, British Council, UNICEF, Denmark Embassy, YIAGA",
@@ -69,67 +80,73 @@ export default function AdvocacySevenWaysSection() {
     },
   ];
 
-  // Split for exact two-row rendering like original
-  const firstFour = cards.slice(0, 4);
-  const lastThree = cards.slice(4);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeItem = advocacyWays[activeIndex];
 
   return (
-    <section className="items-center justify-center w-full px-2 xl:px-0">
-      <div className="py-8 rounded-[1.5rem] mx-auto xl:max-w-[1421px] sm:px-6 lg:p-16">
-        <AnimatedSection>
-          <div className="mb-12 text-center">
-            <div className="inline-block py-3 rounded-full px-4 md:px-8 bg-[rgba(59,130,246,0.36)]">
-              <h2 className="text-2xl font-bold text-gray-900 font-mont">7 Ways We Advocate</h2>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* First Row: 4 cards on lg */}
-        <div className="grid grid-cols-1 gap-6 mb-6 md:grid-cols-2 lg:grid-cols-4">
-          {firstFour.map((card, i) => (
-            <AnimatedSection key={i} delay={(i + 1) * 0.1}>
-              <motion.div
-                whileHover={{ y: -8, shadow: "0 20px 25px -5px rgba(0,0,0,0.1)" }}
-                transition={{ duration: 0.3 }}
-                className="relative h-full p-6 overflow-hidden transition-shadow shadow-sm rounded-xl hover:shadow-xl bg-[linear-gradient(to_top_right,_#ffffff_30%,_rgba(59,130,246,0.18)_85%,_rgba(59,130,246,0.36)_5%)]"
-              >
-                <h3 className="relative z-10 mb-4 text-lg font-bold text-gray-900 font-mont">{card.title}</h3>
-                <p className="relative z-10 mb-4 text-base leading-relaxed text-gray-700">{card.desc}</p>
-
-                <p className="relative z-10 mb-2 font-semibold text-gray-900 text-md">{card.heading}</p>
-                {card.items.map((item, idx) => (
-                  <p key={idx} className="relative z-10 mb-2 text-sm text-gray-700">
-                    {item}
-                  </p>
-                ))}
-              </motion.div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        {/* Second Row: 3 cards on lg */}
-        <div className="grid grid-cols-1 gap-6 md:px-16 md:grid-cols-2 lg:grid-cols-3">
-          {lastThree.map((card, i) => (
-            <AnimatedSection key={i + 4} delay={(i + 5) * 0.1}>
-              <motion.div
-                whileHover={{ y: -8, shadow: "0 20px 25px -5px rgba(0,0,0,0.1)" }}
-                transition={{ duration: 0.3 }}
-                className="relative h-full p-6 overflow-hidden transition-shadow shadow-sm rounded-xl hover:shadow-xl bg-[linear-gradient(to_top_right,_#ffffff_30%,_rgba(59,130,246,0.18)_85%,_rgba(59,130,246,0.36)_5%)]"
-              >
-                <h3 className="relative z-10 mb-4 text-lg font-bold text-gray-900 font-mont">{card.title}</h3>
-                <p className="relative z-10 mb-4 text-base leading-relaxed text-gray-700">{card.desc}</p>
-
-                <p className="relative z-10 mb-2 font-semibold text-gray-900 text-md">{card.heading}</p>
-                {card.items.map((item, idx) => (
-                  <p key={idx} className="relative z-10 mb-2 text-sm text-gray-700">
-                    {item}
-                  </p>
-                ))}
-              </motion.div>
-            </AnimatedSection>
-          ))}
+    <div>
+      {/* Title */}
+      <div className="my-16 flex justify-center">
+        <div className="inline-block border-4 border-[#94B1FC] rounded-2xl px-8 py-3">
+          <h1 className="font-mont font-semibold text-[22px] md:text-[24px] text-center">
+            7 Ways We Advocate
+          </h1>
         </div>
       </div>
-    </section>
+
+      {/* Content */}
+      <div className="px-4 md:px-[4rem] lg:px-[7.6rem]">
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-white drop-shadow-lg rounded-2xl overflow-hidden">
+          {/* Left Section */}
+          <div className="bg-[#EFF1F399] divide-y">
+            {advocacyWays.map((item, index) => (
+              <div
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`flex items-center justify-between px-5 py-5 cursor-pointer transition-all
+                  ${
+                    activeIndex === index
+                      ? "bg-gradient-to-r from-[rgba(203,218,255,0.9)] via-[rgba(223,232,253,0.9)] to-[rgba(203,218,255,0.9)]"
+                      : "hover:bg-[#E6EBF7]"
+                  }
+                `}
+              >
+                <h1 className="font-mont font-semibold text-[18px]">
+                  {item.title}
+                </h1>
+                <ChevronRight
+                  className={`transition-transform ${
+                    activeIndex === index ? "translate-x-1" : ""
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Right Section */}
+          <div className="p-8">
+            <h1 className="font-mont text-[24px] text-[#0047AB] font-bold">
+              {activeItem.title}
+            </h1>
+
+            <p className="my-5 text-[16px] leading-relaxed">
+              {activeItem.description}
+            </p>
+
+            <h2 className="font-mont font-semibold text-[18px] mb-2">
+              {activeItem.listTitle}
+            </h2>
+
+            <ul className="list-disc pl-5 space-y-2 text-[15px]">
+              {activeItem.spotlight.map((spot, i) => (
+                <li key={i}>{spot}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default AdvocacySevenWaysSection;
