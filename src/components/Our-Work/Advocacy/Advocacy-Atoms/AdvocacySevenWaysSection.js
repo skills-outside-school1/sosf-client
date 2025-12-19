@@ -22,7 +22,7 @@ const AdvocacySevenWaysSection = () => {
       spotlight: [
         "139 mentors",
         "120 certified trainers",
-        "900+ active field and departmental volunteers",
+        "900+ active field and departmental volunteers ",
       ],
     },
     {
