@@ -10,21 +10,21 @@ const programTiers = [
     title: "Large Grants",
     description:
       "Are you leading an established, impactful initiative ready to scale and redefine development in Sub-Saharan Africa? Our Large Grants are designed for organizations poised for significant, long-term impact.",
-    page: "/interventions/grants/large-grants",
+    page: "/grants/large-grants",
   },
   {
     tiers: "Up to NGN 5M",
     title: "Small Grants",
     description:
       "Do you have an innovative solution making a tangible difference in Sub-Saharan Africa, poised for growth and wider reach? Our Small Grants provide crucial support to promising initiatives ready to expand their impact.",
-    page: "/interventions/grants/small-grants",
+    page: "/grants/small-grants",
   },
   {
     tiers: "Up to NGN 500K",
     title: "Micro Grants",
     description:
       "Are you a passionate individual or a budding community-focused organization with a powerful idea to spark change at the grassroots level in Sub-Saharan Africa? Our Micro Grants are designed to empower foundational initiatives with direct funding and essential capacity building.",
-    page: "/interventions/grants/micro-grants",
+    page: "/grants/micro-grants",
   },
 ];
 
