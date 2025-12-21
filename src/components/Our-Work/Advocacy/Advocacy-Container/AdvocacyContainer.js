@@ -9,13 +9,17 @@ import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 
 const AdvocacyContainer = () => {
   return (
-    <div className="min-h-screen bg-white font-inter">
+    <div className="min-h-screen bg-white font-inter flex flex-col gap-y-[80px]">
       <Hero />
       <AdvocacyHeroSection />
       <AdvocacySevenWaysSection />
       <AdvocacySystemsSection />
       <AdvocacyInActionSection />
+<<<<<<< HEAD
       <Subscribe/>
+=======
+      <Subscribe />
+>>>>>>> fce8f547dc7cfb431e0f25381ec401519f076fea
     </div>
   );
 };

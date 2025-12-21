@@ -9,6 +9,7 @@ import ParticipationSection from "../Atoms/participation-section";
 import GlobalComponent from "@/components/shared/Atoms/GlobalComponent";
 import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 import WorkNav from "@/components/About/Who-We-Are/Who-We-Are-Atoms/MoreAboutUs";
+import Pathway from "@/components/Get-Involved/Main/Main-Atoms/Pathway"
 
 // import InteractiveMap from "../Home-Atoms/InteractiveMap";
 
@@ -20,6 +21,7 @@ export default function StructureChartContainer() {
       <InvestmentSection />
       <GovernanceSection />
       <ParticipationSection />
+      <Pathway />
       <WorkNav />
       <Subscribe />
     </div>

@@ -160,28 +160,28 @@ const Nav2 = () => {
           }`}
         >
           <Link
-            href="/interventions/sosf-agropreneurs"
+            href="/sosf-agropreneurs"
             className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Headstart Agropreneurs
           </Link>
           <Link
-            href="/interventions/sosf-bridge"
+            href="/sosf-bridge"
             className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Bridge Program
           </Link>
           <Link
-            href="/interventions/skill-up"
+            href="/skill-up"
             className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
             SOSF Online Skill-Up
           </Link>
           <Link
-            href="/sosf-grants"
+            href="/grants"
             className="block py-1 text-base hover:text-secondary_blue md:text-xs"
             onClick={handleLinkClick}
           >
@@ -488,7 +488,7 @@ const Nav2 = () => {
                                   <ul className="flex flex-col gap-y-2">
                                     <li>
                                       <Link
-                                        href="/interventions/sosf-agropreneurs"
+                                        href="/sosf-agropreneurs"
                                         onClick={handleLinkClick}
                                         className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
                                       >
@@ -497,7 +497,7 @@ const Nav2 = () => {
                                     </li>
                                     <li>
                                       <Link
-                                        href="/interventions/sosf-bridge"
+                                        href="/sosf-bridge"
                                         onClick={handleLinkClick}
                                         className="block px-4 py-3 text-sm text-gray-800 transition-all duration-200 bg-white rounded-lg shadow-sm hover:shadow-md hover:text-secondary_blue"
                                       >
@@ -559,4 +559,3 @@ const Nav2 = () => {
 };
 
 export default Nav2;
-
