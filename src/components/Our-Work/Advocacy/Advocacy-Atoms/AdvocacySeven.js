@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 
-const AdvocacySevenWaysSection = () => {
+const AdvocacySeven = () => {
   const advocacyWays = [
     {
       title: "Ambassadors as Catalysts of Change",
@@ -149,4 +149,4 @@ const AdvocacySevenWaysSection = () => {
   );
 };
 
-export default AdvocacySevenWaysSection;
+export default AdvocacySeven;
