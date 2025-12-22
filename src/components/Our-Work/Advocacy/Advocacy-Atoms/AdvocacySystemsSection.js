@@ -1,5 +1,6 @@
 "use client";
 import AnimatedSection from "./AnimatedSection";
+import { H3, P } from "@/components/shared/Atoms/Typography/typography";
 
 export default function AdvocacySystemsSection() {
   const pillars = [
@@ -50,10 +51,10 @@ export default function AdvocacySystemsSection() {
                 <div className="absolute inset-0 bg-black/30 rounded-3xl" />
 
                 <div className="relative z-10">
-                  <h3 className="mb-6 text-xl font-bold text-center font-mont md:text-left">
+                  <h3 className={`mb-6 text-xl font-bold text-center font-mont md:text-left`}>
                     {pillar.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-center text-gray-100 sm:text-lg md:text-left">
+                  <p   className="text-base leading-relaxed text-center text-gray-100 sm:text-lg md:text-left">
                     {pillar.desc}
                   </p>
                 </div>

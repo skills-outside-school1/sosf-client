@@ -1,16 +1,15 @@
-"use client";
+import React from "react";
 
-export default function AdvocacyInActionSection() {
+const AdvocacyAction = () => {
   return (
-    <section
+    <div
       className="relative h-[500px] md:h-[450px] flex items-center justify-end overflow-hidden bg-fixed bg-center bg-cover"
       style={{
         backgroundImage: "url('/assets/images/advocacy/AIA.png')",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/40 to-black/80" />
-
-      <div className="relative z-10 w-full md:w-[50%] px-6 md:px-10 lg:px-16 text-white">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/40 to-black/75" />
+      <div className="relative z-10 w-full md:w-[70%] lg:w-[60%] px-6 md:px-10 lg:px-16 text-white">
         <h2 className="mb-4 text-2xl font-bold font-mont">
           Advocacy in Action: Our Theory of Change
         </h2>
@@ -28,6 +27,8 @@ export default function AdvocacyInActionSection() {
           policy aligns with the real needs of the people.
         </p>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default AdvocacyAction;
