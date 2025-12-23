@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import AgropreneursContaner from "@/components/SOSF/Agropreneurs/Agropreneurs-Container/AgropreneursContaner";
+import SkillUpContainer from "@/components/Our-Work/Skill-up/Skill-Up-Container/SkillUpContainer";
 
 const Index = () => {
   return (
@@ -10,7 +10,7 @@ const Index = () => {
         <title>Our Partnerships | Skills Outside School Foundation</title>
         <meta name="description" content="" />
       </Head>
-      <AgropreneursContaner />
+      <SkillUpContainer />
     </div>
   );
 };
