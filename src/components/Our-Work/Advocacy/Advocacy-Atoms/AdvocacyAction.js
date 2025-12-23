@@ -8,7 +8,7 @@ const AdvocacyAction = () => {
     <div
       className=" h-[500px] md:h-[450px] flex items-center justify-end overflow-hidden "
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/assets/images/advocacy/AIA.png")`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://res.cloudinary.com/tongston-dev/image/upload/v1766517369/AIA_fahpsl.png")`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
