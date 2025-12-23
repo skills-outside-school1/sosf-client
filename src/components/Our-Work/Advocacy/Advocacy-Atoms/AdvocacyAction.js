@@ -5,7 +5,7 @@ const AdvocacyAction = () => {
     <div
       className="relative h-[500px] md:h-[450px] flex items-center justify-end overflow-hidden bg-fixed bg-center bg-cover"
       style={{
-        backgroundImage: "url('/assets/images/advocacy/AIA.png')",
+        backgroundImage: `url("/assets/images/advocacy/AIA.png")`,
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/40 to-black/75" />
