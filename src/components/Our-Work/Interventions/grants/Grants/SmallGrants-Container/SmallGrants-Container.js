@@ -98,6 +98,11 @@ const SmallGrantsContainer = () => {
   return (
     <div className="min-h-screen bg-white font-inter">
       <GrantsHeroSection
+        HeroImage={[
+          "https://theirworld.org/wp-content/uploads/2022/01/CASE-STUDY-1-favour-2-e1719932092385.jpg",
+          "https://www.kaiciid.org/sites/default/files/idfp_idp_camp_visit_268_08222019_0.jpg",
+          "https://iki-small-grants.de/wp-content/uploads/2023/08/K2_ECU_INABIO-,PC2,PA9-Mosquera-Jarrin-06-640x-624x390.jpg.pagespeed.ce.-gFi0dqvPc.jpg",
+        ]}
         grantType="SMALL GRANTS"
         fundingAmount="Up to NGN 5,000,000 (or equivalent) per grant"
         fundingDetails={fundingDetails}
