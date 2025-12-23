@@ -34,7 +34,7 @@ const AdvocacySystem = () => {
           <div
             key={i}
             style={{
-              backgroundImage: `url("${pillar.bg}")`,
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${pillar.bg}")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -43,11 +43,10 @@ const AdvocacySystem = () => {
                   w-full max-w-[350px] h-auto   md:h-[400px] px-5 py-10
                   flex flex-col text-white rounded-3xl
                   shadow-md  md:w-full 
-                  relative overflow-hidden
+                   overflow-hidden justify-center items-start 
                 "
           >
             {/* Dark overlay */}
-            <div className="absolute left-0 right-0  top-0  bg-black bg-opacity-10      w-full max-w-[350px] h-[400px]" />
 
             <div className=" flex flex-col ">
               <h3 className="mb-6 text-xl font-bold text-center font-mont md:text-left">
