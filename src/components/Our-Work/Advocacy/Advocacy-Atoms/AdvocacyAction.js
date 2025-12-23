@@ -1,3 +1,5 @@
+"use client";
+//use client directive for Next.js 13 server components
 import React from "react";
 
 const AdvocacyAction = () => {
@@ -12,7 +14,7 @@ const AdvocacyAction = () => {
         backgroundSize: "cover",
       }}
     >
-      <div className="absolute  bg-black/10  top-0 left-0 right-0   h-[500px] md:h-[450px]" />
+      <div className="absolute  bg-black bg-opacity-10  top-0 left-0 right-0   h-[500px] md:h-[450px] flex flex-col " />
       <div className=" w-full md:w-[70%] lg:w-[60%] px-6 md:px-10 lg:px-16 text-white">
         <h2 className="mb-4 text-2xl font-bold font-mont">
           Advocacy in Action: Our Theory of Change
