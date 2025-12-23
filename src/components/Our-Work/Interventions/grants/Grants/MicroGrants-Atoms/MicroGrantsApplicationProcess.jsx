@@ -7,11 +7,9 @@ const MicroGrantsApplicationProcess = ({ introText, processSteps }) => {
       <h2 className="mb-8 text-3xl font-bold">
         Application Process & Grant Cycle
       </h2>
-      <p className="mb-8 leading-relaxed text-gray-600">
-        {introText}
-      </p>
+      <p className="mb-8 leading-relaxed text-gray-600">{introText}</p>
 
-      <div className="grid grid-cols-2 gap-4 pr-24">
+      <div className="grid grid-cols-1    md:grid-cols-2 gap-4 px-2   md:pr-24">
         {/* Left column - 2 tall cards */}
         <div className="space-y-4">
           <MicroGrantsProcessCard
