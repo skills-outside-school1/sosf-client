@@ -6,16 +6,16 @@ import React from "react";
 const AdvocacyAction = () => {
   return (
     <div
-      className="relative h-[500px] md:h-[450px] flex items-center justify-end overflow-hidden "
+      className=" h-[500px] md:h-[450px] flex items-center justify-end overflow-hidden "
       style={{
-        backgroundImage: `url("/assets/images/advocacy/AIA.png")`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/assets/images/advocacy/AIA.png")`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
     >
-      <div className="absolute  bg-black bg-opacity-10  top-0 left-0 right-0   h-[500px] md:h-[450px] flex flex-col " />
+      <div className="     h-[500px] md:h-[450px] flex flex-col " />
       <div className=" w-full md:w-[70%] lg:w-[60%] px-6 md:px-10 lg:px-16">
         <H2 className={`mb-4 text-2xl font-bold font-mont text-white `}>
           Advocacy in Action: Our Theory of Change
