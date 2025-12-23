@@ -32,7 +32,7 @@ const AdvocacySystem = () => {
           <div
             key={i}
             style={{
-              backgroundImage: `url(${pillar.image})`,
+              backgroundImage: `url("${pillar.image}")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
