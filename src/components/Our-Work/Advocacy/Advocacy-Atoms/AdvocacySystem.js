@@ -7,17 +7,17 @@ const AdvocacySystem = () => {
     {
       title: "Power in People",
       desc: "Real change begins where people live, work, and learn. We equip community ambassadors, volunteers, and local changemakers to drive transformation from the inside out.",
-      bg: "/assets/images/advocacy/PIP.png",
+      bg: "https://res.cloudinary.com/tongston-dev/image/upload/v1766517366/PIP_uwtw5e.png",
     },
     {
       title: "Evidence with a Voice",
       desc: "We believe numbers should do more than sit in reports , they should move leaders to act. Our research and social registers turn insight into influence, helping shape national conversations and curriculum reforms that put people first.",
-      bg: "/assets/images/advocacy/EWV.png",
+      bg: "https://res.cloudinary.com/tongston-dev/image/upload/v1766517365/EWV_hfxct3.png",
     },
     {
       title: "Shaping Policy, Building Legacy",
       desc: "We don’t chase quick wins — we build structures that last. Through strategic partnerships and policy advocacy, SOSF helps governments, schools, and institutions integrate proven programs that outlive projects and create lasting impact.",
-      bg: "/assets/images/advocacy/SPBL.png",
+      bg: "https://res.cloudinary.com/tongston-dev/image/upload/v1766517364/SPBL_smczdi.png",
     },
   ];
 
