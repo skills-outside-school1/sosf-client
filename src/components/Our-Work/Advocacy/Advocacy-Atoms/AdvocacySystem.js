@@ -45,9 +45,9 @@ const AdvocacySystem = () => {
                 "
           >
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/10 rounded-3xl" />
+            <div className="absolute left-0 right-0  top-0  bg-black/10     w-full max-w-[350px] h-[400px]" />
 
-            <div className="relative z-10">
+            <div className="">
               <h3 className="mb-6 text-xl font-bold text-center font-mont md:text-left">
                 {pillar.title}
               </h3>
