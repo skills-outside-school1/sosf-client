@@ -6,18 +6,20 @@ import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 import AdvocacySeven from "../Advocacy-Atoms/AdvocacySeven";
 import AdvocacySystem from "../Advocacy-Atoms/AdvocacySystem";
 import AdvocacyAction from "../Advocacy-Atoms/AdvocacyAction";
-// import AdvocacyAction from "../Advocacy-Atoms/AdvocacyAction";
-// import AdvocacySeven from "../Advocacy-Atoms/AdvocacySeven";
-// import AdvocacySystem from "../Advocacy-Atoms/AdvocacySystem";
 
 const AdvocacyContainer = () => {
   return (
-    <div className="min-h-screen bg-white font-inter flex flex-col gap-y-[80px]">
+    <div className="min-h-screen flex flex-col   gap-y-[80px]">
       <Hero />
       <AdvocacyHeroSection />
       <AdvocacySeven />
+<<<<<<< HEAD
       {/* <AdvocacySystem /> */}
       {/* <AdvocacyAction /> */}
+=======
+      <AdvocacySystem />
+      <AdvocacyAction />
+>>>>>>> 21d796b9514b57bf2fabf98b817cc67b7cb859f2
       <Subscribe />
     </div>
   );

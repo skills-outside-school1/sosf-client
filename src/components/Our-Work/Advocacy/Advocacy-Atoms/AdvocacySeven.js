@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const AdvocacySeven = () => {
   const advocacyWays = [
@@ -71,7 +71,7 @@ const AdvocacySeven = () => {
       title: "Stakeholder Engagement & Coalitions",
       description:
         "We co-create with government, private sector, and NGOs to scale impact and policy influence.",
-      // listTitle: "Key Stakeholders",
+      listTitle: "Key Stakeholders",
       spotlight: [
         "Public Sector: NBS, FCT-SEB, NAFDAC, FAAN, Ministry of Education, NUC",
         "Private Sector: Shell, CBN, MTN, Flexisaf, Tongston",
@@ -81,7 +81,27 @@ const AdvocacySeven = () => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeItem = advocacyWays[activeIndex];
+  const [displayIndex, setDisplayIndex] = useState(0);
+  const [fadeIn, setFadeIn] = useState(true);
+
+  const FADE_MS = 250;
+
+  // Trigger fade transition when activeIndex changes
+  useEffect(() => {
+    // fade out
+    setFadeIn(false);
+
+    const t = setTimeout(() => {
+      // swap content after fade out
+      setDisplayIndex(activeIndex);
+      // fade in
+      setFadeIn(true);
+    }, FADE_MS);
+
+    return () => clearTimeout(t);
+  }, [activeIndex]);
+
+  const activeItem = advocacyWays[displayIndex];
 
   return (
     <div>
@@ -123,8 +143,14 @@ const AdvocacySeven = () => {
             ))}
           </div>
 
-          {/* Right Section */}
-          <div className="p-8">
+          {/* Right Section (fade applied here) */}
+          <div
+            className="p-8 transition-opacity"
+            style={{
+              opacity: fadeIn ? 1 : 0,
+              transitionDuration: `${FADE_MS}ms`,
+            }}
+          >
             <h1 className="font-mont text-[24px] text-[#0047AB] font-bold">
               {activeItem.title}
             </h1>
@@ -133,9 +159,11 @@ const AdvocacySeven = () => {
               {activeItem.description}
             </p>
 
-            <h2 className="font-mont font-semibold text-[18px] mb-2">
-              {activeItem.listTitle}
-            </h2>
+            {activeItem.listTitle && (
+              <h2 className="font-mont font-semibold text-[18px] mb-2">
+                {activeItem.listTitle}
+              </h2>
+            )}
 
             <ul className="list-disc pl-5 space-y-2 text-[15px]">
               {activeItem.spotlight.map((spot, i) => (

@@ -102,6 +102,11 @@ const LargeGrantsContainer = () => {
   return (
     <div className="min-h-screen bg-white font-inter">
       <GrantsHeroSection
+        HeroImage={[
+          "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/f0391962-41fe-456e-98d4-47051cd291c9.jpeg",
+          "https://d29l0tur8ol1gj.cloudfront.net/uploads/beekeeping_as_sustainable_livelihood_in_the_cockpit_country_jamaica._credit_ncclfmcbs0c69b1a1023a2b0f5b9e7d61226abe11.jpeg",
+          "https://s24806.pcdn.co/wp-content/uploads/2025/10/FHLB_Photo-Dallas-PGP-October-16-Event.jpg",
+        ]}
         grantType="LARGE GRANTS"
         fundingAmount="Up to NGN 20,000,000 (or equivalent) per grant"
         fundingDetails={fundingDetails}
