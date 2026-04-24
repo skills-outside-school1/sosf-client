@@ -46,7 +46,7 @@ export default function Framework() {
   ]
 
   const statusItems = [
-    "Enabled via MOSIP",
+    "Enabled by third party tools",
     "Enabled via AMP",
     "AI-translated forms",
     "GPT-style Prompts",
@@ -79,7 +79,7 @@ export default function Framework() {
           <h2 className="text-white text-[20px]  md:text-4xl font-light text-center mb-2">
             Our 7-Step Evaluation Framework
           </h2>
-          <p className="text-white text-base text-center mb-8 mb-12 md:mb-16">
+          <p className="text-white text-base text-center mb-12 md:mb-16">
             We follow a comprehensive, automated 7-step MEL process
           </p>
 
@@ -91,7 +91,7 @@ export default function Framework() {
               {steps.map((step, idx) => (
                 <div key={idx} className="flex flex-col items-center w-[calc(50%-8px)] md:w-auto">
                   <div
-                    className={`w-10 h-10 w-12 sm:h-12 md:w-16 md:h-16 rounded-full ${step.color} border-2 border-white flex items-center justify-center text-white font-bold  md:text-lg mb-4 flex-shrink-0`}
+                    className={` h-10 w-12 sm:h-12 md:w-16 md:h-16 rounded-full ${step.color} border-2 border-white flex items-center justify-center text-white font-bold  md:text-lg mb-4 flex-shrink-0`}
                   >
                     {step.number}
                   </div>
