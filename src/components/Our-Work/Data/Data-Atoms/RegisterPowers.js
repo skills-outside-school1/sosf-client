@@ -56,7 +56,7 @@ export default function RegisterPowers() {
                   alt={`${feature.title} Icon`}
                   className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-6 text-blue-400"
                 />
-                <h3 className="text-[24px] font-semibold text-white font-[500] mb-3">
+                <h3 className="text-[24px] font-semibold text-white mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-[16px] text-base text-gray-200 leading-[24px] font-[400]">
