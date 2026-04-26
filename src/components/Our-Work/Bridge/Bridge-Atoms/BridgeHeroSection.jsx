@@ -12,7 +12,7 @@ export default function BridgeHeroSection() {
             transition={{ duration: 0.8 }}
             className="mb-6 text-4xl font-bold text-gray-900 font-mont md:text-6xl"
           >
-            SOSF Bridge Program
+            SOSF Bridge
           </motion.h1>
 
           <motion.p
