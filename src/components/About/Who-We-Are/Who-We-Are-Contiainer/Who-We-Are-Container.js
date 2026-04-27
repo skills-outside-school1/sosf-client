@@ -4,7 +4,6 @@ import WhoWeAreSubHero from "../Who-We-Are-Atoms/Who-We-Are-SubHero";
 import Overview from "../Who-We-Are-Atoms/Overview";
 import MoreAboutUs from "../Who-We-Are-Atoms/MoreAboutUs";
 import GlobalComponent from "@/components/shared/Atoms/GlobalComponent";
-import TextTransition from "../Who-We-Are-Atoms/TextTransition";
 
 import Subscribe from "@/components/Contacts/Contact-Atoms/Subscribe";
 
