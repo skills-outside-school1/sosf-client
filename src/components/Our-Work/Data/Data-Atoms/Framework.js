@@ -17,7 +17,7 @@ export default function Framework() {
       number: "2-5",
       title: "From Baseline to Impact Evaluation",
       description:
-        "We deploy our Social & Economic Register, powered by AMP + MOSIP + AI, to Digitally register beneficiaries, Capture real-time baseline, midline, endline and impact data. Auto-generate reports, factsheets and dashboards",
+        "We deploy our Social & Economic Register, to enable third party tools, to Digitally register beneficiaries, Capture real-time baseline, midline, endline and impact data. Auto-generate reports, factsheets and dashboards",
       color: "bg-[#F7D3E5]",
     },
     {
@@ -117,11 +117,11 @@ export default function Framework() {
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-light mb-3 sm:mb-4">
-              Platform Integration & AI-Driven Innovation
+              Enabled by third party tools
             </h2>
             <p className="text-white text-base px-2 max-w-3xl mx-auto">
               We eliminate duplication, accelerate feedback loops, and empower decision-makers through dynamic
-              dashboards and insight-driven reports. All data tools integrate via VERA AMP and MOSIP
+              dashboards and insight-driven reports. All data tools integrate via enabled by third party tools
             </p>
           </div>
 
