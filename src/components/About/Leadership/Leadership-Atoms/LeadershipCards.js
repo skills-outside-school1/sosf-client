@@ -2,7 +2,7 @@ import React from "react";
 import Tabs from "@/components/shared/Atoms/Tab-Atoms/Tab";
 
 export default function LeadershipCards() {
-  const tabsData = ["Nigeria Board", "Offshore Board", "Service Providers"];
+  const tabsData = ["Nigeria Board", "Offshore Board",];
   const worksData = {
     NigeriaBoard: [
       {
