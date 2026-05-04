@@ -2,7 +2,7 @@ import React from "react";
 import Tabs from "@/components/shared/Atoms/Tab-Atoms/Tab";
 
 export default function LeadershipCards() {
-  const tabsData = ["Nigeria Board", "Offshore Board", "Service Providers"];
+  const tabsData = ["Nigeria Board", "Offshore Board"];
   const worksData = {
     NigeriaBoard: [
       {
@@ -19,7 +19,7 @@ export default function LeadershipCards() {
         description: <span></span>,
         route: "/leadership/halima-abba",
       },
-        {
+      {
         image: "/assets/images/teams/adbumalik.jpg",
         // title: " The Legal Eagle",
         name: "Mr. Abdulmalik Badamasuiy ",
@@ -33,7 +33,6 @@ export default function LeadershipCards() {
         description: <span></span>,
         route: "/leadership/salamatu-sule",
       },
-    
 
       {
         image: "/assets/images/teams/Chris.jpg",
@@ -70,156 +69,156 @@ export default function LeadershipCards() {
     ],
 
     //Service Providers
-    ServiceProviders: [
-      // {
-      //   image: "/assets/images/service-providers/regus.png",
-      //   title: "Workspace/Office Solutions (Nigeria & Rest of Africa)  ",
-      //   name: "Regus ",
-      //   description: <span></span>,
-      //   route: "#",
-      // },
-      // {
-      //   image: "",
-      //   title: " Workspace/Office Solutions (Mauritius)  ",
-      //   name: "Ocorian ",
-      //   description: <span></span>,
-      //   route: "#",
-      // },
+    // ServiceProviders: [
+    // {
+    //   image: "/assets/images/service-providers/regus.png",
+    //   title: "Workspace/Office Solutions (Nigeria & Rest of Africa)  ",
+    //   name: "Regus ",
+    //   description: <span></span>,
+    //   route: "#",
+    // },
+    // {
+    //   image: "",
+    //   title: " Workspace/Office Solutions (Mauritius)  ",
+    //   name: "Ocorian ",
+    //   description: <span></span>,
+    //   route: "#",
+    // },
 
-      // {
-      //   image: "",
-      //   title: " International Administration & Procurement",
-      //   name: "Ocorian ",
-      //   description: <span></span>,
-      //   route: "#",
-      // },
-      // {
-      //   image: "",
-      //   title: " Nigeria Administration & Procurement",
-      //   name: " PIF Africa ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "/assets/images/service-providers/tongston.png",
-      //   title: " NigTechnology",
-      //   name: " Tongston Holdings ",
-      //   description: <span></span>,
-      //   route: "https://tongston.com",
-      // },
-      // {
-      //   image: "",
-      //   title: " Legal & Governance – International",
-      //   name: " Ocoriaon  ",
-      //   description: <span></span>,
-      //   route: "#",
-      // },
-      // {
-      //   image: "",
-      //   title: " Legal & Governance – Nigeria",
-      //   name: " PIF Africa  ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "",
-      //   title: " Nigeria & International Fundraising Solutions",
-      //   name: " PIF Africa  ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "",
-      //   title: " International Financial Institution & Asset Management",
-      //   name: " Standard Chartered Bank  ",
-      //   description: <span></span>,
-      //   route: "#",
-      // },
-      // {
-      //   image: "",
-      //   title: " Nigeria Asset Management",
-      //   name: " Stanbic IBTC Bank  ",
-      //   description: <span></span>,
-      //   route: "#",
-      // },
-      // {
-      //   image: "",
-      //   title: " Nigeria Financial Institution (s) ",
-      //   name: " First Bank, Guaranty Trust Bank, Stanbic IBTC Bank  ",
-      //   description: <span></span>,
-      //   route: "#",
-      // },
-      // {
-      //   image: "",
-      //   title: " International Accounting & Treasury ",
-      //   name: " Ocoriaon  ",
-      //   description: <span></span>,
-      //   route: "#",
-      // },
-      // {
-      //   image: "",
-      //   title: " Nigeria Accounting & Treasury  ",
-      //   name: " PIF Africa  ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "",
-      //   title: " Communications & Advocacy  ",
-      //   name: " PIF Africa  ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "",
-      //   title: " Data & Research  ",
-      //   name: " Tongston Holdings   ",
-      //   description: <span></span>,
-      //   route: "https://tongston.com",
-      // },
-      // {
-      //   image: "",
-      //   title: " Interventions  ",
-      //   name: " SOSF Bridge Tongston Institute   ",
-      //   description: <span></span>,
-      //   route: "https://tongston.com",
-      // },
-      // {
-      //   image: "",
-      //   title: " Interventions  ",
-      //   name: " SOSF Headstart – PIF Africa   ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "",
-      //   title: " Interventions  ",
-      //   name: " SOSF Headstart – PIF Africa   ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "",
-      //   title: " Interventions  ",
-      //   name: " SOSF Grants - PIF Africa   ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "",
-      //   title: " Interventions  ",
-      //   name: " SOSF Funds - PIF Africa   ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-      // {
-      //   image: "",
-      //   title: " Global Management Services   ",
-      //   name: " PIF Africa   ",
-      //   description: <span></span>,
-      //   route: "https://pifafrica.org",
-      // },
-    ],
+    // {
+    //   image: "",
+    //   title: " International Administration & Procurement",
+    //   name: "Ocorian ",
+    //   description: <span></span>,
+    //   route: "#",
+    // },
+    // {
+    //   image: "",
+    //   title: " Nigeria Administration & Procurement",
+    //   name: " PIF Africa ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "/assets/images/service-providers/tongston.png",
+    //   title: " NigTechnology",
+    //   name: " Tongston Holdings ",
+    //   description: <span></span>,
+    //   route: "https://tongston.com",
+    // },
+    // {
+    //   image: "",
+    //   title: " Legal & Governance – International",
+    //   name: " Ocoriaon  ",
+    //   description: <span></span>,
+    //   route: "#",
+    // },
+    // {
+    //   image: "",
+    //   title: " Legal & Governance – Nigeria",
+    //   name: " PIF Africa  ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "",
+    //   title: " Nigeria & International Fundraising Solutions",
+    //   name: " PIF Africa  ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "",
+    //   title: " International Financial Institution & Asset Management",
+    //   name: " Standard Chartered Bank  ",
+    //   description: <span></span>,
+    //   route: "#",
+    // },
+    // {
+    //   image: "",
+    //   title: " Nigeria Asset Management",
+    //   name: " Stanbic IBTC Bank  ",
+    //   description: <span></span>,
+    //   route: "#",
+    // },
+    // {
+    //   image: "",
+    //   title: " Nigeria Financial Institution (s) ",
+    //   name: " First Bank, Guaranty Trust Bank, Stanbic IBTC Bank  ",
+    //   description: <span></span>,
+    //   route: "#",
+    // },
+    // {
+    //   image: "",
+    //   title: " International Accounting & Treasury ",
+    //   name: " Ocoriaon  ",
+    //   description: <span></span>,
+    //   route: "#",
+    // },
+    // {
+    //   image: "",
+    //   title: " Nigeria Accounting & Treasury  ",
+    //   name: " PIF Africa  ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "",
+    //   title: " Communications & Advocacy  ",
+    //   name: " PIF Africa  ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "",
+    //   title: " Data & Research  ",
+    //   name: " Tongston Holdings   ",
+    //   description: <span></span>,
+    //   route: "https://tongston.com",
+    // },
+    // {
+    //   image: "",
+    //   title: " Interventions  ",
+    //   name: " SOSF Bridge Tongston Institute   ",
+    //   description: <span></span>,
+    //   route: "https://tongston.com",
+    // },
+    // {
+    //   image: "",
+    //   title: " Interventions  ",
+    //   name: " SOSF Headstart – PIF Africa   ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "",
+    //   title: " Interventions  ",
+    //   name: " SOSF Headstart – PIF Africa   ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "",
+    //   title: " Interventions  ",
+    //   name: " SOSF Grants - PIF Africa   ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "",
+    //   title: " Interventions  ",
+    //   name: " SOSF Funds - PIF Africa   ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // {
+    //   image: "",
+    //   title: " Global Management Services   ",
+    //   name: " PIF Africa   ",
+    //   description: <span></span>,
+    //   route: "https://pifafrica.org",
+    // },
+    // ],
   };
 
   return (
