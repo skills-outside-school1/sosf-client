@@ -13,8 +13,8 @@ const AdvocacyContainer = () => {
       <Hero />
       <AdvocacyHeroSection />
       <AdvocacySeven />
-      <AdvocacySystem />
-      <AdvocacyAction />
+      {/* <AdvocacySystem /> */}
+      {/* <AdvocacyAction /> */}
       <Subscribe />
     </div>
   );
