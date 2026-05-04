@@ -7,13 +7,12 @@ export default function Support() {
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6">Advisory Support</h2>
               <p className="text-sm sm:text-base text-gray-800 mb-4 leading-relaxed">
-                We provide full-cycle MEL services to third-party programs, leveraging custom-built digital evaluation
-                dashboards, AI report builders & real-time analytics. Training, mentoring & handholding support for
-                partner teams
+                We provide full-cycle MEL services to enable third-party programs, leveraging custom-built digital evaluation
+                dashboards, report builders & real-time analytics. Training, mentoring & economic register.
               </p>
               <p className="text-sm sm:text-base text-gray-800 leading-relaxed">
-                Clients and partners gain access to SOSF's full data ecosystem, including social & economic register,
-                AMP Impact + Salesforce Dashboard, and NLP-powered research assistants
+                Clients and partners gain access to SOSF's full data ecosystem, including social & economic register, and relevant
+               third party tools.
               </p>
             </div>
             <div>
