@@ -2,7 +2,7 @@ import React from "react";
 import Tabs from "@/components/shared/Atoms/Tab-Atoms/Tab";
 
 export default function LeadershipCards() {
-  const tabsData = ["Nigeria Board", "Offshore Board",];
+  const tabsData = ["Nigeria Board", "Offshore Board"];
   const worksData = {
     NigeriaBoard: [
       {
@@ -19,7 +19,7 @@ export default function LeadershipCards() {
         description: <span></span>,
         route: "/leadership/halima-abba",
       },
-        {
+      {
         image: "/assets/images/teams/adbumalik.jpg",
         // title: " The Legal Eagle",
         name: "Mr. Abdulmalik Badamasuiy ",
@@ -33,7 +33,6 @@ export default function LeadershipCards() {
         description: <span></span>,
         route: "/leadership/salamatu-sule",
       },
-    
 
       {
         image: "/assets/images/teams/Chris.jpg",
@@ -85,7 +84,6 @@ export default function LeadershipCards() {
       //   description: <span></span>,
       //   route: "#",
       // },
-
       // {
       //   image: "",
       //   title: " International Administration & Procurement",
